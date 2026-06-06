@@ -164,3 +164,17 @@ document.querySelectorAll('[data-module-jump]').forEach((card) => {
 });
 
 loadResources();
+const viewYearsBtn = document.getElementById("viewYearsBtn");
+const yearSection = document.getElementById("years");
+
+if (viewYearsBtn && yearSection) {
+  viewYearsBtn.addEventListener("click", () => {
+    yearSection.classList.toggle("show-all-years");
+
+    const isOpen = yearSection.classList.contains("show-all-years");
+
+    viewYearsBtn.innerHTML = isOpen
+      ? 'Hide Other Years <span>↑</span>'
+      : 'View More Years <span>↓</span>';
+  });
+}
