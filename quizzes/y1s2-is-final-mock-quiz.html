@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IE1011 Information Systems - Final Mock Exam 02</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#121936; --card:#f8fafc; --ink:#172033; --muted:#5b6475; --accent:#3b82f6; --accent2:#7c3aed; --good:#16a34a; --bad:#dc2626; --warn:#f59e0b; --line:#d9e2ef;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(135deg,var(--bg),#1b2755 55%,#172554);color:#fff;min-height:100vh}
+  header{padding:28px 18px 18px;text-align:center;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.13)}
+  header h1{margin:0;font-size:clamp(24px,4vw,42px);letter-spacing:.2px}
+  header .creator{margin-top:10px;font-weight:700;color:#dbeafe;background:rgba(59,130,246,.18);display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid rgba(147,197,253,.35)}
+  header p{max-width:980px;margin:12px auto 0;color:#d8e3f8;line-height:1.55}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px}
+  .topbar{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;margin-bottom:18px}
+  .progress-shell{background:rgba(255,255,255,.12);border-radius:999px;height:14px;overflow:hidden;border:1px solid rgba(255,255,255,.18)}
+  .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.25s}
+  .counter{font-weight:700;color:#e0e7ff;white-space:nowrap}
+  .exam-card{background:var(--card);color:var(--ink);border-radius:24px;padding:24px;box-shadow:0 20px 70px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.22)}
+  .hidden{display:none!important}
+  .section-pill{display:inline-flex;align-items:center;gap:8px;font-weight:800;color:#1e3a8a;background:#dbeafe;border:1px solid #bfdbfe;border-radius:999px;padding:7px 12px;margin-bottom:10px;font-size:14px}
+  .marks{display:inline-flex;margin-left:8px;color:#713f12;background:#fef3c7;border:1px solid #fde68a;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800}
+  .question-title{font-size:22px;line-height:1.35;margin:10px 0 16px;font-weight:850}
+  .scenario{background:#f1f5f9;border-left:5px solid var(--accent);padding:16px;border-radius:14px;line-height:1.65;color:#334155;margin:12px 0 18px;white-space:pre-line}
+  .option{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);padding:13px;border-radius:14px;margin:10px 0;cursor:pointer;background:#fff;transition:.15s}
+  .option:hover{border-color:#93c5fd;box-shadow:0 4px 18px rgba(59,130,246,.12)}
+  .option input{margin-top:3px;transform:scale(1.15)}
+  select,input[type=text],textarea{width:100%;padding:12px 13px;border:1px solid #cbd5e1;border-radius:12px;background:#fff;color:#111827;font-size:15px;outline:none}
+  textarea{min-height:110px;resize:vertical;line-height:1.5;margin:10px 0}
+  select:focus,input:focus,textarea:focus{border-color:#60a5fa;box-shadow:0 0 0 3px rgba(96,165,250,.2)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:12px 0}
+  .mini{background:#fff;border:1px solid var(--line);padding:13px;border-radius:14px}
+  .mini label{font-weight:800;display:block;margin-bottom:7px;color:#334155}
+  .tf-row{display:grid;grid-template-columns:1fr 160px;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);padding:13px;border-radius:14px;margin:10px 0}
+  .feedback{margin-top:14px;padding:14px;border-radius:14px;line-height:1.55;border:1px solid #bbf7d0;background:#f0fdf4;color:#14532d}
+  .feedback.bad{border-color:#fecaca;background:#fef2f2;color:#7f1d1d}
+  .model{background:#eef2ff;border:1px solid #c7d2fe;color:#1e1b4b;border-radius:14px;padding:14px;margin:14px 0;line-height:1.6}
+  .guide{background:#fffbeb;border:1px solid #fde68a;color:#78350f;border-radius:14px;padding:14px;margin:10px 0;line-height:1.6}
+  .self-score{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#f8fafc;border:1px dashed #94a3b8;border-radius:14px;padding:12px;margin-top:10px}
+  .buttons{display:flex;justify-content:space-between;gap:12px;margin-top:18px;flex-wrap:wrap}
+  button{border:0;border-radius:14px;padding:12px 18px;font-weight:850;cursor:pointer;font-size:15px;transition:.15s}
+  button.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 8px 20px rgba(59,130,246,.25)}
+  button.secondary{background:#e2e8f0;color:#0f172a}
+  button.success{background:#16a34a;color:#fff}
+  button.warn{background:#f59e0b;color:#111827}
+  button:hover{transform:translateY(-1px);filter:brightness(1.02)}
+  button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+  .results h2{font-size:30px;margin:0 0 12px;color:#111827}
+  .score-big{font-size:44px;font-weight:950;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;margin:4px 0 18px}
+  .score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0}
+  .scorebox{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:16px}
+  .scorebox strong{font-size:22px;display:block;margin-top:8px;color:#0f172a}
+  .analysis-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:12px}
+  .analysis-card{border-radius:18px;padding:16px;line-height:1.6}
+  .strong{background:#ecfdf5;border:1px solid #bbf7d0;color:#14532d}
+  .weak{background:#fef2f2;border:1px solid #fecaca;color:#7f1d1d}
+  .neutral{background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a}
+  .footer-note{color:#cbd5e1;text-align:center;padding:18px;font-size:13px}
+  .intro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+  .intro-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:16px;line-height:1.55;color:#334155}
+  .intro-box h3{color:#172033;margin-top:0}
+  code{background:#e2e8f0;padding:2px 6px;border-radius:6px;color:#0f172a}
+  @media(max-width:640px){.topbar{grid-template-columns:1fr}.tf-row{grid-template-columns:1fr}.exam-card{padding:18px}.buttons{display:grid;grid-template-columns:1fr}.buttons button{width:100%}}
+</style>
+</head>
+<body>
+<header>
+  <h1>IE1011 Information Systems - Final Mock Exam</h1>
+  <div class="creator">Created by Janidu Sandaruwan(Y1S2)</div>
+  <p>Interactive mock exam built only from the uploaded IE1011 lecture slides, tutorials, revision lecture, and lecturer revision questions. Structure follows the final exam pattern: Part A 50 marks + Part B 50 marks.</p>
+</header>
+<div class="wrap">
+  <div class="topbar">
+    <div class="progress-shell"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="counter" id="counter"></div>
+  </div>
+  <main id="app"></main>
+  <div class="footer-note">Tip: Finish the exam first. Then use the marking guide to self-mark written answers honestly.</div>
+</div>
+<script>
+const QUESTIONS = [{"id": 1, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "IS Basics", "type": "mcq", "question": "A payroll module sends calculated salary totals to an accounting module inside the same HR system. In system terms, the payroll module is best described as:", "options": ["A subsystem that contributes to the main system goal", "An indirect user of the information system", "A strategic business objective of the organization", "A privacy regulation controlling employee data"], "answer": 0, "explanation": "A subsystem is a component of a larger system; it can also be treated as a system and can pass output to other subsystems."}, {"id": 2, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "IS Basics", "type": "mcq", "question": "A manager studies processed POS records and receives a report saying, “Product X sold 35% more than Product Y in May.” This report is mainly:", "options": ["Data because it is raw unprocessed facts", "Information because raw sales records have been processed into meaningful form", "Knowledge because it automatically selects the final decision", "A procedure because it controls how the POS is used"], "answer": 1, "explanation": "Information is processed data that becomes meaningful and useful for decisions."}, {"id": 3, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Business Objectives & Users", "type": "mcq", "question": "Which information system is the best example of a general system that can be used in many industries?", "options": ["Payroll system used to calculate employee salaries", "Patient scheduling system used by a hospital ward", "Hotel reservation system designed for room bookings", "Driver behavior tracking system designed for fleet monitoring"], "answer": 0, "explanation": "Payroll systems are general because many organizations across industries need salary processing."}, {"id": 4, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Business Objectives & Users", "type": "mcq", "question": "A coffee shop introduces a mobile-app monthly coffee subscription pass. Which strategic business objective is most closely represented?", "options": ["New products, services, and business models", "Survival through legal compliance only", "Employee monitoring through automated logs", "System availability through disaster recovery"], "answer": 0, "explanation": "A subscription pass changes how the business sells and delivers value, so it is a new product/service/business model."}, {"id": 5, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Business Objectives & Users", "type": "mcq", "question": "A cashier operates the billing screen, while the branch manager only reads the system-generated daily sales summary. Which statement is correct?", "options": ["Cashier is a direct user; branch manager is an indirect user", "Cashier is an indirect user; branch manager is a direct user", "Both are technical development roles", "Both are physical security controls"], "answer": 0, "explanation": "Direct users operate the system directly; indirect users use outputs such as reports."}, {"id": 6, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Components & Data", "type": "mcq", "question": "Which pair correctly matches an information system component with an example?", "options": ["Hardware – barcode scanner used at checkout", "Software – customer age stored in a database table", "Data – written backup policy for staff", "Procedure – cloud virtual server used for processing"], "answer": 0, "explanation": "Hardware means physical devices such as scanners, printers, computers, and network devices."}, {"id": 7, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Components & Data", "type": "mcq", "question": "A web application stores product information in JSON files where items are arranged using key-value pairs and tags. This is mainly:", "options": ["Structured data", "Semi-structured data", "Unstructured data", "Biometric data"], "answer": 1, "explanation": "Semi-structured data does not use a rigid table format but uses tags, labels, or key-value pairs such as JSON/XML."}, {"id": 8, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Components & Data", "type": "mcq", "question": "In the relational model, business data is mainly organized as:", "options": ["Two-dimensional tables called relations", "Unlinked text paragraphs stored as documents", "Sensor signals that cannot be queried", "Only physical files arranged by date"], "answer": 0, "explanation": "The relational model places data elements in two-dimensional tables called relations."}, {"id": 9, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Types of IS", "type": "mcq", "question": "A system captures sales, updates official customer/order records, prints receipts, and processes many routine transactions daily. Which type is it?", "options": ["Transaction Processing System (TPS)", "Executive Support System (ESS)", "Service-Oriented Architecture (SOA)", "Expert System"], "answer": 0, "explanation": "TPS handles routine transactions and updates official business records such as sales, orders, and customers."}, {"id": 10, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Types of IS", "type": "mcq", "question": "A sales manager receives a monthly sales-by-product report to monitor performance and plan next month. Which system most likely generated the report?", "options": ["Management Information System (MIS)", "Transaction Processing System only", "Executive Support System only", "Physical access control system"], "answer": 0, "explanation": "MIS provides routine reports to managers for monitoring and decision-making."}, {"id": 11, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Types of IS", "type": "mcq", "question": "A marketing manager compares three promotion alternatives using sales data, customer segments, and a what-if model. Which system gives the best support?", "options": ["Decision Support System (DSS)", "Payroll Transaction Processing System", "Personal Information System", "Basic word processing software"], "answer": 0, "explanation": "DSS supports semi-structured decisions using data, models, and alternatives such as what-if analysis."}, {"id": 12, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Types of IS", "type": "mcq", "question": "The board of directors checks a dashboard showing five-year profit patterns, competitor movements, and overall business performance. This is mainly:", "options": ["Executive Support System / Executive Information System", "Operational-level TPS report", "Inventory barcode scanning subsystem", "Data entry procedure"], "answer": 0, "explanation": "ESS/EIS supports senior executives with high-level internal and external information for strategic decisions."}, {"id": 13, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Functional Area Systems", "type": "mcq", "question": "Computer-aided design, production scheduling, materials requirements planning, and maintenance systems mainly belong to:", "options": ["Operations/Manufacturing information systems", "Marketing management information systems", "Employee grievance handling systems", "Privacy and digital rights systems"], "answer": 0, "explanation": "These are functional systems used by the production or operations/manufacturing area."}, {"id": 14, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Functional Area Systems", "type": "mcq", "question": "A finance manager uses cash-flow forecasts, budget variance reports, and unusual spending analysis. Which functional information system is most relevant?", "options": ["Financial Information System (FIS)", "Marketing Information System (MKIS)", "Customer Relationship Management (CRM)", "Client-server architecture"], "answer": 0, "explanation": "FIS supports budgets, cash flow, finance management, accounting, and financial planning/analysis."}, {"id": 15, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Modern Technologies", "type": "mcq", "question": "A company rents virtual machines, cloud storage, and network capacity from a cloud provider instead of buying its own servers. Which cloud service model is this?", "options": ["Infrastructure as a Service (IaaS)", "Platform as a Service (PaaS)", "Software as a Service (SaaS)", "On-premise processing"], "answer": 0, "explanation": "IaaS provides infrastructure resources such as virtual machines, storage, and networks."}, {"id": 16, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Modern Technologies", "type": "mcq", "question": "A smart fitness band measures heart rate and sends the readings to a mobile app through the internet. The heart-rate measuring part is mainly an IoT:", "options": ["Sensor/device component", "Executive dashboard component", "Database administrator role", "Authorization rule"], "answer": 0, "explanation": "IoT devices use sensors to collect real-time data from the environment or user."}, {"id": 17, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Architecture", "type": "mcq", "question": "All data processing for ticket booking happens in one centrally managed facility and database. Which processing approach is described?", "options": ["Centralized processing", "Decentralized isolated processing", "Peer-to-peer unmanaged processing", "Unstructured data processing"], "answer": 0, "explanation": "Centralized processing occurs in a single location and gives high control."}, {"id": 18, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Architecture", "type": "mcq", "question": "A large web system separates the user interface, business logic, and database into different layers. Which architecture idea is this?", "options": ["Multi-tier / N-tier architecture", "Single personal information system", "Manual paper-based processing", "Employee monitoring architecture"], "answer": 0, "explanation": "Multi-tier architecture separates presentation, application/business logic, and data layers to improve scalability and maintenance."}, {"id": 19, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Roles in IS Development", "type": "mcq", "question": "Which role mainly identifies business needs, gathers requirements, and checks whether the system aligns with organizational goals?", "options": ["Business Analyst", "Database Administrator", "Software Tester", "System Administrator"], "answer": 0, "explanation": "The Business Analyst focuses on understanding organizational needs and translating them into requirements."}, {"id": 20, "section": "Part A - Single-answer MCQs", "marks": 1, "category": "Security & Access Control", "type": "mcq", "question": "Checksums and digital signatures are mainly used to support which information security goal?", "options": ["Integrity", "Confidentiality", "Availability", "Data portability"], "answer": 0, "explanation": "Integrity protects accuracy and completeness of information and processing methods."}, {"id": 21, "section": "Part A - Mixed Questions", "marks": 3, "category": "Components & Data", "type": "multiDropdown", "question": "Match each data type with the best example.", "items": [{"label": "Structured data", "options": ["Rows and columns in a student registration database", "JSON product file with tags/key-value pairs", "Customer complaint voice recordings"], "answer": "Rows and columns in a student registration database"}, {"label": "Semi-structured data", "options": ["Rows and columns in a student registration database", "JSON product file with tags/key-value pairs", "Customer complaint voice recordings"], "answer": "JSON product file with tags/key-value pairs"}, {"label": "Unstructured data", "options": ["Rows and columns in a student registration database", "JSON product file with tags/key-value pairs", "Customer complaint voice recordings"], "answer": "Customer complaint voice recordings"}], "explanation": "Structured data has fixed rows/columns; semi-structured uses tags/key-value pairs; unstructured has no fixed format."}, {"id": 22, "section": "Part A - Mixed Questions", "marks": 3, "category": "Business Objectives & Users", "type": "trueFalse", "question": "Mark each statement as True or False.", "statements": [{"text": "Information systems can help organizations improve operational efficiency by automating routine tasks.", "answer": "True"}, {"text": "Customer and supplier intimacy means an organization builds better relationships using accurate and timely information.", "answer": "True"}, {"text": "Competitive advantage gained through information systems is always permanent and cannot be matched by competitors.", "answer": "False"}], "explanation": "IS can support efficiency and relationships, but competitors may imitate systems, so advantage is not always permanent."}, {"id": 23, "section": "Part A - Mixed Questions", "marks": 3, "category": "Components & Data", "type": "fill", "question": "Fill the IS component names: Physical devices are __________; programs that instruct hardware are __________; rules/instructions for system operation are __________.", "blanks": [{"label": "Blank 1", "answers": ["hardware"]}, {"label": "Blank 2", "answers": ["software"]}, {"label": "Blank 3", "answers": ["procedures", "procedure"]}], "explanation": "Hardware is physical, software is programs, and procedures are policies/rules/instructions."}, {"id": 24, "section": "Part A - Mixed Questions", "marks": 3, "category": "Modern Technologies", "type": "multiDropdown", "question": "Match each cloud service model with its description.", "items": [{"label": "IaaS", "options": ["Virtual machines, storage, and networks", "Platform for building/deploying applications", "Ready-to-use software accessed through the internet"], "answer": "Virtual machines, storage, and networks"}, {"label": "PaaS", "options": ["Virtual machines, storage, and networks", "Platform for building/deploying applications", "Ready-to-use software accessed through the internet"], "answer": "Platform for building/deploying applications"}, {"label": "SaaS", "options": ["Virtual machines, storage, and networks", "Platform for building/deploying applications", "Ready-to-use software accessed through the internet"], "answer": "Ready-to-use software accessed through the internet"}], "explanation": "IaaS = infrastructure, PaaS = development/deployment platform, SaaS = ready software over the internet."}, {"id": 25, "section": "Part A - Mixed Questions", "marks": 3, "category": "Types of IS", "type": "short", "question": "Differentiate MIS and ESS using management level, information type, and decision focus. (3 marks)", "model": "MIS supports middle/tactical managers using mainly internal summarized reports for routine or semi-routine managerial decisions. ESS/EIS supports senior executives at the strategic level using highly summarized internal and external information for long-term, unstructured strategic decisions.", "guide": "1 mark for correct management levels, 1 mark for information/report type, 1 mark for decision focus."}, {"id": 26, "section": "Part A - Mixed Questions", "marks": 3, "category": "Security & Access Control", "type": "multiDropdown", "question": "Match each security control with its control category.", "items": [{"label": "Staff security training", "options": ["Administrative control", "Technical control", "Physical control"], "answer": "Administrative control"}, {"label": "Firewall and encryption", "options": ["Administrative control", "Technical control", "Physical control"], "answer": "Technical control"}, {"label": "Locked server room", "options": ["Administrative control", "Technical control", "Physical control"], "answer": "Physical control"}], "explanation": "Administrative controls are policies/training, technical controls use technology, and physical controls protect places/equipment."}, {"id": 27, "section": "Part A - Mixed Questions", "marks": 3, "category": "Security & Access Control", "type": "fill", "question": "Complete the CIA triad: __________ protects secrecy, __________ protects accuracy/completeness, and __________ ensures access when required.", "blanks": [{"label": "Blank 1", "answers": ["confidentiality"]}, {"label": "Blank 2", "answers": ["integrity"]}, {"label": "Blank 3", "answers": ["availability"]}], "explanation": "Confidentiality = secrecy, Integrity = accuracy, Availability = accessible when required."}, {"id": 28, "section": "Part A - Mixed Questions", "marks": 3, "category": "Ethics & Privacy", "type": "trueFalse", "question": "Mark each statement as True or False.", "statements": [{"text": "Pre-ticked consent boxes are a strong example of informed and voluntary consent.", "answer": "False"}, {"text": "Algorithmic bias can occur because training data or system design is unfair.", "answer": "True"}, {"text": "Privacy includes a person’s right to control how personal information is collected and used.", "answer": "True"}], "explanation": "Consent must be informed and voluntary; algorithmic bias can come from data/design; privacy means control over personal data."}, {"id": 29, "section": "Part A - Mixed Questions", "marks": 3, "category": "Roles in IS Development", "type": "short", "question": "Explain how end users can contribute to three stages of information systems development. (3 marks)", "model": "End users can help during requirements gathering by explaining daily work and problems. They can help during design/prototyping by giving feedback on usability and workflows. They can help during testing/implementation by validating whether the system meets needs, reporting errors, and suggesting improvements after use.", "guide": "1 mark each for three valid development stages with relevant user contribution."}, {"id": 30, "section": "Part A - Mixed Questions", "marks": 3, "category": "Architecture", "type": "multiDropdown", "question": "Match each architecture/processing approach with the best description.", "items": [{"label": "Decentralized processing", "options": ["Remote processing devices work independently without communicating", "Remote computers are connected through a network", "Clients request services from servers"], "answer": "Remote processing devices work independently without communicating"}, {"label": "Distributed processing", "options": ["Remote processing devices work independently without communicating", "Remote computers are connected through a network", "Clients request services from servers"], "answer": "Remote computers are connected through a network"}, {"label": "Client-server model", "options": ["Remote processing devices work independently without communicating", "Remote computers are connected through a network", "Clients request services from servers"], "answer": "Clients request services from servers"}], "explanation": "Decentralized means isolated remote processing; distributed means connected remote computers; client-server partitions tasks between clients and servers."}, {"id": 31, "section": "Part B - Structured Scenario 1", "marks": 25, "category": "Integrated Scenario: Components, Types & Functional Systems", "type": "scenario", "title": "Scenario 1: QuickPharm Digital Pharmacy System", "scenario": "QuickPharm is a medium-sized pharmacy chain with branches in Maharagama, Nugegoda, and Kottawa. The company used manual sales books and separate stock cards for each branch. This caused billing delays, wrong stock counts, expired medicine remaining unnoticed, and difficulty identifying which medicines were fast-moving. QuickPharm now introduces a computerized pharmacy management system. Cashiers scan medicine barcodes and print receipts. Pharmacists check prescription details on the system before issuing medicine. Inventory officers monitor stock levels, expiry dates, and reorder quantities. Branch managers receive weekly sales and stock reports. The head office uses a dashboard to compare branches and decide whether to open a new branch. The system uses POS computers, barcode scanners, receipt printers, a centralized medicine database, user login accounts, and a company network.", "subquestions": [{"label": "a", "question": "Identify four components of the information system in the scenario and give one example for each. (8 marks)", "marks": 8, "category": "Components & Data", "model": "Possible components: Hardware: POS computers, barcode scanners, receipt printers, network devices. Software: pharmacy/POS/inventory management application. Data: medicine details, prescriptions, sales transactions, stock levels, expiry dates, reorder quantities. Database: centralized medicine database. People: cashiers, pharmacists, inventory officers, branch managers, head office users. Procedures: barcode scanning, prescription checking, reorder procedure, report generation, user login procedure.", "guide": "2 marks each for four correct components with scenario examples. Award partial marks for correct component without clear example."}, {"label": "b", "question": "Identify two direct users and one indirect user from the scenario. Briefly justify your answer. (4 marks)", "marks": 4, "category": "Business Objectives & Users", "model": "Direct users include cashiers who scan items and process sales, pharmacists who check prescription details, and inventory officers who monitor stock in the system. An indirect user can be a branch manager or head office decision maker if they mainly use reports/dashboards generated by the system rather than entering transactions directly. Customers are also indirect beneficiaries if they receive faster service and receipts.", "guide": "2 marks for two direct users, 1 mark for one indirect user, 1 mark for justification."}, {"label": "c", "question": "Classify three system functions in the scenario as TPS, MIS/DSS, or ESS/EIS. Explain briefly. (6 marks)", "marks": 6, "category": "Types of IS", "model": "TPS: barcode scanning, billing, receipt printing, and updating sales/stock records because these are routine transactions. MIS/DSS: weekly sales and stock reports, reorder quantity analysis, and expiry/fast-moving medicine reports because managers use them for monitoring and decision-making. ESS/EIS: head office dashboard comparing branches and supporting a new-branch decision because it supports strategic-level decisions.", "guide": "2 marks each for three correct classifications with scenario-linked explanation."}, {"label": "d", "question": "Explain three benefits QuickPharm gains from the computerized system compared with the manual system. (5 marks)", "marks": 5, "category": "Functional Area Systems", "model": "Benefits include faster billing and fewer calculation errors; improved stock accuracy and automatic stock monitoring; better expiry-date control to reduce waste/risk; improved reorder decisions for fast-moving medicines; better branch comparison reports for managers; improved customer service through accurate receipts and faster service.", "guide": "Award up to 5 marks for three well-explained benefits linked to the scenario."}, {"label": "e", "question": "Recommend one additional improvement and justify it. (2 marks)", "marks": 2, "category": "Functional Area Systems", "model": "Suitable improvements include automatic low-stock/expiry alerts, CRM/loyalty module for regular customers, online ordering with branch pickup, role-based access control, or BI dashboard for trend analysis. The justification should link to better stock control, customer service, decision-making, security, or competitive advantage.", "guide": "1 mark for suitable feature, 1 mark for clear justification."}]}, {"id": 32, "section": "Part B - Structured Scenario 2", "marks": 25, "category": "Integrated Scenario: Modern Tech, Ethics, Privacy & Security", "type": "scenario", "title": "Scenario 2: EduTrack Smart Campus System", "scenario": "A university introduces EduTrack, a smart campus information system. The system stores student profiles, attendance records, examination results, lecturer feedback, and biometric face templates in a cloud database. Lecture halls use facial recognition cameras to mark attendance automatically. An AI model predicts students who may fail based on attendance, LMS activity, assignment submissions, and online quiz scores. The system sends risk reports to academic advisors. Students were not clearly informed about how their biometric and LMS activity data would be used. Some students from areas with poor internet access are repeatedly marked as high-risk even when their assignment quality is good. Recently, several staff accounts used weak passwords, and a phishing email captured one lecturer’s login details. The attacker accessed student result records before the account was disabled.", "subquestions": [{"label": "a", "question": "Identify two modern information system technologies used in EduTrack and explain their role in the scenario. (5 marks)", "marks": 5, "category": "Modern Technologies", "model": "Cloud computing is used because student data, results, biometric templates, and activity logs are stored in a cloud database accessible by the system. Artificial Intelligence is used to predict students at risk of failing. IoT/sensor-based technology may also be identified because facial recognition cameras collect attendance data automatically.", "guide": "Award marks for two correct technologies and clear scenario-based explanation."}, {"label": "b", "question": "Identify two ethical/privacy concerns related to the university’s use of facial recognition and LMS activity data. (5 marks)", "marks": 5, "category": "Ethics & Privacy", "model": "Concerns include surveillance through facial recognition cameras, collection and storage of sensitive biometric data, lack of clear information/transparency, possible lack of informed and voluntary consent, and excessive monitoring of LMS activity. These can affect student privacy and trust.", "guide": "Award up to 5 marks for two concerns with clear explanation connected to the scenario."}, {"label": "c", "question": "Explain how algorithmic bias may be present in the AI risk prediction system. (5 marks)", "marks": 5, "category": "Ethics & Privacy", "model": "Algorithmic bias may be present because students with poor internet access are repeatedly marked high-risk even though their assignment quality is good. The AI may overvalue LMS activity/online quiz access and undervalue assignment quality or context. This can create unfair outcomes for students from disadvantaged areas.", "guide": "Award marks for identifying unfair automated outcome, explaining biased variables/data/design, and linking to discrimination or unfair treatment."}, {"label": "d", "question": "From the security incident, identify one vulnerability, one threat, and one CIA principle affected. (5 marks)", "marks": 5, "category": "Security & Access Control", "model": "Vulnerability: weak passwords or lack of MFA/security awareness. Threat: phishing attacker/email attack. CIA principle affected: confidentiality because unauthorized access to student result records occurred. Integrity may also be at risk if records could be changed, but the scenario clearly shows unauthorized access.", "guide": "1.5 marks for vulnerability, 1.5 marks for threat, 2 marks for CIA principle with explanation."}, {"label": "e", "question": "Recommend responsible actions and controls the university should implement. (5 marks)", "marks": 5, "category": "Security & Access Control", "model": "Actions include clearly informing students and obtaining informed consent, minimizing biometric/LMS data collection, testing the AI model for bias and allowing human review/appeal, using MFA and strong password policies, training staff about phishing, applying role-based access control, encrypting sensitive records, monitoring access logs, and maintaining incident response procedures.", "guide": "Award up to 5 marks for practical actions covering privacy/ethics and security controls."}]}];
+let current = 0;
+let checked = {};
+
+function el(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>'"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+function norm(s){return String(s||'').trim().toLowerCase().replace(/\s+/g,' ')}
+function questionCount(){return QUESTIONS.length + 1} // + results page
+
+function introHTML(){
+  return `<section class="exam-card">
+    <span class="section-pill">Exam Analysis</span>
+    <h2 class="question-title">Final mock exam structure</h2>
+    <p>This second mock follows your uploaded Lecture 11 final structure: <b>Part A = 50 marks</b> and <b>Part B = 50 marks</b>. It uses different questions from Mock Exam 01 and keeps answer options close to the same topic area.</p>
+    <div class="intro-grid">
+      <div class="intro-box"><h3>Part A - 20 MCQs</h3><p>20 single-answer multiple choice questions × 1 mark = <b>20 marks</b>. These are auto-marked.</p></div>
+      <div class="intro-box"><h3>Part A - 10 mixed</h3><p>MCQ/dropdown/fill/true-false/short-answer style questions × 3 marks = <b>30 marks</b>. Auto-marked where possible. Written answers use self-marking with model answers.</p></div>
+      <div class="intro-box"><h3>Part B - 2 scenarios</h3><p>2 structured real-world scenario questions × 25 marks = <b>50 marks</b>. You type answers, compare with the marking guide, and enter your self-score.</p></div>
+    </div>
+    <div class="guide"><b>How to use:</b> Answer each question, click <b>Check / Show Model Answer</b>, then move using Previous/Next. For written answers, read the model answer and select your score. Final analysis will show weak and strong topics.</div>
+    <div class="buttons"><button class="secondary" disabled>Previous</button><button class="primary" onclick="goNext()">Start Exam</button></div>
+  </section>`;
+}
+
+function renderQuestion(q, idx){
+  let body = '';
+  const qno = idx;
+  if(q.type==='mcq'){
+    body = `<div>${q.options.map((o,i)=>`<label class="option"><input type="radio" name="q${q.id}" value="${i}"> <span>${String.fromCharCode(65+i)}. ${esc(o)}</span></label>`).join('')}</div>`;
+  } else if(q.type==='multiDropdown'){
+    body = `<div class="grid">${q.items.map((it,i)=>`<div class="mini"><label>${esc(it.label)}</label><select id="q${q.id}_${i}"><option value="">-- Select --</option>${it.options.map(o=>`<option value="${esc(o)}">${esc(o)}</option>`).join('')}</select></div>`).join('')}</div>`;
+  } else if(q.type==='fill'){
+    body = `<div class="grid">${q.blanks.map((b,i)=>`<div class="mini"><label>${esc(b.label)}</label><input type="text" id="q${q.id}_${i}" placeholder="Type answer"></div>`).join('')}</div>`;
+  } else if(q.type==='trueFalse'){
+    body = q.statements.map((s,i)=>`<div class="tf-row"><div>${i+1}. ${esc(s.text)}</div><select id="q${q.id}_${i}"><option value="">-- Select --</option><option>True</option><option>False</option></select></div>`).join('');
+  } else if(q.type==='short'){
+    body = `<textarea id="q${q.id}_text" placeholder="Type your answer here..."></textarea><div id="model_${q.id}" class="hidden"><div class="model"><b>Model answer:</b><br>${esc(q.model)}</div><div class="guide"><b>Marking guide:</b><br>${esc(q.guide)}</div><div class="self-score"><b>Your self-score:</b><select id="self_${q.id}">${scoreOptions(q.marks)}</select><span>out of ${q.marks} marks</span></div></div>`;
+  } else if(q.type==='scenario'){
+    body = `<div class="scenario">${esc(q.scenario)}</div>` + q.subquestions.map((sq,i)=>`<div class="mini"><label>${esc(sq.label)}) ${esc(sq.question)}</label><textarea id="q${q.id}_${i}_text" placeholder="Type your answer for part ${esc(sq.label)}..."></textarea><div id="model_${q.id}_${i}" class="hidden"><div class="model"><b>Model answer:</b><br>${esc(sq.model)}</div><div class="guide"><b>Marking guide:</b><br>${esc(sq.guide)}</div><div class="self-score"><b>Your self-score for part ${esc(sq.label)}:</b><select id="self_${q.id}_${i}">${scoreOptions(sq.marks)}</select><span>out of ${sq.marks} marks</span></div></div></div>`).join('');
+  }
+  return `<section class="exam-card">
+    <span class="section-pill">${esc(q.section)}</span><span class="marks">${q.marks} mark${q.marks>1?'s':''}</span>
+    <h2 class="question-title">Q${qno}. ${esc(q.title || q.question)}</h2>
+    ${q.title ? '' : ''}
+    ${q.title ? '' : ''}
+    ${body}
+    <div id="feedback_${q.id}"></div>
+    <div class="buttons">
+      <button class="secondary" onclick="goPrev()">Previous</button>
+      <div>
+        <button class="warn" onclick="checkQuestion(${idx-1})">${q.type==='short'||q.type==='scenario'?'Show Model Answer':'Check Answer'}</button>
+        <button class="primary" onclick="goNext()">${idx===QUESTIONS.length?'Go to Results':'Next'}</button>
+      </div>
+    </div>
+  </section>`;
+}
+function scoreOptions(max){ let out='<option value="0">0</option>'; for(let i=1;i<=max;i++) out += `<option value="${i}">${i}</option>`; return out; }
+
+function renderResults(){
+  const res = calculateScores();
+  const percent = Math.round((res.total/100)*100);
+  const topicRows = Object.entries(res.topics).map(([cat,d])=>({cat, pct:d.max?Math.round(d.score/d.max*100):0, score:d.score, max:d.max})).sort((a,b)=>a.pct-b.pct);
+  const weak = topicRows.filter(x=>x.pct<60);
+  const strong = topicRows.filter(x=>x.pct>=75);
+  const middle = topicRows.filter(x=>x.pct>=60 && x.pct<75);
+  return `<section class="exam-card results">
+    <span class="section-pill">Final Result</span>
+    <h2>IE1011 Mock Exam Score</h2>
+    <div class="score-big">${res.total.toFixed(1)} / 100 (${percent}%)</div>
+    <div class="score-grid">
+      <div class="scorebox">Part A - 20 MCQs<strong>${res.sections['Part A - Single-answer MCQs'].toFixed(1)} / 20</strong></div>
+      <div class="scorebox">Part A - Mixed<strong>${res.sections['Part A - Mixed Questions'].toFixed(1)} / 30</strong></div>
+      <div class="scorebox">Part B - Scenarios<strong>${(res.sections['Part B - Structured Scenario 1'] + res.sections['Part B - Structured Scenario 2']).toFixed(1)} / 50</strong></div>
+    </div>
+    <div class="analysis-list">
+      <div class="analysis-card weak"><h3>Weak-point analysis</h3>${weak.length? '<ul>'+weak.map(x=>`<li><b>${esc(x.cat)}</b>: ${x.score.toFixed(1)}/${x.max} (${x.pct}%)</li>`).join('')+'</ul>' : '<p>No major weak areas below 60%. Keep revising case-study writing.</p>'}</div>
+      <div class="analysis-card strong"><h3>Strong-area analysis</h3>${strong.length? '<ul>'+strong.map(x=>`<li><b>${esc(x.cat)}</b>: ${x.score.toFixed(1)}/${x.max} (${x.pct}%)</li>`).join('')+'</ul>' : '<p>No topic reached 75% yet. Re-check answers and self-marking honestly.</p>'}</div>
+      <div class="analysis-card neutral"><h3>Borderline topics</h3>${middle.length? '<ul>'+middle.map(x=>`<li><b>${esc(x.cat)}</b>: ${x.score.toFixed(1)}/${x.max} (${x.pct}%)</li>`).join('')+'</ul>' : '<p>No borderline topics. Good separation between strong and weak areas.</p>'}</div>
+    </div>
+    <div class="guide"><b>Study advice:</b> For weak topics, revise the trigger words first, then redo only those question types. For Part B, focus on writing answers in the pattern: identify term → apply to scenario → explain benefit/risk/control.</div>
+    <div class="buttons"><button class="secondary" onclick="goPrev()">Previous</button><button class="success" onclick="window.print()">Print / Save Result</button><button class="warn" onclick="resetExam()">Reset Exam</button></div>
+  </section>`;
+}
+
+function render(){
+  const app = el('app');
+  if(current===0) app.innerHTML = introHTML();
+  else if(current<=QUESTIONS.length) app.innerHTML = renderQuestion(QUESTIONS[current-1], current);
+  else app.innerHTML = renderResults();
+  const totalPages = QUESTIONS.length + 2;
+  const pct = Math.round((current)/(totalPages-1)*100);
+  el('progressFill').style.width = pct+'%';
+  el('counter').textContent = current===0 ? 'Ready' : current<=QUESTIONS.length ? `Question ${current} of ${QUESTIONS.length}` : 'Results';
+  restoreInputs();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function goNext(){ saveInputs(); if(current<QUESTIONS.length+1){ current++; render(); } }
+function goPrev(){ saveInputs(); if(current>0){ current--; render(); } }
+
+const state = {};
+function saveInputs(){
+  if(current<1 || current>QUESTIONS.length) return;
+  const q = QUESTIONS[current-1];
+  if(q.type==='mcq'){
+    const selected = document.querySelector(`input[name="q${q.id}"]:checked`);
+    state[q.id] = selected ? selected.value : '';
+  } else if(q.type==='multiDropdown'){
+    state[q.id] = q.items.map((_,i)=>el(`q${q.id}_${i}`)?.value||'');
+  } else if(q.type==='fill'){
+    state[q.id] = q.blanks.map((_,i)=>el(`q${q.id}_${i}`)?.value||'');
+  } else if(q.type==='trueFalse'){
+    state[q.id] = q.statements.map((_,i)=>el(`q${q.id}_${i}`)?.value||'');
+  } else if(q.type==='short'){
+    state[q.id] = {text:el(`q${q.id}_text`)?.value||'', score:Number(el(`self_${q.id}`)?.value||0), shown:!el(`model_${q.id}`)?.classList.contains('hidden')};
+  } else if(q.type==='scenario'){
+    state[q.id] = q.subquestions.map((sq,i)=>({text:el(`q${q.id}_${i}_text`)?.value||'', score:Number(el(`self_${q.id}_${i}`)?.value||0), shown:!el(`model_${q.id}_${i}`)?.classList.contains('hidden')}));
+  }
+}
+function restoreInputs(){
+  if(current<1 || current>QUESTIONS.length) return;
+  const q = QUESTIONS[current-1];
+  const s = state[q.id];
+  if(!s) return;
+  if(q.type==='mcq'){
+    const inp = document.querySelector(`input[name="q${q.id}"][value="${s}"]`); if(inp) inp.checked=true;
+  } else if(q.type==='multiDropdown'){
+    s.forEach((v,i)=>{ if(el(`q${q.id}_${i}`)) el(`q${q.id}_${i}`).value=v; });
+  } else if(q.type==='fill'){
+    s.forEach((v,i)=>{ if(el(`q${q.id}_${i}`)) el(`q${q.id}_${i}`).value=v; });
+  } else if(q.type==='trueFalse'){
+    s.forEach((v,i)=>{ if(el(`q${q.id}_${i}`)) el(`q${q.id}_${i}`).value=v; });
+  } else if(q.type==='short'){
+    if(el(`q${q.id}_text`)) el(`q${q.id}_text`).value=s.text||'';
+    if(el(`self_${q.id}`)) el(`self_${q.id}`).value=s.score||0;
+    if(s.shown && el(`model_${q.id}`)) el(`model_${q.id}`).classList.remove('hidden');
+  } else if(q.type==='scenario'){
+    s.forEach((obj,i)=>{ if(el(`q${q.id}_${i}_text`)) el(`q${q.id}_${i}_text`).value=obj.text||''; if(el(`self_${q.id}_${i}`)) el(`self_${q.id}_${i}`).value=obj.score||0; if(obj.shown && el(`model_${q.id}_${i}`)) el(`model_${q.id}_${i}`).classList.remove('hidden'); });
+  }
+  if(checked[q.id]) showFeedback(q, checked[q.id]);
+}
+
+function checkQuestion(index){
+  saveInputs();
+  const q = QUESTIONS[index];
+  if(q.type==='short'){
+    el(`model_${q.id}`).classList.remove('hidden');
+    const s = state[q.id] || {}; s.shown=true; state[q.id]=s;
+    el(`feedback_${q.id}`).innerHTML = `<div class="feedback">Model answer is shown. Compare your answer honestly and choose your self-score.</div>`;
+    return;
+  }
+  if(q.type==='scenario'){
+    q.subquestions.forEach((_,i)=>el(`model_${q.id}_${i}`).classList.remove('hidden'));
+    const s = state[q.id] || q.subquestions.map(()=>({})); s.forEach(x=>x.shown=true); state[q.id]=s;
+    el(`feedback_${q.id}`).innerHTML = `<div class="feedback">Model answers and marking guides are shown. Select your self-score for each part.</div>`;
+    return;
+  }
+  const result = autoScore(q);
+  checked[q.id] = result;
+  showFeedback(q, result);
+}
+function showFeedback(q, result){
+  const div = el(`feedback_${q.id}`); if(!div) return;
+  const cls = result.score===q.marks ? 'feedback' : 'feedback bad';
+  div.innerHTML = `<div class="${cls}"><b>Score for this question: ${result.score.toFixed(1)} / ${q.marks}</b><br>${esc(result.message)}<br><b>Explanation:</b> ${esc(q.explanation||'Review the relevant lecture concept and retry.')}</div>`;
+}
+function autoScore(q){
+  let score=0, msg='';
+  if(q.type==='mcq'){
+    const selected = document.querySelector(`input[name="q${q.id}"]:checked`);
+    const val = selected ? Number(selected.value) : -1;
+    score = val===q.answer ? q.marks : 0;
+    msg = val===q.answer ? 'Correct.' : `Incorrect. Correct answer: ${String.fromCharCode(65+q.answer)}. ${q.options[q.answer]}`;
+  } else if(q.type==='multiDropdown'){
+    const per = q.marks/q.items.length;
+    let wrong=[];
+    q.items.forEach((it,i)=>{ const v=el(`q${q.id}_${i}`).value; if(v===it.answer) score+=per; else wrong.push(`${it.label} → ${it.answer}`); });
+    msg = wrong.length ? 'Check: '+wrong.join('; ') : 'All matches correct.';
+  } else if(q.type==='fill'){
+    const per = q.marks/q.blanks.length;
+    let wrong=[];
+    q.blanks.forEach((b,i)=>{ const v=norm(el(`q${q.id}_${i}`).value); if(b.answers.map(norm).includes(v)) score+=per; else wrong.push(`${b.label} → ${b.answers[0]}`); });
+    msg = wrong.length ? 'Check: '+wrong.join('; ') : 'All blanks correct.';
+  } else if(q.type==='trueFalse'){
+    const per = q.marks/q.statements.length;
+    let wrong=[];
+    q.statements.forEach((st,i)=>{ const v=el(`q${q.id}_${i}`).value; if(v===st.answer) score+=per; else wrong.push(`Statement ${i+1} → ${st.answer}`); });
+    msg = wrong.length ? 'Check: '+wrong.join('; ') : 'All true/false answers correct.';
+  }
+  return {score, message:msg};
+}
+
+function calculateScores(){
+  saveInputs();
+  const sections = {'Part A - Single-answer MCQs':0,'Part A - Mixed Questions':0,'Part B - Structured Scenario 1':0,'Part B - Structured Scenario 2':0};
+  const topics = {};
+  function addTopic(cat, score, max){ if(!topics[cat]) topics[cat]={score:0,max:0}; topics[cat].score+=score; topics[cat].max+=max; }
+  let total=0;
+  QUESTIONS.forEach(q=>{
+    let qscore=0;
+    if(['mcq','multiDropdown','fill','trueFalse'].includes(q.type)){
+      const r = autoScoreFromState(q); qscore = r.score;
+      addTopic(q.category, qscore, q.marks);
+    } else if(q.type==='short'){
+      qscore = Number((state[q.id]||{}).score||0);
+      addTopic(q.category, qscore, q.marks);
+    } else if(q.type==='scenario'){
+      const arr = state[q.id] || [];
+      q.subquestions.forEach((sq,i)=>{ const sc = Number((arr[i]||{}).score||0); qscore += sc; addTopic(sq.category, sc, sq.marks); });
+    }
+    sections[q.section] = (sections[q.section]||0) + qscore;
+    total += qscore;
+  });
+  return {total, sections, topics};
+}
+function autoScoreFromState(q){
+  let score=0;
+  if(q.type==='mcq'){
+    score = Number(state[q.id])===q.answer ? q.marks : 0;
+  } else if(q.type==='multiDropdown'){
+    const arr = state[q.id] || []; const per=q.marks/q.items.length;
+    q.items.forEach((it,i)=>{ if(arr[i]===it.answer) score+=per; });
+  } else if(q.type==='fill'){
+    const arr = state[q.id] || []; const per=q.marks/q.blanks.length;
+    q.blanks.forEach((b,i)=>{ if(b.answers.map(norm).includes(norm(arr[i]))) score+=per; });
+  } else if(q.type==='trueFalse'){
+    const arr = state[q.id] || []; const per=q.marks/q.statements.length;
+    q.statements.forEach((st,i)=>{ if(arr[i]===st.answer) score+=per; });
+  }
+  return {score};
+}
+function resetExam(){ if(confirm('Reset all answers and scores?')){ Object.keys(state).forEach(k=>delete state[k]); Object.keys(checked).forEach(k=>delete checked[k]); current=0; render(); }}
+
+render();
+</script>
+</body>
+</html>

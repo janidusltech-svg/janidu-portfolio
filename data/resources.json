@@ -1,0 +1,32 @@
+[
+  {
+    "title": "DSA Sample Interactive Quiz",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DSA",
+    "type": "Interactive Quiz",
+    "description": "A sample HTML quiz card to test the Study Hub resource system. Replace this with your real DSA quiz later.",
+    "url": "quizzes/y1s2-dsa-sample-quiz.html",
+    "visible": true
+  },
+  {
+    "title": "OOP Reference Sheet Slot",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "OOP",
+    "type": "Reference Sheet",
+    "description": "Prepared space for your OOP reference sheet PDF. Add the file later and update the URL in data/resources.json.",
+    "url": "",
+    "visible": true
+  },
+  {
+    "title": "IS Final Mock Quiz",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "IS",
+    "type": "Mock Exam",
+    "description": "Interactive Information Systems final mock quiz for Year 1 Semester 2 revision.",
+    "url": "quizzes/y1s2-is-final-mock-quiz.html",
+    "visible": true
+  }
+]

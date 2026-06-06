@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Study Hub By J - reference sheets, mock exams, and interactive quizzes for students." />
+  <title>Study Hub By J | Janidu Sandaruwan</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <div class="noise"></div>
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
+  <div class="glow glow-three"></div>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="brand"><span class="brand-mark">◆</span>Janidu<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Portfolio</a>
+        <a href="#years">Years</a>
+        <a href="#y1s2">Y1 S2</a>
+        <a href="#resources">Resources</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <a href="index.html" class="talk-btn">Back to Portfolio <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="study-hero container">
+      <div class="study-hero-copy reveal visible">
+        <div class="availability"><span></span> Janidu managed study resources</div>
+        <p class="intro-line">Welcome to</p>
+        <h1>Study Hub <span>By J</span></h1>
+        <p class="study-hero-text">
+          Reference sheets, mock exams, interactive HTML quizzes, and revision resources arranged by academic year, semester, and module. Public visitors can view, open, and download resources. Only Janidu manages the library.
+        </p>
+        <div class="hero-actions">
+          <a href="#y1s2" class="primary-btn">Open Year 1 Semester 2 <span>→</span></a>
+          <a href="#resources" class="secondary-btn">View Resources</a>
+        </div>
+      </div>
+
+      <div class="study-terminal reveal visible delay-1">
+        <div class="terminal-bar"><span></span><span></span><span></span></div>
+        <pre><code>const studyHubByJ = {
+  visibleNow: "Year 1 / Semester 2",
+  resources: ["Reference Sheets", "Mock Exams", "HTML Quizzes"],
+  access: "Public can view. Janidu manages only.",
+  goal: "Study faster. Revise smarter."
+};</code></pre>
+      </div>
+    </section>
+
+    <section class="year-section container" id="years">
+      <div class="center-heading reveal">
+        <p class="section-label">Academic Structure</p>
+        <h2>Choose Your <span>Year & Semester</span></h2>
+        <p class="section-subtitle">Currently available: <b>Year 1 Semester 2</b>. Other years and semesters are prepared for future updates.</p>
+      </div>
+
+      <div class="year-grid">
+        <article class="year-card active-card reveal">
+          <div class="year-number">01</div>
+          <h3>Year 1</h3>
+          <div class="semester-list">
+            <span class="semester-link disabled-sem">Semester 1 <span>Coming Soon</span></span>
+            <a href="#y1s2" class="semester-link active-sem">Semester 2 <span>Active</span></a>
+          </div>
+        </article>
+
+        <article class="year-card coming reveal delay-1">
+          <div class="year-number">02</div>
+          <h3>Year 2</h3>
+          <p>Year 2 resources will be added later after the Year 1 Semester 2 library is organized.</p>
+          <span class="coming-pill">Coming Soon</span>
+        </article>
+
+        <article class="year-card coming reveal delay-2">
+          <div class="year-number">03</div>
+          <h3>Year 3</h3>
+          <p>Resources will be added in the future.</p>
+          <span class="coming-pill">Coming Soon</span>
+        </article>
+
+        <article class="year-card coming reveal delay-3">
+          <div class="year-number">04</div>
+          <h3>Year 4</h3>
+          <p>Advanced year resources will be added later.</p>
+          <span class="coming-pill">Coming Soon</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="modules-section container" id="y1s2">
+      <div class="projects-head reveal">
+        <div>
+          <p class="section-label">Active Semester</p>
+          <h2>Year 1 <span>Semester 2</span></h2>
+        </div>
+        <a href="#resources" class="secondary-btn">View All Resources <span>→</span></a>
+      </div>
+
+      <div class="module-grid">
+        <article class="module-card reveal" data-module-jump="DSA">
+          <img src="assets/images/study/dsa.png" alt="DSA module cover" />
+          <div><h3>DSA</h3><p>Data Structures and Algorithms</p></div>
+        </article>
+        <article class="module-card reveal delay-1" data-module-jump="OOP">
+          <img src="assets/images/study/oop.png" alt="OOP module cover" />
+          <div><h3>OOP</h3><p>Object-Oriented Programming</p></div>
+        </article>
+        <article class="module-card reveal delay-2" data-module-jump="DM">
+          <img src="assets/images/study/dm.png" alt="DM module cover" />
+          <div><h3>DM</h3><p>Discrete Mathematics</p></div>
+        </article>
+        <article class="module-card reveal delay-3" data-module-jump="IS">
+          <img src="assets/images/study/is.png" alt="IS module cover" />
+          <div><h3>IS</h3><p>Information Systems</p></div>
+        </article>
+        <article class="module-card reveal" data-module-jump="TW">
+          <img src="assets/images/study/tw.png" alt="TW module cover" />
+          <div><h3>TW</h3><p>Technical Writing</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="resource-section container" id="resources">
+      <div class="center-heading reveal">
+        <p class="section-label">Resource Library</p>
+        <h2>Year 1 Semester 2 <span>Resources</span></h2>
+        <p class="section-subtitle">Open quizzes online or download reference sheets. The library is managed only by Janidu.</p>
+      </div>
+
+      <div class="filter-panel reveal public-filter">
+        <select id="moduleFilter" aria-label="Filter by module">
+          <option value="all">All Modules</option>
+          <option value="DSA">DSA</option>
+          <option value="OOP">OOP</option>
+          <option value="DM">DM</option>
+          <option value="IS">IS</option>
+          <option value="TW">TW</option>
+        </select>
+        <select id="typeFilter" aria-label="Filter by type">
+          <option value="all">All Types</option>
+          <option value="Reference Sheet">Reference Sheet</option>
+          <option value="Interactive Quiz">Interactive Quiz</option>
+          <option value="Mock Exam">Mock Exam</option>
+          <option value="Notes">Notes</option>
+        </select>
+      </div>
+
+      <div class="resource-grid" id="resourceGrid"></div>
+      <div class="empty-state" id="emptyState">
+        <h3>No resources yet</h3>
+        <p>This module/type is prepared for future resources.</p>
+      </div>
+    </section>
+
+    <section class="howto container" id="managed">
+      <div class="howto-card reveal managed-card">
+        <p class="section-label">Controlled Library</p>
+        <h2>Managed only by <span>Janidu</span></h2>
+        <p class="managed-text">
+          This public page is for students to access resources. Adding and editing resources is not available to public visitors. New resources are added privately by Janidu and then published to the live website.
+        </p>
+        <div class="managed-points">
+          <div><b>View</b><p>Students can open quizzes and download available resources.</p></div>
+          <div><b>Safe</b><p>No public submission form is shown, so the resource library stays clean.</p></div>
+          <div><b>Future</b><p>Year 2, Year 3, and Year 4 sections are ready for future expansion.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
