@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT1160 DM - 3 MCQ Mock Exams</title>
+<style>
+:root{--bg:#020617;--panel:#0f172a;--card:#111827;--text:#f8fafc;--muted:#94a3b8;--line:#334155;--accent:#38bdf8;--accent2:#8b5cf6;--good:#22c55e;--bad:#ef4444;--warn:#f59e0b}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:linear-gradient(135deg,#020617,#0f172a,#111827);color:var(--text)}
+header{padding:22px;text-align:center;border-bottom:1px solid var(--line);background:rgba(2,6,23,.9);position:sticky;top:0;z-index:10;backdrop-filter:blur(8px)}
+h1{margin:0;font-size:clamp(22px,4vw,36px)}.creator{color:var(--accent);font-weight:900;margin-top:8px}.sub{color:var(--muted);font-size:14px;margin-top:6px}
+.wrap{max-width:1200px;margin:auto;padding:18px}.grid{display:grid;grid-template-columns:285px 1fr;gap:18px}
+.side{background:rgba(15,23,42,.9);border:1px solid var(--line);border-radius:18px;padding:14px;position:sticky;top:120px;align-self:start}
+.btn{border:0;border-radius:12px;padding:11px 14px;background:linear-gradient(135deg,#0284c7,#7c3aed);color:#fff;font-weight:850;cursor:pointer}
+.btn.secondary{background:#1f2937;border:1px solid var(--line)}.btn:hover:not(:disabled){filter:brightness(1.08)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.roundBtn,.lessonBtn{width:100%;margin:5px 0;text-align:left;display:flex;justify-content:space-between;gap:10px}.active{outline:2px solid rgba(56,189,248,.6)}
+.main{background:rgba(15,23,42,.88);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 20px 55px rgba(0,0,0,.28)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}.stat{background:#0b1220;border:1px solid var(--line);border-radius:14px;padding:12px}.stat b{font-size:20px;color:var(--accent);display:block}.stat span{color:var(--muted);font-size:13px}
+.bar{height:12px;background:#0b1220;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:8px 0 18px}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.2s}
+.part{color:var(--accent);font-weight:900;text-transform:uppercase;letter-spacing:.7px}.qtitle{font-size:clamp(20px,3vw,28px);font-weight:850;line-height:1.3;margin:10px 0}.tag{display:inline-block;color:#fde68a;border:1px solid rgba(245,158,11,.45);padding:5px 9px;border-radius:999px;font-size:12px;background:#241a05;margin-top:8px}
+.options{display:grid;gap:10px;margin:16px 0}.opt{width:100%;text-align:left;background:#111827;border:1px solid var(--line);border-radius:14px;color:var(--text);padding:14px;font-size:16px;cursor:pointer}.opt:hover:not(:disabled){border-color:var(--accent)}.opt:disabled{cursor:not-allowed}.correct{border-color:var(--good)!important;background:rgba(34,197,94,.16)}.wrong{border-color:var(--bad)!important;background:rgba(239,68,68,.16)}
+.feedback{display:none;background:#0b1220;border:1px solid var(--line);border-radius:16px;padding:14px;margin-top:12px;line-height:1.55}.good{border-color:rgba(34,197,94,.6)}.bad{border-color:rgba(239,68,68,.6)}.green{color:#86efac;font-weight:900}.red{color:#fca5a5;font-weight:900}.yellow{color:#fde68a;font-weight:900}
+.actions{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}.result{display:none;background:#0b1220;border:1px solid var(--line);border-radius:18px;padding:16px;margin-top:18px}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:7px 10px;margin:4px;background:#111827}.gp{border-color:rgba(34,197,94,.55);color:#bbf7d0}.bp{border-color:rgba(239,68,68,.55);color:#fecaca}.wp{border-color:rgba(245,158,11,.55);color:#fde68a}
+.small{color:var(--muted);font-size:13px;line-height:1.45}.sep{height:1px;background:var(--line);margin:12px 0}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.side{position:relative;top:0}.stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>IT1160 Discrete Mathematics - 3 MCQ Mock Exams</h1>
+<div class="creator">Created by Janidu Sandaruwan(Y1S2)</div>
+<div class="sub">One HTML file • 3 separate MCQ rounds • 30 MCQs per round • Auto marking + explanations + weak point analysis</div>
+</header>
+<div class="wrap"><div class="grid">
+<aside class="side">
+<button class="btn" style="width:100%;margin-bottom:8px" onclick="showOverall()">Overall Result</button>
+<button class="btn secondary" style="width:100%;margin-bottom:12px" onclick="resetAll()">Reset All</button>
+<div id="roundNav"></div><div class="sep"></div><div id="lessonNav"></div>
+<p class="small">Questions are from the current DM scope only: Sets, Functions, Sequences, Counting I, Counting II, Recursion, Graphs, Trees, and Big O. Finite Automata is not included.</p>
+</aside>
+<main class="main">
+<div class="stats">
+<div class="stat"><b id="roundPct">0%</b><span>Current round %</span></div>
+<div class="stat"><b id="roundScore">0 / 30</b><span>Correct in round</span></div>
+<div class="stat"><b id="overallScore">0 / 90</b><span>All rounds correct</span></div>
+<div class="stat"><b id="answered">0 / 30</b><span>Answered in round</span></div>
+</div>
+<div class="bar"><div class="fill" id="fill"></div></div>
+<div id="quizArea"></div>
+<div class="actions">
+<button class="btn secondary" id="prev" onclick="prev()">Previous</button>
+<button class="btn secondary" onclick="goRoundStart()">Round Start</button>
+<button class="btn" id="next" onclick="next()">Next</button>
+</div>
+<div id="result" class="result"></div>
+</main>
+</div></div>
+<script>
+const mocks = [{"title": "MCQ Mock Exam 01", "questions": [{"lesson": "Sets", "q": "Let A = {2,4,6,8} and B = {4,8,10}. What is A ∪ B?", "options": ["{4,8}", "{2,4,6,8,10}", "{2,6}", "{10}"], "answer": 1, "explain": "Union means all elements in A or B, without duplicates."}, {"lesson": "Sets", "q": "Let U = {1,2,3,4,5,6,7,8,9}, A = {1,3,5,7,9}. What is Aᶜ?", "options": ["{1,3,5,7,9}", "{2,4,6,8}", "{1,2,3,4,5,6,7,8,9}", "∅"], "answer": 1, "explain": "Complement means elements in the universal set U that are not in A."}, {"lesson": "Sets", "q": "If |A| = 18, |B| = 14, and |A ∩ B| = 6, what is |A ∪ B|?", "options": ["26", "32", "38", "12"], "answer": 0, "explain": "Use |A∪B| = |A| + |B| − |A∩B| = 18 + 14 − 6 = 26."}, {"lesson": "Functions", "q": "Which condition makes a relation a function?", "options": ["Every input has exactly one output", "Every output has exactly one input", "All co-domain values must be used", "Inputs must be numbers only"], "answer": 0, "explain": "A function requires each input to have exactly one output."}, {"lesson": "Functions", "q": "A = {a,b,c}, B = {1,2,3}, f(a)=1, f(b)=2, f(c)=2. Which statement is correct?", "options": ["One-to-one and onto", "One-to-one but not onto", "Onto but not one-to-one", "Neither one-to-one nor onto"], "answer": 3, "explain": "Output 2 is repeated, so it is not one-to-one; output 3 is unused, so it is not onto."}, {"lesson": "Functions", "q": "What is the inverse of f(x)=4x−7?", "options": ["(x+7)/4", "(x−7)/4", "4x+7", "7x−4"], "answer": 0, "explain": "Let y=4x−7. Swap x and y: x=4y−7, so y=(x+7)/4."}, {"lesson": "Sequences", "q": "The sequence 10, 15, 20, 25, ... is:", "options": ["Geometric", "Arithmetic", "Factorial", "Fibonacci"], "answer": 1, "explain": "The difference is always 5, so it is arithmetic."}, {"lesson": "Sequences", "q": "For an arithmetic sequence with first term 7 and common difference 3, what is a₁₂?", "options": ["36", "40", "43", "33"], "answer": 1, "explain": "aₙ = a + (n−1)d = 7 + 11×3 = 40."}, {"lesson": "Sequences", "q": "For geometric sequence 5, 15, 45, 135, ..., what is the common ratio?", "options": ["2", "3", "5", "10"], "answer": 1, "explain": "Each term is multiplied by 3."}, {"lesson": "Counting I", "q": "A student can choose one task from 18 theory tasks OR 12 practical tasks. How many choices?", "options": ["30", "216", "18", "12"], "answer": 0, "explain": "OR/separate choices use the sum rule: 18 + 12 = 30."}, {"lesson": "Counting I", "q": "A password has 2 uppercase letters followed by 2 digits. Repetition is allowed. How many passwords?", "options": ["26² × 10²", "26P2 × 10P2", "26 + 26 + 10 + 10", "52 × 20"], "answer": 0, "explain": "Each position is independent, so multiply: 26×26×10×10."}, {"lesson": "Counting I", "q": "How many ways can 5 distinct books be arranged on a shelf?", "options": ["5", "10", "25", "120"], "answer": 3, "explain": "Arranging all 5 distinct books is 5! = 120."}, {"lesson": "Counting I", "q": "How many 3-router ordered paths can be selected from 8 routers without repetition?", "options": ["C(8,3)", "P(8,3)", "8³", "3⁸"], "answer": 1, "explain": "Order matters and no repetition, so use permutation P(8,3)."}, {"lesson": "Counting I", "q": "At least how many people must share a birth month in a group of 25 people?", "options": ["2", "3", "12", "13"], "answer": 1, "explain": "Use pigeonhole: ⌈25/12⌉ = 3."}, {"lesson": "Counting II", "q": "A team selects 4 students from 11 students. Order does not matter. Which formula?", "options": ["P(11,4)", "C(11,4)", "11⁴", "4¹¹"], "answer": 1, "explain": "Selecting a group where order does not matter uses combination C(11,4)."}, {"lesson": "Counting II", "q": "Choose 6 items from 4 types where repetition is allowed and order does not matter. Which formula?", "options": ["C(4,6)", "P(6,4)", "C(9,6)", "4⁶"], "answer": 2, "explain": "Combination with repetition: C(n+r−1,r)=C(4+6−1,6)=C(9,6)."}, {"lesson": "Counting II", "q": "What is the coefficient row for (x+y)³?", "options": ["1,2,1", "1,3,3,1", "1,4,6,4,1", "1,5,10,10,5,1"], "answer": 1, "explain": "Pascal row for power 3 is 1,3,3,1."}, {"lesson": "Counting II", "q": "A robot moves from (0,0) to (3,4), only right and up. How many paths?", "options": ["C(7,4)", "3×4", "7", "P(7,4)"], "answer": 0, "explain": "There are 7 total moves. Choose positions for 4 up moves or 3 right moves: C(7,4)=35."}, {"lesson": "Recursion", "q": "What is the base case in recursion?", "options": ["The stopping condition", "The repeated call only", "The largest input", "The final exam answer"], "answer": 0, "explain": "The base case stops recursion and prevents infinite calls."}, {"lesson": "Recursion", "q": "If L(0)=5 and L(n)=L(n−1)+4, what is L(3)?", "options": ["9", "13", "17", "20"], "answer": 2, "explain": "L(1)=9, L(2)=13, L(3)=17."}, {"lesson": "Graphs", "q": "A graph is written as G=(V,E). What does E represent?", "options": ["Elements", "Edges", "Endpoints only", "Equations"], "answer": 1, "explain": "In graph theory, V is vertices and E is edges."}, {"lesson": "Graphs", "q": "A graph with arrows on all edges is called a:", "options": ["Undirected graph", "Directed graph", "Simple graph only", "Forest"], "answer": 1, "explain": "Arrows show direction, so it is a directed graph."}, {"lesson": "Graphs", "q": "What is the maximum number of edges in a simple graph with 6 vertices?", "options": ["6", "12", "15", "36"], "answer": 2, "explain": "Maximum edges = n(n−1)/2 = 6×5/2 = 15."}, {"lesson": "Graphs", "q": "In a directed graph, indegree means:", "options": ["Arrows coming into a vertex", "Arrows leaving a vertex", "Total vertices", "Number of weights"], "answer": 0, "explain": "Indegree counts incoming directed edges."}, {"lesson": "Trees", "q": "A tree with n vertices has how many edges?", "options": ["n", "n−1", "n+1", "2n"], "answer": 1, "explain": "A tree with n vertices has exactly n−1 edges."}, {"lesson": "Trees", "q": "A node with no children in a rooted tree is called:", "options": ["Root", "Leaf", "Parent", "Sibling"], "answer": 1, "explain": "A leaf is a node with no children."}, {"lesson": "Trees", "q": "A binary tree is a rooted tree where each node has:", "options": ["At most 2 children", "Exactly 3 children", "No children", "Only one level"], "answer": 0, "explain": "Binary tree means each node has at most two children."}, {"lesson": "Big O", "q": "What is the Big O of 9n + 100?", "options": ["O(9n)", "O(n)", "O(n²)", "O(1)"], "answer": 1, "explain": "Ignore constants and lower terms. Linear growth is O(n)."}, {"lesson": "Big O", "q": "Two nested loops each running from 1 to n have complexity:", "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"], "answer": 3, "explain": "Nested n by n loops produce n² operations."}, {"lesson": "Big O", "q": "Which complexity is best among these?", "options": ["O(n²)", "O(n)", "O(log n)", "O(n!)"], "answer": 2, "explain": "O(log n) grows slower than O(n), O(n²), and O(n!)."}]}, {"title": "MCQ Mock Exam 02", "questions": [{"lesson": "Sets", "q": "What is the cardinality of A = {red, blue, green, yellow}?", "options": ["2", "3", "4", "5"], "answer": 2, "explain": "Cardinality is the number of elements. This set has 4 elements."}, {"lesson": "Sets", "q": "If A = {1,2,3} and B = {3,4,5}, what is A − B?", "options": ["{1,2}", "{3}", "{4,5}", "{1,2,3,4,5}"], "answer": 0, "explain": "A−B means elements in A but not in B: 1 and 2."}, {"lesson": "Sets", "q": "Which law is (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ?", "options": ["Commutative law", "De Morgan's law", "Pigeonhole principle", "Pascal identity"], "answer": 1, "explain": "This is De Morgan's law: complement of intersection becomes union of complements."}, {"lesson": "Functions", "q": "What is the co-domain in f: A → B?", "options": ["A", "B", "Only actual outputs", "Only repeated outputs"], "answer": 1, "explain": "B is the co-domain, the set of possible output values."}, {"lesson": "Functions", "q": "A function is one-to-one when:", "options": ["Every co-domain value is used", "Different inputs give different outputs", "One input has two outputs", "All outputs are repeated"], "answer": 1, "explain": "One-to-one means no two different inputs share the same output."}, {"lesson": "Functions", "q": "If f(x)=2x+3 and g(x)=x−1, what is f(g(4))?", "options": ["5", "7", "9", "11"], "answer": 2, "explain": "g(4)=3, then f(3)=2×3+3=9."}, {"lesson": "Sequences", "q": "What does Σ notation mean?", "options": ["Add terms", "Multiply terms", "Find complement", "Draw graph"], "answer": 0, "explain": "Sigma notation Σ means summation/addition."}, {"lesson": "Sequences", "q": "Calculate ∑ from i=1 to 4 of i.", "options": ["4", "6", "10", "24"], "answer": 2, "explain": "1+2+3+4=10."}, {"lesson": "Sequences", "q": "For geometric sequence with first term 2 and ratio 5, what is a₄?", "options": ["10", "50", "125", "250"], "answer": 3, "explain": "a₄ = 2×5³ = 250."}, {"lesson": "Counting I", "q": "A license plate has 3 letters followed by 1 digit, repetition allowed. How many plates?", "options": ["26³×10", "26P3×10", "26+26+26+10", "78×10"], "answer": 0, "explain": "Product rule with repetition: 26×26×26×10."}, {"lesson": "Counting I", "q": "How many ways can 3 distinct tasks be assigned to 3 distinct employees, one task each?", "options": ["3", "6", "9", "27"], "answer": 1, "explain": "This is 3! = 6 assignments."}, {"lesson": "Counting I", "q": "How many 4-character strings can be made from {A,B,C} with repetition allowed?", "options": ["12", "24", "64", "81"], "answer": 3, "explain": "Each of 4 positions has 3 choices: 3⁴=81."}, {"lesson": "Counting I", "q": "Using digits 1 to 6 without repetition, how many 3-digit numbers can be created?", "options": ["18", "120", "216", "720"], "answer": 1, "explain": "6 choices for first, 5 for second, 4 for third: 6×5×4=120."}, {"lesson": "Counting I", "q": "How many arrangements are there for the letters in DATA?", "options": ["4!", "4!/2!", "2!", "4²"], "answer": 1, "explain": "DATA has two A's, so arrangements = 4!/2!."}, {"lesson": "Counting II", "q": "What is C(7,2)?", "options": ["14", "21", "35", "42"], "answer": 1, "explain": "C(7,2)=7×6/2=21."}, {"lesson": "Counting II", "q": "Select 2 backend engineers from 5 and 3 frontend engineers from 8. How many teams?", "options": ["C(5,2)+C(8,3)", "C(5,2)×C(8,3)", "P(5,2)×P(8,3)", "C(13,5)"], "answer": 1, "explain": "Choose from both groups, so multiply combinations."}, {"lesson": "Counting II", "q": "In Pascal's Triangle, the row for power 5 is:", "options": ["1,4,6,4,1", "1,5,10,10,5,1", "1,6,15,20,15,6,1", "1,3,3,1"], "answer": 1, "explain": "Coefficients of (x+y)^5 are 1,5,10,10,5,1."}, {"lesson": "Counting II", "q": "Coefficient of x²y³ in (x+y)⁵ is:", "options": ["C(5,2)", "C(2,3)", "5", "1"], "answer": 0, "explain": "The coefficient is C(5,3) or C(5,2), both equal 10."}, {"lesson": "Recursion", "q": "Which recursive definition matches n!?", "options": ["f(0)=1, f(n)=n f(n−1)", "f(0)=0, f(n)=f(n−1)+1", "f(n)=f(n−1)+f(n−2)", "f(n)=2n"], "answer": 0, "explain": "Factorial uses multiplication by n with base case 0!=1."}, {"lesson": "Recursion", "q": "For Fibonacci F₀=0, F₁=1, Fₙ=Fₙ₋₁+Fₙ₋₂, what is F₅?", "options": ["3", "5", "8", "13"], "answer": 1, "explain": "The sequence is 0,1,1,2,3,5, so F₅=5."}, {"lesson": "Graphs", "q": "A simple graph does NOT allow:", "options": ["Vertices", "Edges", "Loops or multiple edges", "Undirected edges"], "answer": 2, "explain": "Simple graphs have no loops and no multiple/parallel edges."}, {"lesson": "Graphs", "q": "A graph with edge weights is called a:", "options": ["Weighted graph", "Empty graph", "Power graph", "Function graph only"], "answer": 0, "explain": "Weights can represent cost, distance, or time."}, {"lesson": "Graphs", "q": "A path that starts and ends at the same vertex is called a:", "options": ["Circuit", "Leaf", "Root", "Range"], "answer": 0, "explain": "A circuit returns to the starting vertex."}, {"lesson": "Graphs", "q": "Can a simple graph with 9 vertices all of degree 3 exist?", "options": ["Yes, always", "No, because total degree is odd", "No, because degree 3 impossible", "Yes, because 9+3 is even"], "answer": 1, "explain": "Total degree would be 9×3=27, odd. Sum of degrees must be even."}, {"lesson": "Trees", "q": "A forest is:", "options": ["A connected graph with cycles", "A graph with no simple circuits, possibly disjoint trees", "A graph with only loops", "A complete graph"], "answer": 1, "explain": "A forest consists of disjoint trees and has no simple circuits."}, {"lesson": "Trees", "q": "A full binary tree has each node with:", "options": ["0 or 2 children", "0 or 1 child", "Exactly 1 child", "At most 3 children"], "answer": 0, "explain": "Full binary tree allows 0 or 2 children only."}, {"lesson": "Trees", "q": "In lecture-style heap indexing, the right child of index i is:", "options": ["⌊i/2⌋", "2i", "2i+1", "i+1"], "answer": 2, "explain": "For 1-based heap indexing, right child is 2i+1."}, {"lesson": "Big O", "q": "What is the Big O of 6n³ + 2n² + 9?", "options": ["O(n)", "O(n²)", "O(n³)", "O(1)"], "answer": 2, "explain": "The highest power term n³ dominates."}, {"lesson": "Big O", "q": "A loop that halves n each time is usually:", "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"], "answer": 1, "explain": "Repeated halving gives logarithmic growth."}, {"lesson": "Big O", "q": "Which is worse for large n?", "options": ["O(n)", "O(n log n)", "O(n²)", "O(log n)"], "answer": 2, "explain": "Among these, O(n²) grows fastest."}]}, {"title": "MCQ Mock Exam 03", "questions": [{"lesson": "Sets", "q": "If A = {x | x is an even number less than 10 and greater than 0}, then A is:", "options": ["{1,3,5,7,9}", "{2,4,6,8}", "{0,2,4,6,8,10}", "∅"], "answer": 1, "explain": "Positive even numbers less than 10 are 2,4,6,8."}, {"lesson": "Sets", "q": "If A = {1,2} and B = {a,b}, how many ordered pairs are in A × B?", "options": ["2", "4", "6", "8"], "answer": 1, "explain": "|A×B|=|A|×|B|=2×2=4."}, {"lesson": "Sets", "q": "If C is a proper subset of A, which is true?", "options": ["C has all elements of A and no difference", "Every element of C is in A, and A has at least one extra element", "C and A are disjoint", "C must be empty"], "answer": 1, "explain": "Proper subset means contained in A but not equal to A."}, {"lesson": "Functions", "q": "A = {1,2,3}, B = {2,4,6}, f(x)=2x. What is the range?", "options": ["{1,2,3}", "{2,4,6}", "{2,4}", "{6}"], "answer": 1, "explain": "f(1)=2, f(2)=4, f(3)=6, so range is {2,4,6}."}, {"lesson": "Functions", "q": "If range equals co-domain, the function is:", "options": ["Onto", "Not a function", "Many-to-one only", "Inverse only"], "answer": 0, "explain": "Onto means every value in the co-domain is used."}, {"lesson": "Functions", "q": "What does (f∘g)(x) mean?", "options": ["f(x)+g(x)", "g(f(x))", "f(g(x))", "f(x)g(x)"], "answer": 2, "explain": "In f∘g, apply g first, then f."}, {"lesson": "Sequences", "q": "The sequence 1, 3, 9, 27, ... has common ratio:", "options": ["2", "3", "6", "9"], "answer": 1, "explain": "Each term is multiplied by 3."}, {"lesson": "Sequences", "q": "If aₙ = 2n², what is a₄?", "options": ["8", "16", "32", "64"], "answer": 2, "explain": "a₄=2×4²=2×16=32."}, {"lesson": "Sequences", "q": "What is 5! ?", "options": ["20", "60", "100", "120"], "answer": 3, "explain": "5! = 5×4×3×2×1 = 120."}, {"lesson": "Counting I", "q": "A device has 4 color choices and 3 size choices. Choosing one color and one size gives:", "options": ["7", "12", "43", "1"], "answer": 1, "explain": "AND/one from each category uses product rule: 4×3=12."}, {"lesson": "Counting I", "q": "How many 4-digit PINs can be formed using 0-9 with repetition allowed?", "options": ["40", "5040", "10000", "9999"], "answer": 2, "explain": "Each of 4 positions has 10 choices: 10⁴=10000."}, {"lesson": "Counting I", "q": "How many ways can 3 out of 6 distinct books be arranged?", "options": ["C(6,3)", "P(6,3)", "6³", "3⁶"], "answer": 1, "explain": "Arranged/order matters and no repetition, so use P(6,3)."}, {"lesson": "Counting I", "q": "The letters in BANANA can be arranged in how many unique ways?", "options": ["6!", "6!/(3!2!)", "6!/3!", "3!2!"], "answer": 1, "explain": "BANANA has 3 A's and 2 N's, so divide by 3!2!."}, {"lesson": "Counting I", "q": "A class has 40 students and 12 months. At least how many students share a birth month?", "options": ["2", "3", "4", "12"], "answer": 2, "explain": "⌈40/12⌉ = 4."}, {"lesson": "Counting II", "q": "What is C(10,3)?", "options": ["120", "720", "1000", "30"], "answer": 0, "explain": "C(10,3)=10×9×8/(3×2×1)=120."}, {"lesson": "Counting II", "q": "Which phrase usually indicates combination?", "options": ["Arrange in order", "Specific order", "Select a committee", "Followed by"], "answer": 2, "explain": "Committee/group/selection usually means order does not matter."}, {"lesson": "Counting II", "q": "A robot goes from (0,0) to (5,2), only right/up. Total paths:", "options": ["C(7,2)", "5×2", "7", "P(7,2)"], "answer": 0, "explain": "7 total moves; choose 2 up moves: C(7,2)."}, {"lesson": "Counting II", "q": "Pascal identity is:", "options": ["C(n+1,k)=C(n,k−1)+C(n,k)", "A∪B=B∪A", "P(n,r)=n!/(n−r)!", "aₙ=a+(n−1)d"], "answer": 0, "explain": "Pascal identity adds two binomial coefficients above it."}, {"lesson": "Recursion", "q": "What happens if recursion has no base case?", "options": ["It may continue forever", "It becomes O(1) automatically", "It becomes a set", "It becomes a graph"], "answer": 0, "explain": "Without a stopping point, recursion may cause infinite recursive calls."}, {"lesson": "Recursion", "q": "S(1)=1 and S(n)=S(n−1)+n defines:", "options": ["Factorial", "Sum of first n natural numbers", "Power set", "Graph degree"], "answer": 1, "explain": "It adds current n to the previous sum."}, {"lesson": "Graphs", "q": "A graph that allows loops is called:", "options": ["Simple graph", "Pseudograph", "Complete binary tree", "Arithmetic graph"], "answer": 1, "explain": "Pseudographs may include loops."}, {"lesson": "Graphs", "q": "For an undirected graph, degree of a vertex counts:", "options": ["Edges touching the vertex", "Only incoming arrows", "Only outgoing arrows", "Only vertices not connected"], "answer": 0, "explain": "Degree is the number of incident edges."}, {"lesson": "Graphs", "q": "A Hamiltonian circuit visits:", "options": ["Every edge exactly once", "Every vertex exactly once and returns to start", "Only leaves", "Only weighted edges"], "answer": 1, "explain": "Hamiltonian circuit focuses on visiting every vertex once and returning to start."}, {"lesson": "Graphs", "q": "An adjacency matrix of an undirected simple graph is usually:", "options": ["Symmetric", "Always empty", "Always diagonal only", "Never square"], "answer": 0, "explain": "If u is connected to v, then v is connected to u, so the matrix is symmetric."}, {"lesson": "Trees", "q": "The top node of a rooted tree is the:", "options": ["Leaf", "Root", "Sibling", "Descendant"], "answer": 1, "explain": "Root is the top node and has no parent."}, {"lesson": "Trees", "q": "A complete binary tree is filled:", "options": ["Only right to left", "Level by level from left to right", "With loops", "Randomly"], "answer": 1, "explain": "Complete binary tree fills each level from left to right."}, {"lesson": "Trees", "q": "A spanning tree must:", "options": ["Include all vertices and have no cycle", "Include only one vertex", "Include all cycles", "Be disconnected"], "answer": 0, "explain": "A spanning tree connects all vertices and is a tree, so it has no cycle."}, {"lesson": "Big O", "q": "What is Big O of 100 constant operations?", "options": ["O(1)", "O(n)", "O(n²)", "O(100n)"], "answer": 0, "explain": "A fixed number of operations does not grow with input size."}, {"lesson": "Big O", "q": "Simplify n + log n + 6 using Big O.", "options": ["O(log n)", "O(n)", "O(6)", "O(n log n)"], "answer": 1, "explain": "n grows faster than log n and constants, so O(n)."}, {"lesson": "Big O", "q": "Which order is correct from best to worst?", "options": ["O(1), O(log n), O(n), O(n²), O(n!)", "O(n!), O(n²), O(n), O(1)", "O(n), O(1), O(log n), O(n²)", "O(n²), O(log n), O(1), O(n)"], "answer": 0, "explain": "Standard growth order from best to worst is O(1), O(log n), O(n), O(n log n), O(n²), O(2ⁿ), O(n!)."}]}];
+let round = 0, cur = 0;
+let states = mocks.map(m => m.questions.map(() => ({answered:false, selected:null, correct:false})));
+
+function qs(){ return mocks[round].questions; }
+function st(){ return states[round]; }
+function roundCorrect(r){ return states[r].filter(s=>s.correct).length; }
+function roundAnswered(r){ return states[r].filter(s=>s.answered).length; }
+function overallCorrect(){ return states.reduce((a,_,i)=>a+roundCorrect(i),0); }
+function overallTotal(){ return mocks.reduce((a,m)=>a+m.questions.length,0); }
+
+function calc(){
+ const total = qs().length, correct = roundCorrect(round), answered = roundAnswered(round);
+ document.getElementById('roundPct').textContent = Math.round(correct/total*100) + '%';
+ document.getElementById('roundScore').textContent = correct + ' / ' + total;
+ document.getElementById('overallScore').textContent = overallCorrect() + ' / ' + overallTotal();
+ document.getElementById('answered').textContent = answered + ' / ' + total;
+ document.getElementById('fill').style.width = (answered/total*100) + '%';
+}
+function nav(){
+ const rn = document.getElementById('roundNav'); rn.innerHTML = '';
+ mocks.forEach((m,i)=>{
+  const b=document.createElement('button');
+  b.className='btn secondary roundBtn '+(i===round?'active':'');
+  b.onclick=()=>{round=i;cur=0;hideResult();render();};
+  b.innerHTML='<span>'+m.title+'</span><span>'+roundCorrect(i)+'/'+m.questions.length+'</span>';
+  rn.appendChild(b);
+ });
+ const ln=document.getElementById('lessonNav'); ln.innerHTML='';
+ const lessons=[...new Set(qs().map(q=>q.lesson))];
+ lessons.forEach(les=>{
+   const first=qs().findIndex(q=>q.lesson===les);
+   const ids=qs().map((q,i)=>q.lesson===les?i:null).filter(x=>x!==null);
+   const c=ids.filter(i=>st()[i].correct).length;
+   const b=document.createElement('button');
+   b.className='btn secondary lessonBtn '+(qs()[cur].lesson===les?'active':'');
+   b.onclick=()=>{cur=first;hideResult();render();};
+   b.innerHTML='<span>'+les+'</span><span>'+c+'/'+ids.length+'</span>';
+   ln.appendChild(b);
+ });
+}
+function render(){
+ const q=qs()[cur], s=st()[cur], area=document.getElementById('quizArea');
+ document.getElementById('prev').disabled = cur===0;
+ document.getElementById('next').disabled = cur===qs().length-1 && round===mocks.length-1;
+ let html='<div class="part">'+mocks[round].title+' • Question '+(cur+1)+' of '+qs().length+'</div><span class="tag">'+q.lesson+'</span><div class="qtitle">'+esc(q.q)+'</div><div class="options">';
+ q.options.forEach((op,i)=>{
+   let cls='opt';
+   if(s.answered){ if(i===q.answer) cls+=' correct'; if(i===s.selected && i!==q.answer) cls+=' wrong';}
+   html+='<button class="'+cls+'" '+(s.answered?'disabled':'')+' onclick="choose('+i+')">'+String.fromCharCode(65+i)+'. '+esc(op)+'</button>';
+ });
+ html+='</div><div id="fb" class="feedback"></div>';
+ area.innerHTML=html;
+ showFeedback(); calc(); nav();
+}
+function choose(i){
+ const q=qs()[cur], s=st()[cur];
+ if(s.answered) return;
+ s.answered=true; s.selected=i; s.correct=(i===q.answer);
+ render();
+}
+function showFeedback(){
+ const q=qs()[cur], s=st()[cur], fb=document.getElementById('fb');
+ if(!s.answered){fb.style.display='none'; return;}
+ if(s.correct){
+   fb.className='feedback good'; fb.style.display='block';
+   fb.innerHTML='<h3 class="green">Correct ✅</h3><p>'+esc(q.explain)+'</p>';
+ } else {
+   fb.className='feedback bad'; fb.style.display='block';
+   fb.innerHTML='<h3 class="red">Wrong ❌</h3><p><b>Your answer:</b> '+esc(q.options[s.selected])+'</p><p><span class="green">Correct answer:</span> '+esc(q.options[q.answer])+'</p><p><b>Why:</b> '+esc(q.explain)+'</p>';
+ }
+}
+function next(){
+ if(cur<qs().length-1){cur++; hideResult(); render();}
+ else if(round<mocks.length-1 && confirm('Move to next MCQ mock exam?')){round++;cur=0;hideResult();render();}
+}
+function prev(){ if(cur>0){cur--;hideResult();render();} }
+function goRoundStart(){cur=0;hideResult();render();}
+function hideResult(){document.getElementById('result').style.display='none';}
+function resetAll(){
+ if(confirm('Reset all 3 MCQ mock exams?')){
+   states = mocks.map(m => m.questions.map(() => ({answered:false, selected:null, correct:false})));
+   round=0; cur=0; hideResult(); render();
+ }
+}
+function roundAnalysis(i){
+ const m=mocks[i], ss=states[i], total=m.questions.length, correct=roundCorrect(i);
+ const lessons=[...new Set(m.questions.map(q=>q.lesson))];
+ let out='<h3>'+m.title+' - '+Math.round(correct/total*100)+'%</h3>';
+ lessons.forEach(les=>{
+   const ids=m.questions.map((q,idx)=>q.lesson===les?idx:null).filter(x=>x!==null);
+   const c=ids.filter(idx=>ss[idx].correct).length;
+   const pct=Math.round(c/ids.length*100);
+   out+='<span class="pill '+(pct>=80?'gp':pct>=60?'wp':'bp')+'">'+les+': '+c+'/'+ids.length+' ('+pct+'%)</span>';
+ });
+ return out;
+}
+function showOverall(){
+ const total=overallTotal(), correct=overallCorrect(), pct=Math.round(correct/total*100);
+ let weakLessons={}, strongLessons={};
+ mocks.forEach((m,mi)=>{
+   const lessons=[...new Set(m.questions.map(q=>q.lesson))];
+   lessons.forEach(les=>{
+     const ids=m.questions.map((q,idx)=>q.lesson===les?idx:null).filter(x=>x!==null);
+     const c=ids.filter(idx=>states[mi][idx].correct).length;
+     const t=ids.length;
+     if(!weakLessons[les]) weakLessons[les]={c:0,t:0};
+     weakLessons[les].c+=c; weakLessons[les].t+=t;
+   });
+ });
+ const lessonSummary=Object.entries(weakLessons).map(([les,v])=>({les,c:v.c,t:v.t,p:Math.round(v.c/v.t*100)}));
+ const weak=lessonSummary.filter(x=>x.p<60);
+ const good=lessonSummary.filter(x=>x.p>=80);
+ const r=document.getElementById('result'); r.style.display='block';
+ r.innerHTML='<h2>Overall MCQ Result</h2><div class="stats"><div class="stat"><b>'+pct+'%</b><span>Overall percentage</span></div><div class="stat"><b>'+correct+'/'+total+'</b><span>Total correct</span></div><div class="stat"><b>'+roundAnswered(0)+'+'+roundAnswered(1)+'+'+roundAnswered(2)+'</b><span>Answered by round</span></div><div class="stat"><b>'+(pct>=75?'Good':pct>=50?'Pass Practice':'Revise')+'</b><span>Status</span></div></div>'+
+   mocks.map((_,i)=>roundAnalysis(i)).join('')+
+   '<h3>Overall Strong Lessons</h3>'+(good.length?good.map(x=>'<span class="pill gp">'+x.les+' '+x.c+'/'+x.t+' ('+x.p+'%)</span>').join(''):'<p class="small">No lesson is above 80% yet.</p>')+
+   '<h3>Overall Weak Lessons</h3>'+(weak.length?weak.map(x=>'<span class="pill bp">'+x.les+' '+x.c+'/'+x.t+' ('+x.p+'%)</span>').join(''):'<p class="small">No lesson is below 60%. Good work.</p>')+
+   '<p class="small">Red lessons should be revised first. Yellow lessons need quick formula recall. Green lessons are strong.</p>';
+ r.scrollIntoView({behavior:'smooth'});
+ calc(); nav();
+}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+render();
+</script>
+</body>
+</html>

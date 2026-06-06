@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SE1020 OOP - SOLID Principles Interactive Quiz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --card2: #1f2937;
+        --text: #f9fafb;
+        --muted: #cbd5e1;
+        --accent: #38bdf8;
+        --good: #22c55e;
+        --bad: #ef4444;
+        --warn: #f59e0b;
+        --border: #334155;
+    }
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, #020617, #0f172a);
+        color: var(--text);
+        line-height: 1.5;
+    }
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 22px;
+    }
+    .hero {
+        background: linear-gradient(135deg, #075985, #111827);
+        padding: 24px;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        box-shadow: 0 10px 35px rgba(0,0,0,.35);
+        margin-bottom: 18px;
+    }
+    h1, h2, h3 { margin-top: 0; }
+    .subtitle { color: #e0f2fe; font-size: 15px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .pill {
+        background: rgba(56,189,248,.12);
+        border: 1px solid rgba(56,189,248,.45);
+        color: #e0f2fe;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 13px;
+    }
+    .panel {
+        background: rgba(17,24,39,.94);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 18px;
+        margin: 16px 0;
+        box-shadow: 0 8px 28px rgba(0,0,0,.25);
+    }
+    .quick-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    .quick-table th, .quick-table td {
+        border: 1px solid #334155;
+        padding: 10px;
+        text-align: left;
+        font-size: 14px;
+    }
+    .quick-table th { background: #0f172a; color: #bae6fd; }
+    .quick-table td { background: #111827; }
+    .progress-wrap {
+        width: 100%;
+        background: #1e293b;
+        height: 12px;
+        border-radius: 999px;
+        overflow: hidden;
+        margin: 12px 0 4px;
+    }
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #38bdf8, #22c55e);
+        transition: width .25s ease;
+    }
+    .question-card {
+        display: none;
+        background: #111827;
+        border: 1px solid #334155;
+        border-radius: 16px;
+        padding: 20px;
+        margin-top: 16px;
+    }
+    .question-card.active { display: block; }
+    .q-meta {
+        color: var(--accent);
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    .question {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 14px;
+    }
+    .options label {
+        display: block;
+        padding: 12px;
+        margin: 10px 0;
+        background: #1f2937;
+        border: 1px solid #374151;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: .15s;
+    }
+    .options label:hover { border-color: var(--accent); transform: translateY(-1px); }
+    select, textarea, input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #475569;
+        background: #0f172a;
+        color: white;
+        font-size: 15px;
+        margin-top: 8px;
+    }
+    textarea { min-height: 100px; resize: vertical; }
+    .feedback {
+        display: none;
+        margin-top: 14px;
+        padding: 12px;
+        border-radius: 12px;
+        background: #0f172a;
+        border: 1px solid #334155;
+    }
+    .feedback.good { border-color: var(--good); }
+    .feedback.bad { border-color: var(--bad); }
+    .buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 16px;
+    }
+    button {
+        border: 0;
+        border-radius: 12px;
+        padding: 11px 15px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #06111f;
+        background: var(--accent);
+        transition: .15s;
+    }
+    button:hover { transform: translateY(-1px); filter: brightness(1.05); }
+    button.secondary {
+        background: #334155;
+        color: var(--text);
+    }
+    button.success {
+        background: var(--good);
+    }
+    button.warn {
+        background: var(--warn);
+    }
+    .score-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 12px;
+        margin-top: 12px;
+    }
+    .score-box {
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 14px;
+        padding: 14px;
+    }
+    .score-box strong { color: #bae6fd; }
+    .hidden { display: none; }
+    .tag {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: #1e293b;
+        color: #bae6fd;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+    .mini-note {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 8px;
+    }
+    .correct-line { color: #86efac; font-weight: bold; }
+    .wrong-line { color: #fca5a5; font-weight: bold; }
+    .footer {
+        text-align: center;
+        color: #94a3b8;
+        font-size: 13px;
+        margin: 24px 0 8px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>SE1020 OOP - SOLID Principles Interactive Quiz</h1>
+        <div class="subtitle">Created by Janidu Sandaruwan(Y1S2) • Final Exam Practice • Lesson 07</div>
+        <div class="pill-row">
+            <span class="pill">10 marks theory area</span>
+            <span class="pill">MCQ + dropdown + written answers</span>
+            <span class="pill">Auto marking</span>
+            <span class="pill">Weak-point analysis</span>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2>Quick Recall Before Quiz</h2>
+        <table class="quick-table">
+            <tr><th>Letter</th><th>Principle</th><th>Easy meaning</th></tr>
+            <tr><td>S</td><td>Single Responsibility</td><td>One class should have one main job.</td></tr>
+            <tr><td>O</td><td>Open/Closed</td><td>Open for extension, closed for modification.</td></tr>
+            <tr><td>L</td><td>Liskov Substitution</td><td>Child class should work wherever parent is used.</td></tr>
+            <tr><td>I</td><td>Interface Segregation</td><td>Do not force unused methods.</td></tr>
+            <tr><td>D</td><td>Dependency Inversion</td><td>Depend on abstractions, not concrete classes.</td></tr>
+        </table>
+        <div class="mini-note">Answer all questions. For written questions, click “Show model answer” and self-check.</div>
+    </div>
+
+    <div class="panel" id="quizPanel">
+        <h2>Quiz</h2>
+        <div id="qCounter"></div>
+        <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+        <div id="questionArea"></div>
+        <div class="buttons">
+            <button class="secondary" onclick="prevQuestion()">Previous</button>
+            <div>
+                <button onclick="checkCurrent()">Check Answer</button>
+                <button class="secondary" onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel hidden" id="resultPanel">
+        <h2>Final Result</h2>
+        <div id="finalScore"></div>
+        <div class="score-grid" id="sectionScores"></div>
+        <h3>Weak-Point Analysis</h3>
+        <div id="weakAnalysis"></div>
+        <h3>Strong-Area Analysis</h3>
+        <div id="strongAnalysis"></div>
+        <div class="buttons">
+            <button class="warn" onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+
+    <div class="footer">Study clue: In final exam, SOLID usually comes as short-answer definitions, identify violated principle, or small example.</div>
+</div>
+
+<script>
+const questions = [
+    {
+        type: "mcq", section: "Basic Meaning", principle: "S",
+        q: "What does S in SOLID stand for?",
+        options: ["Static Responsibility", "Single Responsibility", "System Requirement", "Super Responsibility"],
+        answer: 1,
+        explain: "S means Single Responsibility Principle. One class should have one main reason to change."
+    },
+    {
+        type: "mcq", section: "Basic Meaning", principle: "O",
+        q: "Open/Closed Principle means:",
+        options: ["A class should be open for editing always", "Code should be open for extension but closed for modification", "All methods must be public", "Classes should be closed and never used"],
+        answer: 1,
+        explain: "OCP means we should add new behavior without changing already tested old code."
+    },
+    {
+        type: "mcq", section: "Basic Meaning", principle: "L",
+        q: "Liskov Substitution Principle mainly checks:",
+        options: ["Can a child object safely replace a parent object?", "Can a class have many methods?", "Can static variables be changed?", "Can ArrayList remove objects?"],
+        answer: 0,
+        explain: "LSP says subtypes must be usable wherever base types are expected."
+    },
+    {
+        type: "mcq", section: "Basic Meaning", principle: "I",
+        q: "Interface Segregation Principle means:",
+        options: ["Use one large interface for all methods", "Do not force a class to implement methods it does not use", "Never use interfaces", "Only abstract classes are allowed"],
+        answer: 1,
+        explain: "ISP says clients/classes should not depend on unused interface methods."
+    },
+    {
+        type: "mcq", section: "Basic Meaning", principle: "D",
+        q: "Dependency Inversion Principle says we should depend on:",
+        options: ["Concrete classes only", "Abstractions like interfaces or abstract classes", "Only static methods", "Only child classes"],
+        answer: 1,
+        explain: "DIP says high-level code should depend on abstractions, not concrete classes."
+    },
+    {
+        type: "dropdown", section: "Identify Principle", principle: "S",
+        q: "A class handles user registration, sends emails, writes log files, and saves reports. Which SOLID principle is mainly violated?",
+        options: ["Single Responsibility", "Open/Closed", "Liskov Substitution", "Dependency Inversion"],
+        answer: "Single Responsibility",
+        explain: "Too many jobs in one class violates SRP."
+    },
+    {
+        type: "dropdown", section: "Identify Principle", principle: "O",
+        q: "Every time a new payment method is added, the developer changes old if-else code in PaymentProcessor. Which principle is weak?",
+        options: ["Interface Segregation", "Open/Closed", "Single Responsibility", "Liskov Substitution"],
+        answer: "Open/Closed",
+        explain: "OCP prefers adding new classes instead of modifying old tested code."
+    },
+    {
+        type: "dropdown", section: "Identify Principle", principle: "I",
+        q: "A BasicPrinter class is forced to implement print(), scan(), fax(), and photocopy(), but it only prints. Which principle is violated?",
+        options: ["Liskov Substitution", "Dependency Inversion", "Interface Segregation", "Open/Closed"],
+        answer: "Interface Segregation",
+        explain: "ISP says split big interfaces into smaller useful interfaces."
+    },
+    {
+        type: "dropdown", section: "Identify Principle", principle: "D",
+        q: "A ReportService directly creates MySQLDatabase inside it, so it is hard to change to another database. Which principle helps?",
+        options: ["Dependency Inversion", "Single Responsibility", "Liskov Substitution", "Open/Closed"],
+        answer: "Dependency Inversion",
+        explain: "DIP says depend on an interface such as Database, not the exact MySQLDatabase class."
+    },
+    {
+        type: "dropdown", section: "Identify Principle", principle: "L",
+        q: "A child class breaks expected parent behavior, so code using the parent class fails when child object is passed. Which principle is violated?",
+        options: ["Single Responsibility", "Liskov Substitution", "Interface Segregation", "Dependency Inversion"],
+        answer: "Liskov Substitution",
+        explain: "LSP is about child objects safely replacing parent objects."
+    },
+    {
+        type: "mcq", section: "Code Scenario", principle: "S",
+        q: "Which design is better for SRP?",
+        options: [
+            "One class UserService does registration, email sending, PDF creation, and database backup.",
+            "Separate classes: UserService, EmailService, ReportService.",
+            "Put every method as static.",
+            "Use no classes."
+        ],
+        answer: 1,
+        explain: "Separate classes give separate responsibilities."
+    },
+    {
+        type: "mcq", section: "Code Scenario", principle: "O",
+        q: "Best way to support new payment types without changing old payment processor code:",
+        options: [
+            "Add more if-else blocks",
+            "Use a Payment interface and create new payment classes",
+            "Remove old payment classes",
+            "Use only one CashPayment class"
+        ],
+        answer: 1,
+        explain: "Interface + polymorphism supports extension."
+    },
+    {
+        type: "mcq", section: "Code Scenario", principle: "I",
+        q: "Which interface design is better?",
+        options: [
+            "interface Machine { print(); scan(); fax(); } for every machine",
+            "interface Printable { print(); } and interface Scannable { scan(); }",
+            "No interface at all",
+            "One interface with 20 methods"
+        ],
+        answer: 1,
+        explain: "Small focused interfaces follow ISP."
+    },
+    {
+        type: "mcq", section: "Code Scenario", principle: "D",
+        q: "Which code idea follows DIP better?",
+        options: [
+            "OrderService depends directly on MySQLDatabase",
+            "OrderService depends on Database interface",
+            "OrderService creates all classes inside one method",
+            "OrderService uses only public variables"
+        ],
+        answer: 1,
+        explain: "Depending on Database interface makes code flexible."
+    },
+    {
+        type: "mcq", section: "Design Smells", principle: "General",
+        q: "Which design smell means a small change forces many other changes?",
+        options: ["Rigidity", "Opacity", "Viscosity", "Immobility"],
+        answer: 0,
+        explain: "Rigidity means the system is stiff and hard to change."
+    },
+    {
+        type: "mcq", section: "Design Smells", principle: "General",
+        q: "Which design smell means code is hard to understand?",
+        options: ["Fragility", "Opacity", "Rigidity", "Immobility"],
+        answer: 1,
+        explain: "Opacity means the code is unclear and hard to understand."
+    },
+    {
+        type: "mcq", section: "Design Smells", principle: "General",
+        q: "Which design smell means fixing one part breaks another unrelated part?",
+        options: ["Fragility", "Viscosity", "Open/Closed", "Interface Segregation"],
+        answer: 0,
+        explain: "Fragility means changes break unrelated areas."
+    },
+    {
+        type: "text", section: "Written Practice", principle: "S",
+        q: "Write a short answer: What is Single Responsibility Principle?",
+        model: "Single Responsibility Principle means a class should have one main responsibility and one reason to change. Example: Email sending and user registration should be in separate classes.",
+        keywords: ["one", "responsibility", "reason", "change"],
+        explain: "Mention one responsibility / one reason to change."
+    },
+    {
+        type: "text", section: "Written Practice", principle: "O",
+        q: "Write a short answer: What is Open/Closed Principle?",
+        model: "Open/Closed Principle means software entities should be open for extension but closed for modification. We should add new behavior by adding new classes, not changing old tested code.",
+        keywords: ["open", "extension", "closed", "modification"],
+        explain: "Mention open for extension and closed for modification."
+    },
+    {
+        type: "text", section: "Written Practice", principle: "I",
+        q: "Write a short answer: Give one example of Interface Segregation Principle.",
+        model: "Instead of one large Machine interface with print, scan and fax, create small interfaces like Printable, Scannable and Faxable. Then each class implements only what it needs.",
+        keywords: ["interface", "small", "unused", "methods"],
+        explain: "Mention small interfaces and not forcing unused methods."
+    }
+];
+
+let current = 0;
+let answers = new Array(questions.length).fill(null);
+let checked = new Array(questions.length).fill(false);
+let correctness = new Array(questions.length).fill(false);
+
+function renderQuestions() {
+    const area = document.getElementById("questionArea");
+    area.innerHTML = "";
+    questions.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "question-card" + (index === current ? " active" : "");
+        card.id = "qcard-" + index;
+
+        let html = `<div class="q-meta">Question ${index + 1} of ${questions.length} • <span class="tag">${item.section}</span><span class="tag">${item.principle}</span></div>`;
+        html += `<div class="question">${item.q}</div>`;
+
+        if (item.type === "mcq") {
+            html += `<div class="options">`;
+            item.options.forEach((op, i) => {
+                html += `<label><input type="radio" name="q${index}" value="${i}" onchange="saveAnswer(${index}, this.value)"> ${op}</label>`;
+            });
+            html += `</div>`;
+        } else if (item.type === "dropdown") {
+            html += `<select onchange="saveAnswer(${index}, this.value)"><option value="">-- Select answer --</option>`;
+            item.options.forEach(op => html += `<option value="${op}">${op}</option>`);
+            html += `</select>`;
+        } else if (item.type === "text") {
+            html += `<textarea placeholder="Type your short answer here..." oninput="saveAnswer(${index}, this.value)"></textarea>`;
+            html += `<button style="margin-top:10px" class="secondary" onclick="showModel(${index})">Show model answer</button>`;
+            html += `<div class="feedback" id="model-${index}"><strong>Model answer:</strong><br>${item.model}</div>`;
+        }
+
+        html += `<div class="feedback" id="fb-${index}"></div>`;
+        card.innerHTML = html;
+        area.appendChild(card);
+    });
+    updateHeader();
+}
+
+function saveAnswer(index, value) {
+    answers[index] = value;
+}
+
+function showModel(index) {
+    const box = document.getElementById("model-" + index);
+    box.style.display = "block";
+}
+
+function checkCurrent() {
+    const q = questions[current];
+    const fb = document.getElementById("fb-" + current);
+    let ok = false;
+    let msg = "";
+
+    if (q.type === "mcq") {
+        ok = Number(answers[current]) === q.answer;
+        msg = ok ? `<span class="correct-line">Correct ✅</span>` : `<span class="wrong-line">Wrong ❌</span><br>Correct answer: ${q.options[q.answer]}`;
+    } else if (q.type === "dropdown") {
+        ok = answers[current] === q.answer;
+        msg = ok ? `<span class="correct-line">Correct ✅</span>` : `<span class="wrong-line">Wrong ❌</span><br>Correct answer: ${q.answer}`;
+    } else if (q.type === "text") {
+        const text = (answers[current] || "").toLowerCase();
+        const hit = q.keywords.filter(k => text.includes(k.toLowerCase())).length;
+        ok = hit >= 2;
+        msg = ok ? `<span class="correct-line">Good answer ✅</span>` : `<span class="wrong-line">Needs improvement ⚠️</span>`;
+        msg += `<br><strong>Model answer:</strong><br>${q.model}`;
+    }
+
+    checked[current] = true;
+    correctness[current] = ok;
+    fb.innerHTML = `${msg}<br><br><strong>Explanation:</strong> ${q.explain}`;
+    fb.className = "feedback " + (ok ? "good" : "bad");
+    fb.style.display = "block";
+
+    if (current === questions.length - 1) showResults();
+}
+
+function updateHeader() {
+    document.getElementById("qCounter").innerHTML = `<strong>${current + 1}</strong> / ${questions.length}`;
+    document.getElementById("progressBar").style.width = ((current + 1) / questions.length * 100) + "%";
+}
+
+function showQuestion(index) {
+    document.querySelectorAll(".question-card").forEach(c => c.classList.remove("active"));
+    document.getElementById("qcard-" + index).classList.add("active");
+    current = index;
+    updateHeader();
+}
+
+function nextQuestion() {
+    if (current < questions.length - 1) {
+        showQuestion(current + 1);
+    } else {
+        showResults();
+        document.getElementById("resultPanel").scrollIntoView({behavior:"smooth"});
+    }
+}
+
+function prevQuestion() {
+    if (current > 0) showQuestion(current - 1);
+}
+
+function showResults() {
+    const totalAuto = questions.length;
+    const correct = correctness.filter(Boolean).length;
+    const percent = Math.round((correct / totalAuto) * 100);
+
+    document.getElementById("resultPanel").classList.remove("hidden");
+    document.getElementById("finalScore").innerHTML = `<h3>${correct} / ${totalAuto} (${percent}%)</h3>`;
+
+    const sections = {};
+    questions.forEach((q, i) => {
+        if (!sections[q.section]) sections[q.section] = { total: 0, correct: 0 };
+        sections[q.section].total++;
+        if (correctness[i]) sections[q.section].correct++;
+    });
+
+    let sHtml = "";
+    Object.keys(sections).forEach(sec => {
+        const s = sections[sec];
+        sHtml += `<div class="score-box"><strong>${sec}</strong><br>${s.correct} / ${s.total}</div>`;
+    });
+    document.getElementById("sectionScores").innerHTML = sHtml;
+
+    const weak = {};
+    const strong = {};
+    questions.forEach((q, i) => {
+        if (!correctness[i]) weak[q.principle] = (weak[q.principle] || 0) + 1;
+        else strong[q.principle] = (strong[q.principle] || 0) + 1;
+    });
+
+    let weakHtml = Object.keys(weak).length ? "<ul>" : "<p>No major weak area found. Good job.</p>";
+    Object.keys(weak).forEach(k => {
+        let tip = "";
+        if (k === "S") tip = "Revise: one class = one main job.";
+        else if (k === "O") tip = "Revise: add new classes, do not edit old tested code.";
+        else if (k === "L") tip = "Revise: child must safely replace parent.";
+        else if (k === "I") tip = "Revise: small interfaces, no unused methods.";
+        else if (k === "D") tip = "Revise: depend on interface/abstract class.";
+        else tip = "Revise design smells: rigidity, fragility, opacity.";
+        weakHtml += `<li><strong>${k}</strong>: ${weak[k]} mistake(s). ${tip}</li>`;
+    });
+    if (Object.keys(weak).length) weakHtml += "</ul>";
+    document.getElementById("weakAnalysis").innerHTML = weakHtml;
+
+    let strongHtml = Object.keys(strong).length ? "<ul>" : "<p>Answer more questions to find strong areas.</p>";
+    Object.keys(strong).forEach(k => strongHtml += `<li><strong>${k}</strong>: ${strong[k]} correct answer(s).</li>`);
+    if (Object.keys(strong).length) strongHtml += "</ul>";
+    document.getElementById("strongAnalysis").innerHTML = strongHtml;
+}
+
+function restartQuiz() {
+    current = 0;
+    answers = new Array(questions.length).fill(null);
+    checked = new Array(questions.length).fill(false);
+    correctness = new Array(questions.length).fill(false);
+    document.getElementById("resultPanel").classList.add("hidden");
+    renderQuestions();
+    window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+renderQuestions();
+</script>
+</body>
+</html>

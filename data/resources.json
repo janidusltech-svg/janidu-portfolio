@@ -1,32 +1,112 @@
 [
   {
-    "title": "DSA Sample Interactive Quiz",
+    "title": "DM Final Mock Quiz 01",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DM",
+    "type": "Mock Exam",
+    "description": "Interactive Discrete Mathematics final mock quiz for Year 1 Semester 2 revision.",
+    "url": "quizzes/y1s2/dm/dm-final-mock-01.html",
+    "visible": true
+  },
+  {
+    "title": "DM Final Mock Quiz 02",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DM",
+    "type": "Mock Exam",
+    "description": "Interactive Discrete Mathematics final mock quiz for Year 1 Semester 2 revision.",
+    "url": "quizzes/y1s2/dm/dm-final-mock-02.html",
+    "visible": true
+  },
+  {
+    "title": "DM Final Mock Quiz 03",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DM",
+    "type": "Mock Exam",
+    "description": "Interactive Discrete Mathematics final mock quiz for Year 1 Semester 2 revision.",
+    "url": "quizzes/y1s2/dm/dm-final-mock-03.html",
+    "visible": true
+  },
+  {
+    "title": "DM Final Mock Quiz",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DM",
+    "type": "Mock Exam",
+    "description": "Interactive Discrete Mathematics final mock quiz for Year 1 Semester 2 revision.",
+    "url": "quizzes/y1s2/dm/dm-final-mock-final.html",
+    "visible": true
+  },
+  {
+    "title": "DSA Final Mock Quiz 01",
     "year": "Year 1",
     "semester": "Semester 2",
     "module": "DSA",
-    "type": "Interactive Quiz",
-    "description": "A sample HTML quiz card to test the Study Hub resource system. Replace this with your real DSA quiz later.",
-    "url": "quizzes/y1s2-dsa-sample-quiz.html",
+    "type": "Mock Exam",
+    "description": "Interactive Data Structures and Algorithms final mock quiz for Year 1 Semester 2 revision.",
+    "url": "quizzes/y1s2/dsa/dsa-final-mock-01.html",
     "visible": true
   },
   {
-    "title": "OOP Reference Sheet Slot",
-    "year": "Year 1",
-    "semester": "Semester 2",
-    "module": "OOP",
-    "type": "Reference Sheet",
-    "description": "Prepared space for your OOP reference sheet PDF. Add the file later and update the URL in data/resources.json.",
-    "url": "",
-    "visible": true
-  },
-  {
-    "title": "IS Final Mock Quiz",
+    "title": "IS Final Mock Quiz 01",
     "year": "Year 1",
     "semester": "Semester 2",
     "module": "IS",
     "type": "Mock Exam",
     "description": "Interactive Information Systems final mock quiz for Year 1 Semester 2 revision.",
-    "url": "quizzes/y1s2-is-final-mock-quiz.html",
+    "url": "quizzes/y1s2/is/is-final-mock-01.html",
+    "visible": true
+  },
+  {
+    "title": "IS Final Mock Quiz 02",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "IS",
+    "type": "Mock Exam",
+    "description": "Interactive Information Systems final mock quiz for Year 1 Semester 2 revision.",
+    "url": "quizzes/y1s2/is/is-final-mock-02.html",
+    "visible": true
+  },
+  {
+    "title": "OOP SOLID Lesson Mock Quiz",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "OOP",
+    "type": "Mock Exam",
+    "description": "Interactive OOP SOLID lesson mock quiz for Year 1 Semester 2 revision.",
+    "url": "quizzes/y1s2/oop/oop-solid-mock-quiz.html",
+    "visible": true
+  },
+  {
+    "title": "DM Reference Sheet",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DM",
+    "type": "Reference Sheet",
+    "description": "Printable Discrete Mathematics reference sheet for final exam revision.",
+    "url": "downloads/y1s2/dm/dm-reference-sheet.pdf",
+    "visible": true
+  },
+  {
+    "title": "DSA Reference Sheet",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DSA",
+    "type": "Reference Sheet",
+    "description": "Printable Data Structures and Algorithms reference sheet for final exam revision.",
+    "url": "downloads/y1s2/dsa/dsa-reference-sheet.pdf",
+    "visible": true
+  },
+  {
+    "title": "OOP Reference Sheet",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "OOP",
+    "type": "Reference Sheet",
+    "description": "Printable Object-Oriented Programming reference sheet for final exam revision.",
+    "url": "downloads/y1s2/oop/oop-reference-sheet.pdf",
     "visible": true
   }
 ]

@@ -16,29 +16,62 @@
 
   <header class="site-header">
     <nav class="nav container">
-      <a href="index.html" class="brand"><span class="brand-mark">◆</span>Janidu<span>.</span></a>
+      <a href="index.html" class="brand"><span class="brand-mark">◆</span>Janidu Sandaruwan <span>.</span></a>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
       <div class="nav-links" id="navLinks">
+        <a href="study.html" class="nav-highlight">Study Hub</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="study.html" class="nav-highlight">Study Hub</a>
         <a href="#contact">Contact</a>
       </div>
       <a href="study.html" class="talk-btn">Study Hub By J <span>↗</span></a>
     </nav>
   </header>
 
-  <aside class="side-dock" aria-label="Page sections">
-    <a href="#home" class="active">⌂</a>
-    <a href="#studyhub">✦</a>
-    <a href="#about">01</a>
-    <a href="#skills">02</a>
-    <a href="#projects">03</a>
-    <a href="#contact">04</a>
-  </aside>
+ <!-- CREATIVE SIDE NAVIGATION -->
+<div class="side-dock">
+  <a href="#home" class="active" data-label="Home">
+    <span class="dock-icon">⌂</span>
+  </a>
+
+  <a href="study.html" data-label="Study Hub">
+    <span class="dock-icon">📘</span>
+  </a>
+
+  <a href="#projects" data-label="Projects">
+    <span class="dock-icon">▣</span>
+  </a>
+
+  <a href="#contact" data-label="Contact">
+    <span class="dock-icon">✉</span>
+  </a>
+</div>
 
   <main>
+    <!-- STUDY HUB SPOTLIGHT -->
+<section class="home-study-banner container reveal visible">
+  <div class="study-banner-icon">📘</div>
+
+  <div class="study-banner-content">
+    <span class="study-banner-badge">New for students</span>
+    <h2>Study Hub By J</h2>
+    <p>
+      Reference sheets, mock exams, and revision resources for SLIIT students.
+      Open quizzes online or download study files for free.
+    </p>
+
+    <div class="study-banner-tags">
+      <span>Mock Exams</span>
+      <span>Reference Sheets</span>
+      <span>Y1 S2 Resources</span>
+    </div>
+  </div>
+
+  <a href="study.html" class="study-banner-btn">
+    Explore Study Hub <span>→</span>
+  </a>
+</section>
     <section class="hero container" id="home">
       <div class="hero-content reveal visible">
         <div class="availability"><span></span> Available for projects and learning collaborations</div>
@@ -233,5 +266,8 @@
 
   <button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
   <script src="js/main.js"></script>
+<a href="study.html" class="mobile-study-float">
+  📘 Study Hub By J
+</a>
 </body>
 </html>

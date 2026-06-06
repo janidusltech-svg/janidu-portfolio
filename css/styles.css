@@ -399,3 +399,679 @@ code { color: var(--cyan); background: rgba(55,213,255,.08); padding: 2px 6px; b
     grid-template-columns: 1fr;
   }
 }
+/* ==========================================
+   STUDY HUB RESOURCE CARD LAYOUT FIX
+   Paste at VERY BOTTOM of styles.css
+========================================== */
+
+.resource-panel {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+.resource-filters {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+  gap: 18px !important;
+  margin-bottom: 26px !important;
+}
+
+.resource-filters select {
+  width: 100% !important;
+  min-height: 56px !important;
+  border-radius: 14px !important;
+  padding: 0 18px !important;
+  background: rgba(5, 13, 28, 0.9) !important;
+  border: 1px solid rgba(100, 181, 255, 0.22) !important;
+  color: #fff !important;
+  font-size: 15px !important;
+}
+
+.resource-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(300px, 1fr)) !important;
+  gap: 22px !important;
+  align-items: stretch !important;
+  width: 100% !important;
+}
+
+.resource-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 26px !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(47, 132, 255, 0.22) !important;
+  background: rgba(6, 15, 32, 0.82) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25) !important;
+  transition: 0.3s ease !important;
+}
+
+.resource-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(47, 132, 255, 0.65) !important;
+  box-shadow: 0 28px 85px rgba(47, 132, 255, 0.16) !important;
+}
+
+.resource-meta {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-bottom: 18px !important;
+}
+
+.resource-meta span {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: auto !important;
+  white-space: nowrap !important;
+  padding: 7px 11px !important;
+  border-radius: 999px !important;
+  color: var(--cyan) !important;
+  background: rgba(55, 213, 255, 0.10) !important;
+  border: 1px solid rgba(55, 213, 255, 0.13) !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+}
+
+.resource-card h3 {
+  font-size: 23px !important;
+  line-height: 1.25 !important;
+  margin-bottom: 12px !important;
+  color: #fff !important;
+  word-break: normal !important;
+}
+
+.resource-card p {
+  color: rgba(255, 255, 255, 0.68) !important;
+  font-size: 15px !important;
+  line-height: 1.75 !important;
+  margin-bottom: 22px !important;
+  word-break: normal !important;
+}
+
+.resource-actions {
+  margin-top: auto !important;
+}
+
+.resource-actions a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 44px !important;
+  padding: 12px 18px !important;
+  border-radius: 13px !important;
+  color: #020713 !important;
+  background: linear-gradient(135deg, var(--cyan), var(--blue)) !important;
+  font-weight: 800 !important;
+  box-shadow: 0 16px 42px rgba(47, 132, 255, 0.25) !important;
+}
+
+.resource-actions a:hover {
+  transform: translateY(-3px) !important;
+}
+
+.empty-state {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 44px 24px !important;
+  border-radius: 22px !important;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .resource-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .resource-filters {
+    grid-template-columns: 1fr !important;
+  }
+
+  .resource-card {
+    padding: 22px !important;
+  }
+
+  .resource-card h3 {
+    font-size: 21px !important;
+  }
+
+  .resource-meta span {
+    font-size: 11px !important;
+  }
+}
+/* ==========================================
+   STUDY HUB NOTICE / DISCLAIMER SECTION
+========================================== */
+
+.study-notice {
+  padding-block: 70px;
+}
+
+.notice-card {
+  border: 1px solid rgba(47, 132, 255, 0.25);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(47, 132, 255, 0.16), transparent 35%),
+    radial-gradient(circle at 85% 90%, rgba(55, 213, 255, 0.10), transparent 35%),
+    rgba(6, 15, 32, 0.82);
+  border-radius: 30px;
+  padding: 42px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.26);
+}
+
+.notice-card h2 {
+  max-width: 760px;
+}
+
+.notice-text {
+  max-width: 900px;
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.85;
+  font-size: 16px;
+}
+
+.notice-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.notice-grid div {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.045);
+  border-radius: 20px;
+  padding: 22px;
+}
+
+.notice-grid span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  color: var(--cyan);
+  background: rgba(55, 213, 255, 0.10);
+  border: 1px solid rgba(55, 213, 255, 0.14);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.notice-grid p {
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.7;
+}
+
+@media (max-width: 850px) {
+  .notice-card {
+    padding: 28px;
+  }
+
+  .notice-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ==========================================
+   STUDY HUB CONTACT SECTION
+========================================== */
+
+.contact {
+  padding: 88px 0 120px;
+}
+
+.contact-card {
+  text-align: center;
+  border: 1px solid rgba(100, 181, 255, 0.22);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(47, 132, 255, 0.13), transparent 35%),
+    radial-gradient(circle at 90% 90%, rgba(121, 73, 255, 0.12), transparent 38%),
+    rgba(6, 15, 32, 0.82);
+  border-radius: 30px;
+  padding: 58px 24px;
+  box-shadow: 0 20px 80px rgba(0, 95, 255, 0.18);
+}
+
+.contact-card h2 {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.contact-card p:not(.section-label) {
+  color: rgba(255, 255, 255, 0.68);
+  max-width: 720px;
+  margin: 20px auto 0;
+  line-height: 1.8;
+}
+
+.contact-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-socials {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.contact-socials .socials {
+  margin-top: 0;
+}
+
+.contact-socials .socials div {
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  .contact {
+    padding: 60px 0 90px;
+  }
+
+  .contact-card {
+    padding: 42px 18px;
+    border-radius: 24px;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .contact-actions a {
+    width: 100%;
+  }
+}
+/* ==========================================
+   HOME STUDY HUB SPOTLIGHT
+========================================== */
+
+.home-study-banner {
+  margin-top: 34px;
+  margin-bottom: 34px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 26px;
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid rgba(47, 132, 255, 0.35);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(47, 132, 255, 0.22), transparent 32%),
+    radial-gradient(circle at 90% 80%, rgba(55, 213, 255, 0.12), transparent 35%),
+    rgba(6, 15, 32, 0.88);
+  box-shadow:
+    0 0 0 1px rgba(55, 213, 255, 0.05),
+    0 25px 90px rgba(47, 132, 255, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-study-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(55, 213, 255, 0.10), transparent);
+  transform: translateX(-100%);
+  animation: studyBannerShine 5s infinite;
+}
+
+@keyframes studyBannerShine {
+  0% { transform: translateX(-100%); }
+  45%, 100% { transform: translateX(100%); }
+}
+
+.study-banner-icon {
+  position: relative;
+  z-index: 2;
+  width: 82px;
+  height: 82px;
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(47, 132, 255, 0.28), rgba(55, 213, 255, 0.10));
+  border: 1px solid rgba(55, 213, 255, 0.24);
+  font-size: 38px;
+  box-shadow: 0 20px 60px rgba(47, 132, 255, 0.22);
+}
+
+.study-banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.study-banner-badge {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  color: var(--cyan);
+  background: rgba(55, 213, 255, 0.10);
+  border: 1px solid rgba(55, 213, 255, 0.15);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.home-study-banner h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1;
+  color: #fff;
+}
+
+.home-study-banner p {
+  margin-top: 12px;
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
+.study-banner-tags {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.study-banner-tags span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.study-banner-btn {
+  position: relative;
+  z-index: 2;
+  min-width: 190px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 22px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--cyan), var(--blue));
+  color: #020713;
+  font-weight: 900;
+  box-shadow: 0 18px 55px rgba(47, 132, 255, 0.30);
+  transition: 0.28s ease;
+}
+
+.study-banner-btn:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 24px 70px rgba(47, 132, 255, 0.42);
+}
+
+/* floating button only for mobile */
+.mobile-study-float {
+  display: none;
+}
+
+/* Make navbar Study Hub link more visible if it exists */
+.nav-links a[href="study.html"] {
+  color: var(--cyan);
+  font-weight: 800;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .home-study-banner {
+    margin-top: 22px;
+    margin-bottom: 26px;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .study-banner-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    font-size: 30px;
+  }
+
+  .home-study-banner h2 {
+    font-size: 34px;
+  }
+
+  .home-study-banner p {
+    font-size: 15px;
+  }
+
+  .study-banner-btn {
+    width: 100%;
+  }
+
+  .mobile-study-float {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 18px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    color: #020713;
+    font-weight: 900;
+    box-shadow: 0 18px 60px rgba(47, 132, 255, 0.42);
+  }
+
+  .top-btn {
+    bottom: 82px;
+  }
+}
+/* ==========================================
+   CREATIVE SIDE DOCK NAVIGATION
+========================================== */
+
+.side-dock {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 75;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  padding: 16px 10px;
+  border: 1px solid rgba(47, 132, 255, 0.22);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(47, 132, 255, 0.18), transparent 45%),
+    rgba(6, 15, 32, 0.78);
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+}
+
+.side-dock a {
+  width: 42px;
+  height: 42px;
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  color: rgba(255, 255, 255, 0.62);
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: transparent;
+
+  transition: 0.28s ease;
+}
+
+.side-dock a::before {
+  content: attr(data-label);
+  position: absolute;
+  left: 56px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-8px);
+
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  color: white;
+  background: rgba(6, 15, 32, 0.95);
+  border: 1px solid rgba(47, 132, 255, 0.28);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+
+.side-dock a:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.side-dock a:hover,
+.side-dock a.active {
+  color: var(--cyan);
+  background: rgba(47, 132, 255, 0.16);
+  border-color: rgba(55, 213, 255, 0.28);
+  transform: scale(1.12);
+  box-shadow: 0 0 25px rgba(47, 132, 255, 0.25);
+}
+
+.dock-icon {
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* Special highlight for Study Hub icon */
+.side-dock a[href="study.html"] {
+  background: rgba(47, 132, 255, 0.10);
+  border-color: rgba(55, 213, 255, 0.20);
+}
+
+.side-dock a[href="study.html"] .dock-icon {
+  filter: drop-shadow(0 0 8px rgba(55, 213, 255, 0.45));
+}
+
+/* Hide on mobile */
+@media (max-width: 980px) {
+  .side-dock {
+    display: none;
+  }
+}
+/* ==========================================
+   STUDY HUB FEEDBACK SECTION
+========================================== */
+
+.feedback-section {
+  padding: 70px 0;
+}
+
+.feedback-card {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 34px;
+  align-items: start;
+  border: 1px solid rgba(47, 132, 255, 0.25);
+  background:
+    radial-gradient(circle at 12% 15%, rgba(47, 132, 255, 0.16), transparent 35%),
+    radial-gradient(circle at 90% 90%, rgba(55, 213, 255, 0.10), transparent 35%),
+    rgba(6, 15, 32, 0.84);
+  border-radius: 30px;
+  padding: 36px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.26);
+}
+
+.feedback-copy p:not(.section-label) {
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.70);
+  line-height: 1.8;
+}
+
+.feedback-form {
+  display: grid;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea {
+  width: 100%;
+  border: 1px solid rgba(100, 181, 255, 0.22);
+  background: rgba(5, 13, 28, 0.92);
+  color: #fff;
+  border-radius: 14px;
+  padding: 15px 16px;
+  font: inherit;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.feedback-form textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.feedback-form input:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus {
+  border-color: rgba(55, 213, 255, 0.65);
+  box-shadow: 0 0 0 4px rgba(55, 213, 255, 0.08);
+}
+
+.feedback-form button {
+  justify-self: start;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 22px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, var(--cyan), var(--blue));
+  color: #020713;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 18px 55px rgba(47, 132, 255, 0.30);
+  transition: 0.28s ease;
+}
+
+.feedback-form button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 70px rgba(47, 132, 255, 0.42);
+}
+
+@media (max-width: 850px) {
+  .feedback-card {
+    grid-template-columns: 1fr;
+    padding: 26px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback-form button {
+    width: 100%;
+    justify-content: center;
+  }
+}
