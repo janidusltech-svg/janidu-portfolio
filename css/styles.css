@@ -1477,3 +1477,785 @@ code { color: var(--cyan); background: rgba(55,213,255,.08); padding: 2px 6px; b
     text-align: center;
   }
 }
+/* ==========================================
+   HERO LIVE COUNT POSITION FIX
+========================================== */
+
+.study-hero-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  align-items: center;
+  gap: 70px;
+}
+
+.study-hero-left {
+  min-width: 0;
+}
+
+.study-hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+}
+
+.study-hero-right .live-learners {
+  width: fit-content !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+
+  padding: 15px 24px !important;
+  border-radius: 999px !important;
+
+  border: 1px solid rgba(34, 197, 94, 0.35) !important;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.18), transparent 35%),
+    rgba(6, 15, 32, 0.82) !important;
+
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+
+  box-shadow:
+    0 0 35px rgba(34, 197, 94, 0.12),
+    0 22px 70px rgba(0, 0, 0, 0.25) !important;
+
+  animation: liveFloat 3.5s ease-in-out infinite;
+}
+
+.study-hero-right .live-learners strong {
+  color: #7cff9e !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+}
+
+.study-hero-right .live-dot {
+  width: 11px !important;
+  height: 11px !important;
+  border-radius: 50% !important;
+  background: #22c55e !important;
+  box-shadow: 0 0 18px rgba(34, 197, 94, 0.95) !important;
+}
+
+@keyframes liveFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Mobile: show under badge, before scrolling */
+@media (max-width: 760px) {
+  .study-hero-content {
+    display: block !important;
+  }
+
+  .study-hero-right {
+    min-height: auto !important;
+    justify-content: flex-start !important;
+    margin-top: 18px !important;
+  }
+
+  .study-hero-right .live-learners {
+    padding: 12px 17px !important;
+    font-size: 13px !important;
+    animation: none !important;
+  }
+
+  .study-hero-right .live-learners strong {
+    font-size: 16px !important;
+  }
+}
+/* ==========================================
+   HERO LIVE COUNT RIGHT SIDE
+========================================== */
+
+.study-hero-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  align-items: center;
+  gap: 70px;
+}
+
+.study-hero-left {
+  min-width: 0;
+}
+
+.study-hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+}
+
+.study-hero-right .live-learners {
+  width: fit-content !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+
+  padding: 15px 24px !important;
+  border-radius: 999px !important;
+
+  border: 1px solid rgba(34, 197, 94, 0.35) !important;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.18), transparent 35%),
+    rgba(6, 15, 32, 0.82) !important;
+
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+
+  box-shadow:
+    0 0 35px rgba(34, 197, 94, 0.12),
+    0 22px 70px rgba(0, 0, 0, 0.25) !important;
+
+  animation: liveFloat 3.5s ease-in-out infinite;
+}
+
+.study-hero-right .live-learners strong {
+  color: #7cff9e !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+}
+
+.study-hero-right .live-dot {
+  width: 11px !important;
+  height: 11px !important;
+  border-radius: 50% !important;
+  background: #22c55e !important;
+  box-shadow: 0 0 18px rgba(34, 197, 94, 0.95) !important;
+}
+
+@keyframes liveFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .study-hero-content {
+    display: block !important;
+  }
+
+  .study-hero-right {
+    min-height: auto !important;
+    justify-content: flex-start !important;
+    margin-top: 18px !important;
+  }
+
+  .study-hero-right .live-learners {
+    padding: 12px 17px !important;
+    font-size: 13px !important;
+    animation: none !important;
+  }
+
+  .study-hero-right .live-learners strong {
+    font-size: 16px !important;
+  }
+}
+
+/* ==========================================
+   FIX HERO LAYOUT + FLOAT LIVE COUNT
+========================================== */
+
+.study-hero {
+  position: relative !important;
+}
+
+.study-hero-content {
+  display: block !important;
+  width: 100% !important;
+}
+
+.study-hero-left {
+  width: 100% !important;
+  max-width: 650px !important;
+}
+
+.study-hero-left h1 {
+  max-width: 620px !important;
+  word-break: normal !important;
+  white-space: normal !important;
+}
+
+.study-hero-left .hero-description {
+  max-width: 620px !important;
+}
+
+.study-hero-right {
+  position: absolute !important;
+  top: 250px !important;
+  right: 12% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-height: 0 !important;
+  z-index: 5 !important;
+}
+
+.study-hero-right .live-learners {
+  width: fit-content !important;
+  max-width: fit-content !important;
+  min-width: auto !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+
+  padding: 14px 24px !important;
+  border-radius: 999px !important;
+
+  border: 1px solid rgba(34, 197, 94, 0.38) !important;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.18), transparent 35%),
+    rgba(6, 15, 32, 0.86) !important;
+
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+
+  box-shadow:
+    0 0 35px rgba(34, 197, 94, 0.15),
+    0 22px 70px rgba(0, 0, 0, 0.25) !important;
+
+  animation: liveFloat 3.5s ease-in-out infinite;
+}
+
+.study-hero-right .live-learners strong {
+  color: #7cff9e !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+}
+
+.study-hero-right .live-dot {
+  width: 11px !important;
+  height: 11px !important;
+  border-radius: 50% !important;
+  background: #22c55e !important;
+  box-shadow: 0 0 18px rgba(34, 197, 94, 0.95) !important;
+}
+
+@keyframes liveFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .study-hero-right {
+    right: 7% !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .study-hero {
+    position: relative !important;
+  }
+
+  .study-hero-left {
+    max-width: 100% !important;
+  }
+
+  .study-hero-right {
+    position: absolute !important;
+    top: 160px !important;
+    right: 28px !important;
+
+    width: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+  }
+
+  .study-hero-right .live-learners {
+    padding: 10px 13px !important;
+    font-size: 12px !important;
+    gap: 7px !important;
+    animation: none !important;
+  }
+
+  .study-hero-right .live-learners strong {
+    font-size: 14px !important;
+  }
+
+  .study-hero-right .live-dot {
+    width: 8px !important;
+    height: 8px !important;
+  }
+}
+
+/* Very small mobile */
+@media (max-width: 420px) {
+  .study-hero-right {
+    top: 150px !important;
+    right: 22px !important;
+  }
+
+  .study-hero-right .live-learners {
+    padding: 9px 11px !important;
+    font-size: 11px !important;
+  }
+}
+/* ==========================================
+   FINAL STUDY HERO CLEAN FIX
+========================================== */
+
+.study-hero {
+  min-height: calc(92vh - 74px) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr) !important;
+  gap: 70px !important;
+  align-items: center !important;
+  padding-block: 58px !important;
+}
+
+.study-hero-left {
+  min-width: 0 !important;
+  max-width: 650px !important;
+}
+
+.study-hero-right {
+  display: grid !important;
+  gap: 22px !important;
+  justify-items: center !important;
+  align-content: center !important;
+  min-width: 0 !important;
+}
+
+.study-hero h1 {
+  max-width: 650px !important;
+  word-break: normal !important;
+  white-space: normal !important;
+}
+
+.study-hero .hero-description {
+  max-width: 620px !important;
+  color: rgba(255, 255, 255, 0.68) !important;
+  line-height: 1.8 !important;
+  font-size: 18px !important;
+  margin-top: 22px !important;
+}
+
+.study-hero .study-terminal {
+  width: 100% !important;
+  max-width: 520px !important;
+  margin: 0 !important;
+}
+
+.study-hero .terminal-bar,
+.study-hero .terminal-dots {
+  display: flex !important;
+  gap: 9px !important;
+  margin-bottom: 20px !important;
+}
+
+.study-hero .terminal-bar span,
+.study-hero .terminal-dots span {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background: #ff5f57 !important;
+}
+
+.study-hero .terminal-bar span:nth-child(2),
+.study-hero .terminal-dots span:nth-child(2) {
+  background: #ffbd2e !important;
+}
+
+.study-hero .terminal-bar span:nth-child(3),
+.study-hero .terminal-dots span:nth-child(3) {
+  background: #28c840 !important;
+}
+
+.study-hero .live-learners {
+  width: fit-content !important;
+  max-width: fit-content !important;
+  min-width: auto !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+
+  margin: 0 !important;
+  padding: 11px 17px !important;
+  border-radius: 999px !important;
+
+  border: 1px solid rgba(34, 197, 94, 0.35) !important;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.18), transparent 35%),
+    rgba(6, 15, 32, 0.86) !important;
+
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-size: 14px !important;
+  line-height: 1 !important;
+
+  box-shadow:
+    0 0 35px rgba(34, 197, 94, 0.15),
+    0 18px 55px rgba(0, 0, 0, 0.25) !important;
+}
+
+.study-hero .live-learners strong {
+  color: #7cff9e !important;
+  font-size: 17px !important;
+  font-weight: 900 !important;
+}
+
+.study-hero .live-dot {
+  flex: 0 0 auto !important;
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  background: #22c55e !important;
+  box-shadow: 0 0 16px rgba(34, 197, 94, 0.95) !important;
+}
+
+/* Mobile */
+@media (max-width: 980px) {
+  .study-hero {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding-block: 34px 28px !important;
+  }
+
+  .study-hero-left {
+    max-width: 100% !important;
+  }
+
+  .study-hero-right {
+    justify-items: start !important;
+  }
+
+  .study-hero .study-terminal {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .study-hero h1 {
+    font-size: clamp(58px, 18vw, 86px) !important;
+  }
+
+  .study-hero .hero-description {
+    font-size: 17px !important;
+    line-height: 1.8 !important;
+  }
+
+  .study-hero .live-learners {
+    padding: 9px 13px !important;
+    font-size: 12px !important;
+  }
+
+  .study-hero .live-learners strong {
+    font-size: 14px !important;
+  }
+}
+/* ==========================================
+   FINAL HERO FIX - DESKTOP + MOBILE
+========================================== */
+
+.study-hero {
+  position: relative !important;
+  min-height: calc(92vh - 74px) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr) !important;
+  gap: 70px !important;
+  align-items: center !important;
+  padding-block: 70px 60px !important;
+}
+
+.study-hero-left {
+  max-width: 650px !important;
+  min-width: 0 !important;
+}
+
+.study-hero-right {
+  position: static !important;
+  display: grid !important;
+  gap: 22px !important;
+  justify-items: center !important;
+  align-content: center !important;
+  min-width: 0 !important;
+}
+
+.study-hero .study-terminal {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  margin: 0 !important;
+  z-index: 2 !important;
+}
+
+.study-hero .live-learners {
+  position: relative !important;
+  width: fit-content !important;
+  max-width: fit-content !important;
+  min-width: auto !important;
+  margin: 0 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+
+  padding: 11px 17px !important;
+  border-radius: 999px !important;
+
+  border: 1px solid rgba(34, 197, 94, 0.35) !important;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.18), transparent 35%),
+    rgba(6, 15, 32, 0.86) !important;
+
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-size: 14px !important;
+  line-height: 1 !important;
+
+  box-shadow:
+    0 0 35px rgba(34, 197, 94, 0.15),
+    0 18px 55px rgba(0, 0, 0, 0.25) !important;
+
+  z-index: 10 !important;
+}
+
+.study-hero .live-learners strong {
+  color: #7cff9e !important;
+  font-size: 17px !important;
+  font-weight: 900 !important;
+}
+
+.study-hero .live-dot {
+  flex: 0 0 auto !important;
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  background: #22c55e !important;
+  box-shadow: 0 0 16px rgba(34, 197, 94, 0.95) !important;
+}
+
+/* MOBILE FIX */
+@media (max-width: 760px) {
+  .study-hero {
+    display: block !important;
+    min-height: auto !important;
+    padding-block: 38px 48px !important;
+  }
+
+  .study-hero-left {
+    max-width: 100% !important;
+  }
+
+  .study-hero h1 {
+    font-size: clamp(58px, 18vw, 86px) !important;
+    line-height: 0.95 !important;
+    margin-top: 18px !important;
+  }
+
+  .study-hero .hero-description {
+    font-size: 17px !important;
+    line-height: 1.8 !important;
+    margin-top: 22px !important;
+  }
+
+  .study-hero .hero-actions {
+    margin-top: 30px !important;
+  }
+
+  .study-hero-right {
+    position: static !important;
+    display: block !important;
+    margin-top: 24px !important;
+  }
+
+  /* live count visible near top without breaking layout */
+  .study-hero .live-learners {
+    position: absolute !important;
+    top: 145px !important;
+    right: 22px !important;
+
+    padding: 9px 12px !important;
+    font-size: 11px !important;
+    gap: 7px !important;
+  }
+
+  .study-hero .live-learners strong {
+    font-size: 13px !important;
+  }
+
+  .study-hero .live-dot {
+    width: 8px !important;
+    height: 8px !important;
+  }
+
+  /* about box goes below WhatsApp box, no overlap */
+  .study-hero .study-terminal {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 24px !important;
+    padding: 20px !important;
+  }
+
+  .study-hero .study-terminal pre {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+  }
+
+  .whatsapp-channel-box {
+    margin-top: 26px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .study-hero .live-learners {
+    top: 140px !important;
+    right: 18px !important;
+  }
+}
+/* ==========================================
+   FINAL MOBILE HERO SIZE FIX
+========================================== */
+
+@media (max-width: 760px) {
+  .study-hero {
+    padding-block: 34px 44px !important;
+  }
+
+  .study-hero h1 {
+    font-size: 54px !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.06em !important;
+    margin-top: 18px !important;
+  }
+
+  .study-hero h1 span {
+    font-size: 58px !important;
+  }
+
+  .study-hero .hero-description {
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+    margin-top: 24px !important;
+  }
+
+  .study-hero .live-learners {
+    position: static !important;
+    margin-top: 16px !important;
+    margin-bottom: 18px !important;
+    padding: 9px 13px !important;
+    font-size: 12px !important;
+    width: fit-content !important;
+    max-width: fit-content !important;
+  }
+
+  .study-hero .live-learners strong {
+    font-size: 14px !important;
+  }
+
+  .study-hero .live-dot {
+    width: 8px !important;
+    height: 8px !important;
+  }
+
+  .study-hero-right {
+    margin-top: 22px !important;
+  }
+
+  .study-hero .study-terminal {
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .study-hero h1 {
+    font-size: 50px !important;
+  }
+
+  .study-hero h1 span {
+    font-size: 54px !important;
+  }
+}
+/* ==========================================
+   MOBILE LIVE COUNT RIGHT SIDE FIX
+========================================== */
+
+@media (max-width: 760px) {
+  .study-hero {
+    position: relative !important;
+  }
+
+  .study-hero h1 {
+    font-size: 50px !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.055em !important;
+    margin-top: 18px !important;
+    max-width: 280px !important;
+  }
+
+  .study-hero h1 span {
+    font-size: 54px !important;
+  }
+
+  .study-hero .live-learners {
+    position: absolute !important;
+    top: 175px !important;
+    right: 18px !important;
+
+    width: fit-content !important;
+    max-width: 160px !important;
+    margin: 0 !important;
+
+    padding: 8px 11px !important;
+    font-size: 11px !important;
+    gap: 6px !important;
+
+    z-index: 20 !important;
+  }
+
+  .study-hero .live-learners strong {
+    font-size: 13px !important;
+  }
+
+  .study-hero .live-dot {
+    width: 7px !important;
+    height: 7px !important;
+  }
+
+  .study-hero .hero-description {
+    margin-top: 26px !important;
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .study-hero .live-learners {
+    top: 172px !important;
+    right: 16px !important;
+  }
+}
