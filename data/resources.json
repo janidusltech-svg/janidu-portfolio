@@ -110,6 +110,16 @@
     "url": "downloads/y1s2/dm/dm-reference-sheet.pdf",
     "visible": true
   },
+    {
+    "title": "IS Reference Sheet",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "IS",
+    "type": "Reference Sheet",
+    "description": "Printable Information Systems reference sheet for final exam revision.",
+    "url": "downloads/y1s2/is/is-reference-sheet.pdf",
+    "visible": true
+  },
   {
     "title": "DSA Reference Sheet",
     "year": "Year 1",
