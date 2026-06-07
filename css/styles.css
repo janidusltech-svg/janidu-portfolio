@@ -1396,3 +1396,84 @@ code { color: var(--cyan); background: rgba(55,213,255,.08); padding: 2px 6px; b
     transform: rotate(180deg);
   }
 }
+/* ==========================================
+   WHATSAPP CHANNEL UPDATE BOX
+========================================== */
+
+.whatsapp-channel-box {
+  margin-top: 26px;
+  max-width: 720px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+
+  padding: 18px 20px;
+  border-radius: 22px;
+
+  border: 1px solid rgba(34, 197, 94, 0.28);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(34, 197, 94, 0.15), transparent 35%),
+    rgba(6, 15, 32, 0.88);
+
+  box-shadow: 0 20px 60px rgba(34, 197, 94, 0.10);
+}
+
+.whatsapp-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(34, 197, 94, 0.14);
+  border: 1px solid rgba(34, 197, 94, 0.28);
+  font-size: 22px;
+}
+
+.whatsapp-channel-box h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.whatsapp-channel-box p {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.whatsapp-channel-box a {
+  white-space: nowrap;
+  padding: 12px 18px;
+  border-radius: 14px;
+
+  background: #22c55e;
+  color: #03120a;
+
+  font-weight: 900;
+  transition: 0.28s ease;
+}
+
+.whatsapp-channel-box a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 45px rgba(34, 197, 94, 0.28);
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .whatsapp-channel-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+    padding: 22px 18px;
+  }
+
+  .whatsapp-channel-box a {
+    width: 100%;
+    text-align: center;
+  }
+}
