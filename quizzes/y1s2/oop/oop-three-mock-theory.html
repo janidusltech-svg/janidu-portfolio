@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SE1020 OOP Theory Mock Exams</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0f172a;color:#f8fafc;line-height:1.5}
+.container{max-width:1100px;margin:auto;padding:20px}
+.hero,.panel{background:#111827;border:1px solid #334155;border-radius:16px;padding:18px;margin:14px 0}
+.hero{background:linear-gradient(135deg,#075985,#111827)}
+.pill{display:inline-block;background:#1e293b;border:1px solid #38bdf8;color:#e0f2fe;border-radius:999px;padding:6px 10px;margin:4px;font-size:13px}
+button{border:0;border-radius:10px;padding:10px 13px;margin:4px;font-weight:bold;cursor:pointer;background:#38bdf8;color:#06111f}
+button.secondary{background:#334155;color:#f8fafc}
+button.green{background:#22c55e}
+button.yellow{background:#f59e0b}
+.tab.active{background:#22c55e}
+.qcard{display:none}.qcard.active{display:block}
+.badge{display:inline-block;background:#1e293b;border:1px solid #334155;color:#bae6fd;border-radius:999px;padding:5px 9px;margin:3px;font-size:13px}
+.question{background:#0f172a;border:1px solid #334155;border-radius:12px;padding:14px;white-space:pre-wrap}
+textarea{width:100%;min-height:230px;background:#020617;color:#e5e7eb;border:1px solid #475569;border-radius:12px;padding:12px;font-family:Consolas,monospace;font-size:14px;margin-top:10px}
+pre{white-space:pre-wrap;background:#020617;color:#d1fae5;border:1px solid #166534;border-radius:12px;padding:14px;font-family:Consolas,monospace;font-size:13px}
+.answer{display:none}
+.rubric{background:#0f172a;border:1px solid #334155;border-radius:12px;padding:12px;margin-top:12px}
+.rubric label{display:block;margin:8px 0}
+input[type=number]{width:80px;padding:8px;border-radius:8px;background:#020617;color:white;border:1px solid #475569}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.box{background:#0f172a;border:1px solid #334155;border-radius:12px;padding:12px}
+.big{font-size:26px;color:#86efac;font-weight:bold}
+.hidden{display:none}
+table{width:100%;border-collapse:collapse}td,th{border:1px solid #334155;padding:8px}th{color:#bae6fd;background:#0f172a}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="hero">
+<h1>SE1020 OOP Theory Mock Exams</h1>
+<p>Created by Janidu Sandaruwan(Y1S2) • Lecture 03 + Lecture 07 • Final-paper style</p>
+<span class="pill">Q2 Noun-Verb + CRC = 15 marks</span>
+<span class="pill">Q5A SOLID = 10 marks</span>
+<span class="pill">3 mock sets</span>
+<span class="pill">Answer → View model answer → Self-mark</span>
+</div>
+
+<div class="panel">
+<h2>Theory Exam Type</h2>
+<table>
+<tr><th>Question</th><th>Lesson</th><th>Marks</th><th>Type</th></tr>
+<tr><td>Q2</td><td>Lecture 03</td><td>15</td><td>Structured scenario answer</td></tr>
+<tr><td>Q5A</td><td>Lecture 07</td><td>10</td><td>Short answer / identify violated SOLID principle</td></tr>
+</table>
+<div id="tabs"></div>
+</div>
+
+<div class="panel">
+<div id="counter"></div>
+<div id="questionArea"></div>
+<div>
+<button class="secondary" onclick="prevQ()">Previous</button>
+<button class="yellow" onclick="reveal()">View Model Answer</button>
+<button class="green" onclick="save()">Save Mark</button>
+<button class="secondary" onclick="nextQ()">Next</button>
+</div>
+</div>
+
+<div class="panel hidden" id="resultPanel">
+<h2>Final Result</h2>
+<div id="result"></div>
+<h3>Breakdown</h3>
+<div class="grid" id="breakdown"></div>
+<h3>Weak / Strong Analysis</h3>
+<div id="analysis"></div>
+<button class="yellow" onclick="restart()">Restart This Mock</button>
+</div>
+</div>
+
+<script>
+const mocks = [{"name": "Theory Mock 01", "q2": {"question": "A vehicle service center wants to automate its service booking system. Customers can book service appointments. Each appointment contains vehicle details, service type, appointment date, payment details, and service status. A service advisor checks the appointment and assigns it to a mechanic. The mechanic inspects the vehicle and completes the service. The customer can pay using cash or card. The system can generate daily service reports for the manager.\n\nTasks:\n1) Identify nouns that can be potential classes.\n2) Reject unnecessary nouns using noun-rejection rules.\n3) Identify final classes.\n4) Write CRC cards for any 5 final classes.", "answer": "Possible nouns: vehicle service center, service booking system, customer, service appointment, vehicle details, service type, appointment date, payment details, service status, service advisor, mechanic, vehicle, cash, card, daily service report, manager.\n\nRejected nouns:\n- Vehicle service center: organization/outside scope.\n- Service booking system: whole system/meta-language.\n- Vehicle details: attributes of Vehicle.\n- Service type: attribute of Service/Appointment.\n- Appointment date: attribute of Appointment.\n- Payment details: attributes of Payment.\n- Service status: attribute of Appointment.\n- Cash/Card: payment methods, not main classes unless detailed handling needed.\n- Daily: descriptive word.\n\nFinal classes: Customer, Appointment, Vehicle, Service, Payment, ServiceAdvisor, Mechanic, ServiceReport, Manager.\n\nCRC Cards:\nClass: Customer\nResponsibilities: book appointment, make payment.\nCollaborators: Appointment, Payment.\n\nClass: Appointment\nResponsibilities: store appointment details, track service status, connect customer/vehicle/service/payment/mechanic.\nCollaborators: Customer, Vehicle, Service, Payment, Mechanic.\n\nClass: Vehicle\nResponsibilities: store vehicle details, provide vehicle information.\nCollaborators: Appointment.\n\nClass: Payment\nResponsibilities: store payment details, process payment.\nCollaborators: Customer, Appointment.\n\nClass: Mechanic\nResponsibilities: inspect vehicle, complete service.\nCollaborators: Appointment, Vehicle.\n\nClass: ServiceReport\nResponsibilities: generate daily service report.\nCollaborators: Manager, Appointment."}, "q5a": {"question": "Answer briefly.\n1) What is the Single Responsibility Principle? Give one example. (3 marks)\n2) What is the Open/Closed Principle? (2 marks)\n3) What is the Dependency Inversion Principle? (2 marks)\n4) Identify the SOLID principle violated and explain why. (3 marks)\n\nclass MySQLDatabase { void save(){ System.out.println(\"Saved\"); } }\nclass OrderService { private MySQLDatabase db = new MySQLDatabase(); void saveOrder(){ db.save(); } }", "answer": "1) SRP: A class should have one main responsibility and one reason to change. Example: OrderService should handle orders only; email sending should be in EmailService.\n\n2) OCP: Classes should be open for extension but closed for modification. Add new behavior using new classes/interfaces, not by changing old tested code.\n\n3) DIP: High-level modules should depend on abstractions such as interfaces or abstract classes, not concrete classes.\n\n4) Violated principle: Dependency Inversion Principle. OrderService directly depends on MySQLDatabase, a concrete class. If the database changes, OrderService must change.\n\nBetter idea:\ninterface Database { void save(); }\nclass MySQLDatabase implements Database { public void save(){ System.out.println(\"Saved\"); } }\nclass OrderService { private Database db; OrderService(Database db){ this.db = db; } void saveOrder(){ db.save(); } }"}}, {"name": "Theory Mock 02", "q2": {"question": "An online grocery shop wants to automate its order management system. Customers can browse products and place grocery orders. Each order contains product items, quantity, delivery address, payment details, and order status. A shop assistant checks the stock and confirms the order. A delivery rider collects the grocery order and delivers it to the customer. The customer can pay using cash, card, or online transfer. The system can generate weekly sales reports for the manager.\n\nTasks:\n1) Identify nouns that can be potential classes.\n2) Reject unnecessary nouns using noun-rejection rules.\n3) Identify final classes.\n4) Write CRC cards for any 5 final classes.", "answer": "Possible nouns: online grocery shop, order management system, customer, products, grocery orders, order, product items, quantity, delivery address, payment details, order status, shop assistant, stock, delivery rider, cash, card, online transfer, weekly sales report, manager.\n\nRejected nouns:\n- Online grocery shop: organization/outside scope.\n- Order management system: whole system/meta-language.\n- Quantity: attribute of OrderItem.\n- Delivery address: attribute of Order/Customer.\n- Payment details: attributes of Payment.\n- Order status: attribute of Order.\n- Stock: can be attribute of Product unless detailed inventory is required.\n- Cash/Card/Online transfer: payment methods.\n- Weekly: descriptive word.\n\nFinal classes: Customer, Order, Product, OrderItem, Payment, ShopAssistant, DeliveryRider, SalesReport, Manager.\n\nCRC Cards:\nClass: Customer\nResponsibilities: browse products, place order, make payment.\nCollaborators: Product, Order, Payment.\n\nClass: Order\nResponsibilities: store order details, track order status.\nCollaborators: Customer, OrderItem, Payment, DeliveryRider.\n\nClass: Product\nResponsibilities: store product details, store stock information.\nCollaborators: OrderItem, ShopAssistant.\n\nClass: Payment\nResponsibilities: store payment information, process payment.\nCollaborators: Customer, Order.\n\nClass: ShopAssistant\nResponsibilities: check stock, confirm order.\nCollaborators: Product, Order.\n\nClass: DeliveryRider\nResponsibilities: collect order, deliver order.\nCollaborators: Order, Customer."}, "q5a": {"question": "Answer briefly.\n1) What is the Interface Segregation Principle? Give one example. (3 marks)\n2) What is the Liskov Substitution Principle? (2 marks)\n3) What is design decay? Mention two symptoms. (2 marks)\n4) Identify the SOLID principle violated and explain why. (3 marks)\n\ninterface SmartDevice { void print(); void scan(); void fax(); }\nclass BasicPrinter implements SmartDevice { public void print(){} public void scan(){ throw new UnsupportedOperationException(); } public void fax(){ throw new UnsupportedOperationException(); } }", "answer": "1) ISP: Classes should not be forced to implement methods they do not use. Example: Use separate interfaces Printable, Scannable, Faxable instead of one large SmartDevice interface.\n\n2) LSP: A child class should be able to replace its parent class without breaking expected behavior.\n\n3) Design decay: Software becomes difficult to maintain as it grows. Symptoms include rigidity, fragility, immobility, viscosity, and opacity. Examples: rigidity means hard to change; fragility means changes break other parts.\n\n4) Violated principle: Interface Segregation Principle. BasicPrinter only needs print(), but it is forced to implement scan() and fax(). Those are unused methods.\n\nBetter idea:\ninterface Printable { void print(); }\ninterface Scannable { void scan(); }\ninterface Faxable { void fax(); }\nclass BasicPrinter implements Printable { public void print(){} }"}}, {"name": "Theory Mock 03", "q2": {"question": "A gym wants to automate its membership and trainer scheduling system. Members can register and select a membership package. Each membership contains member details, package type, start date, payment details, and membership status. A receptionist checks the registration and assigns a trainer. The trainer creates workout schedules for members. Members can pay by cash or card. The system can generate monthly membership reports for the manager.\n\nTasks:\n1) Identify nouns that can be potential classes.\n2) Reject unnecessary nouns using noun-rejection rules.\n3) Identify final classes.\n4) Write CRC cards for any 5 final classes.", "answer": "Possible nouns: gym, membership and trainer scheduling system, member, membership package, membership, member details, package type, start date, payment details, membership status, receptionist, trainer, workout schedules, cash, card, monthly membership report, manager.\n\nRejected nouns:\n- Gym: organization/outside scope.\n- Membership and trainer scheduling system: whole system/meta-language.\n- Member details: attributes of Member.\n- Package type: attribute of MembershipPackage.\n- Start date: attribute of Membership.\n- Payment details: attributes of Payment.\n- Membership status: attribute of Membership.\n- Cash/Card: payment methods.\n- Monthly: descriptive word.\n\nFinal classes: Member, Membership, MembershipPackage, Payment, Receptionist, Trainer, WorkoutSchedule, MembershipReport, Manager.\n\nCRC Cards:\nClass: Member\nResponsibilities: register, select package, make payment.\nCollaborators: Membership, MembershipPackage, Payment.\n\nClass: Membership\nResponsibilities: store membership details, track membership status.\nCollaborators: Member, MembershipPackage, Payment, Trainer.\n\nClass: MembershipPackage\nResponsibilities: store package type and package details.\nCollaborators: Membership.\n\nClass: Payment\nResponsibilities: store payment details, process payment.\nCollaborators: Member, Membership.\n\nClass: Trainer\nResponsibilities: create workout schedule, guide member.\nCollaborators: Member, WorkoutSchedule.\n\nClass: WorkoutSchedule\nResponsibilities: store workout plan, assign schedule to member.\nCollaborators: Trainer, Member."}, "q5a": {"question": "Answer briefly.\n1) What is the Single Responsibility Principle? (2 marks)\n2) What is the Open/Closed Principle? Give one example. (3 marks)\n3) What is the main idea of Dependency Inversion Principle? (2 marks)\n4) Identify the SOLID principle violated and explain why. (3 marks)\n\nclass NotificationCenter { public void send(String type){ if(type.equals(\"EMAIL\")){ System.out.println(\"Email\"); } else if(type.equals(\"SMS\")){ System.out.println(\"SMS\"); } } }", "answer": "1) SRP: A class should have one main responsibility and one reason to change.\n\n2) OCP: A class should be open for extension but closed for modification. Example: Instead of editing NotificationCenter every time a new notification type is added, create a NotificationChannel interface and separate EmailChannel, SmsChannel classes.\n\n3) DIP: High-level modules should depend on abstractions such as interfaces or abstract classes, not exact concrete classes.\n\n4) Violated principle: Open/Closed Principle. Every time a new notification type is added, the existing send() method must be modified.\n\nBetter idea:\ninterface NotificationChannel { void send(); }\nclass EmailChannel implements NotificationChannel { public void send(){ System.out.println(\"Email\"); } }\nclass SmsChannel implements NotificationChannel { public void send(){ System.out.println(\"SMS\"); } }\nclass NotificationCenter { public void notify(NotificationChannel channel){ channel.send(); } }"}}];
+let mock=0, current=0, scores=[0,0];
+
+function key(type,i){return 'oop_theory_'+mock+'_'+type+'_'+i}
+function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+function renderTabs(){
+  let tabs=document.getElementById('tabs'); tabs.innerHTML='';
+  mocks.forEach((m,i)=>{tabs.innerHTML += `<button class="tab ${i===mock?'active':'secondary'}" onclick="switchMock(${i})">${m.name}</button>`})
+}
+
+function getQs(){
+  let m=mocks[mock];
+  return [
+    {qid:'Q2',title:'Question 02 - Lecture 03',marks:15,topic:'Noun-Verb Analysis + CRC Cards',question:m.q2.question,answer:m.q2.answer,rubric:[['Potential nouns identified',4],['Rejected nouns with reasons',4],['Final classes listed',3],['CRC cards correct',4]]},
+    {qid:'Q5A',title:'Question 05 Part A - Lecture 07',marks:10,topic:'SOLID Principles',question:m.q5a.question,answer:m.q5a.answer,rubric:[['Definitions are correct',4],['Example/explanation is clear',3],['Violation identified with reason',3]]}
+  ];
+}
+
+function render(){
+  let qs=getQs(), area=document.getElementById('questionArea'); area.innerHTML='';
+  qs.forEach((q,i)=>{
+    let rub=q.rubric.map((r,j)=>`<label><input type="checkbox" data-m="${r[1]}" onchange="calc(${i})"> ${r[0]} <b>(${r[1]})</b></label>`).join('');
+    area.innerHTML += `<div class="qcard ${i===current?'active':''}" id="q${i}">
+      <span class="badge">${mocks[mock].name}</span><span class="badge">${q.title}</span><span class="badge">${q.marks} marks</span><span class="badge">${q.topic}</span>
+      <div class="question">${q.question}</div>
+      <b>Your answer</b><textarea id="ansText${i}" placeholder="Write your answer here..."></textarea>
+      <div class="answer" id="model${i}"><h3>Model Answer</h3><pre>${esc(q.answer)}</pre></div>
+      <div class="rubric"><h3>Self-marking rubric</h3><div id="rub${i}">${rub}</div>
+      <p><b>My score:</b> <input type="number" id="score${i}" value="0" min="0" max="${q.marks}" onchange="manual(${i})"> / ${q.marks}</p></div>
+    </div>`;
+  });
+  restore(); update();
+}
+
+function restore(){
+  getQs().forEach((q,i)=>{
+    let t=localStorage.getItem(key('text',i)); if(t!==null)document.getElementById('ansText'+i).value=t;
+    let s=localStorage.getItem(key('score',i)); if(s!==null){scores[i]=Number(s); document.getElementById('score'+i).value=s}
+    if(localStorage.getItem(key('rev',i))==='1')document.getElementById('model'+i).style.display='block';
+  });
+}
+
+function update(){
+  document.querySelectorAll('.qcard').forEach(x=>x.classList.remove('active'));
+  document.getElementById('q'+current).classList.add('active');
+  document.getElementById('counter').innerHTML=`<b>${mocks[mock].name}: Question ${current+1} of 2</b>`;
+}
+
+function switchMock(i){mock=i; current=0; scores=[0,0]; document.getElementById('resultPanel').classList.add('hidden'); renderTabs(); render()}
+function reveal(){document.getElementById('model'+current).style.display='block'; localStorage.setItem(key('rev',current),'1')}
+function save(){localStorage.setItem(key('text',current),document.getElementById('ansText'+current).value); localStorage.setItem(key('score',current),scores[current]); alert('Saved.')}
+function calc(i){let total=0; document.querySelectorAll('#rub'+i+' input').forEach(cb=>{if(cb.checked)total+=Number(cb.dataset.m)}); scores[i]=total; document.getElementById('score'+i).value=total; localStorage.setItem(key('score',i),total)}
+function manual(i){scores[i]=Number(document.getElementById('score'+i).value||0); localStorage.setItem(key('score',i),scores[i])}
+function nextQ(){save(); if(current<1){current++; update()}else{showResult()}}
+function prevQ(){save(); if(current>0){current--; update()}}
+function showResult(){
+  let qs=getQs(), total=scores[0]+scores[1], max=25, pct=Math.round(total/max*100);
+  document.getElementById('resultPanel').classList.remove('hidden');
+  document.getElementById('result').innerHTML=`<div class="big">${total} / ${max} marks (${pct}%)</div>`;
+  document.getElementById('breakdown').innerHTML=qs.map((q,i)=>`<div class="box"><b>${q.title}</b><br>${scores[i]} / ${q.marks}<br>${q.topic}</div>`).join('');
+  let weak=[], strong=[];
+  qs.forEach((q,i)=>{let r=scores[i]/q.marks; if(r<0.6)weak.push(q.topic); if(r>=0.8)strong.push(q.topic)});
+  document.getElementById('analysis').innerHTML=`<p><b>Weak:</b> ${weak.length?weak.join(', '):'No major weak area'}</p><p><b>Strong:</b> ${strong.length?strong.join(', '):'No strong area above 80% yet'}</p>`;
+}
+function restart(){getQs().forEach((q,i)=>{localStorage.removeItem(key('text',i));localStorage.removeItem(key('score',i));localStorage.removeItem(key('rev',i))}); scores=[0,0]; current=0; document.getElementById('resultPanel').classList.add('hidden'); render()}
+renderTabs(); render();
+</script>
+</body>
+</html>
