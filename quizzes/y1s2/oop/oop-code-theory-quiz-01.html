@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SE1020 OOP Final Mock Exam - Full Paper</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --bg:#08111f; --card:#111827; --card2:#1f2937; --text:#f8fafc; --muted:#cbd5e1;
+  --blue:#38bdf8; --green:#22c55e; --red:#ef4444; --yellow:#f59e0b; --border:#334155;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(135deg,#020617,#0f172a 60%,#111827);
+  color:var(--text);
+  line-height:1.5;
+}
+.container { max-width:1180px; margin:0 auto; padding:20px; }
+.hero {
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  background:linear-gradient(135deg,#075985,#111827);
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+h1,h2,h3 { margin-top:0; }
+.sub { color:#e0f2fe; }
+.pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.pill { border:1px solid rgba(56,189,248,.45); background:rgba(56,189,248,.12); color:#e0f2fe; padding:6px 10px; border-radius:999px; font-size:13px; }
+.panel {
+  margin-top:16px;
+  padding:18px;
+  background:rgba(17,24,39,.96);
+  border:1px solid var(--border);
+  border-radius:16px;
+}
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+.box { background:#0f172a; border:1px solid var(--border); border-radius:12px; padding:12px; }
+.qcard { display:none; }
+.qcard.active { display:block; }
+.qtop { display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; align-items:center; margin-bottom:12px; }
+.badge { background:#1e293b; color:#bae6fd; border:1px solid #334155; border-radius:999px; padding:5px 9px; font-size:13px; }
+.question-box { background:#0f172a; border:1px solid #334155; border-radius:14px; padding:16px; }
+textarea {
+  width:100%;
+  min-height:260px;
+  resize:vertical;
+  margin-top:12px;
+  background:#020617;
+  color:#e5e7eb;
+  border:1px solid #475569;
+  border-radius:12px;
+  padding:12px;
+  font-family:Consolas, 'Courier New', monospace;
+  font-size:14px;
+}
+pre {
+  white-space:pre-wrap;
+  word-break:break-word;
+  background:#020617;
+  color:#d1fae5;
+  border:1px solid #166534;
+  border-radius:12px;
+  padding:14px;
+  overflow:auto;
+  font-family:Consolas, 'Courier New', monospace;
+  font-size:13px;
+}
+.answer { display:none; margin-top:12px; }
+button {
+  border:0;
+  border-radius:12px;
+  padding:11px 14px;
+  cursor:pointer;
+  font-weight:bold;
+  background:var(--blue);
+  color:#06111f;
+  transition:.15s;
+}
+button:hover { transform:translateY(-1px); filter:brightness(1.05); }
+button.secondary { background:#334155; color:var(--text); }
+button.green { background:var(--green); color:#06210f; }
+button.yellow { background:var(--yellow); color:#1f1300; }
+.buttons { display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; margin-top:16px; }
+.rubric { margin-top:14px; background:#0f172a; border:1px solid #334155; border-radius:12px; padding:12px; }
+.rubric label { display:block; margin:8px 0; cursor:pointer; }
+.score-input { width:80px; padding:8px; border-radius:8px; border:1px solid #475569; background:#020617; color:#fff; }
+.progress-wrap { width:100%; background:#1e293b; border-radius:999px; height:12px; overflow:hidden; margin-top:10px; }
+.progress-bar { width:0%; height:100%; background:linear-gradient(90deg,#38bdf8,#22c55e); transition:.2s; }
+.hidden { display:none; }
+.small { color:var(--muted); font-size:14px; }
+.warnbox { background:rgba(245,158,11,.12); border:1px solid rgba(245,158,11,.55); color:#fde68a; padding:12px; border-radius:12px; }
+.resultBig { font-size:26px; color:#86efac; font-weight:bold; }
+table { width:100%; border-collapse:collapse; }
+th,td { border:1px solid #334155; padding:8px; text-align:left; }
+th { background:#0f172a; color:#bae6fd; }
+.footer { color:#94a3b8; text-align:center; font-size:13px; margin:22px 0 8px; }
+@media print {
+  body { background:white; color:black; }
+  .buttons, textarea, .rubric, .hero .pills { display:none; }
+  .panel, .hero, .question-box { border:1px solid #000; background:white; color:black; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>SE1020 OOP Final Mock Exam - Full Paper</h1>
+    <div class="sub">Created by Janidu Sandaruwan(Y1S2) • Real exam-style full paper • Code + theory • Self-marking mode</div>
+    <div class="pills">
+      <span class="pill">03 Hours</span>
+      <span class="pill">100 Marks</span>
+      <span class="pill">Q1, Q3, Q4, Q5B Code</span>
+      <span class="pill">Q2, Q5A Theory</span>
+      <span class="pill">Write → View model answer → Mark honestly</span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Final Exam Structure Used in This Mock</h2>
+    <table>
+      <tr><th>Question</th><th>Lecture</th><th>Topic</th><th>Marks</th><th>Type</th></tr>
+      <tr><td>Q1</td><td>Lecture 01 & 02</td><td>Constructors, getters/setters, overloading</td><td>20</td><td>Code</td></tr>
+      <tr><td>Q2</td><td>Lecture 03</td><td>Noun-Verb Analysis + CRC Cards</td><td>15</td><td>Theory</td></tr>
+      <tr><td>Q3</td><td>Lecture 06</td><td>Exception Handling</td><td>15</td><td>Code</td></tr>
+      <tr><td>Q4</td><td>Lecture 04</td><td>Relationships</td><td>25</td><td>Code</td></tr>
+      <tr><td>Q5A</td><td>Lecture 07</td><td>SOLID Principles</td><td>10</td><td>Theory</td></tr>
+      <tr><td>Q5B</td><td>Lecture 05 & 08</td><td>Interface, Static, ArrayList</td><td>15</td><td>Code</td></tr>
+    </table>
+    <p class="small">Do the question first without viewing answer. Then click “View Model Answer” and mark using the rubric.</p>
+  </div>
+
+  <div class="panel" id="examPanel">
+    <div id="counter"></div>
+    <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
+    <div id="questions"></div>
+    <div class="buttons">
+      <button class="secondary" onclick="prevQ()">Previous</button>
+      <div>
+        <button class="yellow" onclick="revealAnswer()">View Model Answer</button>
+        <button class="green" onclick="saveMark()">Save My Mark</button>
+        <button class="secondary" onclick="nextQ()">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel hidden" id="resultPanel">
+    <h2>Final Self-Marked Result</h2>
+    <div id="resultText"></div>
+    <h3>Question Breakdown</h3>
+    <div id="breakdown" class="grid"></div>
+    <h3>Weak-Point Analysis</h3>
+    <div id="weak"></div>
+    <h3>Strong-Area Analysis</h3>
+    <div id="strong"></div>
+    <div class="buttons">
+      <button class="secondary" onclick="window.print()">Print / Save Progress</button>
+      <button class="yellow" onclick="restart()">Restart Mock</button>
+    </div>
+  </div>
+
+  <div class="footer">Tip: In the real exam, focus on correct class structure, constructors, String .equals(), super(), object creation, try-catch, and ArrayList search/remove patterns.</div>
+</div>
+
+<script>
+const questions = [{"qid": "Q1", "title": "Question 01 - Lecture 01 & 02", "marks": 20, "type": "Code-based", "topic": "Constructors, getters, setters, constructor overloading, method overloading", "question": "\nA private hospital wants to manage patient appointment details.\n\nWrite a Java program for an <b>Appointment Management System</b>.\n\n<b>a)</b> Create a class called <code>Appointment</code> with the following private attributes:\n<ul>\n<li><code>appointmentId</code></li>\n<li><code>patientName</code></li>\n<li><code>doctorName</code></li>\n<li><code>consultationFee</code></li>\n<li><code>numberOfVisits</code></li>\n</ul>\n\n<b>b)</b> Implement constructor overloading:\n<ul>\n<li>A default constructor</li>\n<li>A constructor that accepts only <code>appointmentId</code> and <code>patientName</code></li>\n<li>A constructor that accepts all attributes</li>\n</ul>\n\n<b>c)</b> Implement getters and setters for <code>doctorName</code>, <code>consultationFee</code>, and <code>numberOfVisits</code>.\n\nValidation:\n<ul>\n<li><code>doctorName</code> cannot be empty.</li>\n<li><code>consultationFee</code> must be greater than 0.</li>\n<li><code>numberOfVisits</code> must be greater than 0.</li>\n</ul>\n\n<b>d)</b> Implement method overloading for <code>calculateTotalFee()</code>:\n<ul>\n<li>No parameter: returns <code>consultationFee * numberOfVisits</code></li>\n<li>One parameter <code>discountPercentage</code>: returns total fee after discount</li>\n</ul>\n\n<b>e)</b> Implement <code>displayAppointmentDetails()</code>.\n\n<b>f)</b> Create <code>AppointmentApp</code> with <code>main()</code>:\n<ul>\n<li>Create one object using the two-parameter constructor and set other values using setters.</li>\n<li>Create one object using the full constructor.</li>\n<li>Display both objects.</li>\n<li>Display discounted total for one object.</li>\n</ul>\n", "answer": "class Appointment {\n    private String appointmentId;\n    private String patientName;\n    private String doctorName;\n    private double consultationFee;\n    private int numberOfVisits;\n\n    public Appointment() {\n        this.appointmentId = \"Unknown\";\n        this.patientName = \"Unknown\";\n        this.doctorName = \"Unknown\";\n        this.consultationFee = 0.0;\n        this.numberOfVisits = 0;\n    }\n\n    public Appointment(String appointmentId, String patientName) {\n        this.appointmentId = appointmentId;\n        this.patientName = patientName;\n        this.doctorName = \"Unknown\";\n        this.consultationFee = 0.0;\n        this.numberOfVisits = 0;\n    }\n\n    public Appointment(String appointmentId, String patientName,\n                       String doctorName, double consultationFee, int numberOfVisits) {\n        this.appointmentId = appointmentId;\n        this.patientName = patientName;\n        setDoctorName(doctorName);\n        setConsultationFee(consultationFee);\n        setNumberOfVisits(numberOfVisits);\n    }\n\n    public String getDoctorName() {\n        return doctorName;\n    }\n\n    public void setDoctorName(String doctorName) {\n        if (doctorName != null && !doctorName.isEmpty()) {\n            this.doctorName = doctorName;\n        } else {\n            this.doctorName = \"Unknown\";\n        }\n    }\n\n    public double getConsultationFee() {\n        return consultationFee;\n    }\n\n    public void setConsultationFee(double consultationFee) {\n        if (consultationFee > 0) {\n            this.consultationFee = consultationFee;\n        } else {\n            System.out.println(\"Consultation fee must be greater than 0\");\n        }\n    }\n\n    public int getNumberOfVisits() {\n        return numberOfVisits;\n    }\n\n    public void setNumberOfVisits(int numberOfVisits) {\n        if (numberOfVisits > 0) {\n            this.numberOfVisits = numberOfVisits;\n        } else {\n            System.out.println(\"Number of visits must be greater than 0\");\n        }\n    }\n\n    public double calculateTotalFee() {\n        return consultationFee * numberOfVisits;\n    }\n\n    public double calculateTotalFee(double discountPercentage) {\n        return calculateTotalFee() * (100 - discountPercentage) / 100;\n    }\n\n    public void displayAppointmentDetails() {\n        System.out.println(\"Appointment ID: \" + appointmentId);\n        System.out.println(\"Patient Name: \" + patientName);\n        System.out.println(\"Doctor Name: \" + doctorName);\n        System.out.println(\"Consultation Fee: \" + consultationFee);\n        System.out.println(\"Number of Visits: \" + numberOfVisits);\n        System.out.println(\"Total Fee: \" + calculateTotalFee());\n        System.out.println();\n    }\n}\n\npublic class AppointmentApp {\n    public static void main(String[] args) {\n        Appointment a1 = new Appointment(\"A001\", \"Kamal\");\n        a1.setDoctorName(\"Dr. Perera\");\n        a1.setConsultationFee(2500.0);\n        a1.setNumberOfVisits(3);\n\n        Appointment a2 = new Appointment(\"A002\", \"Nimal\", \"Dr. Silva\", 3000.0, 2);\n\n        a1.displayAppointmentDetails();\n        a2.displayAppointmentDetails();\n\n        System.out.println(\"Discounted total for A2: \" + a2.calculateTotalFee(10));\n    }\n}", "rubric": [["Private attributes with suitable data types", 3], ["Default, partial, and full constructors", 4], ["Getters and setters with correct validation", 4], ["Two overloaded calculateTotalFee methods", 4], ["displayAppointmentDetails method", 2], ["main method creates objects and calls methods correctly", 3]]}, {"qid": "Q2", "title": "Question 02 - Lecture 03", "marks": 15, "type": "Structured theory", "topic": "Noun-Verb Analysis and CRC Cards", "question": "\nA courier delivery company wants to automate its parcel delivery system.\n\nCustomers can place delivery orders through the system. Each order contains parcel details, weight, delivery address, payment details, and delivery status. A courier officer checks the order and assigns it to a delivery rider. The delivery rider collects the parcel from the branch and delivers it to the customer. The customer can make payment by cash or card. The system can generate daily delivery reports for the manager.\n\nAnswer the following:\n\n<b>a)</b> Identify nouns that can be potential classes.<br>\n<b>b)</b> Reject unnecessary nouns using noun-rejection rules.<br>\n<b>c)</b> Identify the final classes.<br>\n<b>d)</b> Write CRC cards for any 5 final classes.\n", "answer": "a) Possible nouns:\nCourier delivery company, parcel delivery system, customer, delivery order, parcel details,\nweight, delivery address, payment details, delivery status, courier officer, delivery rider,\nbranch, cash, card, daily delivery report, manager.\n\nb) Rejected nouns:\nCourier delivery company - outside/system owner, not a class needed in the system.\nParcel delivery system - whole system/meta-language.\nParcel details - can be attributes of Parcel.\nWeight - attribute of Parcel.\nDelivery address - attribute of Order/Customer.\nPayment details - can be attributes of Payment.\nDelivery status - attribute of DeliveryOrder.\nCash/Card - payment types, not main classes unless detailed payment type handling is needed.\nDaily - descriptive word, not a class.\n\nc) Final classes:\nCustomer\nDeliveryOrder\nParcel\nPayment\nCourierOfficer\nDeliveryRider\nBranch\nDeliveryReport\nManager\n\nd) CRC Cards:\n\nClass: Customer\nResponsibilities:\n- Place delivery order\n- Make payment\nCollaborators:\n- DeliveryOrder\n- Payment\n\nClass: DeliveryOrder\nResponsibilities:\n- Store order information\n- Track delivery status\n- Connect parcel, customer, payment and rider\nCollaborators:\n- Customer\n- Parcel\n- Payment\n- DeliveryRider\n\nClass: Parcel\nResponsibilities:\n- Store parcel details\n- Store weight\nCollaborators:\n- DeliveryOrder\n\nClass: Payment\nResponsibilities:\n- Store payment details\n- Process payment\nCollaborators:\n- Customer\n- DeliveryOrder\n\nClass: DeliveryRider\nResponsibilities:\n- Collect parcel\n- Deliver parcel\nCollaborators:\n- DeliveryOrder\n- Branch\n\nClass: DeliveryReport\nResponsibilities:\n- Generate daily delivery report\nCollaborators:\n- Manager\n- DeliveryOrder", "rubric": [["Identifies suitable nouns/potential classes", 4], ["Rejects nouns with valid reasons", 4], ["Lists clear final classes", 3], ["CRC cards include Class, Responsibilities, Collaborators", 4]]}, {"qid": "Q3", "title": "Question 03 - Lecture 06", "marks": 15, "type": "Code-based", "topic": "Exception Handling and Custom Exceptions", "question": "\nA university system allows students to register for the final examination.\n\nWrite a Java program to validate the student\u2019s attendance percentage and exam fee payment.\n\nCreate two custom exception classes:\n\n<ol>\n<li><b>InvalidAttendanceException</b>\n<ul>\n<li>Thrown if attendance percentage is less than 80.</li>\n<li>Error message: <code>\"Attendance must be at least 80% to register for the exam\"</code></li>\n</ul>\n</li>\n<li><b>InvalidExamFeeException</b>\n<ul>\n<li>Thrown if exam fee is less than 5000.</li>\n<li>Error message: <code>\"Exam fee must be at least Rs. 5000\"</code></li>\n</ul>\n</li>\n</ol>\n\nCreate <code>ExamRegistrationApp</code> with <code>main()</code>:\n<ul>\n<li>Input student name, attendance percentage, and exam fee using <code>Scanner</code>.</li>\n<li>Validate attendance and exam fee.</li>\n<li>If both are valid, display <code>\"Exam registration successful\"</code>.</li>\n<li>Use proper <code>try-catch</code> statements.</li>\n</ul>\n", "answer": "import java.util.Scanner;\n\nclass InvalidAttendanceException extends Exception {\n    public InvalidAttendanceException(String message) {\n        super(message);\n    }\n}\n\nclass InvalidExamFeeException extends Exception {\n    public InvalidExamFeeException(String message) {\n        super(message);\n    }\n}\n\npublic class ExamRegistrationApp {\n    public static void main(String[] args) {\n        Scanner input = new Scanner(System.in);\n\n        System.out.print(\"Enter student name: \");\n        String studentName = input.nextLine();\n\n        System.out.print(\"Enter attendance percentage: \");\n        double attendance = input.nextDouble();\n\n        System.out.print(\"Enter exam fee: \");\n        double examFee = input.nextDouble();\n\n        try {\n            if (attendance < 80) {\n                throw new InvalidAttendanceException(\n                    \"Attendance must be at least 80% to register for the exam\"\n                );\n            }\n\n            if (examFee < 5000) {\n                throw new InvalidExamFeeException(\n                    \"Exam fee must be at least Rs. 5000\"\n                );\n            }\n\n            System.out.println(\"Exam registration successful\");\n            System.out.println(\"Student Name: \" + studentName);\n\n        } catch (InvalidAttendanceException e) {\n            System.out.println(e.getMessage());\n\n        } catch (InvalidExamFeeException e) {\n            System.out.println(e.getMessage());\n        }\n    }\n}", "rubric": [["Both custom exceptions extend Exception", 4], ["Constructors use super(message)", 2], ["Scanner input is used correctly", 2], ["Correct invalid conditions", 3], ["Uses throw new correctly", 2], ["Uses catch and getMessage correctly", 2]]}, {"qid": "Q4", "title": "Question 04 - Lecture 04", "marks": 25, "type": "Code-based", "topic": "Relationships: Inheritance, Composition, Aggregation, Overriding", "question": "\nA hotel transport system manages different types of vehicles used to transport guests.\n\nEach vehicle has a vehicle number and speed. There are two specialized vehicles: <b>HotelBus</b> and <b>HotelVan</b>.\n\nEach <b>Vehicle</b> contains an <b>Engine</b>. The Engine is part of the Vehicle and cannot exist without it.\n\nA <b>Driver</b> is assigned to each vehicle. However, a Driver can exist independently from the vehicle.\n\nDifferent vehicles have different implementations of the <code>start()</code> method.\n\nWrite a Java program to do the following:\n\n<b>a)</b> Create <code>Vehicle</code> with <code>vehicleNumber</code>, <code>speed</code>, <code>start()</code>, and <code>displayVehicleDetails()</code>.<br>\n<b>b)</b> Create <code>Engine</code> with <code>engineType</code>. Use composition with Vehicle.<br>\n<b>c)</b> Create <code>Driver</code> with <code>driverName</code> and <code>licenseNumber</code>.<br>\n<b>d)</b> Create <code>HotelBus</code> and <code>HotelVan</code> as subclasses of Vehicle.<br>\n<b>e)</b> Override <code>start()</code> in both child classes.<br>\n<b>f)</b> Use aggregation to assign Driver to HotelBus and HotelVan.<br>\n<b>g)</b> HotelBus has extra attribute <code>passengerCapacity</code>.<br>\n<b>h)</b> HotelVan has extra attribute <code>luggageCapacity</code>.<br>\n<b>i)</b> Create <code>HotelTransportApp</code> with <code>main()</code> to create objects and display full details including Engine and Driver.\n", "answer": "class Engine {\n    private String engineType;\n\n    public Engine(String engineType) {\n        this.engineType = engineType;\n    }\n\n    public void displayEngineDetails() {\n        System.out.println(\"Engine Type: \" + engineType);\n    }\n}\n\nclass Driver {\n    private String driverName;\n    private String licenseNumber;\n\n    public Driver(String driverName, String licenseNumber) {\n        this.driverName = driverName;\n        this.licenseNumber = licenseNumber;\n    }\n\n    public void displayDriverDetails() {\n        System.out.println(\"Driver Name: \" + driverName);\n        System.out.println(\"License Number: \" + licenseNumber);\n    }\n}\n\nclass Vehicle {\n    protected String vehicleNumber;\n    protected double speed;\n    protected Engine engine; // composition\n\n    public Vehicle(String vehicleNumber, double speed, String engineType) {\n        this.vehicleNumber = vehicleNumber;\n        this.speed = speed;\n        this.engine = new Engine(engineType); // composition: created inside Vehicle\n    }\n\n    public void start() {\n        System.out.println(\"Vehicle is starting...\");\n    }\n\n    public void displayVehicleDetails() {\n        System.out.println(\"Vehicle Number: \" + vehicleNumber);\n        System.out.println(\"Speed: \" + speed);\n        engine.displayEngineDetails();\n    }\n}\n\nclass HotelBus extends Vehicle {\n    private int passengerCapacity;\n    private Driver driver; // aggregation\n\n    public HotelBus(String vehicleNumber, double speed, String engineType,\n                    int passengerCapacity, Driver driver) {\n        super(vehicleNumber, speed, engineType);\n        this.passengerCapacity = passengerCapacity;\n        this.driver = driver;\n    }\n\n    @Override\n    public void start() {\n        System.out.println(\"Hotel bus is starting... Guests are boarding.\");\n    }\n\n    @Override\n    public void displayVehicleDetails() {\n        start();\n        super.displayVehicleDetails();\n        System.out.println(\"Passenger Capacity: \" + passengerCapacity);\n        driver.displayDriverDetails();\n        System.out.println();\n    }\n}\n\nclass HotelVan extends Vehicle {\n    private double luggageCapacity;\n    private Driver driver; // aggregation\n\n    public HotelVan(String vehicleNumber, double speed, String engineType,\n                    double luggageCapacity, Driver driver) {\n        super(vehicleNumber, speed, engineType);\n        this.luggageCapacity = luggageCapacity;\n        this.driver = driver;\n    }\n\n    @Override\n    public void start() {\n        System.out.println(\"Hotel van is starting... Luggage is loading.\");\n    }\n\n    @Override\n    public void displayVehicleDetails() {\n        start();\n        super.displayVehicleDetails();\n        System.out.println(\"Luggage Capacity: \" + luggageCapacity + \" kg\");\n        driver.displayDriverDetails();\n        System.out.println();\n    }\n}\n\npublic class HotelTransportApp {\n    public static void main(String[] args) {\n        Driver d1 = new Driver(\"John Doe\", \"DL1234\");\n        Driver d2 = new Driver(\"Alice Smith\", \"DL5678\");\n\n        HotelBus bus = new HotelBus(\"BUS001\", 80.0, \"Diesel\", 50, d1);\n        HotelVan van = new HotelVan(\"VAN001\", 60.0, \"Petrol\", 250.0, d2);\n\n        bus.displayVehicleDetails();\n        van.displayVehicleDetails();\n    }\n}", "rubric": [["Vehicle parent class with common attributes and methods", 4], ["Inheritance using extends for HotelBus and HotelVan", 4], ["Composition: Engine created inside Vehicle", 5], ["Aggregation: Driver created separately and passed in", 4], ["Method overriding for start/display behavior", 3], ["Subclass-specific attributes", 2], ["Main method creates and displays full scenario", 3]]}, {"qid": "Q5A", "title": "Question 05 Part A - Lecture 07", "marks": 10, "type": "Structured theory", "topic": "SOLID Principles", "question": "\nAnswer the following questions briefly.\n\n<b>a)</b> What is the Single Responsibility Principle? Give one simple example. <b>(3 marks)</b><br>\n<b>b)</b> What is the Open/Closed Principle? <b>(2 marks)</b><br>\n<b>c)</b> What is the Interface Segregation Principle? <b>(2 marks)</b><br>\n<b>d)</b> Identify the SOLID principle violated in the following code and explain why. <b>(3 marks)</b>\n\n<pre>\ninterface SmartMachine {\n    void print();\n    void scan();\n    void fax();\n}\n\nclass BasicPrinter implements SmartMachine {\n    public void print() {\n        System.out.println(\"Printing\");\n    }\n\n    public void scan() {\n        throw new UnsupportedOperationException();\n    }\n\n    public void fax() {\n        throw new UnsupportedOperationException();\n    }\n}\n</pre>\n", "answer": "a) Single Responsibility Principle:\nA class should have one main responsibility and one reason to change.\nExample: UserService should handle user registration only. Email sending should be in a separate EmailService class.\n\nb) Open/Closed Principle:\nA class should be open for extension but closed for modification. New features should be added by creating new classes or using interfaces/polymorphism, not by changing old tested code.\n\nc) Interface Segregation Principle:\nA class should not be forced to implement methods it does not use. Large interfaces should be split into small focused interfaces.\n\nd) Violated principle: Interface Segregation Principle (ISP).\nReason: BasicPrinter only needs print(), but it is forced to implement scan() and fax(). This creates unused methods and bad design.\nBetter design:\ninterface Printable { void print(); }\ninterface Scannable { void scan(); }\ninterface Faxable { void fax(); }\n\nclass BasicPrinter implements Printable {\n    public void print() {\n        System.out.println(\"Printing\");\n    }\n}", "rubric": [["Correct SRP definition and example", 3], ["Correct OCP definition", 2], ["Correct ISP definition", 2], ["Correctly identifies ISP violation and explains why", 3]]}, {"qid": "Q5B", "title": "Question 05 Part B - Lecture 05 & 08", "marks": 15, "type": "Code-based", "topic": "Interface, Static, and ArrayList", "question": "\nA library wants to manage digital resources using an <code>ArrayList</code>.\n\nWrite a Java program to do the following:\n\n<b>a)</b> Create an interface called <code>Downloadable</code> with method <code>downloadDetails()</code>.<br>\n<b>b)</b> Create a class called <code>EBook</code> that implements <code>Downloadable</code>.\nAttributes:\n<ul>\n<li><code>resourceId</code></li>\n<li><code>title</code></li>\n</ul>\n\n<b>c)</b> Create a class called <code>AudioBook</code> that implements <code>Downloadable</code>.\nAttributes:\n<ul>\n<li><code>resourceId</code></li>\n<li><code>duration</code></li>\n</ul>\n\n<b>d)</b> Add a static variable called <code>downloadCount</code> to count how many downloadable objects are created.<br>\n<b>e)</b> In the constructors of <code>EBook</code> and <code>AudioBook</code>, increase <code>downloadCount</code>.<br>\n<b>f)</b> Create <code>DigitalLibraryApp</code> with <code>main()</code>:\n<ul>\n<li>Create an <code>ArrayList&lt;Downloadable&gt;</code>.</li>\n<li>Add EBook and AudioBook objects to the ArrayList.</li>\n<li>Use a loop to call <code>downloadDetails()</code> for all objects.</li>\n<li>Display total download count.</li>\n</ul>\n", "answer": "import java.util.ArrayList;\n\ninterface Downloadable {\n    void downloadDetails();\n}\n\nclass DownloadCounter {\n    public static int downloadCount = 0;\n}\n\nclass EBook implements Downloadable {\n    private String resourceId;\n    private String title;\n\n    public EBook(String resourceId, String title) {\n        this.resourceId = resourceId;\n        this.title = title;\n        DownloadCounter.downloadCount++;\n    }\n\n    @Override\n    public void downloadDetails() {\n        System.out.println(\"EBook Resource ID: \" + resourceId);\n        System.out.println(\"Title: \" + title);\n        System.out.println();\n    }\n}\n\nclass AudioBook implements Downloadable {\n    private String resourceId;\n    private double duration;\n\n    public AudioBook(String resourceId, double duration) {\n        this.resourceId = resourceId;\n        this.duration = duration;\n        DownloadCounter.downloadCount++;\n    }\n\n    @Override\n    public void downloadDetails() {\n        System.out.println(\"AudioBook Resource ID: \" + resourceId);\n        System.out.println(\"Duration: \" + duration + \" hours\");\n        System.out.println();\n    }\n}\n\npublic class DigitalLibraryApp {\n    public static void main(String[] args) {\n        ArrayList<Downloadable> resources = new ArrayList<>();\n\n        resources.add(new EBook(\"E001\", \"Java Basics\"));\n        resources.add(new AudioBook(\"A001\", 5.5));\n        resources.add(new EBook(\"E002\", \"OOP Concepts\"));\n\n        for (Downloadable resource : resources) {\n            resource.downloadDetails();\n        }\n\n        System.out.println(\"Total downloadable objects: \" + DownloadCounter.downloadCount);\n    }\n}", "rubric": [["Downloadable interface with method", 3], ["EBook implements interface correctly", 3], ["AudioBook implements interface correctly", 3], ["Static downloadCount used correctly", 2], ["ArrayList<Downloadable> created and objects added", 2], ["Loop calls downloadDetails and displays count", 2]]}];
+
+let current = 0;
+let scores = questions.map(q => 0);
+
+function esc(s) {
+  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function render() {
+  const wrap = document.getElementById('questions');
+  wrap.innerHTML = '';
+  questions.forEach((q, qi) => {
+    const div = document.createElement('div');
+    div.className = 'qcard' + (qi === current ? ' active' : '');
+    div.id = 'q-' + qi;
+    const rubricHtml = q.rubric.map((r, ri) => `<label><input type="checkbox" data-q="${qi}" data-marks="${r[1]}" onchange="calcRubric(${qi})"> ${r[0]} <b>(${r[1]})</b></label>`).join('');
+    div.innerHTML = `
+      <div class="qtop">
+        <div>
+          <span class="badge">${q.title}</span>
+          <span class="badge">${q.marks} marks</span>
+          <span class="badge">${q.type}</span>
+        </div>
+        <span class="badge">${q.topic}</span>
+      </div>
+      <div class="question-box">${q.question}</div>
+      <label><b>Your Answer</b></label>
+      <textarea id="code-${qi}" placeholder="Write or paste your answer here..."></textarea>
+      <div class="answer" id="ans-${qi}">
+        <h3>Model Answer</h3>
+        <pre>${esc(q.answer)}</pre>
+        <div class="warnbox">Mark honestly. Your answer does not need to match word-for-word, but the required logic, classes, methods, and explanations must be correct.</div>
+      </div>
+      <div class="rubric">
+        <h3>Self-Marking Rubric</h3>
+        <div id="rubric-${qi}">${rubricHtml}</div>
+        <p><b>My score for this question:</b>
+          <input class="score-input" type="number" id="score-${qi}" min="0" max="${q.marks}" value="0" onchange="manualScore(${qi})"> / ${q.marks}
+        </p>
+      </div>
+    `;
+    wrap.appendChild(div);
+  });
+  restoreSaved();
+  updateTop();
+}
+
+function restoreSaved() {
+  questions.forEach((q, i) => {
+    const code = localStorage.getItem('oop_full_mock_code_' + i);
+    if (code !== null) document.getElementById('code-' + i).value = code;
+    const s = localStorage.getItem('oop_full_mock_score_' + i);
+    if (s !== null) {
+      scores[i] = Number(s);
+      document.getElementById('score-' + i).value = scores[i];
+    }
+    if (localStorage.getItem('oop_full_mock_revealed_' + i) === '1') {
+      document.getElementById('ans-' + i).style.display = 'block';
+    }
+  });
+}
+
+function updateTop() {
+  document.querySelectorAll('.qcard').forEach(c => c.classList.remove('active'));
+  document.getElementById('q-' + current).classList.add('active');
+  document.getElementById('counter').innerHTML = `<b>Question ${current + 1} of ${questions.length}</b>`;
+  document.getElementById('progress').style.width = ((current + 1) / questions.length * 100) + '%';
+}
+
+function saveMark() {
+  const code = document.getElementById('code-' + current).value;
+  localStorage.setItem('oop_full_mock_code_' + current, code);
+  localStorage.setItem('oop_full_mock_score_' + current, scores[current]);
+  alert('Saved your answer and mark for this question.');
+}
+
+function revealAnswer() {
+  document.getElementById('ans-' + current).style.display = 'block';
+  localStorage.setItem('oop_full_mock_revealed_' + current, '1');
+}
+
+function calcRubric(qi) {
+  let total = 0;
+  document.querySelectorAll(`#rubric-${qi} input[type=checkbox]`).forEach(cb => {
+    if (cb.checked) total += Number(cb.dataset.marks);
+  });
+  scores[qi] = Math.min(total, questions[qi].marks);
+  document.getElementById('score-' + qi).value = scores[qi];
+  localStorage.setItem('oop_full_mock_score_' + qi, scores[qi]);
+}
+
+function manualScore(qi) {
+  let v = Number(document.getElementById('score-' + qi).value || 0);
+  if (v < 0) v = 0;
+  if (v > questions[qi].marks) v = questions[qi].marks;
+  scores[qi] = v;
+  document.getElementById('score-' + qi).value = v;
+  localStorage.setItem('oop_full_mock_score_' + qi, v);
+}
+
+function saveCurrentCodeOnly() {
+  const code = document.getElementById('code-' + current).value;
+  localStorage.setItem('oop_full_mock_code_' + current, code);
+}
+
+function nextQ() {
+  saveCurrentCodeOnly();
+  if (current < questions.length - 1) {
+    current++;
+    updateTop();
+    window.scrollTo({top: document.getElementById('examPanel').offsetTop - 10, behavior:'smooth'});
+  } else {
+    showResults();
+  }
+}
+
+function prevQ() {
+  saveCurrentCodeOnly();
+  if (current > 0) {
+    current--;
+    updateTop();
+  }
+}
+
+function showResults() {
+  saveCurrentCodeOnly();
+  const total = scores.reduce((a,b) => a + b, 0);
+  const max = questions.reduce((a,q) => a + q.marks, 0);
+  const pct = Math.round((total / max) * 100);
+  document.getElementById('resultPanel').classList.remove('hidden');
+  document.getElementById('resultText').innerHTML = `<div class="resultBig">${total} / ${max} marks (${pct}%)</div>`;
+
+  let bd = '';
+  questions.forEach((q, i) => {
+    bd += `<div class="box"><b>${q.qid}: ${q.title}</b><br>${scores[i]} / ${q.marks}<br><span class="small">${q.topic}</span></div>`;
+  });
+  document.getElementById('breakdown').innerHTML = bd;
+
+  let weak = [];
+  let strong = [];
+  questions.forEach((q, i) => {
+    const ratio = scores[i] / q.marks;
+    if (ratio < 0.6) weak.push(`<li><b>${q.qid}</b>: Revise ${q.topic}.</li>`);
+    if (ratio >= 0.8) strong.push(`<li><b>${q.qid}</b>: Strong area.</li>`);
+  });
+
+  document.getElementById('weak').innerHTML = weak.length ? `<ul>${weak.join('')}</ul>` : `<p>No major weak area. Good work.</p>`;
+  document.getElementById('strong').innerHTML = strong.length ? `<ul>${strong.join('')}</ul>` : `<p>No strong area above 80% yet. Practise again and mark strictly.</p>`;
+  document.getElementById('resultPanel').scrollIntoView({behavior:'smooth'});
+}
+
+function restart() {
+  if (!confirm('Clear saved answers and marks?')) return;
+  questions.forEach((q, i) => {
+    localStorage.removeItem('oop_full_mock_code_' + i);
+    localStorage.removeItem('oop_full_mock_score_' + i);
+    localStorage.removeItem('oop_full_mock_revealed_' + i);
+  });
+  scores = questions.map(q => 0);
+  current = 0;
+  document.getElementById('resultPanel').classList.add('hidden');
+  render();
+}
+
+render();
+</script>
+</body>
+</html>

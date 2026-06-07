@@ -49,6 +49,16 @@
     "url": "quizzes/y1s2/dsa/dsa-final-mock-01.html",
     "visible": true
   },
+    {
+    "title": "OOP CODE + THEORY Quiz 01 (Final Exam Type) ",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "OOP",
+    "type": "Mock Exam",
+    "description": "Same as Final Exam . Self Marking Avaialbe .",
+    "url": "quizzes/y1s2/oop/oop-code-theory-quiz-01.html",
+    "visible": true
+  },
    {
     "title": "OOP CODE Only Mock Quiz(Final Exam Type) ",
     "year": "Year 1",
@@ -59,6 +69,7 @@
     "url": "quizzes/y1s2/oop/oop-code-only-mock-quiz.html",
     "visible": true
   },
+
   {
     "title": "IS Final Mock Quiz 01",
     "year": "Year 1",
