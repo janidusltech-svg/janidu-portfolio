@@ -49,6 +49,16 @@
     "url": "quizzes/y1s2/dsa/dsa-final-mock-01.html",
     "visible": true
   },
+  {
+    "title": " OOP Super Final Mock Quize 02 (code + theory) ",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "OOP",
+    "type": "Mock Exam",
+    "description": "Interactive Information Systems final mock quiz for Year 1 Semester 2 revision.",
+    "url": "quizzes/y1s2/oop/oop-final-mock-02.html",
+    "visible": true
+  },
    {
     "title": " OOP Theory Only 3 Mock Quizes ",
     "year": "Year 1",
