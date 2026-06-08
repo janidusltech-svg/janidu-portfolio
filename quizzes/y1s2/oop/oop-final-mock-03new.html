@@ -8,10 +8,56 @@
 :root{--bg:#0f172a;--card:#111827;--line:#334155;--text:#f8fafc;--muted:#cbd5e1;--blue:#38bdf8;--green:#22c55e;--yellow:#f59e0b}
 *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#020617,#0f172a);color:var(--text);line-height:1.5}.container{max-width:1150px;margin:auto;padding:20px}.hero,.panel{background:rgba(17,24,39,.96);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}.hero{background:linear-gradient(135deg,#075985,#111827)}h1,h2,h3{margin-top:0}.pill,.badge{display:inline-block;background:#1e293b;border:1px solid #334155;color:#bae6fd;border-radius:999px;padding:5px 9px;margin:3px;font-size:13px}.pill{border-color:#38bdf8;color:#e0f2fe}.qcard{display:none}.qcard.active{display:block}.question{background:#0f172a;border:1px solid #334155;border-radius:12px;padding:14px;white-space:pre-wrap}textarea{width:100%;min-height:260px;background:#020617;color:#e5e7eb;border:1px solid #475569;border-radius:12px;padding:12px;font-family:Consolas,monospace;font-size:14px;margin-top:10px}pre{white-space:pre-wrap;background:#020617;color:#d1fae5;border:1px solid #166534;border-radius:12px;padding:14px;font-family:Consolas,monospace;font-size:13px;overflow:auto}.answer{display:none}.rubric{background:#0f172a;border:1px solid #334155;border-radius:12px;padding:12px;margin-top:12px}.rubric label{display:block;margin:8px 0}button{border:0;border-radius:10px;padding:10px 13px;margin:4px;font-weight:bold;cursor:pointer;background:var(--blue);color:#06111f}button.secondary{background:#334155;color:#f8fafc}button.green{background:var(--green)}button.yellow{background:var(--yellow)}input[type=number]{width:80px;padding:8px;border-radius:8px;background:#020617;color:white;border:1px solid #475569}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{background:#0f172a;border:1px solid #334155;border-radius:12px;padding:12px}.big{font-size:28px;color:#86efac;font-weight:bold}.hidden{display:none}table{width:100%;border-collapse:collapse}td,th{border:1px solid #334155;padding:8px}th{background:#0f172a;color:#bae6fd}.progress{height:12px;background:#1e293b;border-radius:999px;overflow:hidden;margin:10px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,#38bdf8,#22c55e)}.small{color:var(--muted);font-size:14px}@media print{body{background:white;color:black}.hero,.panel,.question{background:white;color:black;border:1px solid #000}button,textarea,.rubric{display:none}}
 </style>
+
+<style>
+.top-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 0 14px 0;
+}
+.top-links a {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #38bdf8;
+  color: #06111f;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.top-links a:nth-child(2) {
+  background: #22c55e;
+  color: #052e16;
+}
+.credit {
+  color: #e0f2fe;
+  font-weight: 600;
+  margin: 8px 0 0 0;
+}
+.credit a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 640px) {
+  .top-links a {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="container">
-<div class="hero"><h1>OOP Final Exam Mock 03</h1><p>Created by Janidu Sandaruwan(Y1S2)</p><span class="pill">100 marks</span><span class="pill">Senior paper + sample paper style</span><span class="pill">Different questions</span><span class="pill">Self-mark method</span></div>
+
+<div class="top-links">
+  <a href="https://janidusandaruwan.com/" target="_blank" rel="noopener noreferrer">Back to Study Hub By J</a>
+  <a href="https://www.whatsapp.com/channel/0029Vb7ep90I1rcbyPccWx2t" target="_blank" rel="noopener noreferrer">Join WhatsApp Channel For New Quiz Updates</a>
+</div>
+
+<div class="hero"><h1>OOP Final Exam Mock 03</h1><p>Created by <a href="https://janidusandaruwan.com/portfolio.html" target="_blank" rel="noopener noreferrer">Janidu Sandaruwan(Y1S2)</a></p><span class="pill">100 marks</span><span class="pill">Senior paper + sample paper style</span><span class="pill">Different questions</span><span class="pill">Self-mark method</span></div>
 <div class="panel"><h2>Paper Structure</h2><table><tr><th>Question</th><th>Area</th><th>Marks</th></tr><tr><td>Q1</td><td>Lecture 01 and 02</td><td>20</td></tr><tr><td>Q2</td><td>Noun Verb Analysis and CRC Cards</td><td>15</td></tr><tr><td>Q3</td><td>Exception Handling</td><td>15</td></tr><tr><td>Q4</td><td>ArrayLists</td><td>20</td></tr><tr><td>Q5</td><td>OOP Relationships</td><td>30</td></tr></table><p class="small">Do the answer first. Then view model answer and mark honestly.</p></div>
 <div class="panel"><div id="counter"></div><div class="progress"><div class="bar" id="bar"></div></div><div id="area"></div><div><button class="secondary" onclick="prevQ()">Previous</button><button class="yellow" onclick="reveal()">View Model Answer</button><button class="green" onclick="save()">Save Mark</button><button class="secondary" onclick="nextQ()">Next</button></div></div>
 <div class="panel hidden" id="resultPanel"><h2>Final Result</h2><div id="result"></div><h3>Breakdown</h3><div class="grid" id="breakdown"></div><h3>Weak / Strong Analysis</h3><div id="analysis"></div><button class="yellow" onclick="restart()">Restart Mock</button></div>
