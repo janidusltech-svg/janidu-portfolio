@@ -50,6 +50,16 @@
     "visible": true
   },
   {
+    "title": " OOP Super Final Mock Quiz 03 (code + theory) ",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "OOP",
+    "type": "Mock Exam",
+    "description": "Interactive Information Systems final mock quiz for Year 1 Semester 2 revision.",
+    "url": "quizzes/y1s2/oop/oop-final-mock-03.html",
+    "visible": true
+  },
+  {
     "title": " OOP Super Final Mock Quiz 02 (code + theory) ",
     "year": "Year 1",
     "semester": "Semester 2",
