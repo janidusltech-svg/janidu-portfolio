@@ -64,13 +64,15 @@ function resourceCard(item) {
   const downloadAttr = displayType === 'Reference Sheet' || displayType === 'Notes' ? 'download' : '';
 
   return `
-    <article class="resource-card reveal visible">
-      <div class="resource-meta">
-        <span>${item.year}</span>
-        <span>${item.semester}</span>
-        <span>${item.module}</span>
-        <span>${displayType}</span>
-      </div>
+  <article class="resource-card reveal visible">
+    ${item.badge ? `<span class="new-badge">${item.badge}</span>` : ""}
+
+    <div class="resource-meta">
+      <span>${item.year}</span>
+      <span>${item.semester}</span>
+      <span>${item.module}</span>
+      <span>${displayType}</span>
+    </div>
       <h3>${item.title}</h3>
       <p>${item.description}</p>
       <div class="resource-actions">

@@ -49,6 +49,17 @@
     "url": "quizzes/y1s2/dsa/dsa-final-mock-01.html",
     "visible": true
   },
+{
+  "title": "OOP Model Paper (Lecturer Uploaded)",
+  "year": "Year 1",
+  "semester": "Semester 2",
+  "module": "OOP",
+  "type": "Mock Exam",
+  "description": "Interactive OOP model paper mock exam for Year 1 Semester 2 revision.",
+  "url": "quizzes/y1s2/oop/oop-final-mock-03new.html",
+  "visible": true,
+  "badge": "NEW"
+},
   {
     "title": " OOP Super Final Mock Quiz 03 (code + theory) ",
     "year": "Year 1",
