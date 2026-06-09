@@ -1,12 +1,13 @@
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
-const topBtn = document.getElementById('topBtn');
-const progressBar = document.getElementById('progressBar');
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+const topBtn = document.getElementById("topBtn");
+const progressBar = document.getElementById("progressBar");
 
 if (menuBtn && navLinks) {
-  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  menuBtn.addEventListener("click", () => navLinks.classList.toggle("open"));
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => navLinks.classList.remove("open"));
   });
 }
 
@@ -16,54 +17,71 @@ function handleScroll() {
   const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
 
   if (progressBar) progressBar.style.width = `${progress}%`;
-  if (topBtn) topBtn.classList.toggle('visible', scrollTop > 420);
+  if (topBtn) topBtn.classList.toggle("visible", scrollTop > 420);
 }
 
-window.addEventListener('scroll', handleScroll);
+window.addEventListener("scroll", handleScroll);
 handleScroll();
 
 if (topBtn) {
-  topBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  topBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
 
-const revealElements = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+/* ==========================================
+   REVEAL ANIMATION
+========================================== */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
 
 revealElements.forEach((el) => revealObserver.observe(el));
 
-const resourceGrid = document.getElementById('resourceGrid');
-const emptyState = document.getElementById('emptyState');
+/* ==========================================
+   STUDY HUB RESOURCE SYSTEM
+========================================== */
+
+const resourceGrid = document.getElementById("resourceGrid");
+const emptyState = document.getElementById("emptyState");
 
 const filters = {
-  year: document.getElementById('yearFilter'),
-  semester: document.getElementById('semesterFilter'),
-  module: document.getElementById('moduleFilter'),
-  type: document.getElementById('typeFilter'),
+  year: document.getElementById("yearFilter"),
+  semester: document.getElementById("semesterFilter"),
+  module: document.getElementById("moduleFilter"),
+  type: document.getElementById("typeFilter"),
 };
 
 let resources = [];
 
 function normalizeType(type) {
-  if (!type) return '';
-  if (type === 'Interactive Quiz') return 'Mock Exam';
+  if (!type) return "";
+  if (type === "Interactive Quiz") return "Mock Exam";
   return type;
 }
 
 function resourceCard(item) {
-  const displayType = item.type || "Resource";
+  const displayType = normalizeType(item.type) || "Resource";
   const actionLabel = displayType === "Mock Exam" ? "Open" : "View";
   const downloadAttr = displayType === "Reference Sheet" ? "download" : "";
 
-  const needsWarning = item.title.toLowerCase().includes("expected exam structure");
+  const titleText = (item.title || "").toLowerCase();
+
+  const needsWarning =
+    titleText.includes("expected exam structure") ||
+    titleText.includes("expected") ||
+    item.url.includes("TW_Final_Exam_Structure_guess_ByJ");
 
   return `
     <article class="resource-card reveal visible">
@@ -99,28 +117,31 @@ function resourceCard(item) {
     </article>
   `;
 }
+
 function applyResourceFilters() {
   if (!resourceGrid) return;
 
-  const year = filters.year?.value || 'Year 1';
-  const semester = filters.semester?.value || 'Semester 2';
-  const module = filters.module?.value || 'all';
-  const type = filters.type?.value || 'all';
+  const year = filters.year?.value || "Year 1";
+  const semester = filters.semester?.value || "Semester 2";
+  const module = filters.module?.value || "all";
+  const type = filters.type?.value || "all";
 
   const filtered = resources.filter((item) => {
     const itemType = normalizeType(item.type);
 
-    return (year === 'all' || item.year === year)
-      && (semester === 'all' || item.semester === semester)
-      && (module === 'all' || item.module === module)
-      && (type === 'all' || itemType === type)
-      && item.visible !== false;
+    return (
+      (year === "all" || item.year === year) &&
+      (semester === "all" || item.semester === semester) &&
+      (module === "all" || item.module === module) &&
+      (type === "all" || itemType === type) &&
+      item.visible !== false
+    );
   });
 
-  resourceGrid.innerHTML = filtered.map(resourceCard).join('');
+  resourceGrid.innerHTML = filtered.map(resourceCard).join("");
 
   if (emptyState) {
-    emptyState.style.display = filtered.length ? 'none' : 'block';
+    emptyState.style.display = filtered.length ? "none" : "block";
   }
 }
 
@@ -128,17 +149,16 @@ async function loadResources() {
   if (!resourceGrid) return;
 
   try {
-    const res = await fetch('data/resources.json', { cache: 'no-store' });
+    const res = await fetch("data/resources.json", { cache: "no-store" });
     resources = await res.json();
 
-    // Convert old Interactive Quiz type into Mock Exam automatically
     resources = resources.map((item) => ({
       ...item,
       type: normalizeType(item.type),
     }));
   } catch (error) {
     resources = [];
-    console.error('Could not load resources.json', error);
+    console.error("Could not load resources.json", error);
   }
 
   applyResourceFilters();
@@ -146,39 +166,44 @@ async function loadResources() {
 
 Object.values(filters).forEach((select) => {
   if (select) {
-    select.addEventListener('change', applyResourceFilters);
+    select.addEventListener("change", applyResourceFilters);
   }
 });
 
-document.querySelectorAll('[data-filter-link]').forEach((link) => {
-  link.addEventListener('click', () => {
-    const [year, semester] = link.dataset.filterLink.split('|');
+document.querySelectorAll("[data-filter-link]").forEach((link) => {
+  link.addEventListener("click", () => {
+    const [year, semester] = link.dataset.filterLink.split("|");
 
     if (filters.year) filters.year.value = year;
     if (filters.semester) filters.semester.value = semester;
-    if (filters.module) filters.module.value = 'all';
-    if (filters.type) filters.type.value = 'all';
+    if (filters.module) filters.module.value = "all";
+    if (filters.type) filters.type.value = "all";
 
     setTimeout(applyResourceFilters, 80);
   });
 });
 
-document.querySelectorAll('[data-module-jump]').forEach((card) => {
-  card.addEventListener('click', () => {
+document.querySelectorAll("[data-module-jump]").forEach((card) => {
+  card.addEventListener("click", () => {
     const module = card.dataset.moduleJump;
 
-    if (filters.year) filters.year.value = 'Year 1';
-    if (filters.semester) filters.semester.value = 'Semester 2';
+    if (filters.year) filters.year.value = "Year 1";
+    if (filters.semester) filters.semester.value = "Semester 2";
     if (filters.module) filters.module.value = module;
-    if (filters.type) filters.type.value = 'all';
+    if (filters.type) filters.type.value = "all";
 
-    document.getElementById('resources')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("resources")?.scrollIntoView({ behavior: "smooth" });
 
     setTimeout(applyResourceFilters, 250);
   });
 });
 
 loadResources();
+
+/* ==========================================
+   MOBILE VIEW MORE YEARS
+========================================== */
+
 const viewYearsBtn = document.getElementById("viewYearsBtn");
 const yearSection = document.getElementById("years");
 
@@ -193,3 +218,61 @@ if (viewYearsBtn && yearSection) {
       : 'View More Years <span>↓</span>';
   });
 }
+
+/* ==========================================
+   GOOGLE ANALYTICS RESOURCE CLICK TRACKING
+========================================== */
+
+document.addEventListener("click", function (e) {
+  const resourceLink = e.target.closest(".resource-link");
+
+  if (!resourceLink) return;
+
+  if (typeof gtag === "function") {
+    gtag("event", "resource_click", {
+      resource_title: resourceLink.dataset.title || "",
+      module: resourceLink.dataset.module || "",
+      resource_type: resourceLink.dataset.type || "",
+      resource_url: resourceLink.getAttribute("href") || "",
+    });
+  }
+});
+
+/* ==========================================
+   RESOURCE WARNING POPUP
+========================================== */
+
+document.addEventListener("click", function (e) {
+  const warningLink = e.target.closest(".warning-resource-link");
+
+  if (!warningLink) return;
+
+  e.preventDefault();
+
+  const resourcePopup = document.getElementById("resourcePopup");
+  const popupOpenBtn = document.getElementById("popupOpenBtn");
+
+  if (!resourcePopup || !popupOpenBtn) {
+    console.log("Popup HTML not found. Check resourcePopup and popupOpenBtn IDs.");
+    return;
+  }
+
+  const url = warningLink.dataset.url || warningLink.getAttribute("href");
+
+  popupOpenBtn.href = url;
+  resourcePopup.classList.add("active");
+});
+
+document.addEventListener("click", function (e) {
+  const resourcePopup = document.getElementById("resourcePopup");
+
+  if (
+    e.target.id === "popupCloseBtn" ||
+    e.target.id === "popupCancelBtn" ||
+    e.target.id === "resourcePopup"
+  ) {
+    if (resourcePopup) {
+      resourcePopup.classList.remove("active");
+    }
+  }
+});
