@@ -141,6 +141,30 @@
     "url": "quizzes/y1s2/oop/oop-solid-mock-quiz.html",
     "visible": true
   },
+
+    {
+    "title": "TW Question 1 Mock Quiz (Reading Comprehension)",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "TW",
+    "type": "Mock Exam",
+    "description": "This quiz covers  True/False/Not Given, MCQ, Matching Headings, Sentence Completion, Note Completion, Table Completion and Flowchart Completion.",
+    "url": "quizzes/y1s2/tw/TW_Q1_Reading_Comprehension_Master_Quiz.html",
+    "visible": true
+  },
+
+  {
+    "title": "TW Question 2 Mock Quiz (Reading Comprehension Advanced)",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "TW",
+    "type": "Mock Exam",
+    "description": "This advanced quiz is made for the second reading comprehension question. It uses longer passages, closer distractors, and more exam-style traps.",
+    "url": "quizzes/y1s2/tw/TW_Q2_Reading_Comprehension_Advanced_Quiz.html",
+    "visible": true
+  },
+
+
   {
     "title": "DM Reference Sheet",
     "year": "Year 1",

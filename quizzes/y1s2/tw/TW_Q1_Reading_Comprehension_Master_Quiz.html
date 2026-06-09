@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT1150 TW Q1 Reading Comprehension Master Quiz</title>
+<style>
+    :root{
+        --bg:#f4f7fb;
+        --card:#ffffff;
+        --ink:#172033;
+        --muted:#5f6b7a;
+        --brand:#1f4e8c;
+        --brand2:#0b7a75;
+        --soft:#e8f0fb;
+        --ok:#18794e;
+        --bad:#b42318;
+        --warn:#b54708;
+        --line:#d8e0ea;
+    }
+    *{box-sizing:border-box}
+    body{
+        margin:0;
+        font-family:Arial, Helvetica, sans-serif;
+        background:var(--bg);
+        color:var(--ink);
+        line-height:1.55;
+    }
+    .topbar{
+        position:sticky;
+        top:0;
+        z-index:10;
+        background:#0c2340;
+        color:#fff;
+        padding:12px 18px;
+        box-shadow:0 2px 10px rgba(0,0,0,.16);
+    }
+    .toprow{
+        max-width:1180px;
+        margin:0 auto;
+        display:flex;
+        gap:12px;
+        align-items:center;
+        justify-content:space-between;
+        flex-wrap:wrap;
+    }
+    .brand-title{
+        font-weight:800;
+        letter-spacing:.2px;
+        font-size:18px;
+    }
+    .navbtns{display:flex;gap:10px;flex-wrap:wrap}
+    .navbtns a{
+        color:#fff;
+        text-decoration:none;
+        background:#1f4e8c;
+        padding:8px 12px;
+        border-radius:999px;
+        font-size:13px;
+        font-weight:700;
+        border:1px solid rgba(255,255,255,.18);
+    }
+    .navbtns a:nth-child(2){background:#12805c}
+    .wrap{
+        max-width:1180px;
+        margin:24px auto 60px;
+        padding:0 16px;
+    }
+    .hero{
+        background:linear-gradient(135deg,#ffffff 0%,#e9f4ff 55%,#e7fff8 100%);
+        border:1px solid var(--line);
+        border-radius:22px;
+        padding:24px;
+        box-shadow:0 10px 30px rgba(12,35,64,.08);
+    }
+    h1{margin:0 0 8px;font-size:30px;color:#0c2340}
+    h2{color:#0c2340;margin-top:0}
+    h3{margin:0 0 8px;color:#143a64}
+    .meta{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+        gap:10px;
+        margin-top:18px;
+    }
+    .pill{
+        background:#fff;
+        border:1px solid var(--line);
+        padding:10px 12px;
+        border-radius:14px;
+        font-size:14px;
+    }
+    .pill b{display:block;color:var(--brand)}
+    .controls{
+        margin:18px 0;
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        align-items:center;
+    }
+    button{
+        border:none;
+        border-radius:12px;
+        padding:11px 16px;
+        font-weight:800;
+        cursor:pointer;
+        background:var(--brand);
+        color:white;
+        box-shadow:0 4px 12px rgba(31,78,140,.20);
+    }
+    button.secondary{background:#5f6b7a}
+    button.success{background:var(--ok)}
+    button.warn{background:var(--warn)}
+    button:disabled{opacity:.55;cursor:not-allowed}
+    .progressbox{
+        margin:18px 0;
+        background:#fff;
+        border:1px solid var(--line);
+        border-radius:16px;
+        overflow:hidden;
+    }
+    .progressbar{
+        height:12px;
+        width:0%;
+        background:linear-gradient(90deg,var(--brand),var(--brand2));
+        transition:.25s;
+    }
+    .statusline{font-size:14px;color:var(--muted);padding:8px 12px}
+    .layout{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:18px;
+        align-items:start;
+    }
+    @media(max-width:900px){.layout{grid-template-columns:1fr}}
+    .card{
+        background:var(--card);
+        border:1px solid var(--line);
+        border-radius:18px;
+        padding:18px;
+        box-shadow:0 8px 24px rgba(12,35,64,.06);
+    }
+    .passage{
+        max-height:70vh;
+        overflow:auto;
+        position:sticky;
+        top:78px;
+    }
+    @media(max-width:900px){.passage{position:relative;top:auto;max-height:none}}
+    .small{font-size:13px;color:var(--muted)}
+    .question-card{
+        display:none;
+    }
+    .question-card.active{
+        display:block;
+    }
+    .qtag{
+        display:inline-block;
+        background:var(--soft);
+        color:var(--brand);
+        border-radius:999px;
+        padding:5px 10px;
+        font-size:12px;
+        font-weight:800;
+        margin-bottom:10px;
+    }
+    .qtext{
+        font-size:18px;
+        font-weight:800;
+        margin:8px 0 14px;
+    }
+    .options{
+        display:grid;
+        gap:9px;
+        margin:12px 0;
+    }
+    label.option{
+        display:flex;
+        align-items:flex-start;
+        gap:10px;
+        border:1px solid var(--line);
+        background:#fff;
+        border-radius:13px;
+        padding:11px;
+        cursor:pointer;
+    }
+    label.option:hover{background:#f6fbff}
+    input[type="text"]{
+        width:100%;
+        border:1px solid var(--line);
+        border-radius:12px;
+        padding:12px;
+        font-size:16px;
+    }
+    .feedback{
+        display:none;
+        margin-top:15px;
+        padding:12px;
+        border-radius:14px;
+        border:1px solid var(--line);
+        background:#f9fbfd;
+    }
+    .feedback.correct{
+        display:block;
+        border-color:#b7e4cc;
+        background:#effaf4;
+        color:#0f5132;
+    }
+    .feedback.wrong{
+        display:block;
+        border-color:#ffd1d1;
+        background:#fff5f5;
+        color:#842029;
+    }
+    .answer-line{
+        font-weight:800;
+        margin-top:6px;
+    }
+    .explain{
+        color:#2b3848;
+        margin-top:6px;
+    }
+    .section-title{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:10px;
+        margin-bottom:12px;
+        border-bottom:1px solid var(--line);
+        padding-bottom:10px;
+    }
+    .scorebox{
+        display:none;
+        margin-top:18px;
+        border-radius:20px;
+        overflow:hidden;
+        border:1px solid var(--line);
+        background:#fff;
+    }
+    .scorehead{
+        background:#0c2340;
+        color:#fff;
+        padding:18px;
+    }
+    .scorebody{padding:18px}
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin:12px 0;
+        background:#fff;
+    }
+    th,td{
+        border:1px solid var(--line);
+        padding:9px;
+        text-align:left;
+        vertical-align:top;
+    }
+    th{background:#eef5ff}
+    .weak{color:var(--bad);font-weight:800}
+    .strong{color:var(--ok);font-weight:800}
+    .notice{
+        background:#fff8e6;
+        border:1px solid #ffe1a3;
+        color:#4d3300;
+        padding:12px;
+        border-radius:14px;
+        margin-top:14px;
+    }
+    .footer{
+        text-align:center;
+        color:var(--muted);
+        margin-top:28px;
+        font-size:14px;
+    }
+    .footer a{color:var(--brand);font-weight:800;text-decoration:none}
+    .kbd{
+        font-family:monospace;
+        background:#eef2f7;
+        padding:2px 6px;
+        border-radius:6px;
+    }
+</style>
+</head>
+<body>
+<div class="topbar">
+    <div class="toprow">
+        <div class="brand-title">IT1150 Technical Writing · Q1 Reading Comprehension Master Quiz</div>
+        <div class="navbtns">
+            <a href="https://janidusandaruwan.com/" target="_blank">Back to Study Hub By J</a>
+            <a href="https://www.whatsapp.com/channel/0029Vb7ep90I1rcbyPccWx2t" target="_blank">Join WhatsApp Channel For New Quiz Updates</a>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+    <section class="hero">
+        <h1>TW Final Exam · Q1 Reading Comprehension Master Quiz</h1>
+        <p>This quiz covers the main reading question types practised in your IT1150 Technical Writing materials: True/False/Not Given, MCQ, Matching Headings, Sentence Completion, Note Completion, Table Completion and Flowchart Completion.</p>
+        <div class="meta">
+            <div class="pill"><b>Exam Area</b>Q1 Reading Comprehension</div>
+            <div class="pill"><b>Question Count</b>40 auto-marked questions</div>
+            <div class="pill"><b>Best Practice Time</b>45–55 minutes</div>
+            <div class="pill"><b>Answer Rule</b>For text answers, spelling matters</div>
+        </div>
+        <div class="notice"><b>Exam clue:</b> In completion questions, copy the answer from the passage exactly. Do not write your own synonym unless the question asks for it.</div>
+    </section>
+
+    <div class="progressbox">
+        <div id="progressbar" class="progressbar"></div>
+        <div id="statusline" class="statusline">Question 1 of 40</div>
+    </div>
+
+    <div class="layout">
+        <div id="passageBox" class="card passage"></div>
+        <div class="card">
+            <div class="section-title">
+                <h2 id="sectionName">Question</h2>
+                <span id="scoreMini" class="small">Score: 0 / 0</span>
+            </div>
+            <div id="quizArea"></div>
+            <div class="controls">
+                <button id="prevBtn" class="secondary" onclick="prevQuestion()">Previous</button>
+                <button id="checkBtn" onclick="checkCurrent()">Check Answer</button>
+                <button id="nextBtn" onclick="nextQuestion()">Next</button>
+                <button id="finishBtn" class="success" onclick="finishQuiz()">Finish Quiz</button>
+                <button id="resetBtn" class="warn" onclick="resetQuiz()" style="display:none">Restart</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="scorebox" class="scorebox">
+        <div class="scorehead">
+            <h2 style="margin:0;color:white">Final Result</h2>
+            <p id="finalSummary" style="margin:6px 0 0"></p>
+        </div>
+        <div class="scorebody">
+            <h3>Score by Question Type</h3>
+            <div id="sectionScores"></div>
+            <h3>Weak-point Analysis</h3>
+            <div id="weakAnalysis"></div>
+            <h3>Strong-area Analysis</h3>
+            <div id="strongAnalysis"></div>
+            <h3>Last-Minute Revision Advice</h3>
+            <ul>
+                <li>For <b>True/False/Not Given</b>, check whether the passage confirms, contradicts, or does not mention the idea.</li>
+                <li>For <b>MCQ</b>, underline the keyword in the question, then find the same meaning in the passage.</li>
+                <li>For <b>Matching Headings</b>, read the whole paragraph and choose the main idea, not one small detail.</li>
+                <li>For <b>Completion</b> questions, copy words exactly and check the word limit.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        Created by <a href="https://janidusandaruwan.com/portfolio.html" target="_blank">Janidu Sandaruwan(Y1S2)</a>
+    </div>
+</div>
+
+<script>
+const passages = {
+A: {
+title: "Passage A: Smart Campus Attendance",
+body: `
+<p><b>Smart Campus Attendance</b></p>
+<p>Many universities are replacing paper-based attendance sheets with digital attendance systems. A smart attendance system records a student's presence using a card, fingerprint, facial recognition, or a mobile application. The main purpose of such a system is to reduce manual work and make attendance records easier to store, search and analyse.</p>
+<p>In a traditional method, a lecturer passes an attendance sheet around the classroom. Students write their names and registration numbers manually. This method is simple, but it can create several problems. A sheet can be lost, handwriting can be difficult to read, and some students may sign for friends who are absent. Because the data must later be entered into a computer, the process also consumes additional administrative time.</p>
+<p>A digital system can solve many of these issues. When students mark attendance using a verified identity method, the record is saved automatically. The system can produce reports for lecturers, academic coordinators and administrators. These reports may show late arrivals, repeated absences and overall attendance percentages. As a result, staff members can identify students who may need academic support before the end of the semester.</p>
+<p>However, digital attendance systems are not without limitations. They require reliable devices, stable internet access and careful maintenance. If a mobile application is used, students must have compatible phones and sufficient battery power. In addition, the university must protect personal data because biometric details and student movement patterns can be sensitive information. Therefore, privacy rules and data security should be planned before the system is introduced.</p>
+<p>Overall, smart attendance systems can improve accuracy and efficiency, but they should not be treated only as a technological upgrade. They work best when the university combines the technology with clear policies, staff training and responsible data management.</p>`
+},
+B: {
+title: "Passage B: Clear Instructions in Technical Writing",
+body: `
+<p><b>Clear Instructions in Technical Writing</b></p>
+<p>A. Technical instructions are written to help users complete a task safely and correctly. They may appear in user manuals, software guides, laboratory procedures or online help pages. A good instruction document does not simply list steps; it also considers the user's knowledge, the purpose of the task and the possible risks of making mistakes.</p>
+<p>B. One important feature of effective instructions is sequence. Users should be able to follow the order without confusion. Words such as first, next, then, after that and finally help to show the order of actions. Numbered lists are also useful because they allow users to return to a previous step easily. If a step must be completed before another step can begin, this dependency should be made clear.</p>
+<p>C. Another feature is precision. Vague words such as some, a little, soon or carefully may not be enough when a task requires exact action. For example, an instruction that says "heat the liquid for a short time" is less useful than one that says "heat the liquid for two minutes." Precision reduces misunderstanding and improves safety, especially in medical, engineering and laboratory contexts.</p>
+<p>D. Visual aids can support written instructions. Diagrams, screenshots and flowcharts help users understand actions that are difficult to explain using words alone. Nevertheless, visuals should not replace necessary explanation. A diagram without labels may confuse a first-time user, while a screenshot from an older software version may mislead users if the interface has changed.</p>
+<p>E. Finally, instructions should be tested before they are published. A writer who already knows the task may not notice missing information. Therefore, testing the document with a first-time user can reveal unclear steps, hidden assumptions and language problems. The feedback from testing allows the writer to revise the document before it reaches the real audience.</p>`
+},
+C: {
+title: "Passage C: Campus Energy Saving Project",
+body: `
+<p><b>Campus Energy Saving Project</b></p>
+<p>A university introduced an energy saving project after its monthly electricity cost increased steadily for three years. The project team first studied electricity bills, building usage schedules and air-conditioning patterns. Their investigation showed that laboratories and lecture halls consumed the largest amount of electricity during working hours, while unnecessary lighting created waste during the evening.</p>
+<p>The team then installed smart meters in ten major buildings. These meters collected hourly electricity data and sent it to a central dashboard. The dashboard allowed the maintenance unit to compare buildings and identify unusual consumption. For example, if a lecture hall used electricity late at night, the system created an alert.</p>
+<p>After the data collection stage, the university introduced three practical measures. First, old fluorescent lamps were replaced with LED lights. Second, air conditioners were set to a standard temperature instead of being adjusted randomly by different users. Third, staff members were asked to switch off projectors, lights and fans after classes.</p>
+<p>At the end of six months, the project produced clear results. Electricity consumption in the selected buildings decreased by 18 percent. The largest saving came from lighting changes, while the smallest saving came from behaviour change because some users forgot to switch off devices. The university decided to continue the project and expand smart meter installation to student hostels.</p>`
+},
+D: {
+title: "Passage D: From Raw Data to a Survey Report",
+body: `
+<p><b>From Raw Data to a Survey Report</b></p>
+<p>Survey research is often used by students because it allows them to collect information from a group of people within a short period. The process usually begins with a research topic. After choosing the topic, the group decides the objectives of the study and identifies the target sample.</p>
+<p>Next, the questionnaire is prepared. Good questionnaires contain simple, clear and unbiased questions. They may include demographic questions, closed-ended questions, rating-scale items and a few open-ended questions. Before the questionnaire is shared widely, it should be checked by the lecturer or tested with a small group.</p>
+<p>Then, the questionnaire is distributed to respondents. Online tools such as Google Forms make this stage faster because responses are stored automatically. Once enough responses have been collected, the data is organised into tables, charts and percentages. These visuals help readers understand the findings more easily.</p>
+<p>Finally, the report is written. A formal survey report normally includes a title page, terms of reference, acknowledgement, table of contents, abstract, introduction, methodology, data analysis, conclusion, recommendations, references and appendices. The report should present the findings objectively and connect recommendations to the evidence collected from the survey.</p>`
+}
+};
+
+const questions = [
+{type:"True/False/Not Given", passage:"A", q:"Smart attendance systems can use different identity methods such as cards, fingerprints, facial recognition or mobile applications.", options:["TRUE","FALSE","NOT GIVEN"], answer:"TRUE", explain:"Paragraph 1 lists these methods directly."},
+{type:"True/False/Not Given", passage:"A", q:"In the traditional attendance method, the lecturer enters all names into a computer during the class.", options:["TRUE","FALSE","NOT GIVEN"], answer:"FALSE", explain:"The passage says data must later be entered into a computer, not during the class."},
+{type:"True/False/Not Given", passage:"A", q:"Some students may sign the attendance sheet for absent friends.", options:["TRUE","FALSE","NOT GIVEN"], answer:"TRUE", explain:"Paragraph 2 directly says this can happen."},
+{type:"True/False/Not Given", passage:"A", q:"Facial recognition is more accurate than fingerprint recognition.", options:["TRUE","FALSE","NOT GIVEN"], answer:"NOT GIVEN", explain:"The passage mentions both methods but does not compare their accuracy."},
+{type:"True/False/Not Given", passage:"A", q:"Digital attendance reports can help staff identify students who may need support before the semester ends.", options:["TRUE","FALSE","NOT GIVEN"], answer:"TRUE", explain:"Paragraph 3 gives this exact idea."},
+{type:"True/False/Not Given", passage:"A", q:"A mobile attendance app can be used even if a student’s phone has no battery power.", options:["TRUE","FALSE","NOT GIVEN"], answer:"FALSE", explain:"Paragraph 4 says students need sufficient battery power."},
+{type:"True/False/Not Given", passage:"A", q:"The university must protect personal data if biometric details are collected.", options:["TRUE","FALSE","NOT GIVEN"], answer:"TRUE", explain:"Paragraph 4 says biometric details and movement patterns can be sensitive information."},
+{type:"True/False/Not Given", passage:"A", q:"Smart attendance systems always fail when the internet is unstable.", options:["TRUE","FALSE","NOT GIVEN"], answer:"NOT GIVEN", explain:"The passage says stable internet is required, but it does not say they always fail."},
+
+{type:"MCQ", passage:"A", q:"What is the main purpose of a smart attendance system?", options:["To replace all lecturers","To reduce manual work and improve record handling","To stop students from using phones","To remove all university policies"], answer:"To reduce manual work and improve record handling", explain:"Paragraph 1 states that the main purpose is to reduce manual work and make records easier to store, search and analyse."},
+{type:"MCQ", passage:"A", q:"Which problem is mentioned about paper-based attendance?", options:["It needs biometric data","It can produce automatic reports","Handwriting can be difficult to read","It requires stable internet"], answer:"Handwriting can be difficult to read", explain:"Paragraph 2 lists difficult handwriting as a problem."},
+{type:"MCQ", passage:"A", q:"Who may use reports from a digital attendance system?", options:["Only students","Lecturers, academic coordinators and administrators","Only parents","Only software developers"], answer:"Lecturers, academic coordinators and administrators", explain:"Paragraph 3 lists these users."},
+{type:"MCQ", passage:"A", q:"Which is a limitation of digital attendance systems?", options:["They never save records","They require reliable devices and maintenance","They cannot show percentages","They are always paper-based"], answer:"They require reliable devices and maintenance", explain:"Paragraph 4 identifies reliable devices, stable internet and maintenance as requirements."},
+{type:"MCQ", passage:"A", q:"What is the best overall message of Passage A?", options:["Smart systems are useful but need responsible planning","Paper attendance is always more accurate","Mobile phones should be banned in universities","Attendance is not important in higher education"], answer:"Smart systems are useful but need responsible planning", explain:"The final paragraph gives this balanced view."},
+
+{type:"Matching Headings", passage:"B", q:"Choose the best heading for Section A.", options:["Testing before publication","Purpose and audience of instructions","Using exact language","The danger of visual aids"], answer:"Purpose and audience of instructions", explain:"Section A explains what instructions are for and why user knowledge and risks matter."},
+{type:"Matching Headings", passage:"B", q:"Choose the best heading for Section B.", options:["The value of correct sequence","How to design screenshots","Problems with legal writing","The cost of technical documents"], answer:"The value of correct sequence", explain:"Section B focuses on the order of steps and sequence markers."},
+{type:"Matching Headings", passage:"B", q:"Choose the best heading for Section C.", options:["Why visuals should be colourful","The importance of precise information","How to avoid plagiarism","Writing reports with charts"], answer:"The importance of precise information", explain:"Section C explains why exact words and measurements reduce misunderstanding."},
+{type:"Matching Headings", passage:"B", q:"Choose the best heading for Section D.", options:["Supporting instructions with visuals","Testing documents with experts only","Writing without labels","Avoiding all diagrams"], answer:"Supporting instructions with visuals", explain:"Section D discusses diagrams, screenshots and flowcharts."},
+{type:"Matching Headings", passage:"B", q:"Choose the best heading for Section E.", options:["Publishing without revision","Testing instructions with first-time users","Using more technical jargon","Removing all feedback"], answer:"Testing instructions with first-time users", explain:"Section E says testing with first-time users reveals unclear steps and missing information."},
+
+{type:"Sentence Completion", passage:"B", q:"Complete the sentence with ONE WORD from the passage: Words such as first, next, then, after that and finally help to show the order of __________.", answer:"actions", explain:"Section B says these words help to show the order of actions."},
+{type:"Sentence Completion", passage:"B", q:"Complete the sentence with ONE WORD from the passage: Precision reduces misunderstanding and improves __________.", answer:"safety", explain:"Section C says precision reduces misunderstanding and improves safety."},
+{type:"Sentence Completion", passage:"B", q:"Complete the sentence with ONE WORD from the passage: A diagram without __________ may confuse a first-time user.", answer:"labels", explain:"Section D states this directly."},
+{type:"Sentence Completion", passage:"B", q:"Complete the sentence with TWO WORDS from the passage: A writer who already knows the task may not notice __________ __________.", answer:"missing information", explain:"Section E states that the writer may not notice missing information."},
+{type:"Sentence Completion", passage:"B", q:"Complete the sentence with TWO WORDS from the passage: Testing can reveal unclear steps, hidden assumptions and __________ __________.", answer:"language problems", explain:"Section E lists these three issues."},
+
+{type:"Note Completion", passage:"C", q:"Complete the note with NO MORE THAN TWO WORDS from the passage: The project started because the monthly __________ cost increased for three years.", answer:"electricity", explain:"Paragraph 1 says the monthly electricity cost increased steadily."},
+{type:"Note Completion", passage:"C", q:"Complete the note with NO MORE THAN TWO WORDS from the passage: The team studied bills, building schedules and __________ patterns.", answer:"air-conditioning", explain:"Paragraph 1 mentions air-conditioning patterns."},
+{type:"Note Completion", passage:"C", q:"Complete the note with TWO WORDS from the passage: The meters sent hourly data to a central __________.", answer:"dashboard", explain:"Paragraph 2 says data was sent to a central dashboard."},
+{type:"Note Completion", passage:"C", q:"Complete the note with NO MORE THAN TWO WORDS from the passage: Old fluorescent lamps were replaced with __________ lights.", answer:"LED", explain:"Paragraph 3 says fluorescent lamps were replaced with LED lights."},
+{type:"Note Completion", passage:"C", q:"Complete the note with NO MORE THAN TWO WORDS from the passage: Electricity consumption decreased by __________ percent.", answer:"18", explain:"Paragraph 4 gives the result: 18 percent."},
+
+{type:"Table Completion", passage:"C", q:"Complete the table: Main electricity users found by the investigation were laboratories and __________ halls.", answer:"lecture", explain:"Paragraph 1 says laboratories and lecture halls consumed the largest amount."},
+{type:"Table Completion", passage:"C", q:"Complete the table: Smart meters were installed in __________ major buildings.", answer:"ten", explain:"Paragraph 2 says ten major buildings."},
+{type:"Table Completion", passage:"C", q:"Complete the table: The dashboard created an __________ when unusual consumption was identified.", answer:"alert", explain:"Paragraph 2 states the system created an alert."},
+{type:"Table Completion", passage:"C", q:"Complete the table: The largest saving came from __________ changes.", answer:"lighting", explain:"Paragraph 4 says the largest saving came from lighting changes."},
+{type:"Table Completion", passage:"C", q:"Complete the table: The university planned to expand smart meters to student __________.", answer:"hostels", explain:"Paragraph 4 says installation would expand to student hostels."},
+
+{type:"Flowchart Completion", passage:"D", q:"Complete the flowchart with NO MORE THAN TWO WORDS from the passage: Choose research topic → decide __________ of the study.", answer:"objectives", explain:"Paragraph 1 says the group decides the objectives of the study."},
+{type:"Flowchart Completion", passage:"D", q:"Complete the flowchart with NO MORE THAN TWO WORDS from the passage: Identify the target __________.", answer:"sample", explain:"Paragraph 1 says identifies the target sample."},
+{type:"Flowchart Completion", passage:"D", q:"Complete the flowchart with TWO WORDS from the passage: Prepare a questionnaire with simple, clear and __________ questions.", answer:"unbiased", explain:"Paragraph 2 says good questionnaires contain simple, clear and unbiased questions."},
+{type:"Flowchart Completion", passage:"D", q:"Complete the flowchart with TWO WORDS from the passage: Test with a __________ group before wide sharing.", answer:"small", explain:"Paragraph 2 says it should be tested with a small group."},
+{type:"Flowchart Completion", passage:"D", q:"Complete the flowchart with NO MORE THAN TWO WORDS from the passage: Organise data into tables, charts and __________.", answer:"percentages", explain:"Paragraph 3 lists tables, charts and percentages."},
+
+{type:"MCQ", passage:"D", q:"Why are online tools useful in survey research?", options:["They remove the need for objectives","They automatically store responses","They write the final report alone","They make all questions open-ended"], answer:"They automatically store responses", explain:"Paragraph 3 says Google Forms stores responses automatically."},
+{type:"MCQ", passage:"D", q:"What should recommendations in a survey report connect to?", options:["Personal opinions","Evidence from the survey","Random online comments","The longest paragraph"], answer:"Evidence from the survey", explain:"The final sentence says recommendations should connect to evidence collected from the survey."}
+];
+
+let current = 0;
+let checked = Array(questions.length).fill(false);
+let correct = Array(questions.length).fill(false);
+let userAnswers = Array(questions.length).fill("");
+
+function norm(s){
+    return (s || "").toString().trim().toLowerCase()
+        .replace(/\s+/g," ")
+        .replace(/[.,;:!?]+$/g,"");
+}
+function render(){
+    const q = questions[current];
+    document.getElementById("passageBox").innerHTML = `<h2>${passages[q.passage].title}</h2>${passages[q.passage].body}`;
+    document.getElementById("sectionName").textContent = q.type;
+    document.getElementById("statusline").textContent = `Question ${current+1} of ${questions.length} · ${q.type}`;
+    document.getElementById("progressbar").style.width = `${((current+1)/questions.length)*100}%`;
+
+    let inputHtml = "";
+    if(q.options){
+        inputHtml = `<div class="options">` + q.options.map((op,idx)=>`
+            <label class="option">
+                <input type="radio" name="answer" value="${escapeHtml(op)}" ${userAnswers[current]===op ? "checked" : ""}>
+                <span>${escapeHtml(op)}</span>
+            </label>
+        `).join("") + `</div>`;
+    } else {
+        inputHtml = `<input type="text" id="textAnswer" placeholder="Type your answer here" value="${escapeHtml(userAnswers[current])}">`;
+    }
+
+    const fbClass = checked[current] ? (correct[current] ? "correct" : "wrong") : "";
+    const fbDisplay = checked[current] ? "" : "display:none";
+    const your = userAnswers[current] ? escapeHtml(userAnswers[current]) : "No answer";
+    document.getElementById("quizArea").innerHTML = `
+        <div class="question-card active">
+            <span class="qtag">${q.type}</span>
+            <div class="qtext">${current+1}. ${escapeHtml(q.q)}</div>
+            ${inputHtml}
+            <div id="feedback" class="feedback ${fbClass}" style="${fbDisplay}">
+                <div><b>${correct[current] ? "Correct" : "Not correct"}</b></div>
+                <div class="answer-line">Correct answer: ${escapeHtml(q.answer)}</div>
+                <div class="small">Your answer: ${your}</div>
+                <div class="explain">${escapeHtml(q.explain)}</div>
+            </div>
+        </div>
+    `;
+
+    document.getElementById("prevBtn").disabled = current === 0;
+    document.getElementById("nextBtn").disabled = current === questions.length - 1;
+    document.getElementById("finishBtn").style.display = current === questions.length - 1 ? "inline-block" : "none";
+    updateMini();
+}
+function escapeHtml(s){
+    return (s || "").toString()
+    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;").replaceAll("'","&#039;");
+}
+function saveCurrentAnswer(){
+    const q = questions[current];
+    if(q.options){
+        const selected = document.querySelector('input[name="answer"]:checked');
+        userAnswers[current] = selected ? selected.value : "";
+    } else {
+        const inp = document.getElementById("textAnswer");
+        userAnswers[current] = inp ? inp.value : "";
+    }
+}
+function checkCurrent(){
+    saveCurrentAnswer();
+    const q = questions[current];
+    if(!userAnswers[current]){
+        alert("Please answer first.");
+        return;
+    }
+    correct[current] = norm(userAnswers[current]) === norm(q.answer);
+    checked[current] = true;
+    render();
+}
+function nextQuestion(){
+    saveCurrentAnswer();
+    if(current < questions.length - 1){current++; render();}
+}
+function prevQuestion(){
+    saveCurrentAnswer();
+    if(current > 0){current--; render();}
+}
+function updateMini(){
+    const attempted = checked.filter(Boolean).length;
+    const score = correct.filter(Boolean).length;
+    document.getElementById("scoreMini").textContent = `Score: ${score} / ${attempted}`;
+}
+function finishQuiz(){
+    saveCurrentAnswer();
+    let unChecked = checked.filter(x=>!x).length;
+    if(unChecked > 0){
+        if(!confirm(`${unChecked} question(s) are not checked yet. Finish anyway?`)) return;
+    }
+    const total = questions.length;
+    const score = correct.filter(Boolean).length;
+    const percent = Math.round((score/total)*100);
+
+    document.getElementById("scorebox").style.display = "block";
+    document.getElementById("resetBtn").style.display = "inline-block";
+    document.getElementById("finalSummary").textContent = `You scored ${score} / ${total} (${percent}%).`;
+
+    const byType = {};
+    questions.forEach((q,i)=>{
+        if(!byType[q.type]) byType[q.type] = {total:0, score:0};
+        byType[q.type].total++;
+        if(correct[i]) byType[q.type].score++;
+    });
+
+    let rows = Object.entries(byType).map(([type,obj])=>{
+        const p = Math.round((obj.score/obj.total)*100);
+        return `<tr><td>${type}</td><td>${obj.score} / ${obj.total}</td><td>${p}%</td></tr>`;
+    }).join("");
+    document.getElementById("sectionScores").innerHTML = `<table><tr><th>Question Type</th><th>Score</th><th>Percentage</th></tr>${rows}</table>`;
+
+    let weak = Object.entries(byType).filter(([t,o]) => (o.score/o.total) < 0.7);
+    let strong = Object.entries(byType).filter(([t,o]) => (o.score/o.total) >= 0.8);
+
+    document.getElementById("weakAnalysis").innerHTML = weak.length
+        ? `<ul>${weak.map(([t,o])=>`<li><span class="weak">${t}</span>: revise this type. Score ${o.score}/${o.total}.</li>`).join("")}</ul>`
+        : `<p class="strong">No major weak area. Good job.</p>`;
+
+    document.getElementById("strongAnalysis").innerHTML = strong.length
+        ? `<ul>${strong.map(([t,o])=>`<li><span class="strong">${t}</span>: strong area. Score ${o.score}/${o.total}.</li>`).join("")}</ul>`
+        : `<p>No area reached 80% yet. Try again after revising the explanations.</p>`;
+
+    document.getElementById("scorebox").scrollIntoView({behavior:"smooth"});
+}
+function resetQuiz(){
+    current = 0;
+    checked = Array(questions.length).fill(false);
+    correct = Array(questions.length).fill(false);
+    userAnswers = Array(questions.length).fill("");
+    document.getElementById("scorebox").style.display = "none";
+    document.getElementById("resetBtn").style.display = "none";
+    render();
+}
+render();
+</script>
+</body>
+</html>
