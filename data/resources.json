@@ -180,5 +180,16 @@
     "description": "Printable Object-Oriented Programming reference sheet for final exam revision.",
     "url": "downloads/y1s2/oop/oop-reference-sheet.pdf",
     "visible": true
-  }
+  },
+
+  {
+  "title": "TW Expected Exam Structure",
+  "year": "Year 1",
+  "semester": "Semester 2",
+  "module": "TW",
+  "type": "Notes",
+  "description": "Expected Technical Writing exam structure prepared by analysing available materials, model paper, reading activities, and answer keys. This is not an official exam structure.",
+  "url": "downloads/y1s2/tw/TW_Final_Exam_Structure_guess_ByJ.png",
+  "visible": true
+}
 ]

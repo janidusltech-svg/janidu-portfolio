@@ -12,6 +12,7 @@
 <meta name="google-site-verification" content="IKq-OipMNd-gEcNuKCjApdL8DLwtse_oSfrA0Pe67qA" />
   <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-OEPFK13MCV"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -463,5 +464,37 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/live-users.js"></script>
   <script src="js/main.js"></script>
+  <!-- RESOURCE WARNING POPUP -->
+<div class="resource-popup" id="resourcePopup">
+  <div class="resource-popup-card">
+    <button class="popup-close" id="popupCloseBtn">×</button>
+
+    <div class="popup-icon">⚠️</div>
+
+    <h2>Important Notice</h2>
+
+    <p>
+      This file is uploaded only to help students with revision planning.
+      It is an <b>expected structure only</b>, prepared by analysing available
+      materials, model papers, activities, and answer keys.
+    </p>
+
+    <p>
+      This is <b>not an official exam notice</b> and it is not a confirmed
+      final exam paper structure. Please always follow official lecturer,
+      faculty, and exam instructions.
+    </p>
+
+    <div class="popup-actions">
+      <button type="button" class="popup-cancel" id="popupCancelBtn">
+        Cancel
+      </button>
+
+      <a href="#" class="popup-open" id="popupOpenBtn" target="_blank">
+        I Understand, Open File
+      </a>
+    </div>
+  </div>
+</div>
 </body>
 </html>

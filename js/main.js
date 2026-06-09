@@ -59,33 +59,46 @@ function normalizeType(type) {
 }
 
 function resourceCard(item) {
-  const displayType = normalizeType(item.type);
-  const actionLabel = displayType === 'Mock Exam' ? 'Open' : 'Download';
-  const downloadAttr = displayType === 'Reference Sheet' || displayType === 'Notes' ? 'download' : '';
+  const displayType = item.type || "Resource";
+  const actionLabel = displayType === "Mock Exam" ? "Open" : "View";
+  const downloadAttr = displayType === "Reference Sheet" ? "download" : "";
+
+  const needsWarning = item.title.toLowerCase().includes("expected exam structure");
 
   return `
-  <article class="resource-card reveal visible">
-    ${item.badge ? `<span class="new-badge">${item.badge}</span>` : ""}
+    <article class="resource-card reveal visible">
+      ${item.badge ? `<span class="new-badge">${item.badge}</span>` : ""}
 
-    <div class="resource-meta">
-      <span>${item.year}</span>
-      <span>${item.semester}</span>
-      <span>${item.module}</span>
-      <span>${displayType}</span>
-    </div>
+      <div class="resource-meta">
+        <span>${item.year}</span>
+        <span>${item.semester}</span>
+        <span>${item.module}</span>
+        <span>${displayType}</span>
+      </div>
+
       <h3>${item.title}</h3>
       <p>${item.description}</p>
+
       <div class="resource-actions">
         ${
           item.url
-            ? `<a href="${item.url}" ${downloadAttr}>${actionLabel} Resource</a>`
+            ? `<a 
+                href="${item.url}" 
+                class="resource-link ${needsWarning ? "warning-resource-link" : ""}"
+                data-url="${item.url}"
+                data-title="${item.title}"
+                data-module="${item.module}"
+                data-type="${displayType}"
+                ${downloadAttr}
+              >
+                ${actionLabel} Resource
+              </a>`
             : `<a href="#" onclick="return false;" class="disabled-resource">Coming Soon</a>`
         }
       </div>
     </article>
   `;
 }
-
 function applyResourceFilters() {
   if (!resourceGrid) return;
 

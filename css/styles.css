@@ -2318,3 +2318,136 @@ code { color: var(--cyan); background: rgba(55,213,255,.08); padding: 2px 6px; b
 .resource-card h3 {
   padding-right: 75px;
 }
+/* ==========================================
+   RESOURCE WARNING POPUP
+========================================== */
+
+.resource-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  background: rgba(2, 7, 19, 0.78);
+  backdrop-filter: blur(12px);
+}
+
+.resource-popup.active {
+  display: flex;
+}
+
+.resource-popup-card {
+  position: relative;
+  width: min(560px, 100%);
+  padding: 34px;
+  border-radius: 28px;
+
+  border: 1px solid rgba(55, 213, 255, 0.25);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(47, 132, 255, 0.18), transparent 35%),
+    rgba(6, 15, 32, 0.96);
+
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.48);
+  text-align: center;
+}
+
+.popup-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  background: rgba(255, 193, 7, 0.12);
+  border: 1px solid rgba(255, 193, 7, 0.28);
+  font-size: 30px;
+}
+
+.resource-popup-card h2 {
+  font-size: 34px;
+  margin-bottom: 16px;
+}
+
+.resource-popup-card p {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.75;
+  margin-top: 12px;
+}
+
+.resource-popup-card b {
+  color: #fff;
+}
+
+.popup-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.popup-cancel,
+.popup-open {
+  min-height: 48px;
+  padding: 13px 18px;
+  border-radius: 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.popup-cancel {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.popup-open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: linear-gradient(135deg, var(--cyan), var(--blue));
+  color: #020713;
+}
+
+@media (max-width: 560px) {
+  .resource-popup-card {
+    padding: 28px 20px;
+    border-radius: 24px;
+  }
+
+  .resource-popup-card h2 {
+    font-size: 28px;
+  }
+
+  .popup-actions {
+    flex-direction: column;
+  }
+
+  .popup-cancel,
+  .popup-open {
+    width: 100%;
+  }
+}
