@@ -57,8 +57,8 @@
   "type": "Mock Exam",
   "description": "Interactive OOP model paper mock exam for Year 1 Semester 2 revision.",
   "url": "quizzes/y1s2/oop/oop-sample-paper.html",
-  "visible": true,
-  "badge": "NEW"
+  "visible": true
+  
 },
   {
     "title": " OOP Super Final Mock Quiz 03 (code + theory) ",
@@ -140,6 +140,29 @@
     "description": "Interactive OOP SOLID lesson mock quiz for Year 1 Semester 2 revision.",
     "url": "quizzes/y1s2/oop/oop-solid-mock-quiz.html",
     "visible": true
+  },
+   {
+    "title": "TW Question 4 Mock Quiz (Process Description Quiz)",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "TW",
+    "type": "Mock Exam",
+    "description": "This advanced quiz is made for the second reading comprehension question. It uses longer passages, closer distractors, and more exam-style traps.",
+    "url": "quizzes/y1s2/tw/TW_Q4_Process_Description_Quiz.html",
+    "visible": true
+    ,"badge": "NEW"
+  },
+
+  {
+    "title": "TW Question 3 Mock Quiz (Summary Gap Filling Quiz)",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "TW",
+    "type": "Mock Exam",
+    "description": "This advanced quiz is made for the second reading comprehension question. It uses longer passages, closer distractors, and more exam-style traps.",
+    "url": "quizzes/y1s2/tw/TW_Q3_Summary_Gap_Filling_Quiz.html",
+    "visible": true
+    ,"badge": "NEW"
   },
 
     {
