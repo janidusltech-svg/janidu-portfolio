@@ -45,7 +45,7 @@
     "semester": "Semester 2",
     "module": "DSA",
     "type": "Mock Exam",
-    "description": "Interactive Data Structures and Algorithms final mock quiz for Year 1 Semester 2 revision.",
+    "description": "This advanced mock follows your confirmed structure: MCQs + 1 Structured Question + 2 Essay Questions.  MCQs and objective/dropdown answers are auto-marked. Written parts include model answers and marking rubrics.",
     "url": "quizzes/y1s2/dsa/DSA_Full_Final_Mock_Exam_Advanced.html",
     "visible": true
     ,"badge": "NEW"
