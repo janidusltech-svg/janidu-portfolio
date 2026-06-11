@@ -39,6 +39,17 @@
     "url": "quizzes/y1s2/dm/dm-final-mock-final.html",
     "visible": true
   },
+   {
+    "title": "DSA Advanced Final Mock Exam (Exam Type) ",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DSA",
+    "type": "Mock Exam",
+    "description": "Interactive Data Structures and Algorithms final mock quiz for Year 1 Semester 2 revision.",
+    "url": "quizzes/y1s2/dsa/DSA_Full_Final_Mock_Exam_Advanced.html",
+    "visible": true
+    ,"badge": "NEW"
+  },
   {
     "title": "DSA Final Mock Quiz 01",
     "year": "Year 1",
