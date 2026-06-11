@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT1170 DSA Final Mock Exam No. 02 | Created by Janidu Sandaruwan(Y1S2)</title>
+<style>
+:root{--bg:#07111f;--panel:#0f172a;--panel2:#111827;--line:#334155;--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--good:#22c55e;--bad:#ef4444;--warn:#f59e0b;--paper:#f8fafc;--ink:#0f172a}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at top left,#12314d,#07111f 45%,#020617);color:var(--text)}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(2,6,23,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:10px 14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.topbar a,.topbar button{border:1px solid var(--line);background:#0b1220;color:#e5e7eb;text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:800;cursor:pointer}.topbar a:hover,.topbar button:hover{border-color:var(--accent)}.credit{margin-left:auto;color:#cbd5e1;font-size:13px}.credit a{border:0;padding:0;background:transparent;color:#38bdf8}
+.wrap{max-width:1180px;margin:0 auto;padding:20px}.hero,.card{border:1px solid var(--line);background:rgba(15,23,42,.88);border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 20px 45px rgba(0,0,0,.25)}
+h1{font-size:28px;margin:0 0 8px;color:white}h2{font-size:22px;margin:0 0 12px;color:white}h3{font-size:18px;color:#e0f2fe}p{line-height:1.55}.small{font-size:13px;color:var(--muted)}
+.tag{display:inline-block;margin:3px;padding:4px 9px;border:1px solid #334155;background:#0b1220;border-radius:999px;color:#cbd5e1;font-size:12px}.page{display:none}.page.active{display:block;animation:fade .18s ease}@keyframes fade{from{opacity:.3;transform:translateY(4px)}to{opacity:1;transform:none}}
+.q{background:#0b1220;border:1px solid #253244;border-radius:14px;padding:14px;margin:12px 0}.q-title{font-weight:900;color:#e0f2fe;margin-bottom:9px}.options{display:grid;gap:7px;margin-top:8px}.options label{background:#111827;border:1px solid #293548;border-radius:10px;padding:9px;cursor:pointer}.options label:hover{border-color:#38bdf8}
+select,textarea,input[type=text]{width:100%;background:#020617;color:#e5e7eb;border:1px solid #374151;border-radius:10px;padding:10px;font-family:inherit;margin:5px 0 10px}textarea{min-height:115px;resize:vertical;line-height:1.45}
+.btn{background:#0284c7;color:#fff;border:0;border-radius:11px;padding:10px 14px;font-weight:900;margin:5px 5px 5px 0;cursor:pointer}.btn:hover{background:#0369a1}.green{background:#16a34a}.green:hover{background:#15803d}.gray{background:#374151}.gray:hover{background:#4b5563}.orange{background:#d97706}.orange:hover{background:#b45309}
+.feedback{display:none;margin-top:8px;padding:10px;border-radius:10px;border:1px solid #334155}.feedback.info{display:block;background:#082f49;color:#e0f2fe;border-color:#075985}.feedback.correct{display:block;background:#052e16;color:#dcfce7;border-color:#166534}.feedback.wrong{display:block;background:#450a0a;color:#fee2e2;border-color:#991b1b}
+.model{display:none;background:#f8fafc;color:#0f172a;border-left:5px solid #0284c7;border-radius:12px;padding:14px;margin-top:10px;white-space:pre-wrap;line-height:1.45}.model.show{display:block}.rubric{background:#101827;border:1px solid #334155;border-radius:12px;padding:10px;margin-top:10px}.rubric label{display:block;margin:8px 0;cursor:pointer}
+.grid{display:grid;gap:12px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.four{grid-template-columns:repeat(4,minmax(0,1fr))}.scorebox{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0}.scoreitem{text-align:center;background:#020617;border:1px solid #334155;border-radius:14px;padding:12px}.scoreitem strong{font-size:22px;color:white}
+.resultpanel{background:#f8fafc;color:#0f172a;border-radius:16px;padding:15px;margin-top:12px}.resultpanel h3{color:#0f172a;margin-top:0}pre,.diagram{font-family:Consolas,'Courier New',monospace;background:#020617;color:#e5e7eb;border:1px solid #334155;border-radius:12px;padding:12px;overflow:auto;line-height:1.35}.table{width:100%;border-collapse:collapse}.table th,.table td{border:1px solid #334155;padding:8px}.table th{background:#0b1220;color:#e0f2fe;text-align:left}.nav{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #334155;padding-top:14px;margin-top:14px}.progress{height:9px;background:#1e293b;border-radius:99px;overflow:hidden;margin-top:12px}.progress div{height:100%;background:linear-gradient(90deg,#38bdf8,#22c55e);width:0%}
+@media(max-width:850px){.two,.three,.four,.scorebox{grid-template-columns:1fr}.credit{margin-left:0}.wrap{padding:12px}h1{font-size:23px}}
+@media print{.topbar,.nav,.btn{display:none}body{background:#fff;color:#000}.page{display:block}.hero,.card,.q{background:#fff;color:#000;box-shadow:none;break-inside:avoid}.model{display:block}}
+</style>
+</head>
+<body>
+<div class="topbar">
+<a href="https://janidusandaruwan.com/" target="_blank">Back to Study Hub By J</a>
+<a href="https://www.whatsapp.com/channel/0029Vb7ep90I1rcbyPccWx2t" target="_blank">Join WhatsApp Channel For New Quiz Updates</a>
+<button class="gray" onclick="resetExam()">Reset Exam</button>
+<span class="credit">Created by <a href="https://janidusandaruwan.com/" target="_blank">Janidu Sandaruwan(Y1S2)</a></span>
+</div>
+<div class="wrap">
+<div class="hero">
+<h1>IT1170 Data Structures and Algorithms — Final Mock Exam No. 02</h1>
+<p><strong>Created by Janidu Sandaruwan(Y1S2)</strong></p>
+<p>This is a fresh mock exam made for final preparation. It follows the confirmed exam structure: <strong>MCQs + 1 structured question + 2 essay questions</strong>. Written parts are designed like booklet answers.</p>
+<span class="tag">Mock Exam No. 02</span><span class="tag">20 MCQs</span><span class="tag">1 Structured</span><span class="tag">2 Essays</span><span class="tag">100 Marks</span><span class="tag">Within IT1170 uploaded syllabus</span>
+<div class="progress"><div id="prog"></div></div>
+</div>
+
+<section class="page active" data-page="0">
+<div class="card">
+<h2>Instructions</h2>
+<table class="table"><tr><th>Section</th><th>Marks</th><th>How to answer</th></tr><tr><td>A</td><td>20</td><td>20 MCQs. Auto marked.</td></tr><tr><td>B</td><td>30</td><td>One structured question with sub-parts. Type booklet answer, then self-mark.</td></tr><tr><td>C</td><td>50</td><td>Two essay questions. Type full answer, then compare with model answer.</td></tr></table>
+<p class="small">Important: This mock avoids old/outside topics that are not clearly in the IT1170 uploaded lectures. It focuses on algorithm analysis, stack, queue, linked list, trees/BST, recursion, sorting, quicksort, merge sort, heap, and heapsort.</p>
+</div>
+</section>
+
+<section class="page" data-page="1">
+<div class="card"><h2>Section A — MCQs (20 Marks)</h2><p class="small">Select one answer for each question.</p><div id="mcqContainer"></div><button class="btn green" onclick="checkMCQs()">Check Section A</button><div id="mcqScore" class="feedback info"></div></div>
+</section>
+
+<section class="page" data-page="2">
+<div class="card"><h2>Section B — Structured Question (30 Marks)</h2>
+<p>Answer all sub-parts. Auto-marked parts + self-marking rubric = 30 marks.</p>
+
+<div class="q"><div class="q-title">B1. RAM model and Big O (5 marks)</div>
+<pre>int count = 0;
+for (int i = 1; i <= n; i++) {
+    count = count + 1;
+}
+for (int j = 1; j <= 10; j++) {
+    System.out.println(j);
+}</pre>
+<label>Big O notation:</label><select data-type="select" data-answer="O(n)" data-points="2" data-topic="Big O"><option value="">Choose</option><option>O(1)</option><option>O(n)</option><option>O(n log n)</option><option>O(n^2)</option></select>
+<textarea placeholder="Write the RAM model / step count explanation here..."></textarea><button class="btn gray" onclick="toggleModel('b1m')">Show Model Answer</button>
+<div id="b1m" class="model">Model answer:
+The first loop runs n times. Inside the loop, count = count + 1 is a constant-time operation.
+The second loop runs exactly 10 times, which is constant.
+Therefore, T(n) = c1n + c2(10) + c3.
+When using Big O, constants and lower-order terms are ignored.
+Final complexity = O(n).
+
+Marking guide:
+2 marks for O(n).
+1 mark for identifying first loop runs n times.
+1 mark for identifying second loop is constant 10.
+1 mark for explaining constants are ignored.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Big O"> States first loop runs n times</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Big O"> States second loop is constant 10</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Big O"> Explains constants are ignored</label></div></div>
+
+<div class="q"><div class="q-title">B2. Stack frame tracing (6 marks)</div>
+<p>Initial: <code>top = -1</code>, stack size = 4. Operations:</p><pre>push(5);
+push(9);
+peek();
+push(12);
+pop();
+push(20);</pre>
+<label>Final stack from bottom to top:</label><select data-type="select" data-answer="5,9,20" data-points="2" data-topic="Stack"><option value="">Choose</option><option value="5,9,12,20">5, 9, 12, 20</option><option value="5,9,20">5, 9, 20</option><option value="20,9,5">20, 9, 5</option><option value="5,20">5, 20</option></select>
+<label>Final top value:</label><select data-type="select" data-answer="2" data-points="1" data-topic="Stack"><option value="">Choose</option><option>0</option><option>1</option><option>2</option><option>3</option></select>
+<textarea placeholder="Show each stack frame after each operation..."></textarea><button class="btn gray" onclick="toggleModel('b2m')">Show Model Answer</button>
+<div id="b2m" class="model">Model answer:
+push(5) -> [5], top = 0
+push(9) -> [5, 9], top = 1
+peek() returns 9 but does not remove it -> [5, 9], top = 1
+push(12) -> [5, 9, 12], top = 2
+pop() removes 12 -> [5, 9], top = 1
+push(20) -> [5, 9, 20], top = 2
+
+Final stack = 5, 9, 20. Final top = 2.
+
+Marking guide:
+2 marks for final stack.
+1 mark for final top.
+3 marks for correct step-by-step explanation.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Stack"> Correctly states peek does not delete</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Stack"> Correctly states pop removes 12</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Stack"> Correctly updates top values</label></div></div>
+
+<div class="q"><div class="q-title">B3. Circular queue tracing (6 marks)</div>
+<pre>maxSize = 6
+front = 4, rear = 1, nItems = 4
+Index:      0   1   2   3   4   5
+Queue:      30  40  _   _   10  20
+Logical queue = 10, 20, 30, 40</pre><p>Operations:</p><pre>remove();
+insert(50);
+insert(60);</pre>
+<div class="grid three"><div><label>Final front</label><select data-type="select" data-answer="5" data-points="1" data-topic="Queue"><option value="">Choose</option><option>0</option><option>1</option><option>4</option><option>5</option></select></div><div><label>Final rear</label><select data-type="select" data-answer="3" data-points="1" data-topic="Queue"><option value="">Choose</option><option>1</option><option>2</option><option>3</option><option>5</option></select></div><div><label>Final nItems</label><select data-type="select" data-answer="5" data-points="1" data-topic="Queue"><option value="">Choose</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div></div>
+<label>Final logical queue:</label><select data-type="select" data-answer="20,30,40,50,60" data-points="2" data-topic="Queue"><option value="">Choose</option><option value="10,20,30,40,50">10, 20, 30, 40, 50</option><option value="20,30,40,50,60">20, 30, 40, 50, 60</option><option value="50,60,20,30,40">50, 60, 20, 30, 40</option><option value="30,40,50,60">30, 40, 50, 60</option></select>
+<textarea placeholder="Show circular queue steps..."></textarea><button class="btn gray" onclick="toggleModel('b3m')">Show Model Answer</button>
+<div id="b3m" class="model">Model answer:
+Initial logical queue = 10, 20, 30, 40.
+remove(): removes front item 10. New front = (4 + 1) % 6 = 5. nItems = 3.
+insert(50): new rear = (1 + 1) % 6 = 2. Insert 50 at index 2. nItems = 4.
+insert(60): new rear = (2 + 1) % 6 = 3. Insert 60 at index 3. nItems = 5.
+
+Final front = 5, rear = 3, nItems = 5.
+Final logical queue = 20, 30, 40, 50, 60.
+
+Marking guide:
+1 mark each for front, rear, nItems.
+2 marks for final logical queue.
+1 mark for using circular formulas.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Queue"> Uses modulo/circular movement correctly</label></div></div>
+
+<div class="q"><div class="q-title">B4. Linked list operation tracing (5 marks)</div>
+<pre>linkList list = new linkList();
+list.insertFirst(30);
+list.insertFirst(20);
+list.insertLast(40);
+list.insertAfter(30, 35);
+list.deleteFirst();</pre>
+<label>Final linked list:</label><select data-type="select" data-answer="30,35,40" data-points="2" data-topic="Linked List"><option value="">Choose</option><option value="20,30,35,40">20, 30, 35, 40</option><option value="30,35,40">30, 35, 40</option><option value="35,30,40">35, 30, 40</option><option value="30,40,35">30, 40, 35</option></select>
+<textarea placeholder="Show each state of the linked list..."></textarea><button class="btn gray" onclick="toggleModel('b4m')">Show Model Answer</button>
+<div id="b4m" class="model">Model answer:
+insertFirst(30): 30
+insertFirst(20): 20 -> 30
+insertLast(40): 20 -> 30 -> 40
+insertAfter(30,35): 20 -> 30 -> 35 -> 40
+deleteFirst(): 30 -> 35 -> 40
+
+Final linked list = 30 -> 35 -> 40.
+
+Marking guide:
+2 marks for final linked list.
+1 mark for insertFirst states.
+1 mark for insertLast.
+1 mark for insertAfter/deleteFirst.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Linked List"> Shows insertFirst correctly</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Linked List"> Shows insertLast correctly</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Linked List"> Shows insertAfter and deleteFirst correctly</label></div></div>
+
+<div class="q"><div class="q-title">B5. BST traversal and height (8 marks)</div><p>Insert into a BST:</p><pre>60, 40, 80, 30, 50, 70, 90</pre>
+<label>Inorder traversal:</label><select data-type="select" data-answer="30,40,50,60,70,80,90" data-points="2" data-topic="Trees"><option value="">Choose</option><option value="60,40,30,50,80,70,90">60,40,30,50,80,70,90</option><option value="30,40,50,60,70,80,90">30,40,50,60,70,80,90</option><option value="30,50,40,70,90,80,60">30,50,40,70,90,80,60</option></select>
+<label>Postorder traversal:</label><select data-type="select" data-answer="30,50,40,70,90,80,60" data-points="2" data-topic="Trees"><option value="">Choose</option><option value="30,40,50,60,70,80,90">30,40,50,60,70,80,90</option><option value="60,40,30,50,80,70,90">60,40,30,50,80,70,90</option><option value="30,50,40,70,90,80,60">30,50,40,70,90,80,60</option></select>
+<label>Height of this tree, counting edges:</label><select data-type="select" data-answer="2" data-points="2" data-topic="Trees"><option value="">Choose</option><option>1</option><option>2</option><option>3</option><option>7</option></select>
+<textarea placeholder="Draw the BST and explain traversal rules..."></textarea><button class="btn gray" onclick="toggleModel('b5m')">Show Model Answer</button>
+<div id="b5m" class="model">Model answer:
+BST:
+        60
+      /    \
+    40      80
+   /  \    /  \
+ 30   50  70   90
+
+Inorder = Left, Node, Right = 30, 40, 50, 60, 70, 80, 90.
+Postorder = Left, Right, Node = 30, 50, 40, 70, 90, 80, 60.
+Height by edges = longest path from root to leaf = 2.
+
+Marking guide:
+2 marks for inorder.
+2 marks for postorder.
+2 marks for height.
+2 marks for correct tree drawing/explanation.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Trees"> BST drawing is correct</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Trees"> Traversal rules are stated correctly</label></div></div>
+
+<button class="btn green" onclick="checkSection('B')">Check Section B</button><div id="scoreBmsg" class="feedback info"></div>
+</div></section>
+
+<section class="page" data-page="3">
+<div class="card"><h2>Section C — Essay Question 1: Data Structures (25 Marks)</h2>
+
+<div class="q"><div class="q-title">C1(a). Stack application: reverse each word (8 marks)</div>
+<p>Write a Java/pseudocode method to reverse each word in a string using only a stack. Example: <code>"Data is fun" → "ataD si nuf"</code></p>
+<textarea placeholder="Write your booklet answer / code here..."></textarea><button class="btn gray" onclick="toggleModel('c1am')">Show Model Answer</button>
+<div id="c1am" class="model">Model answer:
+String reverseWords(String input) {
+    String output = "";
+    StackX st = new StackX(input.length());
+
+    for (int i = 0; i < input.length(); i++) {
+        char ch = input.charAt(i);
+        if (ch != ' ') {
+            st.push(ch);
+        } else {
+            while (!st.isEmpty()) {
+                output = output + st.pop();
+            }
+            output = output + " ";
+        }
+    }
+
+    while (!st.isEmpty()) {
+        output = output + st.pop();
+    }
+    return output;
+}
+
+Explanation:
+Each word is pushed character by character. Because stack is LIFO, popping gives the characters in reverse order. When a space is found, the current word is popped and added to output.
+
+Marking guide:
+2 marks for pushing non-space characters.
+2 marks for popping at spaces.
+2 marks for popping the last word after loop.
+1 mark for using LIFO explanation.
+1 mark for returning/outputting final string.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="2" data-topic="Stack"> Pushes non-space characters</label><label><input type="checkbox" data-rubric data-points="2" data-topic="Stack"> Pops stack when space is found</label><label><input type="checkbox" data-rubric data-points="2" data-topic="Stack"> Handles last word after the loop</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Stack"> Explains LIFO clearly</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Stack"> Returns/displays final string</label></div></div>
+
+<div class="q"><div class="q-title">C1(b). Queue and circular queue code/theory (5 marks)</div>
+<textarea placeholder="Explain linear queue limitation, circular queue solution, and write isEmpty/isFull using nItems..."></textarea><button class="btn gray" onclick="toggleModel('c1bm')">Show Model Answer</button>
+<div id="c1bm" class="model">Model answer:
+A linear queue implemented using an array can waste free spaces at the front after several remove operations. Even if there are empty positions at the beginning, the rear may reach the last index and insertion may fail.
+
+A circular queue solves this by wrapping rear and front back to index 0 using modulo.
+rear = (rear + 1) % maxSize
+front = (front + 1) % maxSize
+
+Using nItems:
+boolean isEmpty() {
+    return nItems == 0;
+}
+
+boolean isFull() {
+    return nItems == maxSize;
+}
+
+Marking guide:
+1 mark for explaining linear queue limitation.
+1 mark for explaining circular wrap-around.
+1 mark for rear formula.
+1 mark for isEmpty.
+1 mark for isFull.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Queue"> Explains wasted spaces in linear queue</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Queue"> Explains circular wrap-around</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Queue"> Gives rear/front modulo formula</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Queue"> Correct isEmpty</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Queue"> Correct isFull</label></div></div>
+
+<div class="q"><div class="q-title">C1(c). Linked list method writing (5 marks)</div>
+<p>Write a method <code>int countNodes()</code> for a singly linked list.</p><textarea placeholder="Write code/pseudocode..."></textarea><button class="btn gray" onclick="toggleModel('c1cm')">Show Model Answer</button>
+<div id="c1cm" class="model">Model answer:
+int countNodes() {
+    int count = 0;
+    Link current = first;
+    while (current != null) {
+        count++;
+        current = current.next;
+    }
+    return count;
+}
+
+Explanation:
+Start from first. Visit each node until current becomes null. Increase count for every visited node.
+
+Marking guide:
+1 mark for initializing count.
+1 mark for starting current at first.
+1 mark for while(current != null).
+1 mark for count++ and current=current.next.
+1 mark for returning count.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Linked List"> Initializes count</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Linked List"> Starts from first</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Linked List"> Correct loop condition</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Linked List"> Moves to next node</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Linked List"> Returns count</label></div></div>
+
+<div class="q"><div class="q-title">C1(d). BST construction, traversal, deletion (7 marks)</div>
+<p>Insert into a BST: <code>45, 25, 65, 15, 35, 55, 75, 30, 40</code></p>
+<label>Inorder traversal:</label><select data-type="select" data-answer="15,25,30,35,40,45,55,65,75" data-points="2" data-topic="Trees"><option value="">Choose</option><option value="45,25,15,35,30,40,65,55,75">45,25,15,35,30,40,65,55,75</option><option value="15,25,30,35,40,45,55,65,75">15,25,30,35,40,45,55,65,75</option><option value="15,30,40,35,25,55,75,65,45">15,30,40,35,25,55,75,65,45</option></select>
+<label>Preorder traversal:</label><select data-type="select" data-answer="45,25,15,35,30,40,65,55,75" data-points="2" data-topic="Trees"><option value="">Choose</option><option value="45,25,15,35,30,40,65,55,75">45,25,15,35,30,40,65,55,75</option><option value="15,25,30,35,40,45,55,65,75">15,25,30,35,40,45,55,65,75</option><option value="15,30,40,35,25,55,75,65,45">15,30,40,35,25,55,75,65,45</option></select>
+<textarea placeholder="Draw the tree and explain deleting node 35..."></textarea><button class="btn gray" onclick="toggleModel('c1dm')">Show Model Answer</button>
+<div id="c1dm" class="model">Model answer:
+BST:
+          45
+        /    \
+      25      65
+     /  \    /  \
+   15   35  55  75
+        / \
+      30  40
+
+Inorder = 15,25,30,35,40,45,55,65,75.
+Preorder = 45,25,15,35,30,40,65,55,75.
+
+Deleting 35:
+Node 35 has two children: 30 and 40. Replace 35 using its inorder successor. The inorder successor is the smallest value in the right subtree, which is 40. Then remove the old 40 node.
+
+Marking guide:
+2 marks for inorder.
+2 marks for preorder.
+1 mark for correct tree drawing.
+1 mark for identifying two-child deletion case.
+1 mark for successor = 40.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Trees"> Correct tree drawing</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Trees"> Identifies 35 has two children</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Trees"> Uses successor 40 correctly</label></div></div>
+
+<button class="btn green" onclick="checkSection('C1')">Check Essay 1</button><div id="scoreC1msg" class="feedback info"></div>
+</div></section>
+
+<section class="page" data-page="4">
+<div class="card"><h2>Section C — Essay Question 2: Algorithms (25 Marks)</h2>
+
+<div class="q"><div class="q-title">C2(a). Big O from running time equations (6 marks)</div>
+<div class="grid four"><div><label>T(n)=7n+4</label><select data-type="select" data-answer="O(n)" data-points="1" data-topic="Big O"><option value="">Choose</option><option>O(1)</option><option>O(n)</option><option>O(n^2)</option></select></div><div><label>T(n)=n²+100nlogn</label><select data-type="select" data-answer="O(n^2)" data-points="1" data-topic="Big O"><option value="">Choose</option><option>O(n)</option><option>O(n log n)</option><option>O(n^2)</option></select></div><div><label>T(n)=5logn+20</label><select data-type="select" data-answer="O(log n)" data-points="1" data-topic="Big O"><option value="">Choose</option><option>O(1)</option><option>O(log n)</option><option>O(n)</option></select></div><div><label>T(n)=2ⁿ+n³</label><select data-type="select" data-answer="O(2^n)" data-points="1" data-topic="Big O"><option value="">Choose</option><option>O(n^3)</option><option>O(2^n)</option><option>O(n log n)</option></select></div></div>
+<textarea placeholder="Explain the rule used to select Big O..."></textarea><button class="btn gray" onclick="toggleModel('c2am')">Show Model Answer</button>
+<div id="c2am" class="model">Model answer:
+T(n)=7n+4 -> O(n)
+T(n)=n²+100nlogn -> O(n²)
+T(n)=5logn+20 -> O(log n)
+T(n)=2ⁿ+n³ -> O(2ⁿ)
+
+Rule: In Big O notation, constants are ignored and the fastest-growing term is selected.
+
+Marking guide:
+4 marks for correct answers.
+1 mark for ignoring constants.
+1 mark for selecting the highest growth term.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Big O"> Explains constants are ignored</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Big O"> Explains highest growth term is selected</label></div></div>
+
+<div class="q"><div class="q-title">C2(b). Merge Sort recurrence and performance (5 marks)</div>
+<label>Merge Sort recurrence:</label><select data-type="select" data-answer="T(n)=2T(n/2)+O(n)" data-points="2" data-topic="Merge Sort"><option value="">Choose</option><option value="T(n)=T(n-1)+O(n)">T(n)=T(n-1)+O(n)</option><option value="T(n)=2T(n/2)+O(n)">T(n)=2T(n/2)+O(n)</option><option value="T(n)=T(n/2)+O(1)">T(n)=T(n/2)+O(1)</option></select>
+<label>Merge Sort time complexity:</label><select data-type="select" data-answer="O(n log n)" data-points="1" data-topic="Merge Sort"><option value="">Choose</option><option>O(n)</option><option>O(n log n)</option><option>O(n^2)</option></select>
+<textarea placeholder="Explain why Merge Sort has same type of work in best/worst cases..."></textarea><button class="btn gray" onclick="toggleModel('c2bm')">Show Model Answer</button>
+<div id="c2bm" class="model">Model answer:
+Merge Sort divides the array into two halves and then merges the sorted halves.
+Recurrence equation: T(n) = 2T(n/2) + O(n).
+The O(n) part is for merging.
+Using Master Theorem, this becomes O(n log n).
+
+Merge Sort has similar performance in best, average and worst cases because it always divides the array into halves and still performs the merge operation over all elements.
+
+Marking guide:
+2 marks for recurrence.
+1 mark for O(n log n).
+1 mark for explaining division into halves.
+1 mark for explaining merge work always happens.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Merge Sort"> Explains array is divided into halves</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Merge Sort"> Explains merge operation takes linear work</label></div></div>
+
+<div class="q"><div class="q-title">C2(c). Quick Sort partition illustration (6 marks)</div>
+<pre>A = {9, 4, 7, 3, 8}
+Pivot = last element</pre>
+<label>Array after one PARTITION operation:</label><select data-type="select" data-answer="4,7,3,8,9" data-points="2" data-topic="Quick Sort"><option value="">Choose</option><option value="3,4,7,8,9">3,4,7,8,9</option><option value="4,7,3,8,9">4,7,3,8,9</option><option value="9,4,7,3,8">9,4,7,3,8</option></select>
+<label>Pivot final position, 1-based index:</label><select data-type="select" data-answer="4" data-points="1" data-topic="Quick Sort"><option value="">Choose</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+<textarea placeholder="Illustrate the partition step by step..."></textarea><button class="btn gray" onclick="toggleModel('c2cm')">Show Model Answer</button>
+<div id="c2cm" class="model">Model answer:
+A = [9,4,7,3,8], pivot = 8.
+Items less than pivot must go to the left side.
+
+9 < 8? No.
+4 < 8? Yes. Move/swap 4 to left -> [4,9,7,3,8]
+7 < 8? Yes. Move/swap 7 to left -> [4,7,9,3,8]
+3 < 8? Yes. Move/swap 3 to left -> [4,7,3,9,8]
+Final swap pivot 8 with first greater element 9 -> [4,7,3,8,9]
+
+Pivot final position = 4 using 1-based indexing.
+Important: Partition does not fully sort the left side. It only places smaller values left and bigger values right.
+
+Marking guide:
+2 marks for final array.
+1 mark for pivot position.
+1 mark for pivot = 8.
+1 mark for moving values smaller than pivot left.
+1 mark for explaining partition is not full sorting.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Quick Sort"> States pivot = 8</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Quick Sort"> Shows smaller values moved left</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Quick Sort"> Explains partition is not complete sorting</label></div></div>
+
+<div class="q"><div class="q-title">C2(d). Heapify and BUILD_MAX_HEAP (5 marks)</div>
+<label>BUILD_MAX_HEAP starts from:</label><select data-type="select" data-answer="floor(n/2)" data-points="2" data-topic="Heap"><option value="">Choose</option><option>1</option><option>floor(n/2)</option><option>n</option><option>n-1</option></select>
+<label>BUILD_MAX_HEAP complexity:</label><select data-type="select" data-answer="O(n)" data-points="1" data-topic="Heap"><option value="">Choose</option><option>O(log n)</option><option>O(n)</option><option>O(n log n)</option></select>
+<textarea placeholder="Explain why it starts from floor(n/2), and explain MAX_HEAPIFY briefly..."></textarea><button class="btn gray" onclick="toggleModel('c2dm')">Show Model Answer</button>
+<div id="c2dm" class="model">Model answer:
+BUILD_MAX_HEAP starts from floor(n/2) because nodes after floor(n/2) are leaf nodes. Leaf nodes already satisfy the heap property, so heapify is needed only from the last non-leaf node up to the root.
+
+MAX_HEAPIFY compares a parent with its left and right children. The largest value among the parent and children is selected. If a child is larger than the parent, they are swapped and MAX_HEAPIFY is called again on the affected child position.
+
+BUILD_MAX_HEAP complexity = O(n).
+
+Marking guide:
+2 marks for floor(n/2).
+1 mark for O(n).
+1 mark for explaining leaf nodes.
+1 mark for explaining heapify comparison/swap.</div>
+<div class="rubric"><label><input type="checkbox" data-rubric data-points="1" data-topic="Heap"> Explains nodes after floor(n/2) are leaves</label><label><input type="checkbox" data-rubric data-points="1" data-topic="Heap"> Explains heapify compares and swaps with largest child</label></div></div>
+
+<div class="q"><div class="q-title">C2(e). Sorting and heapsort theory (3 marks)</div>
+<label>Bubble sort mainly swaps:</label><select data-type="select" data-answer="Adjacent elements" data-points="1" data-topic="Sorting"><option value="">Choose</option><option>Root and last only</option><option>Adjacent elements</option><option>Only middle element</option></select>
+<label>Selection sort each pass selects:</label><select data-type="select" data-answer="Minimum or maximum element" data-points="1" data-topic="Sorting"><option value="">Choose</option><option>Minimum or maximum element</option><option>Only first element</option><option>Pivot only</option></select>
+<label>After heapsort swaps root with last, next step:</label><select data-type="select" data-answer="Reduce heap size and MAX_HEAPIFY root" data-points="1" data-topic="Heap"><option value="">Choose</option><option>Reduce heap size and MAX_HEAPIFY root</option><option>Merge left and right arrays</option><option>Stop always</option></select>
+</div>
+
+<button class="btn green" onclick="checkSection('C2')">Check Essay 2</button><div id="scoreC2msg" class="feedback info"></div>
+</div></section>
+
+<section class="page" data-page="5">
+<div class="card"><h2>Final Score and Analysis</h2><button class="btn green" onclick="calculateAll()">Calculate Final Score</button><button class="btn orange" onclick="showAllModels()">Show All Model Answers</button>
+<div class="scorebox"><div class="scoreitem"><div>Section A</div><strong id="scoreA">0/20</strong></div><div class="scoreitem"><div>Section B</div><strong id="scoreB">0/30</strong></div><div class="scoreitem"><div>Essay 1</div><strong id="scoreC1">0/25</strong></div><div class="scoreitem"><div>Essay 2</div><strong id="scoreC2">0/25</strong></div></div>
+<div class="resultpanel"><h3>Final Score</h3><p style="font-size:30px;font-weight:900;margin:0" id="finalScore">0 / 100</p><p id="comment"></p></div>
+<div class="grid two"><div class="resultpanel"><h3>Strong Areas</h3><ul id="strongList"></ul></div><div class="resultpanel"><h3>Weak Areas</h3><ul id="weakList"></ul></div></div>
+<div class="resultpanel"><h3>Next Revision Order</h3><ol id="revisionList"></ol></div>
+</div></section>
+
+<div class="nav"><button class="btn gray" onclick="prevPage()">Previous</button><span class="small" id="pageLabel"></span><button class="btn" onclick="nextPage()">Next</button></div>
+</div>
+
+<script>
+const mcqs=[
+{q:"Under the RAM model, a basic assignment or comparison is usually counted as:",a:"Constant time",topic:"Algorithms",opts:["Constant time","O(n) time","O(n^2) time","Infinite time"]},
+{q:"What is the complexity of a loop where i starts at n and becomes i/2 each time?",a:"O(log n)",topic:"Big O",opts:["O(1)","O(n)","O(log n)","O(n^2)"]},
+{q:"A loop inside another loop, where the inner loop runs exactly 4 times for each outer loop, is:",a:"O(n)",topic:"Big O",opts:["O(1)","O(n)","O(n log n)","O(n^2)"]},
+{q:"The stack operation peek() is used to:",a:"Return top item without removing it",topic:"Stack",opts:["Remove the front item","Return top item without removing it","Insert at rear","Sort the stack"]},
+{q:"Stack overflow happens when:",a:"push is called on a full stack",topic:"Stack",opts:["pop is called on empty stack","push is called on a full stack","peek is called on non-empty stack","top becomes zero"]},
+{q:"A queue follows which principle?",a:"FIFO",topic:"Queue",opts:["LIFO","FIFO","NLR","LNR"]},
+{q:"Using nItems in queue implementation, the queue is full when:",a:"nItems == maxSize",topic:"Queue",opts:["front == -1","rear == 0","nItems == maxSize","top == maxSize - 1"]},
+{q:"Main advantage of a linked list over a fixed array is:",a:"Dynamic memory usage",topic:"Linked List",opts:["Direct index access","Dynamic memory usage","Always faster sorting","No pointers needed"]},
+{q:"In linked list traversal, current = current.next means:",a:"Move to the next node",topic:"Linked List",opts:["Delete current node","Move to the next node","Move to previous node","Create root node"]},
+{q:"In BST insertion, the root is usually:",a:"The first inserted value",topic:"Trees",opts:["The smallest value","The largest value","The first inserted value","The last inserted value"]},
+{q:"Preorder traversal order is:",a:"Node, Left, Right",topic:"Trees",opts:["Left, Node, Right","Node, Left, Right","Left, Right, Node","Right, Left, Node"]},
+{q:"The base case in recursion is used to:",a:"Stop the recursive calls",topic:"Recursion",opts:["Repeat forever","Stop the recursive calls","Create a queue","Build a heap"]},
+{q:"factorial(4), with factorial(0)=1, gives:",a:"24",topic:"Recursion",opts:["4","8","16","24"]},
+{q:"Merge Sort recurrence is:",a:"T(n)=2T(n/2)+O(n)",topic:"Merge Sort",opts:["T(n)=T(n-1)+O(1)","T(n)=2T(n/2)+O(n)","T(n)=T(n/2)+O(1)","T(n)=n^2"]},
+{q:"Worst case time complexity of Quick Sort is:",a:"O(n^2)",topic:"Quick Sort",opts:["O(n)","O(log n)","O(n log n)","O(n^2)"]},
+{q:"After partition in Quick Sort, the pivot is:",a:"In its correct final position",topic:"Quick Sort",opts:["Always the smallest value","In its correct final position","Deleted from the array","Always at index 0"]},
+{q:"Bubble sort mainly works by:",a:"Swapping adjacent elements",topic:"Sorting",opts:["Swapping adjacent elements","Using a pivot","Using a heap root","Dividing into halves"]},
+{q:"In a max heap, the root contains:",a:"Largest value",topic:"Heap",opts:["Smallest value","Largest value","Middle value","Random value"]},
+{q:"In a 1-based heap array, left child index of i is:",a:"2i",topic:"Heap",opts:["i/2","2i","2i+1","i-1"]},
+{q:"BUILD_MAX_HEAP has time complexity:",a:"O(n)",topic:"Heap",opts:["O(1)","O(log n)","O(n)","O(n^2)"]}
+];
+function escapeHtml(s){return String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;')}
+function renderMCQs(){const box=document.getElementById('mcqContainer');box.innerHTML='';mcqs.forEach((m,i)=>{const d=document.createElement('div');d.className='q mcq';d.dataset.answer=m.a;d.dataset.topic=m.topic;d.dataset.key='mcq'+i;d.innerHTML=`<div class="q-title">A${i+1}. ${m.q}</div><div class="options">${m.opts.map((o,j)=>`<label><input type="radio" name="mcq${i}" value="${escapeHtml(o)}"> ${String.fromCharCode(65+j)}. ${o}</label>`).join('')}</div><div class="feedback"></div>`;box.appendChild(d)})}
+let currentPage=0,totalPages=6;function showPage(n){currentPage=Math.max(0,Math.min(totalPages-1,n));document.querySelectorAll('.page').forEach((p,i)=>p.classList.toggle('active',i===currentPage));document.getElementById('pageLabel').textContent=`Page ${currentPage+1} of ${totalPages}`;document.getElementById('prog').style.width=((currentPage+1)/totalPages*100)+'%';window.scrollTo({top:0,behavior:'smooth'})}function nextPage(){showPage(currentPage+1)}function prevPage(){showPage(currentPage-1)}
+function checkMCQs(){let score=0;document.querySelectorAll('.mcq').forEach(q=>{const chosen=q.querySelector(`input[name="${q.dataset.key}"]:checked`);const fb=q.querySelector('.feedback');fb.className='feedback';if(!chosen){fb.textContent='Not answered.';fb.classList.add('wrong');return}if(chosen.value===q.dataset.answer){score++;fb.textContent='Correct.';fb.classList.add('correct')}else{fb.textContent='Wrong. Correct answer: '+q.dataset.answer;fb.classList.add('wrong')}});const out=document.getElementById('mcqScore');out.textContent=`Section A score: ${score}/20`;out.className='feedback info';return score}
+function getScore(scope){let score=0,max=0;scope.querySelectorAll('select[data-type="select"]').forEach(s=>{const p=Number(s.dataset.points||0);max+=p;if(s.value===s.dataset.answer)score+=p;s.style.borderColor=!s.value?'#f59e0b':(s.value===s.dataset.answer?'#22c55e':'#ef4444')});scope.querySelectorAll('input[data-rubric]').forEach(c=>{const p=Number(c.dataset.points||0);max+=p;if(c.checked)score+=p});return{score,max}}
+function checkSection(sec){const map={B:['[data-page="2"]','scoreBmsg'],C1:['[data-page="3"]','scoreC1msg'],C2:['[data-page="4"]','scoreC2msg']};const [sel,id]=map[sec];const r=getScore(document.querySelector(sel));const out=document.getElementById(id);out.textContent=`Section ${sec} current score: ${r.score}/${r.max}`;out.className='feedback info';return r.score}
+function toggleModel(id){document.getElementById(id).classList.toggle('show')}function showAllModels(){document.querySelectorAll('.model').forEach(m=>m.classList.add('show'))}
+function calculateAll(){const a=checkMCQs(),b=checkSection('B'),c1=checkSection('C1'),c2=checkSection('C2');document.getElementById('scoreA').textContent=`${a}/20`;document.getElementById('scoreB').textContent=`${b}/30`;document.getElementById('scoreC1').textContent=`${c1}/25`;document.getElementById('scoreC2').textContent=`${c2}/25`;const total=a+b+c1+c2;document.getElementById('finalScore').textContent=`${total} / 100`;document.getElementById('comment').textContent=total>=75?'Excellent. Now revise only weak areas.':total>=55?'Pass range. Improve weak areas before final.':'Need more written practice. Start with weak areas below.';analysis()}
+function addTopic(obj,t,s,m){if(!obj[t])obj[t]={score:0,max:0};obj[t].score+=s;obj[t].max+=m}
+function analysis(){const topics={};document.querySelectorAll('.mcq').forEach(q=>{const ch=q.querySelector(`input[name="${q.dataset.key}"]:checked`);addTopic(topics,q.dataset.topic,ch&&ch.value===q.dataset.answer?1:0,1)});document.querySelectorAll('select[data-type="select"]').forEach(s=>addTopic(topics,s.dataset.topic,s.value===s.dataset.answer?Number(s.dataset.points):0,Number(s.dataset.points)));document.querySelectorAll('input[data-rubric]').forEach(c=>addTopic(topics,c.dataset.topic,c.checked?Number(c.dataset.points):0,Number(c.dataset.points)));const rows=Object.entries(topics).filter(x=>x[1].max>0).map(([k,v])=>({topic:k,score:v.score,max:v.max,pct:Math.round(v.score/v.max*100)})).sort((a,b)=>a.pct-b.pct);const strong=document.getElementById('strongList'),weak=document.getElementById('weakList'),rev=document.getElementById('revisionList');strong.innerHTML='';weak.innerHTML='';rev.innerHTML='';rows.forEach(r=>{const text=`${r.topic}: ${r.score}/${r.max} (${r.pct}%)`;if(r.pct>=75){let li=document.createElement('li');li.textContent=text;strong.appendChild(li)}if(r.pct<60){let li=document.createElement('li');li.textContent=text;weak.appendChild(li)}});rows.slice(0,6).forEach(r=>{let li=document.createElement('li');li.textContent=`Revise ${r.topic} first.`;rev.appendChild(li)});if(!strong.children.length)strong.innerHTML='<li>No strong area yet. Answer and self-mark more parts.</li>';if(!weak.children.length)weak.innerHTML='<li>No major weak area detected.</li>'}
+function resetExam(){if(!confirm('Reset all answers?'))return;document.querySelectorAll('input[type="radio"],input[type="checkbox"]').forEach(x=>x.checked=false);document.querySelectorAll('select').forEach(s=>{s.value='';s.style.borderColor='#374151'});document.querySelectorAll('textarea,input[type="text"]').forEach(t=>t.value='');document.querySelectorAll('.feedback').forEach(f=>{f.textContent='';f.className='feedback'});document.querySelectorAll('.model').forEach(m=>m.classList.remove('show'));['scoreA','scoreB','scoreC1','scoreC2'].forEach(id=>document.getElementById(id).textContent='0/0');document.getElementById('finalScore').textContent='0 / 100';document.getElementById('comment').textContent='';document.getElementById('strongList').innerHTML='';document.getElementById('weakList').innerHTML='';document.getElementById('revisionList').innerHTML='';showPage(0)}
+renderMCQs();showPage(0);
+</script>
+</body></html>
