@@ -39,6 +39,29 @@
     "url": "quizzes/y1s2/dm/dm-final-mock-final.html",
     "visible": true
   },
+    {
+    "title": "DSA Advanced Final Exam Target Mock Quiz 02 ",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DSA",
+    "type": "Mock Exam",
+    "description": "Final structure: MCQs + 1 Structured Question + 2 Essay Questions. Includes new lecturer sample styles: exact RAM count, piecewise recursion, linked-list linear search, Master Theorem, and insertion-sort full tracing.",
+    "url": "quizzes/y1s2/dsa/DSA_Final_Super_Mock_Exam_No_07_Dark.html",
+    "visible": true
+    ,"badge": "NEW"
+  },
+  {
+    "title": "DSA Advanced Final Exam Target Mock Quiz 01 ",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DSA",
+    "type": "Mock Exam",
+    "description": ".Final structure: MCQs + 1 Structured Question + 2 Essay Questions. Includes new lecturer sample styles: exact RAM count, piecewise recursion, linked-list linear search, Master Theorem, and insertion-sort full tracing.",
+    "url": "quizzes/y1s2/dsa/DSA_Final_Super_Mock_Exam_No_06_Dark.html",
+    "visible": true
+    ,"badge": "NEW"
+  },
+
    {
     "title": "DSA Advanced Final Mock Exam 05 (Exam Type) ",
     "year": "Year 1",
@@ -59,7 +82,7 @@
     "description": "This advanced mock follows your confirmed structure: MCQs + 1 Structured Question + 2 Essay Questions.  MCQs and objective/dropdown answers are auto-marked. Written parts include model answers and marking rubrics.",
     "url": "quizzes/y1s2/dsa/DSA_Mock_Exam_No_04_Advanced.html",
     "visible": true
-    ,"badge": "NEW"
+    
   },
    {
     "title": "DSA Advanced Final Mock Exam 03 (Exam Type) ",
@@ -70,7 +93,7 @@
     "description": "This advanced mock follows your confirmed structure: MCQs + 1 Structured Question + 2 Essay Questions.  MCQs and objective/dropdown answers are auto-marked. Written parts include model answers and marking rubrics.",
     "url": "quizzes/y1s2/dsa/DSA_Mock_Exam_No_03_Advanced.html",
     "visible": true
-    ,"badge": "NEW"
+    
   },
    {
     "title": "DSA Advanced Final Mock Exam 02 (Exam Type) ",
@@ -81,7 +104,7 @@
     "description": "This advanced mock follows your confirmed structure: MCQs + 1 Structured Question + 2 Essay Questions.  MCQs and objective/dropdown answers are auto-marked. Written parts include model answers and marking rubrics.",
     "url": "quizzes/y1s2/dsa/DSA_Mock_Exam_No_02_Advanced.html",
     "visible": true
-    ,"badge": "NEW"
+
   },
    {
     "title": "DSA Advanced Final Mock Exam 01 (Exam Type) ",
@@ -92,7 +115,7 @@
     "description": "This advanced mock follows your confirmed structure: MCQs + 1 Structured Question + 2 Essay Questions.  MCQs and objective/dropdown answers are auto-marked. Written parts include model answers and marking rubrics.",
     "url": "quizzes/y1s2/dsa/DSA_Full_Final_Mock_Exam_Advanced.html",
     "visible": true
-    ,"badge": "NEW"
+    
   },
   {
     "title": "DSA Final Mock Quiz 01",
