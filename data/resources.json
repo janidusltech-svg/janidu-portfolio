@@ -46,7 +46,7 @@
     "module": "DSA",
     "type": "Mock Exam",
     "description": "Interactive Data Structures and Algorithms final mock quiz for Year 1 Semester 2 revision.",
-    "url": "quizzes/y1s2/dsa/dsa-final-mock-01.html",
+    "url": "quizzes/y1s2/dsa/dsa_mock_exam_01.html",
     "visible": true
   },
 {

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT1170 DSA Final Mock Exam</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#172033;--muted:#667085;--line:#d9e0ea;--blue:#1d4ed8;--green:#15803d;--red:#b42318;--amber:#b45309;--purple:#6d28d9;}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}.wrap{max-width:1100px;margin:0 auto;padding:18px}.top{background:linear-gradient(135deg,#0f172a,#1d4ed8);color:#fff;padding:18px;border-radius:18px;margin-bottom:14px;box-shadow:0 8px 25px rgba(16,24,40,.16)}h1{font-size:26px;margin:0 0 4px}.subtitle{opacity:.9;margin:4px 0}.pill{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:5px 9px;border-radius:999px;font-size:12px;margin:4px 4px 0 0}.grid{display:grid;grid-template-columns:260px 1fr;gap:14px}.side,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 2px 10px rgba(16,24,40,.05)}.side{position:sticky;top:12px;height:max-content}.progress{height:10px;background:#e6ecf5;border-radius:999px;overflow:hidden;margin:10px 0}.bar{height:100%;width:0;background:var(--blue);transition:.25s}.small{font-size:13px;color:var(--muted)}.qtitle{font-size:20px;font-weight:700;margin:4px 0 12px}.sectionLabel{font-size:12px;font-weight:700;text-transform:uppercase;color:#475467;letter-spacing:.04em}.questionBox{min-height:430px}.opt{display:block;padding:10px 12px;margin:8px 0;border:1px solid var(--line);border-radius:12px;background:#fbfcff;cursor:pointer}.opt:hover{border-color:#9db6e8}.opt input{margin-right:8px}pre{background:#0b1020;color:#eaf2ff;border-radius:12px;padding:12px;overflow:auto;font-size:13px;white-space:pre-wrap}.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.btn{border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:#e9eef7;color:#1f2937}.success{background:var(--green);color:white}.danger{background:var(--red);color:#fff}.ghost{background:#fff;border:1px solid var(--line);color:#1f2937}.explain{display:none;border-left:4px solid var(--blue);padding:10px 12px;background:#eef5ff;border-radius:10px;margin-top:12px}.answerGood{color:var(--green);font-weight:700}.answerBad{color:var(--red);font-weight:700}textarea{width:100%;min-height:120px;border:1px solid var(--line);border-radius:12px;padding:10px;font-family:Arial,Helvetica,sans-serif}.markInput{width:80px;padding:8px;border:1px solid var(--line);border-radius:10px}.model{display:none;background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:12px}.model h4{margin:7px 0}.scoreCard{display:none}.topicRow{display:flex;justify-content:space-between;border-bottom:1px dashed #d0d7e2;padding:6px 0;font-size:13px}.badge{border-radius:999px;padding:2px 8px;font-size:12px;font-weight:700}.bgG{background:#dcfce7;color:#166534}.bgR{background:#fee2e2;color:#991b1b}.bgA{background:#fef3c7;color:#92400e}.dropdownLine{margin:10px 0}.dropdownLine select{padding:7px;border:1px solid var(--line);border-radius:8px;margin-left:5px}.table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}.table th,.table td{border:1px solid var(--line);padding:7px;text-align:left}.table th{background:#f1f5f9}.hide{display:none}.footerNote{margin-top:12px;color:#667085;font-size:12px}@media(max-width:850px){.grid{grid-template-columns:1fr}.side{position:relative;top:0}.questionBox{min-height:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>IT1170 - Data Structures and Algorithms: Final Mock Exam</h1>
+    <div class="subtitle"><b>Created by Janidu Sandaruwan(Y1S2)</b></div>
+    <div>
+      <span class="pill">20 MCQs</span><span class="pill">1 Structured Essay</span><span class="pill">2 Essay Questions</span><span class="pill">Total: 100%</span>
+    </div>
+  </div>
+  <div class="grid">
+    <aside class="side">
+      <div class="sectionLabel">Exam structure used</div>
+      <p class="small">Based on your lecturer's note: 20 MCQs + written paper with 1 structured essay and 2 essay questions. Written section includes runtime, pseudocode/code, line-by-line explanation and illustration.</p>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="small" id="progressText">Question 1 of 24</div>
+      <div id="miniScore" class="small" style="margin-top:10px"></div>
+      <div class="btns">
+        <button class="btn ghost" onclick="jumpToResults()">Results</button>
+        <button class="btn ghost" onclick="resetExam()">Reset</button>
+      </div>
+      <div class="footerNote">Written answers are self-marked using the marking guide after you reveal the model answer.</div>
+    </aside>
+    <main class="card">
+      <div id="exam" class="questionBox"></div>
+      <div class="btns">
+        <button class="btn secondary" id="prevBtn" onclick="prevPage()">Previous</button>
+        <button class="btn primary" id="checkBtn" onclick="checkCurrent()">Check / Show model answer</button>
+        <button class="btn secondary" id="nextBtn" onclick="nextPage()">Next</button>
+        <button class="btn success" id="submitBtn" onclick="showResults()">Submit & Analyse</button>
+      </div>
+    </main>
+  </div>
+</div>
+<script>
+const mcqs = [
+ {t:'Algorithm Basics',tag:'Algorithms',q:'Which statement best defines an algorithm?',opts:['A random set of Java commands','A well-defined step-by-step procedure that takes input and produces output','A hardware device used for memory','Only a sorting method'],a:1,exp:'An algorithm is a well-defined computational procedure with input and output.'},
+ {t:'Algorithm Properties',tag:'Algorithms',q:'Which property means an algorithm must eventually stop?',opts:['Ambiguity','Finiteness','Overflow','Recursion'],a:1,exp:'Finiteness means the algorithm must terminate.'},
+ {t:'RAM Model',tag:'Runtime',q:'In the RAM model used in lectures, a simple assignment such as x = 10 is usually counted as:',opts:['O(n)','O(n²)','One constant step','log n steps'],a:2,exp:'Basic operations such as assignment, arithmetic and comparison are treated as constant-time primitive steps.'},
+ {t:'Big O',tag:'Runtime',q:'What is the Big O of T(n)=3n²+5n+20?',opts:['O(1)','O(n)','O(n²)','O(n log n)'],a:2,exp:'Keep the highest growing term n² and drop constants.'},
+ {t:'Insertion Sort',tag:'Sorting',q:'Insertion sort is most like:',opts:['Arranging playing cards by inserting each new card into the sorted part','Choosing a pivot and partitioning','Using FIFO order','Building a max heap'],a:0,exp:'Insertion sort builds a sorted portion one item at a time.'},
+ {t:'Insertion Sort Complexity',tag:'Sorting',q:'Best case time complexity of insertion sort when the array is already sorted is:',opts:['O(1)','O(n)','O(n²)','O(log n)'],a:1,exp:'In best case, the while loop does minimum work, so insertion sort is linear.'},
+ {t:'Stack Principle',tag:'Stack',q:'A stack follows:',opts:['FIFO','LIFO','Level order','Divide and conquer'],a:1,exp:'Stack uses Last In First Out.'},
+ {t:'Stack Method',tag:'Stack',q:'Which stack operation returns the top item without removing it?',opts:['push','pop','peek','insert'],a:2,exp:'peek() reads the top item without changing top.'},
+ {t:'Queue Principle',tag:'Queue',q:'A queue removes items from:',opts:['Rear','Front','Middle','Top only'],a:1,exp:'Queue inserts at rear and removes from front.'},
+ {t:'Circular Queue',tag:'Queue',q:'In a circular queue with maxSize=5 and rear=4, after insert the new rear becomes:',opts:['0','1','4','5'],a:0,exp:'rear=(rear+1)%maxSize=(4+1)%5=0.'},
+ {t:'Linked List',tag:'Linked List',q:'In a singly linked list, each link/node mainly contains:',opts:['Only an index','Data and next reference','Only previous reference','Root and children'],a:1,exp:'A singly linked list node has data and a reference to the next node.'},
+ {t:'Linked List Delete',tag:'Linked List',q:'To delete a middle node in a singly linked list, the key line is:',opts:['first = null','current = null','previous.next = current.next','current.next = previous'],a:2,exp:'Deleting means changing the link before the node so it skips the current node.'},
+ {t:'BST Rule',tag:'Trees',q:'In a Binary Search Tree, values smaller than the parent go to:',opts:['Left child/subtree','Right child/subtree','Any leaf','Root only'],a:0,exp:'BST rule: left child key < parent, right child key >= parent.'},
+ {t:'Traversal',tag:'Trees',q:'For a BST, inorder traversal gives:',opts:['Descending order always','Ascending sorted order','Random order','Root only'],a:1,exp:'Inorder is Left, Root, Right; in a BST this gives ascending order.'},
+ {t:'Recursion',tag:'Recursion',q:'The base case in a recursive function is:',opts:['The part that calls itself','The stopping condition','The largest input','The output array'],a:1,exp:'Base case stops recursion.'},
+ {t:'Recurrence',tag:'Recursion',q:'A function with one recursive call on n-1 and constant extra work usually has recurrence:',opts:['T(n)=T(n-1)+O(1)','T(n)=2T(n/2)+O(n)','T(n)=O(1)','T(n)=T(n)+1'],a:0,exp:'One smaller recursive call plus constant work gives T(n)=T(n-1)+O(1).'},
+ {t:'Quick Sort',tag:'Quick Sort',q:'Quick sort mainly uses:',opts:['Pivot and partition','TEMP array merging only','FIFO processing','BFS traversal'],a:0,exp:'Quick sort chooses a pivot and partitions smaller/larger elements.'},
+ {t:'Merge Sort',tag:'Merge Sort',q:'Merge sort worst-case time complexity is:',opts:['O(n)','O(n log n)','O(n²)','O(1)'],a:1,exp:'Merge sort splits into halves and merges: O(n log n) in best/average/worst.'},
+ {t:'Heap',tag:'Heap',q:'In a max heap, the largest value is at:',opts:['Last index','Root / A[1]','Leftmost leaf','Random position'],a:1,exp:'Max heap property keeps the largest element at the root.'},
+ {t:'Heap Sort',tag:'Heap',q:'For ascending heapsort, which heap is built first?',opts:['Min heap','Max heap','Stack','Queue'],a:1,exp:'Ascending heapsort builds a max heap, swaps the root with the last item, then heapifies.'}
+];
+
+const dropdowns = [
+ {label:'Stack uses', opts:['Select','LIFO','FIFO','LNR'], ans:'LIFO', tag:'Stack'},
+ {label:'Queue uses', opts:['Select','LIFO','FIFO','NLR'], ans:'FIFO', tag:'Queue'},
+ {label:'Inorder traversal order', opts:['Select','Root-Left-Right','Left-Root-Right','Left-Right-Root'], ans:'Left-Root-Right', tag:'Trees'},
+ {label:'Preorder traversal order', opts:['Select','Root-Left-Right','Left-Root-Right','Left-Right-Root'], ans:'Root-Left-Right', tag:'Trees'},
+ {label:'Postorder traversal order', opts:['Select','Root-Left-Right','Left-Root-Right','Left-Right-Root'], ans:'Left-Right-Root', tag:'Trees'},
+ {label:'Quick sort main operation', opts:['Select','Partition','Merge using TEMP','Push'], ans:'Partition', tag:'Quick Sort'},
+ {label:'Heap left child formula for index i', opts:['Select','2i','2i+1','floor(i/2)'], ans:'2i', tag:'Heap'},
+ {label:'Heap parent formula for index i', opts:['Select','2i','2i+1','floor(i/2)'], ans:'floor(i/2)', tag:'Heap'}
+];
+
+const written = [
+ {id:'B',title:'Section B - Structured Essay (40 marks)',tag:'Written',max:40,parts:[
+   {name:'B1 Runtime analysis (10 marks)',max:10,prompt:`Find the running time and Big O. Explain clearly.\n\nfor (int i = 1; i <= n; i++) {\n    for (int j = 1; j <= 5; j++) {\n        System.out.println(i + j);\n    }\n}`,model:`Outer loop runs n times.\nInner loop runs 5 times for each outer loop.\nTotal executions = n x 5 = 5n.\nSince 5 is a constant, it is removed in Big O.\nTime complexity = O(n).`,guide:`Marks: identify outer loop n (2), inner loop constant 5 (2), total 5n (2), remove constant (2), final O(n) (2).`},
+   {name:'B2 Stack push and pop code (12 marks)',max:12,prompt:`Using int top, int maxSize and int stackArr[], write Java-style code for push(int item) and pop(). Include overflow/underflow checks.`,model:`void push(int item) {\n    if (top == maxSize - 1) {\n        System.out.println("Stack is full");\n    } else {\n        top = top + 1;\n        stackArr[top] = item;\n    }\n}\n\nint pop() {\n    if (top == -1) {\n        System.out.println("Stack is empty");\n        return -1;\n    } else {\n        int temp = stackArr[top];\n        top = top - 1;\n        return temp;\n    }\n}`,guide:`Marks: full check (2), correct push order top then insert (3), empty check (2), returns top value (2), decrements top (2), clear syntax/logic (1).`},
+   {name:'B3 Illustration - circular queue (10 marks)',max:10,prompt:`Circular queue: maxSize=5, front=2, rear=4, nItems=3. Current values: index 2=10, index 3=20, index 4=30. Perform insert(40), remove(), insert(50). Show final front, rear, nItems and occupied values.`,model:`Initial: front=2, rear=4, nItems=3.\ninsert(40): rear=(4+1)%5=0, index 0=40, nItems=4.\nremove(): removes index 2 value 10, front=(2+1)%5=3, nItems=3.\ninsert(50): rear=(0+1)%5=1, index 1=50, nItems=4.\nFinal occupied values in queue order: 20, 30, 40, 50.\nFinal front=3, rear=1, nItems=4.`,guide:`Marks: correct rear wrap to 0 (2), correct remove/front move to 3 (2), correct second insert at index 1 (2), final front/rear/nItems (3), queue order (1).`}
+ ]},
+ {id:'C1',title:'Section C - Essay 1: Trees and BST (20 marks)',tag:'Trees',max:20,parts:[
+   {name:'C1 BST construction and traversal',max:20,prompt:`Insert the following values into a Binary Search Tree in the given order: 50, 30, 70, 20, 40, 60, 80.\n(a) Draw/describe the final BST.\n(b) Write inorder, preorder and postorder traversal outputs.\n(c) State minimum and maximum values.`,model:`Final BST:\n        50\n       /  \\\n     30    70\n    /  \\  / \\\n  20   40 60 80\n\nInorder (Left, Root, Right): 20, 30, 40, 50, 60, 70, 80\nPreorder (Root, Left, Right): 50, 30, 20, 40, 70, 60, 80\nPostorder (Left, Right, Root): 20, 40, 30, 60, 80, 70, 50\nMinimum: 20\nMaximum: 80`,guide:`Marks: correct BST structure (7), inorder (4), preorder (3), postorder (3), min/max (3).`}
+ ]},
+ {id:'C2',title:'Section C - Essay 2: Divide and Conquer / Heap (20 marks)',tag:'Sorting/Heap',max:20,parts:[
+   {name:'C2 Algorithm explanation and comparison',max:20,prompt:`Explain Quick Sort, Merge Sort and Heap Sort. Include the main idea, major step/algorithm keyword, and time complexities. Also explain why heapsort reduces heap_size after swapping the root with the last element.`,model:`Quick Sort: Divide and conquer sorting method. It selects a pivot, partitions the array so smaller/equal values go left and greater/equal values go right, then recursively quicksorts both subarrays. Average/best time O(n log n), worst time O(n²) when partition is highly unbalanced.\n\nMerge Sort: Divide and conquer sorting method. It divides the array into two halves, recursively sorts both halves, then merges sorted halves using a merge/TEMP array idea. Best/average/worst time O(n log n).\n\nHeap Sort: Builds a max heap, where the largest item is at root A[1]. Then it swaps A[1] with the last item, decreases heap_size, and calls MAX_HEAPIFY(A,1). It repeats until sorted. Time O(n log n).\n\nheap_size is reduced because after swapping, the largest value is fixed in its final sorted position at the end of the array. That sorted element should not be included in the heap again.`,guide:`Marks: quick sort idea + complexity (5), merge sort idea + complexity (5), heapsort steps + complexity (6), reason for reducing heap_size (4).`}
+ ]}
+];
+
+let pages = [];
+mcqs.forEach((q,i)=>pages.push({type:'mcq',idx:i,...q}));
+pages.push({type:'dropdown',title:'Section B Auto Check - Key Terms (8 marks)'});
+written.forEach(w=>pages.push({type:'written',...w}));
+pages.push({type:'results'});
+let cur=0;
+let answers = JSON.parse(localStorage.getItem('dsaMockAnswers')||'{}');
+let writtenMarks = JSON.parse(localStorage.getItem('dsaMockWrittenMarks')||'{}');
+let revealed = JSON.parse(localStorage.getItem('dsaMockRevealed')||'{}');
+function save(){localStorage.setItem('dsaMockAnswers',JSON.stringify(answers));localStorage.setItem('dsaMockWrittenMarks',JSON.stringify(writtenMarks));localStorage.setItem('dsaMockRevealed',JSON.stringify(revealed));updateMiniScore();}
+function esc(s){return String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function render(){
+ const p=pages[cur]; const exam=document.getElementById('exam');
+ document.getElementById('bar').style.width=((cur+1)/pages.length*100)+'%';
+ document.getElementById('progressText').textContent=`Question ${Math.min(cur+1,pages.length)} of ${pages.length}`;
+ document.getElementById('prevBtn').disabled=cur===0;
+ document.getElementById('nextBtn').disabled=cur===pages.length-1;
+ document.getElementById('checkBtn').style.display=p.type==='results'?'none':'inline-block';
+ document.getElementById('submitBtn').style.display=p.type==='results'?'none':'inline-block';
+ if(p.type==='mcq'){
+  let chosen=answers['mcq'+p.idx];
+  exam.innerHTML=`<div class="sectionLabel">Section A - MCQ (20 marks)</div><div class="qtitle">${p.idx+1}. ${esc(p.t)}</div><p>${esc(p.q)}</p>`+
+  p.opts.map((o,i)=>`<label class="opt"><input type="radio" name="q${p.idx}" value="${i}" ${String(chosen)===String(i)?'checked':''} onchange="answers['mcq${p.idx}']=${i};save()"> ${String.fromCharCode(65+i)}. ${esc(o)}</label>`).join('')+
+  `<div class="explain" id="explain">${chosen==null?'Choose an answer first.':(Number(chosen)===p.a?'<span class="answerGood">Correct.</span>':'<span class="answerBad">Incorrect.</span>')} Correct answer: <b>${String.fromCharCode(65+p.a)}</b>. ${esc(p.exp)}</div>`;
+ }
+ else if(p.type==='dropdown'){
+  exam.innerHTML=`<div class="sectionLabel">Section B - Structured Essay Auto Check</div><div class="qtitle">Key-term dropdowns (8 marks)</div><p>Choose the correct term for each item. These are auto-marked.</p>`+
+   dropdowns.map((d,i)=>`<div class="dropdownLine"><b>${i+1}. ${esc(d.label)}:</b> <select onchange="answers['dd${i}']=this.value;save()">${d.opts.map(o=>`<option ${answers['dd'+i]===o?'selected':''}>${esc(o)}</option>`).join('')}</select></div>`).join('')+
+   `<div class="explain" id="explain"></div>`;
+ }
+ else if(p.type==='written'){
+  let html=`<div class="sectionLabel">Written paper - Self marked</div><div class="qtitle">${esc(p.title)}</div><p class="small">Write your answer in the boxes. Then reveal the model answer and give yourself marks using the marking guide.</p>`;
+  p.parts.forEach((part,j)=>{
+   let key=p.id+'_'+j;
+   html+=`<div style="border-top:1px solid var(--line);padding-top:12px;margin-top:12px"><h3>${esc(part.name)} - ${part.max} marks</h3><pre>${esc(part.prompt)}</pre><textarea placeholder="Type your written answer here..." oninput="answers['ans_${key}']=this.value;save()">${esc(answers['ans_'+key]||'')}</textarea><div style="margin-top:8px">Self mark: <input class="markInput" type="number" min="0" max="${part.max}" value="${writtenMarks[key]??''}" onchange="writtenMarks['${key}']=Math.max(0,Math.min(${part.max},Number(this.value)||0));save()"> / ${part.max}</div><div class="model" id="model_${key}" style="display:${revealed[key]?'block':'none'}"><h4>Model answer</h4><pre>${esc(part.model)}</pre><h4>Marking guide</h4><p>${esc(part.guide)}</p></div></div>`;
+  });
+  exam.innerHTML=html;
+ }
+ else { exam.innerHTML=resultsHTML(); }
+ updateMiniScore();
+}
+function checkCurrent(){
+ const p=pages[cur];
+ if(p.type==='mcq') {
+  const ex=document.getElementById('explain');
+  const chosen=answers['mcq'+p.idx];
+  if(chosen===undefined || chosen===null || chosen==='') {
+    ex.innerHTML='Choose an answer first.';
+  } else {
+    const ok=Number(chosen)===p.a;
+    ex.innerHTML=(ok?'<span class="answerGood">Correct.</span>':'<span class="answerBad">Incorrect.</span>') +
+      ' Correct answer: <b>' + String.fromCharCode(65+p.a) + '</b>. ' + esc(p.exp);
+  }
+  ex.style.display='block';
+ }
+ else if(p.type==='dropdown'){
+  let score=0, rows='';
+  dropdowns.forEach((d,i)=>{let ok=answers['dd'+i]===d.ans;if(ok)score++;rows+=`<div>${i+1}. ${esc(d.label)} - ${ok?'<span class="answerGood">Correct</span>':'<span class="answerBad">Incorrect</span>'}. Answer: <b>${esc(d.ans)}</b></div>`});
+  const ex=document.getElementById('explain'); ex.innerHTML=`<b>Dropdown score: ${score}/8</b><br>${rows}`; ex.style.display='block';
+ }
+ else if(p.type==='written'){
+  p.parts.forEach((part,j)=>{let key=p.id+'_'+j; revealed[key]=true;}); save(); render();
+ }
+}
+function nextPage(){if(cur<pages.length-1){cur++;render();window.scrollTo(0,0)}}
+function prevPage(){if(cur>0){cur--;render();window.scrollTo(0,0)}}
+function jumpToResults(){cur=pages.length-1;render();window.scrollTo(0,0)}
+function mcqScore(){let s=0;mcqs.forEach((q,i)=>{if(Number(answers['mcq'+i])===q.a)s++});return s;}
+function ddScore(){let s=0;dropdowns.forEach((d,i)=>{if(answers['dd'+i]===d.ans)s++});return s;}
+function writtenScore(){let s=0;Object.values(writtenMarks).forEach(v=>s+=Number(v)||0);return Math.min(72,s);}
+function totalScore(){return mcqScore()+ddScore()+writtenScore();}
+function topicStats(){let stats={};function add(tag,ok){stats[tag]=stats[tag]||{c:0,t:0};stats[tag].t++;if(ok)stats[tag].c++;}
+ mcqs.forEach((q,i)=>add(q.tag,Number(answers['mcq'+i])===q.a));dropdowns.forEach((d,i)=>add(d.tag,answers['dd'+i]===d.ans));
+ return stats;
+}
+function resultsHTML(){
+ let m=mcqScore(), d=ddScore(), w=writtenScore(), total=totalScore(); let stats=topicStats();
+ let rows=Object.entries(stats).map(([k,v])=>{let pct=Math.round(v.c/v.t*100);let cls=pct>=75?'bgG':pct>=50?'bgA':'bgR';return `<div class="topicRow"><span>${esc(k)}</span><span class="badge ${cls}">${v.c}/${v.t} (${pct}%)</span></div>`}).join('');
+ let weak=Object.entries(stats).filter(([k,v])=>v.c/v.t<0.6).map(([k])=>k); let strong=Object.entries(stats).filter(([k,v])=>v.c/v.t>=0.8).map(([k])=>k);
+ return `<div class="qtitle">Final Results and Analysis</div><table class="table"><tr><th>Section</th><th>Score</th></tr><tr><td>Section A - MCQ</td><td>${m}/20</td></tr><tr><td>Section B dropdown auto-check</td><td>${d}/8</td></tr><tr><td>Written self-marked sections</td><td>${w}/72</td></tr><tr><th>Final score</th><th>${total}/100 (${total}%)</th></tr></table><h3>Topic performance from auto-marked questions</h3>${rows}<h3>Weak-point analysis</h3><p>${weak.length?weak.join(', '):'No major weak area from auto-marked questions. Check written self-marks also.'}</p><h3>Strong-area analysis</h3><p>${strong.length?strong.join(', '):'No strong area detected yet. Try answering all MCQs/dropdowns.'}</p><h3>Written section advice</h3><p>If your self-mark is low, revise runtime templates, stack/queue code syntax, BST traversal order, quick/merge/heap sort comparison and heapify steps.</p><button class="btn primary" onclick="window.print()">Print / Save result</button>`;
+}
+function showResults(){save();jumpToResults();}
+function updateMiniScore(){document.getElementById('miniScore').innerHTML=`MCQ: ${mcqScore()}/20<br>Dropdown: ${ddScore()}/8<br>Written self: ${writtenScore()}/72<br><b>Total: ${totalScore()}/100</b>`}
+function resetExam(){if(confirm('Reset all answers and marks?')){answers={};writtenMarks={};revealed={};localStorage.removeItem('dsaMockAnswers');localStorage.removeItem('dsaMockWrittenMarks');localStorage.removeItem('dsaMockRevealed');cur=0;render();}}
+render();
+</script>
+</body>
+</html>
