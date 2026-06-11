@@ -40,6 +40,39 @@
     "visible": true
   },
    {
+    "title": "DSA Advanced Final Mock Exam 05 (Exam Type) ",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DSA",
+    "type": "Mock Exam",
+    "description": "This advanced mock follows your confirmed structure: MCQs + 1 Structured Question + 2 Essay Questions.  MCQs and objective/dropdown answers are auto-marked. Written parts include model answers and marking rubrics.",
+    "url": "quizzes/y1s2/dsa/DSA_Mock_Exam_No_05_Advanced.html",
+    "visible": true
+    ,"badge": "NEW"
+  },
+   {
+    "title": "DSA Advanced Final Mock Exam 04 (Exam Type) ",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DSA",
+    "type": "Mock Exam",
+    "description": "This advanced mock follows your confirmed structure: MCQs + 1 Structured Question + 2 Essay Questions.  MCQs and objective/dropdown answers are auto-marked. Written parts include model answers and marking rubrics.",
+    "url": "quizzes/y1s2/dsa/DSA_Mock_Exam_No_04_Advanced.html",
+    "visible": true
+    ,"badge": "NEW"
+  },
+   {
+    "title": "DSA Advanced Final Mock Exam 03 (Exam Type) ",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DSA",
+    "type": "Mock Exam",
+    "description": "This advanced mock follows your confirmed structure: MCQs + 1 Structured Question + 2 Essay Questions.  MCQs and objective/dropdown answers are auto-marked. Written parts include model answers and marking rubrics.",
+    "url": "quizzes/y1s2/dsa/DSA_Mock_Exam_No_03_Advanced.html",
+    "visible": true
+    ,"badge": "NEW"
+  },
+   {
     "title": "DSA Advanced Final Mock Exam 02 (Exam Type) ",
     "year": "Year 1",
     "semester": "Semester 2",
