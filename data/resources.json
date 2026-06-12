@@ -40,6 +40,17 @@
     "visible": true
   },
       {
+    "title": "DSA MCQ Only Final  Quiz  ",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DSA",
+    "type": "Mock Exam",
+    "description": "Three rounds of 20 MCQs each. Total 60 MCQs. Built for the MCQ part of the final exam . Auto marking + Weak Strong analysis available.",
+    "url": "quizzes/y1s2/dsa/preview.html",
+    "visible": true
+    ,"badge": "Latest"
+  },
+      {
     "title": "DSA MCQ Only Final Practice Quiz (Weak/Strong Analysis Available) ",
     "year": "Year 1",
     "semester": "Semester 2",
