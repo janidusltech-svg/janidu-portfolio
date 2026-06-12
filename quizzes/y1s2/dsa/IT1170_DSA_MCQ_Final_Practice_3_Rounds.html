@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IT1170 DSA MCQ Final Practice | Created by Janidu Sandaruwan(Y1S2)</title>
+<style>
+:root { --bg:#070b14; --panel:#101827; --line:#243249; --text:#e7edf7; --muted:#9aa7bd; --accent:#38bdf8; --accent2:#22c55e; --bad:#ef4444; }
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at top,#13213a,#070b14 55%,#030712);color:var(--text)}
+.top{position:sticky;top:0;z-index:50;background:rgba(7,11,20,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:10px 14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.top a,.top button{background:#0b1220;border:1px solid var(--line);color:var(--text);padding:9px 12px;border-radius:12px;text-decoration:none;font-weight:800;cursor:pointer}
+.top a:hover,.top button:hover{border-color:var(--accent);color:#fff}
+.credit{margin-left:auto;color:var(--muted);font-size:13px}
+.wrap{max-width:1120px;margin:0 auto;padding:18px}
+.hero{background:linear-gradient(135deg,rgba(16,24,39,.95),rgba(11,18,32,.9));border:1px solid var(--line);border-radius:22px;padding:20px;margin:10px 0 16px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+h1{font-size:27px;margin:0 0 8px;color:#fff} h2{font-size:21px;margin:0 0 12px;color:#fff} h3{font-size:17px;margin:12px 0 8px;color:#dff5ff} p{line-height:1.55}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.badge{border:1px solid #334155;background:#09111f;color:#cbd5e1;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:700}
+.panel{background:rgba(16,24,39,.86);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0}
+.round-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.round-tabs button{border:1px solid var(--line);background:#0b1220;color:var(--text);border-radius:12px;padding:10px 14px;font-weight:900;cursor:pointer}
+.round-tabs button.active{border-color:var(--accent);background:#082f49;color:#e0f2fe}
+.question-card{background:#09111f;border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0}
+.qmeta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px;margin-bottom:8px;flex-wrap:wrap}
+.qtext{font-size:18px;font-weight:850;margin:8px 0 14px;color:#fff;line-height:1.45}
+.options{display:grid;gap:9px}
+.option{display:flex;gap:10px;align-items:flex-start;background:#111a2c;border:1px solid #2b3953;border-radius:13px;padding:11px;cursor:pointer}
+.option:hover{border-color:var(--accent)}
+.option input{margin-top:3px}
+.option.correct{border-color:#16a34a;background:#052e16}
+.option.wrong{border-color:#ef4444;background:#3a0a0a}
+.btn{background:#0284c7;color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:900;cursor:pointer;margin:5px 5px 5px 0}
+.btn:hover{background:#0369a1}.btn.green{background:#16a34a}.btn.green:hover{background:#15803d}.btn.gray{background:#374151}.btn.gray:hover{background:#4b5563}.btn.orange{background:#d97706}.whatsapp{background:#128c7e!important}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:14px;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+.feedback{display:none;margin-top:12px;border-radius:14px;padding:12px;border:1px solid var(--line);background:#0b1220}
+.feedback.show{display:block}.feedback.good{border-color:#166534;background:#052e16;color:#dcfce7}.feedback.bad{border-color:#991b1b;background:#450a0a;color:#fee2e2}
+.progress{height:10px;background:#1f2937;border-radius:999px;overflow:hidden;margin:12px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,#38bdf8,#22c55e)}
+.scoregrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:13px 0}.scorebox{background:#09111f;border:1px solid var(--line);border-radius:16px;padding:13px;text-align:center}.scorebox strong{font-size:24px;color:#fff}
+.result{background:#f8fafc;color:#0f172a;border-radius:18px;padding:16px;margin:12px 0}.result h3{color:#0f172a}
+.end-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.hidden{display:none}
+@media(max-width:850px){.scoregrid{grid-template-columns:1fr 1fr}.credit{margin-left:0}h1{font-size:23px}.wrap{padding:12px}}
+</style>
+</head>
+<body>
+<div class="top">
+  <a href="https://janidusandaruwan.com/" target="_blank">Back to Study Hub By J</a>
+  <a href="https://www.whatsapp.com/channel/0029Vb7ep90I1rcbyPccWx2t" target="_blank">Join WhatsApp Channel For New Quiz Updates</a>
+  <button onclick="resetAll()">Reset Quiz</button>
+  <span class="credit">Created by <a href="https://janidusandaruwan.com/portfolio.html" target="_blank" style="color:#38bdf8;text-decoration:none">Janidu Sandaruwan(Y1S2)</a></span>
+</div>
+<div class="wrap">
+  <section class="hero">
+    <h1>IT1170 DSA MCQ Final Practice Quiz</h1>
+    <p><strong>Created by Janidu Sandaruwan(Y1S2)</strong></p>
+    <p>Three rounds of 20 MCQs each. Total 60 MCQs. Built for the MCQ part of the final exam using IT1170 syllabus only. No Year 2-only topics.</p>
+    <div class="badges"><span class="badge">Round 1 Core</span><span class="badge">Round 2 Operations</span><span class="badge">Round 3 Advanced</span><span class="badge">Auto marking</span><span class="badge">Weak/strong analysis</span></div>
+    <div class="progress"><div class="bar" id="progressBar"></div></div>
+  </section>
+  <section class="panel" id="quizPanel">
+    <div class="round-tabs">
+      <button id="tab1" onclick="goRound(1)">Round 1</button>
+      <button id="tab2" onclick="goRound(2)">Round 2</button>
+      <button id="tab3" onclick="goRound(3)">Round 3</button>
+      <button id="tabFinal" onclick="showFinal()">Final Result</button>
+    </div>
+    <div id="roundInfo"></div>
+    <div class="question-card" id="questionCard"></div>
+    <div class="nav">
+      <button class="btn gray" onclick="prevQuestion()">Previous</button>
+      <span id="positionText" style="color:var(--muted);font-weight:800"></span>
+      <button class="btn" onclick="nextQuestion()">Next</button>
+    </div>
+    <div style="margin-top:10px">
+      <button class="btn green" onclick="checkCurrent()">Check This Answer</button>
+      <button class="btn orange" onclick="finishRound()">Finish Current Round</button>
+    </div>
+  </section>
+  <section class="panel hidden" id="finalPanel">
+    <h2>Final MCQ Practice Result</h2>
+    <button class="btn green" onclick="calculateFinal()">Calculate Final Score</button>
+    <div class="scoregrid">
+      <div class="scorebox"><div>Round 1</div><strong id="score1">0/20</strong></div>
+      <div class="scorebox"><div>Round 2</div><strong id="score2">0/20</strong></div>
+      <div class="scorebox"><div>Round 3</div><strong id="score3">0/20</strong></div>
+      <div class="scorebox"><div>Total</div><strong id="scoreTotal">0/60</strong></div>
+    </div>
+    <div class="result">
+      <h3 id="finalTitle">Complete the quiz to see your result.</h3>
+      <p id="finalMessage"></p>
+      <h3>Strong Areas</h3><ul id="strongAreas"></ul>
+      <h3>Weak Areas</h3><ul id="weakAreas"></ul>
+      <h3>What to revise next</h3><ol id="reviseList"></ol>
+      <div class="end-actions">
+        <button class="btn" onclick="goRound(1);window.scrollTo(0,0)">Do More Practice Again</button>
+        <a class="btn whatsapp" style="text-decoration:none" href="https://www.whatsapp.com/channel/0029Vb7ep90I1rcbyPccWx2t" target="_blank">Want More Quizzes? Join WhatsApp Channel</a>
+        <a class="btn gray" style="text-decoration:none" href="https://janidusandaruwan.com/" target="_blank">Back to Study Hub</a>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+const QUESTIONS = [{"round": 1, "topic": "Algorithms", "q": "Which statement best defines an algorithm?", "options": ["A memory location used to store data", "A finite, clear, step-by-step procedure to solve a problem", "A Java class used only for sorting", "A diagram used only for trees"], "answer": "A finite, clear, step-by-step procedure to solve a problem", "explain": "An algorithm must be clear, finite and solve a problem by taking input and producing output."}, {"round": 1, "topic": "Algorithms", "q": "Which property means an algorithm must eventually stop?", "options": ["Correctness", "Finiteness", "Generality", "Ambiguity"], "answer": "Finiteness", "explain": "Finiteness means the algorithm terminates after a finite number of steps."}, {"round": 1, "topic": "RAM Model", "q": "In RAM model step counting, which operation is normally treated as constant time?", "options": ["Assignment", "Infinite recursion", "Sorting any array", "Traversing all nodes"], "answer": "Assignment", "explain": "Primitive operations such as assignment, comparison, arithmetic and memory access are counted as constant-time steps."}, {"round": 1, "topic": "Big O", "q": "What is the Big O of T(n) = 7n + 20?", "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"], "answer": "O(n)", "explain": "Ignore constants and smaller fixed terms. The biggest growing term is n."}, {"round": 1, "topic": "Big O", "q": "A loop runs from i = 1 to n and prints once each time. What is the complexity?", "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"], "answer": "O(n)", "explain": "The loop body runs n times, so the complexity is O(n)."}, {"round": 1, "topic": "Big O", "q": "If i starts at 1 and changes by i = i * 2 until i >= n, the loop is:", "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"], "answer": "O(log n)", "explain": "Doubling or halving the variable each time gives logarithmic complexity."}, {"round": 1, "topic": "Sorting", "q": "Insertion sort works mainly by:", "options": ["Building a sorted left part and inserting the key into it", "Selecting a pivot and partitioning", "Building a max heap", "Removing from the front of a queue"], "answer": "Building a sorted left part and inserting the key into it", "explain": "Insertion sort keeps the left part sorted and inserts each new key into the correct position."}, {"round": 1, "topic": "Sorting", "q": "Best-case time complexity of insertion sort occurs when the array is already sorted. What is it?", "options": ["O(1)", "O(n)", "O(n log n)", "O(n²)"], "answer": "O(n)", "explain": "In the best case, the inner while loop checks once per pass, so insertion sort is linear."}, {"round": 1, "topic": "Stack", "q": "A stack follows which principle?", "options": ["FIFO", "LIFO", "Level order", "Ascending order"], "answer": "LIFO", "explain": "Stack is Last In First Out. The last inserted item is removed first."}, {"round": 1, "topic": "Stack", "q": "In an array stack, top == -1 usually means:", "options": ["Stack is full", "Stack is empty", "Stack has one item", "Stack is sorted"], "answer": "Stack is empty", "explain": "When top is -1, no valid item is in the stack."}, {"round": 1, "topic": "Stack", "q": "Which operation returns the top item without removing it?", "options": ["push()", "pop()", "peek()", "remove()"], "answer": "peek()", "explain": "peek() reads the top element without changing the stack."}, {"round": 1, "topic": "Queue", "q": "A normal queue follows which principle?", "options": ["LIFO", "FIFO", "Postorder", "Inorder"], "answer": "FIFO", "explain": "Queue is First In First Out. The first inserted item is removed first."}, {"round": 1, "topic": "Queue", "q": "In a queue, insert/enqueue happens at the:", "options": ["Front", "Rear", "Middle", "Top only"], "answer": "Rear", "explain": "Queue insertion happens at rear; removal happens from front."}, {"round": 1, "topic": "Queue", "q": "In a queue, remove/dequeue happens from the:", "options": ["Rear", "Front", "Middle", "Top"], "answer": "Front", "explain": "The first inserted item is at the front and is removed first."}, {"round": 1, "topic": "Linked List", "q": "A singly linked list node usually contains:", "options": ["data and next reference", "front and rear only", "top and maxSize only", "pivot and heap_size"], "answer": "data and next reference", "explain": "A singly linked list node stores data and a reference to the next node."}, {"round": 1, "topic": "Linked List", "q": "Which line correctly inserts a new node at the beginning of a singly linked list?", "options": ["first = newNode; newNode.next = first;", "newNode.next = first; first = newNode;", "newNode.next = null; first.next = newNode;", "first.next = first;"], "answer": "newNode.next = first; first = newNode;", "explain": "First connect the new node to the old first node, then update first."}, {"round": 1, "topic": "Trees", "q": "In a BST, values smaller than the current node go to the:", "options": ["Left subtree", "Right subtree", "Root again", "Heap root"], "answer": "Left subtree", "explain": "BST rule: left child key < parent; right child key >= parent."}, {"round": 1, "topic": "Trees", "q": "In a BST insertion sequence, the root is usually:", "options": ["The smallest value", "The largest value", "The first inserted value", "The last inserted value"], "answer": "The first inserted value", "explain": "Unless a diagram already gives a root, the first inserted value becomes the root."}, {"round": 1, "topic": "Recursion", "q": "The base case in recursion is used to:", "options": ["Stop the recursion", "Make recursion infinite", "Create a queue", "Build a heap"], "answer": "Stop the recursion", "explain": "A base case prevents infinite recursion by giving a stopping condition."}, {"round": 1, "topic": "Heap", "q": "In a max heap, the root contains:", "options": ["Smallest value", "Largest value", "Median value", "Last inserted value always"], "answer": "Largest value", "explain": "Max heap property: each parent is greater than or equal to its children, so the root is maximum."}, {"round": 2, "topic": "Big O", "q": "What is the complexity of nested loops where both outer and inner loops run n times?", "options": ["O(1)", "O(n)", "O(n log n)", "O(n²)"], "answer": "O(n²)", "explain": "n executions of the outer loop times n executions of the inner loop gives n²."}, {"round": 2, "topic": "Big O", "q": "What is the total complexity of two separate loops, one running n times and the other also running n times?", "options": ["O(1)", "O(n)", "O(n²)", "O(2ⁿ)"], "answer": "O(n)", "explain": "n + n = 2n, and constants are ignored, so O(n)."}, {"round": 2, "topic": "Big O", "q": "For a triangular nested loop with total operations 1 + 2 + ... + n, the Big O is:", "options": ["O(log n)", "O(n)", "O(n²)", "O(n³)"], "answer": "O(n²)", "explain": "1+2+...+n = n(n+1)/2, whose dominant term is n²."}, {"round": 2, "topic": "Sorting", "q": "Bubble sort mainly compares and swaps:", "options": ["Adjacent elements", "Root and child nodes", "Front and rear only", "Pivot and last only"], "answer": "Adjacent elements", "explain": "Bubble sort compares adjacent elements and swaps if they are in the wrong order."}, {"round": 2, "topic": "Sorting", "q": "Selection sort mainly does which action each pass?", "options": ["Selects minimum from unsorted part and swaps to front", "Splits array into two halves", "Uses stack to reverse data", "Deletes the root of a heap"], "answer": "Selects minimum from unsorted part and swaps to front", "explain": "Selection sort repeatedly selects the smallest item from the unsorted part."}, {"round": 2, "topic": "Sorting", "q": "Worst-case time complexity of selection sort is:", "options": ["O(1)", "O(n)", "O(n log n)", "O(n²)"], "answer": "O(n²)", "explain": "Selection sort searches the unsorted part in every pass, so it is O(n²) in all cases."}, {"round": 2, "topic": "Stack", "q": "Trying to pop from an empty stack is called:", "options": ["Overflow", "Underflow", "Heapify", "Partition"], "answer": "Underflow", "explain": "Stack underflow occurs when a pop is attempted on an empty stack."}, {"round": 2, "topic": "Stack", "q": "If top = 2 in an array stack, the number of items is:", "options": ["1", "2", "3", "4"], "answer": "3", "explain": "Number of stack items = top + 1, so 2 + 1 = 3."}, {"round": 2, "topic": "Queue", "q": "For a queue using count/nItems, isEmpty is usually:", "options": ["count == 0", "count == maxSize", "rear == maxSize - 1", "top == -1"], "answer": "count == 0", "explain": "If count is zero, there are no items in the queue."}, {"round": 2, "topic": "Queue", "q": "For a circular queue using count, isFull is usually:", "options": ["count == 0", "count == maxSize", "front == rear always", "top == maxSize - 1"], "answer": "count == maxSize", "explain": "With count, full means the number of items equals maxSize."}, {"round": 2, "topic": "Queue", "q": "In a circular queue, rear is updated using:", "options": ["rear = rear + 1 only", "rear = (rear + 1) % maxSize", "rear = front - 1 always", "rear = top + 1"], "answer": "rear = (rear + 1) % maxSize", "explain": "Modulo makes the rear wrap around to the start of the array."}, {"round": 2, "topic": "Linked List", "q": "Linked list search is usually:", "options": ["O(1) always", "O(log n) always", "O(n)", "O(n²) always"], "answer": "O(n)", "explain": "You may need to traverse node by node until the target is found."}, {"round": 2, "topic": "Linked List", "q": "To traverse all nodes in a singly linked list, the safest condition is:", "options": ["current != null", "current.next != null", "first == null", "top != -1"], "answer": "current != null", "explain": "current != null visits every node. current.next != null stops before the last node."}, {"round": 2, "topic": "Linked List", "q": "If a loop uses while(current.next != null), what happens?", "options": ["The last node is not processed inside the loop", "No node is processed", "Only the last node is processed", "It becomes a heap"], "answer": "The last node is not processed inside the loop", "explain": "When current reaches the last node, current.next is null, so the loop stops before processing it."}, {"round": 2, "topic": "Trees", "q": "Inorder traversal order is:", "options": ["Node, Left, Right", "Left, Node, Right", "Left, Right, Node", "Right, Left, Node"], "answer": "Left, Node, Right", "explain": "Inorder is LNR. For a BST, inorder gives ascending order."}, {"round": 2, "topic": "Trees", "q": "Preorder traversal order is:", "options": ["Node, Left, Right", "Left, Node, Right", "Left, Right, Node", "Right, Node, Left"], "answer": "Node, Left, Right", "explain": "Preorder is NLR: visit the node before its subtrees."}, {"round": 2, "topic": "Trees", "q": "A leaf node is a node with:", "options": ["No children", "Exactly one child", "Exactly two children", "Only right child"], "answer": "No children", "explain": "A leaf node has no left or right child."}, {"round": 2, "topic": "Recursion", "q": "factorial(4), with factorial(0)=1, gives:", "options": ["4", "8", "16", "24"], "answer": "24", "explain": "factorial(4)=4×3×2×1=24."}, {"round": 2, "topic": "Heap", "q": "For a 1-based heap array, parent index of i = 6 is:", "options": ["2", "3", "6", "12"], "answer": "3", "explain": "Parent(i)=floor(i/2). floor(6/2)=3."}, {"round": 2, "topic": "Heap", "q": "BUILD_MAX_HEAP starts from which index when n = 10?", "options": ["1", "5", "9", "10"], "answer": "5", "explain": "Start from floor(n/2). floor(10/2)=5."}, {"round": 3, "topic": "RAM Model", "q": "In loop step counting, if the loop body runs 10 times, the while condition is checked:", "options": ["9 times", "10 times", "11 times", "20 times"], "answer": "11 times", "explain": "The condition is checked once more after the final body execution fails."}, {"round": 3, "topic": "RAM Model", "q": "In exact step counting, x = x + 100 is usually counted as:", "options": ["1 step", "2 steps", "100 steps", "n steps"], "answer": "2 steps", "explain": "It has one addition and one assignment, so usually 2 primitive steps."}, {"round": 3, "topic": "Asymptotic Notation", "q": "Which notation gives an upper bound?", "options": ["Big O", "Omega", "Theta", "RAM only"], "answer": "Big O", "explain": "Big O is the upper bound; Omega is lower bound; Theta is tight bound."}, {"round": 3, "topic": "Asymptotic Notation", "q": "Which notation gives a tight bound?", "options": ["Big O", "Omega", "Theta", "Stack"], "answer": "Theta", "explain": "Theta bounds a function from both above and below."}, {"round": 3, "topic": "Stack", "q": "Which application is most directly suitable for a stack?", "options": ["Undo operation", "Printer queue", "Level order traversal storage only", "Priority scheduling only"], "answer": "Undo operation", "explain": "Undo needs the most recent action first, which matches LIFO."}, {"round": 3, "topic": "Queue", "q": "Which application is most directly suitable for a queue?", "options": ["Browser back button", "Undo operation", "Printer jobs", "Recursive call stack"], "answer": "Printer jobs", "explain": "Printer jobs are handled in arrival order, matching FIFO."}, {"round": 3, "topic": "Circular Queue", "q": "A main advantage of circular queue over linear queue is:", "options": ["It solves wasted spaces after removals", "It sorts data automatically", "It removes the need for count", "It converts queue to BST"], "answer": "It solves wasted spaces after removals", "explain": "Circular queue reuses empty spaces by wrapping front/rear around."}, {"round": 3, "topic": "Linked List", "q": "Which statement is true about arrays compared with linked lists?", "options": ["Arrays support direct index access", "Arrays are always dynamic size", "Linked lists always use contiguous memory", "Linked lists have O(1) search always"], "answer": "Arrays support direct index access", "explain": "Arrays allow direct access by index. Linked lists require sequential traversal."}, {"round": 3, "topic": "Doubly Linked List", "q": "A doubly linked list node contains:", "options": ["data and next only", "data, next and previous", "front and rear only", "top and count only"], "answer": "data, next and previous", "explain": "Doubly linked list nodes can move forward and backward using next and previous."}, {"round": 3, "topic": "Trees", "q": "In a complete binary tree with n nodes, height is:", "options": ["floor(log₂ n)", "n²", "n - 1 always", "2ⁿ"], "answer": "floor(log₂ n)", "explain": "For complete binary tree, height = floor(log₂ n) when root height is 0."}, {"round": 3, "topic": "Trees", "q": "A full binary tree means every node has:", "options": ["0 or 2 children", "Only 1 child", "Exactly 3 children", "No leaves"], "answer": "0 or 2 children", "explain": "Full binary tree: every node has either no children or exactly two children."}, {"round": 3, "topic": "BST", "q": "In a BST, the minimum value is found by:", "options": ["Going left repeatedly", "Going right repeatedly", "Using postorder only", "Going to the deepest right leaf"], "answer": "Going left repeatedly", "explain": "The smallest value in a BST is found by following leftChild until null."}, {"round": 3, "topic": "BST", "q": "When deleting a BST node with two children, a common replacement is:", "options": ["Inorder successor", "Queue rear", "Heap root always", "Stack top"], "answer": "Inorder successor", "explain": "The inorder successor is the smallest node in the right subtree."}, {"round": 3, "topic": "Recursion", "q": "For g(n): if n%5==0 return n/5 else return g(n+1). What is g(12)?", "options": ["1", "2", "3", "12"], "answer": "3", "explain": "g(12)=g(13)=g(14)=g(15)=15/5=3."}, {"round": 3, "topic": "Master Method", "q": "For T(n)=2T(n/2)+n, the complexity is:", "options": ["O(n)", "O(n log n)", "O(n²)", "O(log n)"], "answer": "O(n log n)", "explain": "a=2, b=2, n^(log_b a)=n. Since f(n)=n, Case 2 gives O(n log n)."}, {"round": 3, "topic": "Quick Sort", "q": "Quick Sort partition mainly places the pivot so that:", "options": ["Smaller values are left and larger values are right", "The array becomes a heap", "All values are merged", "All nodes become leaves"], "answer": "Smaller values are left and larger values are right", "explain": "After partition, values smaller/equal to pivot are on one side and greater values on the other."}, {"round": 3, "topic": "Quick Sort", "q": "Worst-case time complexity of Quick Sort is:", "options": ["O(1)", "O(n)", "O(n log n)", "O(n²)"], "answer": "O(n²)", "explain": "Worst case occurs with repeated unbalanced partitions."}, {"round": 3, "topic": "Merge Sort", "q": "Merge Sort recurrence is commonly:", "options": ["T(n)=T(n-1)+O(1)", "T(n)=T(n/2)+O(1)", "T(n)=2T(n/2)+O(n)", "T(n)=O(n²) only"], "answer": "T(n)=2T(n/2)+O(n)", "explain": "Merge sort splits into two halves and merges in linear time."}, {"round": 3, "topic": "Heap", "q": "MAX_HEAPIFY has time complexity:", "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"], "answer": "O(log n)", "explain": "MAX_HEAPIFY moves down the height of the heap, which is O(log n)."}, {"round": 3, "topic": "Heap", "q": "After heapsort swaps A[1] with the last heap item, the next step is:", "options": ["Reduce heap_size and call MAX_HEAPIFY(A,1)", "Call MERGE immediately", "Insert into linked list", "Stop always"], "answer": "Reduce heap_size and call MAX_HEAPIFY(A,1)", "explain": "The maximum is placed at the end, heap size is reduced, and the root is heapified."}];
+let currentRound = 1, currentIndex = 0, answers = {}, checked = {};
+function roundQuestions(r){ return QUESTIONS.filter(q => q.round === r); }
+function qKey(r, i){ return 'r' + r + 'q' + i; }
+function escapeHtml(s){ return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;'); }
+function goRound(r){ currentRound = r; currentIndex = 0; document.getElementById('quizPanel').classList.remove('hidden'); document.getElementById('finalPanel').classList.add('hidden'); renderQuestion(); }
+function setTabs(){ [1,2,3].forEach(r => document.getElementById('tab'+r).classList.toggle('active', currentRound === r)); document.getElementById('tabFinal').classList.remove('active'); }
+function renderQuestion(){
+  setTabs();
+  const qs = roundQuestions(currentRound), q = qs[currentIndex], key = qKey(currentRound, currentIndex), selected = answers[key] || '';
+  document.getElementById('roundInfo').innerHTML = `<h2>Round ${currentRound} — Question ${currentIndex+1} of 20</h2><p style="color:var(--muted)">Answer first, then press <b>Check This Answer</b>.</p>`;
+  const optionsHtml = q.options.map((o, idx) => {
+    const isChecked = selected === o ? 'checked' : '';
+    let cls = 'option';
+    if (checked[key]) { if (o === q.answer) cls += ' correct'; else if (selected === o && selected !== q.answer) cls += ' wrong'; }
+    return `<label class="${cls}"><input type="radio" name="${key}" value="${escapeHtml(o)}" ${isChecked} onchange="saveAnswer('${key}', this.value)"> <span><b>${String.fromCharCode(65+idx)}.</b> ${escapeHtml(o)}</span></label>`;
+  }).join('');
+  const feedback = checked[key] ? feedbackHtml(q, selected) : '';
+  document.getElementById('questionCard').innerHTML = `<div class="qmeta"><span>Topic: <b>${q.topic}</b></span><span>1 mark</span></div><div class="qtext">${escapeHtml(q.q)}</div><div class="options">${optionsHtml}</div>${feedback}`;
+  document.getElementById('positionText').textContent = `Round ${currentRound} / Question ${currentIndex+1}`;
+  updateProgress();
+}
+function feedbackHtml(q, selected){
+  if (!selected) return `<div class="feedback show bad"><b>No answer selected.</b><br>Select an answer first.</div>`;
+  if (selected === q.answer) return `<div class="feedback show good"><b>Correct ✅</b><br>${escapeHtml(q.explain)}</div>`;
+  return `<div class="feedback show bad"><b>Wrong ❌</b><br>Correct answer: <b>${escapeHtml(q.answer)}</b><br>${escapeHtml(q.explain)}</div>`;
+}
+function saveAnswer(key, val){ answers[key] = val; updateProgress(); }
+function checkCurrent(){ checked[qKey(currentRound, currentIndex)] = true; renderQuestion(); }
+function nextQuestion(){ if (currentIndex < 19) currentIndex++; else if (currentRound < 3){ currentRound++; currentIndex = 0; } else { showFinal(); return; } renderQuestion(); }
+function prevQuestion(){ if (currentIndex > 0) currentIndex--; else if (currentRound > 1){ currentRound--; currentIndex = 19; } renderQuestion(); }
+function finishRound(){ alert(`Round ${currentRound} score: ${scoreRound(currentRound)}/20\nUnanswered questions: ${unansweredRound(currentRound)}`); }
+function scoreRound(r){ let score=0; roundQuestions(r).forEach((q,i)=>{ if(answers[qKey(r,i)]===q.answer) score++; }); return score; }
+function unansweredRound(r){ let count=0; roundQuestions(r).forEach((q,i)=>{ if(!answers[qKey(r,i)]) count++; }); return count; }
+function showFinal(){ document.getElementById('quizPanel').classList.add('hidden'); document.getElementById('finalPanel').classList.remove('hidden'); calculateFinal(); window.scrollTo({top:0,behavior:'smooth'}); }
+function calculateFinal(){
+  const s1=scoreRound(1), s2=scoreRound(2), s3=scoreRound(3), total=s1+s2+s3, pct=Math.round(total/60*100);
+  document.getElementById('score1').textContent=`${s1}/20`; document.getElementById('score2').textContent=`${s2}/20`; document.getElementById('score3').textContent=`${s3}/20`; document.getElementById('scoreTotal').textContent=`${total}/60`;
+  let title, msg;
+  if(pct>=85){title=`Excellent MCQ level — ${pct}%`; msg='You are strong for the MCQ part. Keep revising weak topics only.';}
+  else if(pct>=70){title=`Good level — ${pct}%`; msg='You can score well, but repeat weak areas before the final.';}
+  else if(pct>=50){title=`Pass range practice level — ${pct}%`; msg='You need another round of practice. Focus on weak areas below.';}
+  else{title=`Needs urgent revision — ${pct}%`; msg='Revise the listed topics, then redo the quiz.';}
+  document.getElementById('finalTitle').textContent=title; document.getElementById('finalMessage').textContent=msg; buildAnalysis();
+}
+function buildAnalysis(){
+  const topicMap={};
+  QUESTIONS.forEach(q => {
+    const idx = roundQuestions(q.round).indexOf(q), key=qKey(q.round,idx);
+    if(!topicMap[q.topic]) topicMap[q.topic]={right:0,total:0};
+    topicMap[q.topic].total++; if(answers[key]===q.answer) topicMap[q.topic].right++;
+  });
+  const rows=Object.entries(topicMap).map(([topic,v])=>({topic,pct:Math.round(v.right/v.total*100),right:v.right,total:v.total})).sort((a,b)=>a.pct-b.pct);
+  const strong=document.getElementById('strongAreas'), weak=document.getElementById('weakAreas'), revise=document.getElementById('reviseList');
+  strong.innerHTML=''; weak.innerHTML=''; revise.innerHTML='';
+  rows.forEach(r=>{ const txt=`${r.topic}: ${r.right}/${r.total} (${r.pct}%)`; if(r.pct>=75) strong.innerHTML+=`<li>${txt}</li>`; if(r.pct<60) weak.innerHTML+=`<li>${txt}</li>`; });
+  rows.slice(0,7).forEach(r=> revise.innerHTML += `<li>Revise ${r.topic} first — current score ${r.pct}%.</li>`);
+  if(!strong.innerHTML) strong.innerHTML='<li>No strong area yet. Complete more answers and try again.</li>';
+  if(!weak.innerHTML) weak.innerHTML='<li>No major weak area. Continue mixed practice.</li>';
+}
+function updateProgress(){ let answered=0; for(let r=1;r<=3;r++){ for(let i=0;i<20;i++) if(answers[qKey(r,i)]) answered++; } document.getElementById('progressBar').style.width=(answered/60*100)+'%'; }
+function resetAll(){ if(!confirm('Reset all answers?')) return; answers={}; checked={}; currentRound=1; currentIndex=0; renderQuestion(); }
+renderQuestion();
+</script>
+</body>
+</html>
