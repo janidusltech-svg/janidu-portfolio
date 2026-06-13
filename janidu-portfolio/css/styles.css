@@ -920,6 +920,23 @@ h2 span {
 }
 
 /* Correct project image paths */
+.thumb-studyhub {
+  background-image: url("janidu-portfolio\assets\images\project-studyhub.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.project-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.project-card-link:hover {
+  color: inherit;
+}
 .thumb-pos {
   background-image: url("../assets/images/project-pos.png");
 }
@@ -1522,4 +1539,33 @@ h2 span {
   .photo-frame img {
     height: 350px;
   }
+}
+/* ==========================================
+   STUDY HUB PROJECT CARD IMAGE FIX
+========================================== */
+
+.project-card-link {
+  display: block !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+.project-card-link:hover {
+  color: inherit !important;
+}
+
+.project-thumb.thumb-img {
+  overflow: hidden !important;
+  padding: 0 !important;
+  background: rgba(6, 15, 32, 0.75) !important;
+}
+
+.project-thumb.thumb-img img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: inherit !important;
 }
