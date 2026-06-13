@@ -1,5 +1,17 @@
 [
   {
+    "title": "Advanced Lessonwise DM Quiz (Covered all lessons)",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "DM",
+    "type": "Mock Exam",
+    "description": "Practice all final-exam scope lessons lesson by lesson. Each section has advanced MCQs with instant feedback, score tracking, and weak-point analysis.",
+    "url": "quizzes/y1s2/dm/IT1160_DM_Advanced_Lessonwise_Quiz_StudyHubByJ.html",
+    "visible": true
+    ,"badge": "NEW"
+  },
+  
+  {
     "title": "DM Final Mock Quiz 01",
     "year": "Year 1",
     "semester": "Semester 2",
