@@ -48,7 +48,7 @@
     "description": "Three rounds of 20 MCQs each. Total 60 MCQs. Built for the MCQ part of the final exam . Auto marking + Weak Strong analysis available.",
     "url": "quizzes/y1s2/dsa/preview.html",
     "visible": true
-    ,"badge": "Latest"
+    
   },
       {
     "title": "DSA MCQ Only Final Practice Quiz (Weak/Strong Analysis Available) ",
@@ -59,7 +59,7 @@
     "description": "Three rounds of 20 MCQs each. Total 60 MCQs. Built for the MCQ part of the final exam . Auto marking + Weak Strong analysis available.",
     "url": "quizzes/y1s2/dsa/IT1170_DSA_MCQ_Final_Practice_3_Rounds.html",
     "visible": true
-    ,"badge": "NEW"
+   
   },
     {
     "title": "DSA Advanced Final Exam Target Mock Quiz 02 ",
@@ -70,7 +70,7 @@
     "description": "Final structure: MCQs + 1 Structured Question + 2 Essay Questions. Includes new lecturer sample styles: exact RAM count, piecewise recursion, linked-list linear search, Master Theorem, and insertion-sort full tracing.",
     "url": "quizzes/y1s2/dsa/DSA_Final_Super_Mock_Exam_No_07_Dark.html",
     "visible": true
-    ,"badge": "NEW"
+   
   },
   {
     "title": "DSA Advanced Final Exam Target Mock Quiz 01 ",
@@ -81,7 +81,7 @@
     "description": ".Final structure: MCQs + 1 Structured Question + 2 Essay Questions. Includes new lecturer sample styles: exact RAM count, piecewise recursion, linked-list linear search, Master Theorem, and insertion-sort full tracing.",
     "url": "quizzes/y1s2/dsa/DSA_Final_Super_Mock_Exam_No_06_Dark.html",
     "visible": true
-    ,"badge": "NEW"
+    
   },
 
    {
@@ -309,6 +309,7 @@
     "description": "Printable Discrete Mathematics reference sheet for final exam revision.",
     "url": "downloads/y1s2/dm/dm-reference-sheet.pdf",
     "visible": true
+    
   },
     {
     "title": "IS Reference Sheet",
@@ -319,6 +320,7 @@
     "description": "Printable Information Systems reference sheet for final exam revision.",
     "url": "downloads/y1s2/is/is-reference-sheet.pdf",
     "visible": true
+    ,"badge": "NEW"
   },
   {
     "title": "DSA Reference Sheet 3",
@@ -329,7 +331,7 @@
     "description": "Printable Data Structures and Algorithms reference sheet for final exam revision.",
     "url": "downloads/y1s2/dsa/DSA-REF-SHEET-StudyHubByJ (3).pdf",
     "visible": true
-    ,"badge": "NEW"
+  
   },
   {
     "title": "DSA Reference Sheet 2",
@@ -340,7 +342,7 @@
     "description": "Printable Data Structures and Algorithms reference sheet for final exam revision.",
     "url": "downloads/y1s2/dsa/DSA-REF-SHEET-StudyHubByJ (2).pdf",
     "visible": true
-    ,"badge": "NEW"
+    
   },
   {
     "title": "DSA Reference Sheet 1",
@@ -351,7 +353,7 @@
     "description": "Printable Data Structures and Algorithms reference sheet for final exam revision.",
     "url": "downloads/y1s2/dsa/DSA-REF-SHEET-StudyHubByJ (1).pdf",
     "visible": true
-    ,"badge": "NEW"
+    
   },
   {
     "title": "DSA Reference Sheet",

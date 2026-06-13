@@ -1583,6 +1583,8 @@ h2 span {
 .module-card.module-has-new::before {
   display: none !important;
   content: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 .module-update-badge {
@@ -1592,6 +1594,7 @@ h2 span {
 
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   gap: 5px !important;
 
   padding: 5px 9px !important;
@@ -1618,6 +1621,7 @@ h2 span {
   height: 5px !important;
   border-radius: 50% !important;
   background: #fff !important;
+  flex: 0 0 auto !important;
 }
 
 @media (max-width: 760px) {

@@ -213,6 +213,30 @@
       </div>
 
       <div class="module-grid">
+
+        <article class="module-card reveal" data-module-jump="TW">
+          <img src="assets/images/study/tw.png" alt="TW module cover" />
+          <div>
+            <h3>TW</h3>
+            <p>Technical Writing</p>
+          </div>
+        </article>
+
+         <article class="module-card reveal delay-2" data-module-jump="DM">
+          <img src="assets/images/study/dm.png" alt="DM module cover" />
+          <div>
+            <h3>DM</h3>
+            <p>Discrete Mathematics</p>
+          </div>
+        </article>
+        <article class="module-card reveal delay-2" data-module-jump="IS">
+  <img src="assets/images/study/is.png" alt="IS module cover" />
+  <div>
+    <h3>IS</h3>
+    <p>Information Systems</p>
+  </div>
+</article>
+        
         <article class="module-card reveal" data-module-jump="DSA">
           <img src="assets/images/study/dsa.png" alt="DSA module cover" />
           <div>
@@ -229,29 +253,8 @@
           </div>
         </article>
 
-        <article class="module-card reveal delay-2" data-module-jump="DM">
-          <img src="assets/images/study/dm.png" alt="DM module cover" />
-          <div>
-            <h3>DM</h3>
-            <p>Discrete Mathematics</p>
-          </div>
-        </article>
-
-        <article class="module-card reveal delay-3" data-module-jump="IS">
-          <img src="assets/images/study/is.png" alt="IS module cover" />
-          <div>
-            <h3>IS</h3>
-            <p>Information Systems</p>
-          </div>
-        </article>
-
-        <article class="module-card reveal" data-module-jump="TW">
-          <img src="assets/images/study/tw.png" alt="TW module cover" />
-          <div>
-            <h3>TW</h3>
-            <p>Technical Writing</p>
-          </div>
-        </article>
+    
+        
       </div>
     </section>
 
@@ -326,10 +329,18 @@
 
         <div class="resource-grid" id="resourceGrid"></div>
 
-        <div class="empty-state" id="emptyState">
-          <h3>No resources yet</h3>
-          <p>This module/type is prepared for future resources.</p>
-        </div>
+<div class="resource-mobile-actions">
+  <button type="button" class="resource-view-btn" id="resourceViewToggle">
+    View All Resources <span>↓</span>
+  </button>
+</div>
+
+<div class="empty-state" id="emptyState">
+  <h3>Select a module or resource type</h3>
+  <p>
+    Choose a module or resource type above to view available study resources.
+  </p>
+</div>
       </div>
     </section>
 

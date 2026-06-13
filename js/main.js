@@ -54,7 +54,9 @@ revealElements.forEach((el) => revealObserver.observe(el));
 ========================================== */
 
 const resourceGrid = document.getElementById("resourceGrid");
-const emptyState = document.getElementById("emptyState");
+
+const resourceViewToggle = document.getElementById("resourceViewToggle");
+let showAllMobileResources = false;
 
 const filters = {
   year: document.getElementById("yearFilter"),
@@ -126,6 +128,30 @@ function applyResourceFilters() {
   const module = filters.module?.value || "all";
   const type = filters.type?.value || "all";
 
+  const noFilterSelected = module === "all" && type === "all";
+
+  // Default view: do not show all resources
+  if (noFilterSelected) {
+    resourceGrid.innerHTML = "";
+
+    if (emptyState) {
+      emptyState.style.display = "block";
+      emptyState.innerHTML = `
+        <h3>Select a module or resource type</h3>
+        <p>
+          Choose a module or resource type above to view available study resources.
+        </p>
+      `;
+    }
+
+    const resourceViewToggle = document.getElementById("resourceViewToggle");
+    if (resourceViewToggle && resourceViewToggle.parentElement) {
+      resourceViewToggle.parentElement.style.display = "none";
+    }
+
+    return;
+  }
+
   const filtered = resources.filter((item) => {
     const itemType = normalizeType(item.type);
 
@@ -140,9 +166,54 @@ function applyResourceFilters() {
 
   resourceGrid.innerHTML = filtered.map(resourceCard).join("");
 
-  if (emptyState) {
-    emptyState.style.display = filtered.length ? "none" : "block";
+  if (typeof updateMobileResourceLimit === "function") {
+    updateMobileResourceLimit(filtered.length);
   }
+
+  if (emptyState) {
+    if (filtered.length) {
+      emptyState.style.display = "none";
+    } else {
+      emptyState.style.display = "block";
+      emptyState.innerHTML = `
+        <h3>No resources found</h3>
+        <p>
+          No resources are available for this selected module/type yet.
+        </p>
+      `;
+    }
+  }
+}
+function updateMobileResourceLimit(totalCount) {
+  if (!resourceGrid || !resourceViewToggle) return;
+
+  const cards = Array.from(resourceGrid.querySelectorAll(".resource-card"));
+  const isMobile = window.matchMedia("(max-width: 760px)").matches;
+
+  if (!isMobile) {
+    cards.forEach((card) => card.classList.remove("mobile-hidden-resource"));
+    resourceViewToggle.parentElement.style.display = "none";
+    return;
+  }
+
+  if (totalCount <= 4) {
+    cards.forEach((card) => card.classList.remove("mobile-hidden-resource"));
+    resourceViewToggle.parentElement.style.display = "none";
+    return;
+  }
+
+  resourceViewToggle.parentElement.style.display = "flex";
+
+  cards.forEach((card, index) => {
+    card.classList.toggle(
+      "mobile-hidden-resource",
+      !showAllMobileResources && index >= 4
+    );
+  });
+
+  resourceViewToggle.innerHTML = showAllMobileResources
+    ? 'Show Less Resources <span>↑</span>'
+    : `View All Resources (${totalCount}) <span>↓</span>`;
 }
 
 async function loadResources() {
@@ -161,12 +232,45 @@ async function loadResources() {
     console.error("Could not load resources.json", error);
   }
 
-  applyResourceFilters();
+ applyResourceFilters();
+markUpdatedModules();
+}
+function markUpdatedModules() {
+  const newModules = new Set();
+
+  resources.forEach((item) => {
+    const badge = (item.badge || "").toLowerCase();
+
+    if (
+      item.visible !== false &&
+      (badge === "new" || badge === "latest" || badge.includes("new"))
+    ) {
+      newModules.add(item.module);
+    }
+  });
+
+  document.querySelectorAll("[data-module-jump]").forEach((card) => {
+    const moduleName = card.dataset.moduleJump;
+
+    if (!newModules.has(moduleName)) return;
+
+    card.classList.add("module-has-new");
+
+    if (!card.querySelector(".module-update-badge")) {
+      const badge = document.createElement("span");
+      badge.className = "module-update-badge";
+      badge.textContent = "New";
+      card.appendChild(badge);
+    }
+  });
 }
 
 Object.values(filters).forEach((select) => {
   if (select) {
-    select.addEventListener("change", applyResourceFilters);
+    select.addEventListener("change", () => {
+      showAllMobileResources = false;
+      applyResourceFilters();
+    });
   }
 });
 
@@ -275,4 +379,31 @@ document.addEventListener("click", function (e) {
       resourcePopup.classList.remove("active");
     }
   }
+});
+
+if (resourceViewToggle) {
+  resourceViewToggle.addEventListener("click", () => {
+    showAllMobileResources = !showAllMobileResources;
+
+    const totalCount = resourceGrid
+      ? resourceGrid.querySelectorAll(".resource-card").length
+      : 0;
+
+    updateMobileResourceLimit(totalCount);
+
+    if (!showAllMobileResources) {
+      document.getElementById("resources")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  });
+}
+
+window.addEventListener("resize", () => {
+  const totalCount = resourceGrid
+    ? resourceGrid.querySelectorAll(".resource-card").length
+    : 0;
+
+  updateMobileResourceLimit(totalCount);
 });
