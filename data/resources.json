@@ -241,6 +241,17 @@
     "url": "quizzes/y1s2/oop/oop-solid-mock-quiz.html",
     "visible": true
   },
+  {
+    "title": "TW Exam Type Mock Quiz 01",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "TW",
+    "type": "Mock Exam",
+    "description": "This mock paper is made to match the uploaded model-paper structure and question types as closely as possible.",
+    "url": "quizzes/y1s2/tw/tw-final-janidu-01.html",
+    "visible": true
+    ,"badge": "Latest"
+  },
     {
     "title": "TW Question 5 Mock Quiz (Graph Description Quiz)",
     "year": "Year 1",
@@ -250,7 +261,7 @@
     "description": "This quiz trains graph-description writing for the 25-mark final exam question.",
     "url": "quizzes/y1s2/tw/TW_Q5_Graph_Description_Quiz.html",
     "visible": true
-    ,"badge": "NEW"
+    
   },
    {
     "title": "TW Question 4 Mock Quiz (Process Description Quiz)",
@@ -261,7 +272,7 @@
     "description": "This quiz trains process-description writing for the 25-mark final exam question. It covers process structure, passive voice, transitions, overview sentences and model-answer checking.",
     "url": "quizzes/y1s2/tw/TW_Q4_Process_Description_Quiz.html",
     "visible": true
-    ,"badge": "NEW"
+   
   },
 
   {
@@ -273,7 +284,7 @@
     "description": "This quiz trains the exact Q3 skill: read the passage, understand the summary, and fill missing gaps using the correct word or phrase.",
     "url": "quizzes/y1s2/tw/TW_Q3_Summary_Gap_Filling_Quiz.html",
     "visible": true
-    ,"badge": "NEW"
+    
   },
 
   
@@ -320,7 +331,7 @@
     "description": "Printable Information Systems reference sheet for final exam revision.",
     "url": "downloads/y1s2/is/is-reference-sheet.pdf",
     "visible": true
-    ,"badge": "NEW"
+    
   },
   {
     "title": "DSA Reference Sheet 3",

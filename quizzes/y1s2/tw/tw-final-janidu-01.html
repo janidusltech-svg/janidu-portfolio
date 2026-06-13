@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IT1150 Technical Writing Final Exam Simulation - Model Paper Style</title>
+<style>
+:root{--bg:#eef3f8;--paper:#fff;--ink:#172033;--muted:#5b6675;--brand:#183b66;--blue:#1f5f9f;--green:#0b7a75;--line:#d5deea;--soft:#eef5ff;--ok:#157347;--bad:#b42318;--warn:#b54708}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}.top{position:sticky;top:0;background:#0b2440;color:white;z-index:20;padding:10px 16px;box-shadow:0 2px 12px rgba(0,0,0,.18)}.topin{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.top a{color:white;text-decoration:none;background:#1f5f9f;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700}.top a:nth-child(2){background:#12805c}.timer{background:white;color:#0b2440;border-radius:999px;padding:8px 14px;font-weight:900;letter-spacing:.5px}.wrap{max-width:1180px;margin:22px auto 70px;padding:0 14px}.paper{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 10px 28px rgba(12,35,64,.08)}.head{text-align:center;border-bottom:2px solid #0b2440;padding-bottom:12px;margin-bottom:16px}.head h1{font-size:24px;margin:6px 0;color:#0b2440}.head p{margin:4px 0}.examgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px;margin:14px 0}.pill{border:1px solid var(--line);background:#fbfdff;border-radius:10px;padding:9px}.pill b{display:block;color:var(--brand)}.notice{background:#fff8e6;border:1px solid #ffe1a3;color:#4d3300;border-radius:12px;padding:11px;margin:12px 0}.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.tabs button{background:#dce9f8;color:#0b2440;box-shadow:none}.tabs button.active{background:#1f5f9f;color:white}.section{display:none}.section.active{display:block}.qcard{border:1px solid var(--line);border-radius:16px;background:white;padding:18px;margin:14px 0}.qtitle{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:12px}.qtitle h2{margin:0;color:#0b2440}.mark{font-weight:900;color:#b54708}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}@media(max-width:900px){.twocol{grid-template-columns:1fr}}.passage{max-height:74vh;overflow:auto;position:sticky;top:72px;background:#fbfdff;border:1px solid var(--line);border-radius:14px;padding:15px}@media(max-width:900px){.passage{position:relative;top:auto;max-height:none}}.subq{border:1px solid var(--line);border-radius:13px;background:#fbfdff;padding:12px;margin:10px 0}.subq b{color:#143a64}.options{display:grid;gap:8px;margin-top:8px}.opt{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;background:white;padding:9px;cursor:pointer}.opt:hover{background:#f3f8ff}input[type=text],select{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:15px;margin-top:8px;background:white}textarea{width:100%;min-height:230px;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:15px;font-family:Arial,Helvetica,sans-serif;background:#fff}.btns{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}button{border:0;border-radius:12px;padding:11px 16px;font-weight:800;cursor:pointer;background:#1f5f9f;color:white;box-shadow:0 4px 12px rgba(31,78,140,.18)}button.secondary{background:#637083}.submit{background:#157347}.restart{background:#b54708}.fb{display:none;margin-top:10px;border-radius:12px;padding:10px}.good{display:block;background:#eefaf3;border:1px solid #b7e4cc;color:#0f5132}.bad{display:block;background:#fff5f5;border:1px solid #ffd1d1;color:#842029}.small{font-size:13px;color:var(--muted)}.scorebox{display:none;border:1px solid var(--line);border-radius:18px;background:white;overflow:hidden;margin-top:18px}.scorehead{background:#0b2440;color:white;padding:18px}.scorehead h2{color:white;margin:0}table{width:100%;border-collapse:collapse;margin:10px 0;background:white}th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}th{background:#eef5ff}.rubric{background:#f8fbff;border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}.wordbank{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.wordbank span{background:#e7f1ff;color:#143a64;border:1px solid #cbdcf3;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:bold}.modebar{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}.modebar button{box-shadow:none;padding:9px 12px;background:#dce9f8;color:#0b2440}.modebar button.active{background:#0b7a75;color:white}.mode{display:none}.mode.active{display:block}.footer{text-align:center;color:#5f6b7a;margin:28px 0 20px}
+.footer-label{
+  display:block;
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#637083;
+  font-weight:800;
+  margin-bottom:8px;
+}
+.footer a.creator-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:#fff;
+  background:linear-gradient(135deg,#1f5f9f,#0b7a75);
+  text-decoration:none;
+  font-weight:900;
+  padding:9px 16px;
+  border-radius:999px;
+  box-shadow:0 4px 12px rgba(31,95,159,.25);
+  border:1px solid rgba(255,255,255,.35);
+}
+.footer a.creator-link:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(31,95,159,.32);
+}.diagram{background:white;border:1px solid var(--line);border-radius:14px;padding:12px;overflow:auto}.model{display:none;background:#eefaf3;border:1px solid #b7e4cc;color:#0f5132;border-radius:12px;padding:12px;margin-top:12px}.svgtext{font-family:Arial,Helvetica,sans-serif;font-size:13px;fill:#172033}.box{fill:#eef5ff;stroke:#1f5f9f;stroke-width:1.5}.arrow{stroke:#0b7a75;stroke-width:2;marker-end:url(#arrow)}.barfill{fill:#1f5f9f}.axis{stroke:#34495e;stroke-width:1}.gridline{stroke:#d8e0ea;stroke-width:1}.instr{background:#f7fbff;border-left:4px solid #1f5f9f;padding:10px;border-radius:8px;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin"><b>IT1150 Technical Writing · Final Exam Simulation</b><div><a href="https://janidusandaruwan.com/" target="_blank">Back to Study Hub By J</a> <a href="https://www.whatsapp.com/channel/0029Vb7ep90I1rcbyPccWx2t" target="_blank">Join WhatsApp Channel</a></div><div class="timer" id="timer">02:00:00</div></div></div>
+<div class="wrap">
+<div class="paper">
+<div class="head">
+<p><b>Sri Lanka Institute of Information Technology</b></p>
+<h1>IT1150 Technical Writing - Final Examination Simulation</h1>
+<p><b>BSc (Hons) in Information Technology · Year 1 Semester 2</b></p>
+<p>Duration: 2 Hours · Answer all questions</p>
+</div>
+<div class="examgrid"><div class="pill"><b>Q1 + Q2</b>Reading Comprehension - 25 marks</div><div class="pill"><b>Q3</b>Summary Writing / Gap Filling - 15 marks</div><div class="pill"><b>Q4</b>Process Description - 25 marks</div><div class="pill"><b>Q5</b>Graph Description - 25 marks</div></div>
+<div class="notice"><b>Website note:</b> This mock paper is made to match the uploaded model-paper structure and question types as closely as possible. It is not a leaked or guaranteed final paper.</div>
+
+<div class="tabs">
+<button class="active" onclick="showSec('q1',this)">Q1 Reading</button>
+<button onclick="showSec('q2',this)">Q2 Reading</button>
+<button onclick="showSec('q3',this)">Q3 Summary</button>
+<button onclick="showSec('q4',this)">Q4 Process Diagram</button>
+<button onclick="showSec('q5',this)">Q5 Real Chart</button>
+<button class="submit" onclick="submitExam()">Submit Exam</button>
+</div>
+
+<section id="q1" class="section active qcard">
+<div class="qtitle"><h2>Question 1 - Reading Comprehension</h2><span class="mark">12 marks</span></div>
+<div class="twocol">
+<div class="passage">
+<h3>Passage 1: Digital Libraries in Higher Education</h3>
+<p>Digital libraries have become an important part of university education. Unlike traditional libraries, which mainly depend on printed books and physical visits, digital libraries allow students to access academic materials through computers and mobile devices. These materials may include e-books, journal articles, lecture notes, past papers, research reports and multimedia resources.</p>
+<p>One major advantage of a digital library is accessibility. Students can use resources at any time of the day, even when the physical library is closed. This is especially helpful for students who live far from campus or who study while working part-time. Search tools also make it easier to find information quickly. Instead of looking through shelves, students can search by author, title, keyword or subject.</p>
+<p>However, digital libraries do not automatically improve learning. Students must know how to evaluate the quality of online sources. Some materials found online may be outdated, biased or unsuitable for academic work. Therefore, universities often provide training on database searching, citation tools and plagiarism avoidance.</p>
+<p>Another concern is unequal access. A digital library requires devices, internet connectivity and basic digital skills. Students from low-income backgrounds may face difficulties if they do not have reliable internet at home. As a result, universities should provide computer labs, Wi-Fi facilities and technical support.</p>
+<p>Overall, digital libraries can improve academic learning when they are combined with proper training and fair access. They are not a replacement for academic judgement, but they are a powerful support system for modern students.</p>
+</div>
+<div><div class="instr"><b>Answer Questions 1-12.</b> Choose the correct answer or type the exact word from the passage.</div><div id="q1box"></div></div>
+</div>
+</section>
+
+<section id="q2" class="section qcard">
+<div class="qtitle"><h2>Question 2 - Reading Comprehension</h2><span class="mark">13 marks</span></div>
+<div class="twocol">
+<div class="passage">
+<h3>Passage 2: The Role of Feedback in Academic Writing</h3>
+<p><b>A.</b> Academic writing improves through practice, revision and feedback. Many students believe that writing ends after the first draft, but experienced writers understand that a first draft is only a starting point. Feedback helps writers identify unclear ideas, weak evidence, grammar problems and issues in structure.</p>
+<p><b>B.</b> Lecturer feedback is valuable because it is usually based on assessment criteria. A lecturer can explain whether the answer addresses the question, whether the paragraph has a clear topic sentence and whether the evidence supports the argument. However, lecturers may not have enough time to correct every sentence in detail, especially in large classes.</p>
+<p><b>C.</b> Peer feedback can support this process. When students read each other’s work, they become more aware of audience expectations. If a classmate cannot understand an explanation, the writer may need to add examples or change the order of ideas. Giving feedback also helps the reviewer notice similar weaknesses in the reviewer’s own writing.</p>
+<p><b>D.</b> Feedback is useful only when it is specific and respectful. Comments such as “good” or “bad” do not tell the writer what should be improved. A useful comment might say, “The topic sentence is clear, but the second example does not directly support the main point.” Such feedback gives the writer a clear direction for revision.</p>
+<p><b>E.</b> Finally, students should not treat feedback as criticism of their ability. Feedback is part of the writing process. A strong academic writer uses feedback to make informed changes and produce a clearer final answer.</p>
+</div>
+<div><div class="instr"><b>Answer Questions 13-25.</b> Match headings, select answers and complete notes.</div><div id="q2box"></div></div>
+</div>
+</section>
+
+<section id="q3" class="section qcard">
+<div class="qtitle"><h2>Question 3 - Summary Writing / Gap Filling</h2><span class="mark">15 marks</span></div>
+<div class="twocol">
+<div class="passage">
+<h3>Passage 3: Reducing Plastic Use on Campus</h3>
+<p>Many universities have introduced campaigns to reduce single-use plastic on campus. Single-use plastic items, such as water bottles, straws, food containers and shopping bags, are used briefly but may remain in the environment for many years. When these items are not disposed of properly, they can block drains, pollute waterways and harm animals.</p>
+<p>Campus plastic-reduction programmes usually begin with awareness. Posters, workshops and social media messages can explain the environmental impact of plastic waste. However, awareness alone is not enough. Students and staff need practical alternatives, such as refillable water stations, reusable food containers and cloth bags.</p>
+<p>Some universities also introduce rules to reduce plastic. For example, cafeterias may stop selling drinks in disposable bottles or charge extra for single-use packaging. These rules can encourage people to change habits, but they should be introduced gradually so that the campus community has time to adjust.</p>
+<p>The success of a plastic-reduction campaign depends on cooperation among students, staff, vendors and administrators. If convenient alternatives are available and the reasons for change are clearly communicated, the campus can significantly reduce plastic waste.</p>
+</div>
+<div>
+<div class="instr"><b>Official model-paper style:</b> Complete the summary of not more than 50 words by selecting suitable words from the passage.</div>
+<div class="modebar"><button class="active" onclick="q3Mode('gap',this)">Official Gap-Fill Mode</button><button onclick="q3Mode('full',this)">Optional Full Summary Practice</button></div>
+<div id="gap" class="mode active">
+<p><b>Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.</b></p>
+<p class="small">The summary below is under 50 words.</p>
+<div class="rubric">
+Universities try to reduce single-use plastic because it can remain in the environment for many
+<input type="text" id="S0" placeholder="1">. Awareness activities explain the impact of plastic
+<input type="text" id="S1" placeholder="2">, but practical
+<input type="text" id="S2" placeholder="3"> are also necessary. Cafeteria rules may change student
+<input type="text" id="S3" placeholder="4">, while the campaign depends on
+<input type="text" id="S4" placeholder="5"> among the campus community.
+</div>
+<div id="q3feedback"></div>
+</div>
+<div id="full" class="mode">
+<p><b>Optional practice:</b> Write your own summary in not more than 50 words. This is for practice only, because the model paper mainly uses gap filling.</p>
+<textarea id="q3full" placeholder="Write your own 50-word summary here..."></textarea>
+<p class="small" id="wordCount">Words: 0 / 50</p>
+<div class="model" id="q3model"></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="q4" class="section qcard">
+<div class="qtitle"><h2>Question 4 - Process Description</h2><span class="mark">25 marks</span></div>
+<div class="twocol">
+<div>
+<div class="instr">Describe the following process in about 150-180 words. Use passive voice and suitable transitions.</div>
+<h3>The Process of Recycling Used Paper</h3>
+<div class="diagram">
+<svg width="720" height="430" viewBox="0 0 720 430" role="img" aria-label="Process diagram for recycling used paper">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0b7a75"/></marker></defs>
+<rect class="box" x="35" y="40" width="160" height="60" rx="12"/><text class="svgtext" x="115" y="65" text-anchor="middle">Used paper</text><text class="svgtext" x="115" y="84" text-anchor="middle">is collected</text>
+<line class="arrow" x1="195" y1="70" x2="255" y2="70"/>
+<rect class="box" x="260" y="40" width="160" height="60" rx="12"/><text class="svgtext" x="340" y="65" text-anchor="middle">Paper is sorted</text><text class="svgtext" x="340" y="84" text-anchor="middle">materials removed</text>
+<line class="arrow" x1="420" y1="70" x2="480" y2="70"/>
+<rect class="box" x="485" y="40" width="180" height="60" rx="12"/><text class="svgtext" x="575" y="65" text-anchor="middle">Mixed with water</text><text class="svgtext" x="575" y="84" text-anchor="middle">and chemicals</text>
+<line class="arrow" x1="575" y1="100" x2="575" y2="155"/>
+<rect class="box" x="485" y="160" width="180" height="60" rx="12"/><text class="svgtext" x="575" y="185" text-anchor="middle">Ink and dirt</text><text class="svgtext" x="575" y="204" text-anchor="middle">are removed</text>
+<line class="arrow" x1="485" y1="190" x2="420" y2="190"/>
+<rect class="box" x="260" y="160" width="160" height="60" rx="12"/><text class="svgtext" x="340" y="185" text-anchor="middle">Clean pulp</text><text class="svgtext" x="340" y="204" text-anchor="middle">is pressed</text>
+<line class="arrow" x1="260" y1="190" x2="195" y2="190"/>
+<rect class="box" x="35" y="160" width="160" height="60" rx="12"/><text class="svgtext" x="115" y="185" text-anchor="middle">Sheets are dried,</text><text class="svgtext" x="115" y="204" text-anchor="middle">rolled and cut</text>
+<line class="arrow" x1="115" y1="220" x2="115" y2="275"/>
+<rect class="box" x="35" y="280" width="630" height="68" rx="12"/><text class="svgtext" x="350" y="308" text-anchor="middle">Recycled paper is packed and distributed</text><text class="svgtext" x="350" y="330" text-anchor="middle">Final product: new recycled paper sheets</text>
+</svg>
+</div>
+<div class="rubric"><b>Marking:</b> Structure 10 marks + Grammar 10 marks + Language 5 marks.</div>
+</div>
+<div><h3>Your Answer</h3><textarea id="q4ans" placeholder="Write your process description here..."></textarea><div id="q4model" class="model"></div></div>
+</div>
+</section>
+
+<section id="q5" class="section qcard">
+<div class="qtitle"><h2>Question 5 - Graph Description</h2><span class="mark">25 marks</span></div>
+<div class="twocol">
+<div>
+<div class="instr">Describe the chart in about 150-180 words. Select and report the main features and make comparisons where relevant.</div>
+<h3>Preferred Online Learning Resources among 100 IT Students</h3>
+<div class="diagram">
+<svg width="720" height="460" viewBox="0 0 720 460" role="img" aria-label="Bar chart showing preferred online learning resources">
+<text x="360" y="28" text-anchor="middle" style="font-family:Arial;font-size:18px;font-weight:bold;fill:#0b2440">Preferred Online Learning Resources among 100 IT Students</text>
+<line class="axis" x1="95" y1="380" x2="655" y2="380"/><line class="axis" x1="95" y1="70" x2="95" y2="380"/>
+<line class="gridline" x1="95" y1="318" x2="655" y2="318"/><line class="gridline" x1="95" y1="256" x2="655" y2="256"/><line class="gridline" x1="95" y1="194" x2="655" y2="194"/><line class="gridline" x1="95" y1="132" x2="655" y2="132"/><line class="gridline" x1="95" y1="70" x2="655" y2="70"/>
+<text class="svgtext" x="82" y="384" text-anchor="end">0</text><text class="svgtext" x="82" y="322" text-anchor="end">10</text><text class="svgtext" x="82" y="260" text-anchor="end">20</text><text class="svgtext" x="82" y="198" text-anchor="end">30</text><text class="svgtext" x="82" y="136" text-anchor="end">40</text><text class="svgtext" x="82" y="74" text-anchor="end">50</text>
+<rect class="barfill" x="135" y="144.4" width="80" height="235.6" rx="6"/><text class="svgtext" x="175" y="134" text-anchor="middle">38</text><text class="svgtext" x="175" y="405" text-anchor="middle">Recorded</text><text class="svgtext" x="175" y="423" text-anchor="middle">lectures</text>
+<rect class="barfill" x="270" y="212.6" width="80" height="167.4" rx="6"/><text class="svgtext" x="310" y="202" text-anchor="middle">27</text><text class="svgtext" x="310" y="405" text-anchor="middle">Short</text><text class="svgtext" x="310" y="423" text-anchor="middle">quizzes</text>
+<rect class="barfill" x="405" y="249.8" width="80" height="130.2" rx="6"/><text class="svgtext" x="445" y="240" text-anchor="middle">21</text><text class="svgtext" x="445" y="405" text-anchor="middle">PDF</text><text class="svgtext" x="445" y="423" text-anchor="middle">notes</text>
+<rect class="barfill" x="540" y="293.2" width="80" height="86.8" rx="6"/><text class="svgtext" x="580" y="284" text-anchor="middle">14</text><text class="svgtext" x="580" y="405" text-anchor="middle">Discussion</text><text class="svgtext" x="580" y="423" text-anchor="middle">forums</text>
+<text class="svgtext" x="360" y="450" text-anchor="middle">Online learning resource</text>
+<text class="svgtext" transform="translate(25 225) rotate(-90)" text-anchor="middle">Number of students</text>
+</svg>
+</div>
+<div class="rubric"><b>Marking:</b> Task achievement 10 marks + Coherence/cohesion 3 marks + Lexical resource 8 marks + Grammar 4 marks.</div>
+</div>
+<div><h3>Your Answer</h3><textarea id="q5ans" placeholder="Write your graph description here..."></textarea><div id="q5model" class="model"></div></div>
+</div>
+</section>
+
+<div class="btns"><button class="secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top</button><button class="submit" onclick="submitExam()">Submit Exam & Show Answers</button><button class="restart" onclick="resetExam()">Restart Exam</button></div>
+<div id="score" class="scorebox"><div class="scorehead"><h2>Final Result</h2><p id="scoreText"></p></div><div style="padding:18px" id="scoreDetails"></div></div>
+
+<div class="footer">
+  <span class="footer-label">Study Hub Quiz Resource</span>
+  <a class="creator-link" href="https://janidusandaruwan.com/portfolio.html" target="_blank" title="View creator profile">
+    Created by Janidu Sandaruwan(Y1S2) ↗
+  </a>
+</div>
+
+</div>
+</div>
+
+<script>
+let seconds=7200;
+setInterval(()=>{if(seconds>0)seconds--;let h=String(Math.floor(seconds/3600)).padStart(2,'0'),m=String(Math.floor((seconds%3600)/60)).padStart(2,'0'),s=String(seconds%60).padStart(2,'0');document.getElementById('timer').textContent=h+':'+m+':'+s},1000);
+function showSec(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function q3Mode(id,btn){document.querySelectorAll('.mode').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.modebar button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+function norm(x){return(x||'').toString().trim().toLowerCase().replace(/\s+/g,' ').replace(/[.,;:!?]+$/g,'')}
+const q1=[
+['TFNG','Digital libraries allow students to access academic materials through computers and mobile devices.',['TRUE','FALSE','NOT GIVEN'],'TRUE'],
+['TFNG','Traditional libraries mainly depend on printed books and physical visits.',['TRUE','FALSE','NOT GIVEN'],'TRUE'],
+['TFNG','Digital libraries contain only journal articles.',['TRUE','FALSE','NOT GIVEN'],'FALSE'],
+['TFNG','Digital libraries are most useful only for postgraduate students.',['TRUE','FALSE','NOT GIVEN'],'NOT GIVEN'],
+['TFNG','Search tools help students find information more quickly.',['TRUE','FALSE','NOT GIVEN'],'TRUE'],
+['MCQ','What is the main advantage of a digital library mentioned in the passage?',['Accessibility','Better building design','Cheaper mobile phones','More physical shelves'],'Accessibility'],
+['MCQ','Why do universities provide training related to digital libraries?',['To help students evaluate sources and avoid plagiarism','To stop students using computers','To replace lecturers','To remove all printed books'],'To help students evaluate sources and avoid plagiarism'],
+['MCQ','Which group may face difficulties with digital libraries?',['Students without reliable internet at home','Students who own many books','Students who prefer quiet rooms','Students who read quickly'],'Students without reliable internet at home'],
+['Completion','Students can search by author, title, keyword or ________.',null,'subject'],
+['Completion','Some online materials may be outdated, biased or unsuitable for academic ________.',null,'work'],
+['Completion','Universities should provide computer labs, Wi-Fi facilities and technical ________.',null,'support'],
+['Completion','Digital libraries are a powerful support system for modern ________.',null,'students']
+];
+const q2=[
+['Heading','Best heading for Section A',['Writing as a process of revision','The cost of university books','A new digital library','Rules for examinations'],'Writing as a process of revision'],
+['Heading','Best heading for Section B',['Value and limits of lecturer feedback','The importance of mobile learning','How to write without evidence','Problems of printed notes'],'Value and limits of lecturer feedback'],
+['Heading','Best heading for Section C',['Peer feedback and audience awareness','Replacing lecturer feedback','Avoiding classmate comments','Writing without examples'],'Peer feedback and audience awareness'],
+['Heading','Best heading for Section D',['Specific and respectful feedback','Only positive comments','Short answers in exams','Ignoring structure'],'Specific and respectful feedback'],
+['Heading','Best heading for Section E',['Using feedback positively','Avoiding feedback','Submitting first drafts','Writing without revision'],'Using feedback positively'],
+['MCQ','According to Section A, what is a first draft?',['A starting point','A final answer','A marking scheme','A grammar book'],'A starting point'],
+['MCQ','Why is lecturer feedback valuable?',['It is usually based on assessment criteria','It is always very short','It avoids the question','It replaces all revision'],'It is usually based on assessment criteria'],
+['MCQ','Why may lecturers not correct every sentence?',['They may not have enough time in large classes','They dislike academic writing','Feedback is useless','Grammar is never marked'],'They may not have enough time in large classes'],
+['MCQ','What does peer feedback help students understand?',['Audience expectations','Internet speed','Library rules','Computer hardware'],'Audience expectations'],
+['MCQ','Which comment is most useful?',['The topic sentence is clear, but the second example does not support the main point.','Good.','Bad.','Nice work only.'],'The topic sentence is clear, but the second example does not support the main point.'],
+['Completion','Feedback helps writers identify unclear ideas, weak evidence, grammar problems and issues in ________.',null,'structure'],
+['Completion','A useful comment gives the writer a clear direction for ________.',null,'revision'],
+['Completion','Students should not treat feedback as criticism of their ________.',null,'ability']
+];
+const q3answers=['years','waste','alternatives','habits','cooperation'];
+function renderAuto(boxId,arr,prefix,start){let h='';arr.forEach((q,i)=>{let n=start+i;h+=`<div class="subq"><b>${n}. ${q[1]}</b>`;if(q[0]==='Completion'){h+=`<input type="text" id="${prefix}${i}" placeholder="Type exact word">`}else{h+='<div class="options">'+q[2].map(o=>`<label class="opt"><input type="radio" name="${prefix}${i}" value="${o}"><span>${o}</span></label>`).join('')+'</div>'}h+=`<div id="fb_${prefix}${i}" class="fb"></div></div>`});document.getElementById(boxId).innerHTML=h}
+renderAuto('q1box',q1,'A',1);renderAuto('q2box',q2,'B',13);
+function getAnswer(prefix,i,isText){if(isText)return document.getElementById(prefix+i).value;let r=document.querySelector(`input[name="${prefix}${i}"]:checked`);return r?r.value:''}
+function markSet(arr,prefix){let score=0;arr.forEach((q,i)=>{let isText=q[0]==='Completion',correct=q[3],user=getAnswer(prefix,i,isText),ok=norm(user)===norm(correct);if(ok)score++;let fb=document.getElementById('fb_'+prefix+i);fb.className='fb '+(ok?'good':'bad');fb.innerHTML=(ok?'Correct':'Not correct')+`<br><b>Answer:</b> ${correct}<br><span class="small">Your answer: ${user||'No answer'}</span>`});return score}
+function markQ3(){let score=0;let out='<h3>Q3 Gap-Fill Answers</h3><table><tr><th>Blank</th><th>Your answer</th><th>Correct answer</th><th>Status</th></tr>';q3answers.forEach((a,i)=>{let user=document.getElementById('S'+i).value,ok=norm(user)===norm(a);if(ok)score++;out+=`<tr><td>${i+1}</td><td>${user||'No answer'}</td><td>${a}</td><td>${ok?'Correct':'Not correct'}</td></tr>`});out+='</table>';document.getElementById('q3feedback').innerHTML=out;document.getElementById('q3model').style.display='block';document.getElementById('q3model').innerHTML='<b>Sample full summary under 50 words:</b><br>Universities reduce single-use plastic because it remains in the environment and harms animals. Awareness is important, but practical alternatives and gradual rules are also needed. The success of these campaigns depends on cooperation and clear communication across the campus community.';return score}
+function wordCount(){let t=document.getElementById('q3full').value.trim();let c=t?t.split(/\s+/).length:0;document.getElementById('wordCount').textContent='Words: '+c+' / 50';document.getElementById('wordCount').style.color=c>50?'#b42318':'#5b6675'}document.getElementById('q3full').addEventListener('input',wordCount);
+function submitExam(){let s1=markSet(q1,'A'),s2=markSet(q2,'B'),s3=markQ3();document.getElementById('q4model').style.display='block';document.getElementById('q4model').innerHTML='<b>Q4 Model Answer:</b><br>The diagram illustrates how used paper is recycled to produce new paper. Overall, it is a linear process with seven main stages, beginning with the collection of used paper and ending with the distribution of the final recycled product. First, used paper is collected from offices, homes and schools. Next, the paper is sorted, and unsuitable materials are removed. After that, the selected paper is mixed with water and chemicals to produce pulp. Then, ink and dirt are removed from the pulp. Subsequently, the clean pulp is pressed into thin sheets. These sheets are then dried, rolled and cut into the required sizes. Finally, the recycled paper is packed and distributed for use.';document.getElementById('q5model').style.display='block';document.getElementById('q5model').innerHTML='<b>Q5 Model Answer:</b><br>The bar chart shows the preferred online learning resources among 100 IT students. Overall, recorded lectures were the most popular resource, while discussion forums were the least preferred. Recorded lectures were chosen by 38 students, which was the highest figure in the chart. Short quizzes ranked second with 27 students. PDF notes were selected by 21 students, six fewer than short quizzes. Discussion forums recorded the lowest number, with only 14 students. Therefore, the chart indicates that students preferred direct and exam-focused resources such as recorded lectures and quizzes more than discussion-based learning tools.';let auto=s1+s2+s3,total=q1.length+q2.length+q3answers.length;document.getElementById('score').style.display='block';document.getElementById('scoreText').textContent=`Auto-marked score: ${auto} / ${total}. Q4 and Q5 are writing sections, so compare your answers with the model answers and marking rubrics.`;document.getElementById('scoreDetails').innerHTML=`<table><tr><th>Section</th><th>Score</th><th>Exam marks guide</th></tr><tr><td>Q1 Reading</td><td>${s1}/${q1.length}</td><td>Part of 25 marks</td></tr><tr><td>Q2 Reading</td><td>${s2}/${q2.length}</td><td>Part of 25 marks</td></tr><tr><td>Q3 Summary Gap Fill</td><td>${s3}/${q3answers.length}</td><td>15 marks</td></tr><tr><td>Q4 Process Description</td><td>Self-check</td><td>25 marks</td></tr><tr><td>Q5 Graph Description</td><td>Self-check</td><td>25 marks</td></tr></table>`;document.getElementById('score').scrollIntoView({behavior:'smooth'})}
+function resetExam(){if(confirm('Restart the exam and clear all answers?'))location.reload()}
+</script>
+</body>
+</html>
