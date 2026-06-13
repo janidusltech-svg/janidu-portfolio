@@ -242,6 +242,17 @@
     "visible": true
   },
   {
+    "title": "TW Exam Type Mock Quiz 02",
+    "year": "Year 1",
+    "semester": "Semester 2",
+    "module": "TW",
+    "type": "Mock Exam",
+    "description": "This mock paper is made to match the uploaded model-paper structure and question types as closely as possible.",
+    "url": "quizzes/y1s2/tw/tw-final-janidu-02.html",
+    "visible": true
+    ,"badge": "Latest"
+  },
+  {
     "title": "TW Exam Type Mock Quiz 01",
     "year": "Year 1",
     "semester": "Semester 2",
@@ -253,7 +264,7 @@
     ,"badge": "Latest"
   },
     {
-    "title": "TW Question 5 Mock Quiz (Graph Description Quiz)",
+    "title": "TW Question 5 Based Mock Quiz (Graph Description Quiz)",
     "year": "Year 1",
     "semester": "Semester 2",
     "module": "TW",
@@ -264,7 +275,7 @@
     
   },
    {
-    "title": "TW Question 4 Mock Quiz (Process Description Quiz)",
+    "title": "TW Question 4 Based Mock Quiz (Process Description Quiz)",
     "year": "Year 1",
     "semester": "Semester 2",
     "module": "TW",
@@ -276,7 +287,7 @@
   },
 
   {
-    "title": "TW Question 3 Mock Quiz (Summary Gap Filling Quiz)",
+    "title": "TW Question 3 Based  Mock Quiz (Summary Gap Filling Quiz)",
     "year": "Year 1",
     "semester": "Semester 2",
     "module": "TW",
@@ -290,7 +301,7 @@
   
 
   {
-    "title": "TW Question 2 Mock Quiz (Reading Comprehension Advanced)",
+    "title": "TW Question 2 Based Mock Quiz (Reading Comprehension Advanced)",
     "year": "Year 1",
     "semester": "Semester 2",
     "module": "TW",
@@ -300,7 +311,7 @@
     "visible": true
   },
     {
-    "title": "TW Question 1 Mock Quiz (Reading Comprehension)",
+    "title": "TW Question 1 Based Mock Quiz (Reading Comprehension)",
     "year": "Year 1",
     "semester": "Semester 2",
     "module": "TW",

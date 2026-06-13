@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IT1150 Technical Writing Final Exam Simulation 02 - Model Paper Style</title>
+<style>
+:root{--bg:#eef3f8;--paper:#fff;--ink:#172033;--muted:#5b6675;--brand:#183b66;--blue:#1f5f9f;--green:#0b7a75;--line:#d5deea;--soft:#eef5ff;--ok:#157347;--bad:#b42318;--warn:#b54708}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}.top{position:sticky;top:0;background:#0b2440;color:white;z-index:20;padding:10px 16px;box-shadow:0 2px 12px rgba(0,0,0,.18)}.topin{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.top a{color:white;text-decoration:none;background:#1f5f9f;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700}.top a:nth-child(2){background:#12805c}.timer{background:white;color:#0b2440;border-radius:999px;padding:8px 14px;font-weight:900;letter-spacing:.5px}.wrap{max-width:1180px;margin:22px auto 70px;padding:0 14px}.paper{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 10px 28px rgba(12,35,64,.08)}.head{text-align:center;border-bottom:2px solid #0b2440;padding-bottom:12px;margin-bottom:16px}.head h1{font-size:24px;margin:6px 0;color:#0b2440}.head p{margin:4px 0}.examgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px;margin:14px 0}.pill{border:1px solid var(--line);background:#fbfdff;border-radius:10px;padding:9px}.pill b{display:block;color:var(--brand)}.notice{background:#fff8e6;border:1px solid #ffe1a3;color:#4d3300;border-radius:12px;padding:11px;margin:12px 0}.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.tabs button{background:#dce9f8;color:#0b2440;box-shadow:none}.tabs button.active{background:#1f5f9f;color:white}.section{display:none}.section.active{display:block}.qcard{border:1px solid var(--line);border-radius:16px;background:white;padding:18px;margin:14px 0}.qtitle{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:12px}.qtitle h2{margin:0;color:#0b2440}.mark{font-weight:900;color:#b54708}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}@media(max-width:900px){.twocol{grid-template-columns:1fr}}.passage{max-height:74vh;overflow:auto;position:sticky;top:72px;background:#fbfdff;border:1px solid var(--line);border-radius:14px;padding:15px}@media(max-width:900px){.passage{position:relative;top:auto;max-height:none}}.subq{border:1px solid var(--line);border-radius:13px;background:#fbfdff;padding:12px;margin:10px 0}.subq b{color:#143a64}.options{display:grid;gap:8px;margin-top:8px}.opt{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;background:white;padding:9px;cursor:pointer}.opt:hover{background:#f3f8ff}input[type=text],select{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:15px;margin-top:8px;background:white}textarea{width:100%;min-height:230px;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:15px;font-family:Arial,Helvetica,sans-serif;background:#fff}.btns{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}button{border:0;border-radius:12px;padding:11px 16px;font-weight:800;cursor:pointer;background:#1f5f9f;color:white;box-shadow:0 4px 12px rgba(31,78,140,.18)}button.secondary{background:#637083}.submit{background:#157347}.restart{background:#b54708}.fb{display:none;margin-top:10px;border-radius:12px;padding:10px}.good{display:block;background:#eefaf3;border:1px solid #b7e4cc;color:#0f5132}.bad{display:block;background:#fff5f5;border:1px solid #ffd1d1;color:#842029}.small{font-size:13px;color:var(--muted)}.scorebox{display:none;border:1px solid var(--line);border-radius:18px;background:white;overflow:hidden;margin-top:18px}.scorehead{background:#0b2440;color:white;padding:18px}.scorehead h2{color:white;margin:0}table{width:100%;border-collapse:collapse;margin:10px 0;background:white}th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}th{background:#eef5ff}.rubric{background:#f8fbff;border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}.wordbank{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.wordbank span{background:#e7f1ff;color:#143a64;border:1px solid #cbdcf3;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:bold}.modebar{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}.modebar button{box-shadow:none;padding:9px 12px;background:#dce9f8;color:#0b2440}.modebar button.active{background:#0b7a75;color:white}.mode{display:none}.mode.active{display:block}.footer{text-align:center;color:#5f6b7a;margin:28px 0 20px}.footer-label{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#637083;font-weight:800;margin-bottom:8px}.footer a.creator-link{display:inline-flex;align-items:center;gap:6px;color:#fff;background:linear-gradient(135deg,#1f5f9f,#0b7a75);text-decoration:none;font-weight:900;padding:9px 16px;border-radius:999px;box-shadow:0 4px 12px rgba(31,95,159,.25);border:1px solid rgba(255,255,255,.35)}.footer a.creator-link:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(31,95,159,.32)}.diagram{background:white;border:1px solid var(--line);border-radius:14px;padding:12px;overflow:auto}.model{display:none;background:#eefaf3;border:1px solid #b7e4cc;color:#0f5132;border-radius:12px;padding:12px;margin-top:12px}.svgtext{font-family:Arial,Helvetica,sans-serif;font-size:13px;fill:#172033}.box{fill:#eef5ff;stroke:#1f5f9f;stroke-width:1.5}.arrow{stroke:#0b7a75;stroke-width:2;marker-end:url(#arrow)}.barfill{fill:#1f5f9f}.axis{stroke:#34495e;stroke-width:1}.gridline{stroke:#d8e0ea;stroke-width:1}.instr{background:#f7fbff;border-left:4px solid #1f5f9f;padding:10px;border-radius:8px;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin"><b>IT1150 Technical Writing · Final Exam Simulation 02</b><div><a href="https://janidusandaruwan.com/" target="_blank">Back to Study Hub By J</a> <a href="https://www.whatsapp.com/channel/0029Vb7ep90I1rcbyPccWx2t" target="_blank">Join WhatsApp Channel</a></div><div class="timer" id="timer">02:00:00</div></div></div>
+<div class="wrap"><div class="paper">
+<div class="head"><p><b>Sri Lanka Institute of Information Technology</b></p><h1>IT1150 Technical Writing - Final Examination Simulation 02</h1><p><b>BSc (Hons) in Information Technology · Year 1 Semester 2</b></p><p>Duration: 2 Hours · Answer all questions</p></div>
+<div class="examgrid"><div class="pill"><b>Q1 + Q2</b>Reading Comprehension - 25 marks</div><div class="pill"><b>Q3</b>Summary Writing / Gap Filling - 15 marks</div><div class="pill"><b>Q4</b>Process Description - 25 marks</div><div class="pill"><b>Q5</b>Graph Description - 25 marks</div></div>
+<div class="notice"><b>Website note:</b> This is a new mock paper with different questions from the previous quiz, made to match the uploaded model-paper question types and marking style as closely as possible.</div>
+
+<div class="tabs"><button class="active" onclick="showSec('q1',this)">Q1 Reading</button><button onclick="showSec('q2',this)">Q2 Reading</button><button onclick="showSec('q3',this)">Q3 Summary</button><button onclick="showSec('q4',this)">Q4 Process Diagram</button><button onclick="showSec('q5',this)">Q5 Real Chart</button><button class="submit" onclick="submitExam()">Submit Exam</button></div>
+
+<section id="q1" class="section active qcard">
+<div class="qtitle"><h2>Question 1 - Reading Comprehension</h2><span class="mark">12 marks</span></div>
+<div class="twocol"><div class="passage">
+<h3>Passage 1: The Importance of Clear Software Documentation</h3>
+<p>Software documentation is written information that explains how a software product should be installed, used, maintained or improved. It may include user manuals, installation guides, frequently asked questions, release notes and technical reference material. Good documentation is important because software users often need support after the product has been delivered.</p>
+<p>Clear documentation reduces confusion and saves time. A user who can follow a step-by-step guide does not need to contact technical support for every small problem. In workplaces, this can reduce delays and improve productivity. For example, if employees receive clear instructions on how to use a new payroll system, they can complete routine tasks more confidently.</p>
+<p>However, documentation is useful only if it is written for the correct audience. A guide for ordinary users should avoid unnecessary technical terms, while a guide for developers may include code examples and system requirements. Writers should therefore analyse the reader’s background knowledge before deciding how much detail to include.</p>
+<p>Another key feature of effective documentation is accuracy. Screenshots, menu names and instructions must match the current version of the software. If the software is updated but the documentation is not revised, users may follow outdated instructions and make errors. Therefore, documentation should be reviewed whenever major changes are made to the product.</p>
+<p>In short, software documentation is not an extra feature. It is a necessary part of software quality because it helps users understand the product, reduces support requests and improves the overall user experience.</p>
+</div><div><div class="instr"><b>Answer Questions 1-12.</b> Choose the correct answer or type the exact word from the passage.</div><div id="q1box"></div></div></div>
+</section>
+
+<section id="q2" class="section qcard">
+<div class="qtitle"><h2>Question 2 - Reading Comprehension</h2><span class="mark">13 marks</span></div>
+<div class="twocol"><div class="passage">
+<h3>Passage 2: Time Management among University Students</h3>
+<p><b>A.</b> University students often face several academic responsibilities at the same time. They may have to attend lectures, complete assignments, prepare for tests and participate in group projects. Without good time management, these tasks can quickly become stressful.</p>
+<p><b>B.</b> One common problem is procrastination. Students sometimes delay difficult tasks because they feel uncertain or tired. Although postponing work may give temporary comfort, it usually creates greater pressure later. When deadlines are close, students may rush their work and produce lower-quality answers.</p>
+<p><b>C.</b> Planning can reduce this problem. A weekly study schedule helps students see how much time is available and which tasks are urgent. Large assignments should be divided into smaller stages, such as reading, outlining, drafting and editing. This makes the task easier to begin and easier to complete.</p>
+<p><b>D.</b> Time management also requires realistic priorities. Some students spend too much time on low-value activities, such as decorating slides, while ignoring the content that carries most marks. A useful strategy is to identify the most important tasks first and complete them before less important work.</p>
+<p><b>E.</b> Finally, rest should not be ignored. Students who study continuously without breaks may become tired and lose concentration. Short breaks, enough sleep and regular revision can help students work more effectively. Good time management is therefore not about studying every minute; it is about using time wisely.</p>
+</div><div><div class="instr"><b>Answer Questions 13-25.</b> Match headings, select answers and complete notes.</div><div id="q2box"></div></div></div>
+</section>
+
+<section id="q3" class="section qcard">
+<div class="qtitle"><h2>Question 3 - Summary Writing / Gap Filling</h2><span class="mark">15 marks</span></div>
+<div class="twocol"><div class="passage">
+<h3>Passage 3: Encouraging Responsible Use of Artificial Intelligence</h3>
+<p>Artificial intelligence tools are now used by many students for studying, writing and research. These tools can explain difficult ideas, suggest outlines and help users improve grammar. When used responsibly, they can support learning and save time.</p>
+<p>However, AI tools also create risks. Students may copy AI-generated answers without understanding the content. This can lead to academic dishonesty and poor learning. Some AI responses may also contain inaccurate information, so students should check important facts using reliable sources.</p>
+<p>Universities can encourage responsible AI use by giving clear guidelines. These guidelines should explain when AI assistance is allowed, how it should be acknowledged and which uses are not acceptable. Teachers can also design assessments that require personal reflection, class discussion or application of knowledge, making it harder for students to depend completely on AI.</p>
+<p>Responsible AI use depends on honesty, critical thinking and proper guidance. AI should be treated as a learning support tool, not as a replacement for students’ own effort and understanding.</p>
+</div><div>
+<div class="instr"><b>Official model-paper style:</b> Complete the summary of not more than 50 words by selecting suitable words from the passage.</div>
+<div class="modebar"><button class="active" onclick="q3Mode('gap',this)">Official Gap-Fill Mode</button><button onclick="q3Mode('full',this)">Optional Full Summary Practice</button></div>
+<div id="gap" class="mode active"><p><b>Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.</b></p><p class="small">The summary below is under 50 words.</p>
+<div class="rubric">
+AI tools can support learning by explaining difficult ideas and improving
+<input type="text" id="S0" placeholder="1">. However, copying AI-generated answers may cause academic
+<input type="text" id="S1" placeholder="2"> and weak learning. Universities should give clear
+<input type="text" id="S2" placeholder="3"> on acceptable use. Responsible AI use needs honesty,
+<input type="text" id="S3" placeholder="4"> thinking and students’ own
+<input type="text" id="S4" placeholder="5">.
+</div><div id="q3feedback"></div></div>
+<div id="full" class="mode"><p><b>Optional practice:</b> Write your own summary in not more than 50 words. This is for practice only.</p><textarea id="q3full" placeholder="Write your 50-word summary here..."></textarea><p class="small" id="wordCount">Words: 0 / 50</p><div class="model" id="q3model"></div></div>
+</div></div>
+</section>
+
+<section id="q4" class="section qcard">
+<div class="qtitle"><h2>Question 4 - Process Description</h2><span class="mark">25 marks</span></div>
+<div class="twocol"><div>
+<div class="instr">Describe the following process in about 150-180 words. Use passive voice and suitable transitions.</div>
+<h3>The Process of Producing Packaged Tea</h3>
+<div class="diagram"><svg width="720" height="430" viewBox="0 0 720 430" role="img" aria-label="Process diagram for producing packaged tea">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0b7a75"/></marker></defs>
+<rect class="box" x="35" y="40" width="160" height="60" rx="12"/><text class="svgtext" x="115" y="65" text-anchor="middle">Tea leaves</text><text class="svgtext" x="115" y="84" text-anchor="middle">are plucked</text>
+<line class="arrow" x1="195" y1="70" x2="255" y2="70"/>
+<rect class="box" x="260" y="40" width="160" height="60" rx="12"/><text class="svgtext" x="340" y="65" text-anchor="middle">Leaves are</text><text class="svgtext" x="340" y="84" text-anchor="middle">withered</text>
+<line class="arrow" x1="420" y1="70" x2="480" y2="70"/>
+<rect class="box" x="485" y="40" width="180" height="60" rx="12"/><text class="svgtext" x="575" y="65" text-anchor="middle">Leaves are rolled</text><text class="svgtext" x="575" y="84" text-anchor="middle">and broken</text>
+<line class="arrow" x1="575" y1="100" x2="575" y2="155"/>
+<rect class="box" x="485" y="160" width="180" height="60" rx="12"/><text class="svgtext" x="575" y="185" text-anchor="middle">Leaves are</text><text class="svgtext" x="575" y="204" text-anchor="middle">fermented</text>
+<line class="arrow" x1="485" y1="190" x2="420" y2="190"/>
+<rect class="box" x="260" y="160" width="160" height="60" rx="12"/><text class="svgtext" x="340" y="185" text-anchor="middle">Fermented leaves</text><text class="svgtext" x="340" y="204" text-anchor="middle">are dried</text>
+<line class="arrow" x1="260" y1="190" x2="195" y2="190"/>
+<rect class="box" x="35" y="160" width="160" height="60" rx="12"/><text class="svgtext" x="115" y="185" text-anchor="middle">Tea is graded</text><text class="svgtext" x="115" y="204" text-anchor="middle">and sorted</text>
+<line class="arrow" x1="115" y1="220" x2="115" y2="275"/>
+<rect class="box" x="35" y="280" width="630" height="68" rx="12"/><text class="svgtext" x="350" y="308" text-anchor="middle">Tea is packed into bags or boxes</text><text class="svgtext" x="350" y="330" text-anchor="middle">Final product: packaged tea ready for distribution</text>
+</svg></div>
+<div class="rubric"><b>Marking:</b> Structure 10 marks + Grammar 10 marks + Language 5 marks.</div>
+</div><div><h3>Your Answer</h3><textarea id="q4ans" placeholder="Write your process description here..."></textarea><div id="q4model" class="model"></div></div></div>
+</section>
+
+<section id="q5" class="section qcard">
+<div class="qtitle"><h2>Question 5 - Graph Description</h2><span class="mark">25 marks</span></div>
+<div class="twocol"><div>
+<div class="instr">Describe the chart in about 150-180 words. Select and report the main features and make comparisons where relevant.</div>
+<h3>Reasons for Using the University Learning Management System among 120 Students</h3>
+<div class="diagram"><svg width="720" height="460" viewBox="0 0 720 460" role="img" aria-label="Bar chart showing reasons for using LMS">
+<text x="360" y="28" text-anchor="middle" style="font-family:Arial;font-size:18px;font-weight:bold;fill:#0b2440">Reasons for Using the University LMS among 120 Students</text>
+<line class="axis" x1="95" y1="380" x2="655" y2="380"/><line class="axis" x1="95" y1="70" x2="95" y2="380"/>
+<line class="gridline" x1="95" y1="318" x2="655" y2="318"/><line class="gridline" x1="95" y1="256" x2="655" y2="256"/><line class="gridline" x1="95" y1="194" x2="655" y2="194"/><line class="gridline" x1="95" y1="132" x2="655" y2="132"/><line class="gridline" x1="95" y1="70" x2="655" y2="70"/>
+<text class="svgtext" x="82" y="384" text-anchor="end">0</text><text class="svgtext" x="82" y="322" text-anchor="end">15</text><text class="svgtext" x="82" y="260" text-anchor="end">30</text><text class="svgtext" x="82" y="198" text-anchor="end">45</text><text class="svgtext" x="82" y="136" text-anchor="end">60</text><text class="svgtext" x="82" y="74" text-anchor="end">75</text>
+<rect class="barfill" x="135" y="144.4" width="80" height="235.6" rx="6"/><text class="svgtext" x="175" y="134" text-anchor="middle">57</text><text class="svgtext" x="175" y="405" text-anchor="middle">Download</text><text class="svgtext" x="175" y="423" text-anchor="middle">notes</text>
+<rect class="barfill" x="270" y="214.7" width="80" height="165.3" rx="6"/><text class="svgtext" x="310" y="204" text-anchor="middle">40</text><text class="svgtext" x="310" y="405" text-anchor="middle">Submit</text><text class="svgtext" x="310" y="423" text-anchor="middle">assignments</text>
+<rect class="barfill" x="405" y="260.2" width="80" height="119.8" rx="6"/><text class="svgtext" x="445" y="250" text-anchor="middle">29</text><text class="svgtext" x="445" y="405" text-anchor="middle">Check</text><text class="svgtext" x="445" y="423" text-anchor="middle">announcements</text>
+<rect class="barfill" x="540" y="313.9" width="80" height="66.1" rx="6"/><text class="svgtext" x="580" y="304" text-anchor="middle">16</text><text class="svgtext" x="580" y="405" text-anchor="middle">Join</text><text class="svgtext" x="580" y="423" text-anchor="middle">discussions</text>
+<text class="svgtext" x="360" y="450" text-anchor="middle">Reason for using LMS</text>
+<text class="svgtext" transform="translate(25 225) rotate(-90)" text-anchor="middle">Number of students</text>
+</svg></div>
+<div class="rubric"><b>Marking:</b> Task achievement 10 marks + Coherence/cohesion 3 marks + Lexical resource 8 marks + Grammar 4 marks.</div>
+</div><div><h3>Your Answer</h3><textarea id="q5ans" placeholder="Write your graph description here..."></textarea><div id="q5model" class="model"></div></div></div>
+</section>
+
+<div class="btns"><button class="secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top</button><button class="submit" onclick="submitExam()">Submit Exam & Show Answers</button><button class="restart" onclick="resetExam()">Restart Exam</button></div>
+<div id="score" class="scorebox"><div class="scorehead"><h2>Final Result</h2><p id="scoreText"></p></div><div style="padding:18px" id="scoreDetails"></div></div>
+<div class="footer"><span class="footer-label">Study Hub Quiz Resource</span><a class="creator-link" href="https://janidusandaruwan.com/portfolio.html" target="_blank" title="View creator profile">Created by Janidu Sandaruwan(Y1S2) ↗</a></div>
+</div></div>
+
+<script>
+let seconds=7200;setInterval(()=>{if(seconds>0)seconds--;let h=String(Math.floor(seconds/3600)).padStart(2,'0'),m=String(Math.floor((seconds%3600)/60)).padStart(2,'0'),s=String(seconds%60).padStart(2,'0');document.getElementById('timer').textContent=h+':'+m+':'+s},1000);
+function showSec(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function q3Mode(id,btn){document.querySelectorAll('.mode').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.modebar button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+function norm(x){return(x||'').toString().trim().toLowerCase().replace(/\s+/g,' ').replace(/[.,;:!?]+$/g,'')}
+const q1=[
+['TFNG','Software documentation explains how software should be installed, used, maintained or improved.',['TRUE','FALSE','NOT GIVEN'],'TRUE'],
+['TFNG','Software documentation includes only user manuals.',['TRUE','FALSE','NOT GIVEN'],'FALSE'],
+['TFNG','Good documentation can reduce the need to contact technical support for small problems.',['TRUE','FALSE','NOT GIVEN'],'TRUE'],
+['TFNG','The passage says all users prefer video instructions to written guides.',['TRUE','FALSE','NOT GIVEN'],'NOT GIVEN'],
+['TFNG','Documentation should be reviewed when major software changes are made.',['TRUE','FALSE','NOT GIVEN'],'TRUE'],
+['MCQ','Why is audience analysis important in documentation?',['Different users need different levels of detail','All users are developers','It removes the need for screenshots','It makes software unnecessary'],'Different users need different levels of detail'],
+['MCQ','What can happen if documentation is not updated after software changes?',['Users may follow outdated instructions and make errors','Users will automatically learn faster','Technical support will disappear','The software will stop installing'],'Users may follow outdated instructions and make errors'],
+['MCQ','What is the main purpose of the passage?',['To explain why clear and accurate software documentation is important','To advertise a payroll system','To compare mobile phones','To teach coding syntax'],'To explain why clear and accurate software documentation is important'],
+['Completion','Good documentation reduces confusion and saves ________.',null,'time'],
+['Completion','A guide for developers may include code examples and system ________.',null,'requirements'],
+['Completion','Screenshots, menu names and instructions must match the current ________ of the software.',null,'version'],
+['Completion','Documentation improves the overall user ________.',null,'experience']
+];
+const q2=[
+['Heading','Best heading for Section A',['Multiple academic responsibilities','The value of sleeping in class','How to choose a laptop','Library opening hours'],'Multiple academic responsibilities'],
+['Heading','Best heading for Section B',['The problem of procrastination','The benefits of decorating slides','The history of exams','Online shopping habits'],'The problem of procrastination'],
+['Heading','Best heading for Section C',['Planning and dividing large tasks','Ignoring deadlines','Using only social media','Writing without drafts'],'Planning and dividing large tasks'],
+['Heading','Best heading for Section D',['Setting realistic priorities','Spending all time on design','Avoiding important tasks','Choosing group members'],'Setting realistic priorities'],
+['Heading','Best heading for Section E',['Rest and effective study','Studying every minute','Avoiding sleep','Skipping revision'],'Rest and effective study'],
+['MCQ','What may happen when students postpone work until deadlines are close?',['They may rush and produce lower-quality answers','They always get higher marks','They need fewer notes','They become expert writers immediately'],'They may rush and produce lower-quality answers'],
+['MCQ','Which task stage is mentioned in Section C?',['Outlining','Printing certificates','Buying a laptop','Designing a logo'],'Outlining'],
+['MCQ','What is a useful priority strategy?',['Complete the most important tasks before less important work','Decorate slides before studying content','Do easy tasks only','Ignore deadlines'],'Complete the most important tasks before less important work'],
+['MCQ','According to Section E, good time management is about:',['using time wisely','studying every minute','never taking breaks','avoiding revision'],'using time wisely'],
+['MCQ','What can happen if students study continuously without breaks?',['They may become tired and lose concentration','They automatically improve memory','They never feel stress','They finish all tasks perfectly'],'They may become tired and lose concentration'],
+['Completion','Students may have to attend lectures, complete assignments and prepare for ________.',null,'tests'],
+['Completion','Postponing work may give temporary ________.',null,'comfort'],
+['Completion','A weekly study schedule helps students see which tasks are ________.',null,'urgent']
+];
+const q3answers=['grammar','dishonesty','guidelines','critical','effort'];
+function renderAuto(boxId,arr,prefix,start){let h='';arr.forEach((q,i)=>{let n=start+i;h+=`<div class="subq"><b>${n}. ${q[1]}</b>`;if(q[0]==='Completion'){h+=`<input type="text" id="${prefix}${i}" placeholder="Type exact word">`}else{h+='<div class="options">'+q[2].map(o=>`<label class="opt"><input type="radio" name="${prefix}${i}" value="${o}"><span>${o}</span></label>`).join('')+'</div>'}h+=`<div id="fb_${prefix}${i}" class="fb"></div></div>`});document.getElementById(boxId).innerHTML=h}
+renderAuto('q1box',q1,'A',1);renderAuto('q2box',q2,'B',13);
+function getAnswer(prefix,i,isText){if(isText)return document.getElementById(prefix+i).value;let r=document.querySelector(`input[name="${prefix}${i}"]:checked`);return r?r.value:''}
+function markSet(arr,prefix){let score=0;arr.forEach((q,i)=>{let isText=q[0]==='Completion',correct=q[3],user=getAnswer(prefix,i,isText),ok=norm(user)===norm(correct);if(ok)score++;let fb=document.getElementById('fb_'+prefix+i);fb.className='fb '+(ok?'good':'bad');fb.innerHTML=(ok?'Correct':'Not correct')+`<br><b>Answer:</b> ${correct}<br><span class="small">Your answer: ${user||'No answer'}</span>`});return score}
+function markQ3(){let score=0;let out='<h3>Q3 Gap-Fill Answers</h3><table><tr><th>Blank</th><th>Your answer</th><th>Correct answer</th><th>Status</th></tr>';q3answers.forEach((a,i)=>{let user=document.getElementById('S'+i).value,ok=norm(user)===norm(a);if(ok)score++;out+=`<tr><td>${i+1}</td><td>${user||'No answer'}</td><td>${a}</td><td>${ok?'Correct':'Not correct'}</td></tr>`});out+='</table>';document.getElementById('q3feedback').innerHTML=out;document.getElementById('q3model').style.display='block';document.getElementById('q3model').innerHTML='<b>Sample full summary under 50 words:</b><br>AI tools can support learning by explaining ideas and improving grammar. However, students may copy answers without understanding and risk dishonesty. Universities should provide guidelines, while students must use AI with honesty, critical thinking and their own effort.';return score}
+function wordCount(){let t=document.getElementById('q3full').value.trim();let c=t?t.split(/\s+/).length:0;document.getElementById('wordCount').textContent='Words: '+c+' / 50';document.getElementById('wordCount').style.color=c>50?'#b42318':'#5b6675'}document.getElementById('q3full').addEventListener('input',wordCount);
+function submitExam(){let s1=markSet(q1,'A'),s2=markSet(q2,'B'),s3=markQ3();document.getElementById('q4model').style.display='block';document.getElementById('q4model').innerHTML='<b>Q4 Model Answer:</b><br>The diagram illustrates how packaged tea is produced. Overall, it is a linear process with seven main stages, beginning with the plucking of tea leaves and ending with the packing of tea for distribution. First, fresh tea leaves are plucked from tea plants. Next, the leaves are withered to reduce their moisture content. After that, they are rolled and broken so that the leaf structure is changed. The leaves are then fermented, which helps develop the colour and flavour of the tea. Subsequently, the fermented leaves are dried. Once drying is complete, the tea is graded and sorted according to quality and size. Finally, the finished tea is packed into bags or boxes and prepared for distribution.';document.getElementById('q5model').style.display='block';document.getElementById('q5model').innerHTML='<b>Q5 Model Answer:</b><br>The bar chart shows the reasons why 120 students use the university Learning Management System. Overall, downloading notes was the most common reason, while joining discussions was the least common. The highest number of students, 57, used the LMS to download notes. Submitting assignments was the second most common reason, with 40 students. Checking announcements was chosen by 29 students, which was 11 fewer than submitting assignments. The lowest figure was recorded for joining discussions, at only 16 students. Therefore, the chart shows that students mainly used the LMS for accessing learning materials and submitting academic work rather than for interactive discussion.';let auto=s1+s2+s3,total=q1.length+q2.length+q3answers.length;document.getElementById('score').style.display='block';document.getElementById('scoreText').textContent=`Auto-marked score: ${auto} / ${total}. Q4 and Q5 are writing sections, so compare your answers with the model answers and marking rubrics.`;document.getElementById('scoreDetails').innerHTML=`<table><tr><th>Section</th><th>Score</th><th>Exam marks guide</th></tr><tr><td>Q1 Reading</td><td>${s1}/${q1.length}</td><td>Part of 25 marks</td></tr><tr><td>Q2 Reading</td><td>${s2}/${q2.length}</td><td>Part of 25 marks</td></tr><tr><td>Q3 Summary Gap Fill</td><td>${s3}/${q3answers.length}</td><td>15 marks</td></tr><tr><td>Q4 Process Description</td><td>Self-check</td><td>25 marks</td></tr><tr><td>Q5 Graph Description</td><td>Self-check</td><td>25 marks</td></tr></table>`;document.getElementById('score').scrollIntoView({behavior:'smooth'})}
+function resetExam(){if(confirm('Restart the exam and clear all answers?'))location.reload()}
+</script>
+</body>
+</html>
